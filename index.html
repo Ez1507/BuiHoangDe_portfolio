@@ -50,7 +50,10 @@
 </style></head><body>
 <header class="top"><div class="wrap nav"><a class="brand" href="#home">BÙI HOÀNG DỂ<small>PERSONAL PROFILE</small></a><nav class="links"><a href="#about">Về tôi</a><a href="#journey">Hành trình</a><a href="#work">Chuyên môn</a><a href="#achievements">Thành tích</a><a href="#blog">Journal</a></nav><button class="admin-btn" onclick="openLogin()">Quản trị</button></div></header>
 <main id="public">
-<section class="hero wrap" id="home"><div><span class="eyebrow">Legal · Research · Journey</span><p class="hero-status">TP. HCM · 2022 — nay</p><h1>Bùi Hoàng <span>Dể.</span></h1><p class="lead">Một hồ sơ cá nhân được xây dựng theo thời gian — ghi lại những cột mốc, trải nghiệm pháp lý, nghiên cứu, thành tích và những điều tôi đang tiếp tục học.</p><div class="actions"><a class="primary" href="#journey">Xem hành trình</a><a class="ghost" href="#about">Về tôi</a></div><div class="mini-stats"><div class="stat"><b>2022</b><span>Bắt đầu học Luật</span></div><div class="stat"><b>2026</b><span>Tốt nghiệp</span></div><div class="stat"><b id="statYears">—</b><span>Năm ghi lại hành trình</span></div></div></div><div class="portrait"><img id="heroAvatar" src="assets/Anh_the.png" alt="Bùi Hoàng Dể"></div></section>
+<section class="hero wrap" id="home"><div><span class="eyebrow">Legal · Research · Journey</span><p class="hero-status">TP. HCM · 2022 — nay</p><h1>Bùi Hoàng <span>Dể.</span></h1><p class="lead">Một hồ sơ cá nhân được xây dựng theo thời gian — ghi lại những cột mốc, trải nghiệm pháp lý, nghiên cứu, thành tích và những điều tôi đang tiếp tục học.</p><div class="actions">
+  <a class="primary" id="cvBtn" href="#" target="_blank" style="display:none">📄 Xem / Tải CV</a>
+  <a class="ghost" href="#journey">Xem hành trình</a>
+</div><div class="mini-stats"><div class="stat"><b>2022</b><span>Bắt đầu học Luật</span></div><div class="stat"><b>2026</b><span>Tốt nghiệp</span></div><div class="stat"><b id="statYears">—</b><span>Năm ghi lại hành trình</span></div></div></div><div class="portrait"><img id="heroAvatar" src="assets/Anh_the.png" alt="Bùi Hoàng Dể"></div></section>
 <section id="about"><div class="wrap"><div class="section-head"><div><div class="kicker">01 / Profile</div><h2 id="out_about_title">Tổng quan Hồ sơ</h2></div><p id="out_about_desc"></p></div><div class="about-grid"><div class="panel"><h3 id="out_about_h1"></h3><p id="aboutText"></p><div class="chips"><span class="chip">Legal Research</span><span class="chip">Corporate Legal</span><span class="chip">Contracts</span><span class="chip">Legal Procedures</span></div></div><div class="panel"><h3 id="out_about_h2"></h3><p id="out_about_text2"></p></div></div></div></section>
 <section id="journey"><div class="wrap"><div class="section-head"><div><div class="kicker">02 / Timeline</div><h2>Hành trình</h2></div><p>Quá khứ được ghi nhận. Hiện tại được cập nhật. Tương lai tiếp tục được viết.</p></div><div class="timeline" id="timeline"></div></div></section>
 <section id="work"><div class="wrap"><div class="section-head"><div><div class="kicker">03 / Work & Research</div><h2>Nghiên cứu & công việc</h2></div><p>Những trải nghiệm tạo nên cách tôi nhìn và xử lý vấn đề pháp lý.</p></div><div class="grid" id="workGrid"></div></div></section>
@@ -102,7 +105,7 @@
   <aside class="side">
     <div class="brand">BÙI HOÀNG DỂ<small>ADMIN</small></div>
     <button class="active" data-tab="overview" onclick="showTab('overview',this)">Tổng quan</button>
-    <button data-tab="profile" onclick="showTab('profile',this)">Hồ sơ</button>
+    <button data-tab="profile" onclick="showTab('profile',this)">Hồ sơ & CV</button>
     <button data-tab="timeline" onclick="showTab('timeline',this)">Hành trình</button>
     <button data-tab="work" onclick="showTab('work',this)">Work & Research</button>
     <button data-tab="posts" onclick="showTab('posts',this)">Blog / Ghi chép</button>
@@ -137,7 +140,8 @@ const initial={
     about_h2:'Giá trị cốt lõi',
     about_text2:'Cẩn thận, trách nhiệm, chính xác và bảo mật. Tôi thích tư duy có hệ thống, chủ động học hỏi, tiếp nhận nhiệm vụ mới và cải thiện từ phản hồi.',
     now:'Tôi đang xây dựng nền tảng chuyên môn pháp lý và tiếp tục tích lũy kinh nghiệm thực tiễn.',
-    email:'Hoangdeb751@gmail.com', phone:'0358297366', facebook:'https://www.facebook.com/hoangde.bui.03/'
+    email:'Hoangdeb751@gmail.com', phone:'0358297366', facebook:'https://www.facebook.com/hoangde.bui.03/',
+    cv_link:''
   },
   timeline:[
     {id:1,date:'08/2022',title:'Bắt đầu hành trình tại Trường Đại học Luật TP.HCM',type:'Học tập',text:'Học ngành Luật – Luật Dân sự, đồng thời tham gia hoạt động lớp, học thuật và phong trào sinh viên.',image:''},
@@ -208,6 +212,15 @@ function renderAll(){
   document.getElementById('nowText').textContent = data.profile.now;
   document.getElementById('heroAvatar').src = data.profile.avatar || 'assets/Anh_the.png';
   document.getElementById('statYears').textContent = Math.max(1,new Set(data.timeline.map(x=>String(x.date).slice(-4))).size);
+  
+  const cvBtn = document.getElementById('cvBtn');
+  if (data.profile.cv_link && data.profile.cv_link.trim() !== '') {
+    cvBtn.href = esc(data.profile.cv_link);
+    cvBtn.style.display = 'inline-block';
+  } else {
+    cvBtn.style.display = 'none';
+  }
+
   renderTimeline();renderWork();renderAchievements();renderLibrary();renderPosts();renderLearning();renderGoals();
 }
 function img(src,alt){return src?`<div class="card-media"><img src="${esc(src)}" alt="${esc(alt)}" onclick="event.stopPropagation();openImage('${esc(src)}')"></div>`:`<div class="card-media placeholder-media"><span>Chưa có ảnh</span><small>Thêm từ Quản trị</small></div>`}
@@ -236,7 +249,7 @@ function openLogin(){document.getElementById('loginModal').classList.add('open')
 async function login(){const email=document.getElementById('loginEmail').value.trim(),pass=document.getElementById('loginPassword').value;if(email.toLowerCase()!==ADMIN_EMAIL.toLowerCase()){document.getElementById('loginError').textContent='Tài khoản này không có quyền quản trị.';return}if(!sb){document.getElementById('loginError').textContent='Chưa cấu hình Supabase.';return}const {data:authData,error}=await sb.auth.signInWithPassword({email,password:pass});if(error){document.getElementById('loginError').textContent=authError(error);return}if(!authData.user||authData.user.email.toLowerCase()!==ADMIN_EMAIL.toLowerCase()){await sb.auth.signOut();document.getElementById('loginError').textContent='Tài khoản này không có quyền quản trị.';return}await loadRemoteState();sessionStorage.setItem('bhd_admin','1');closeLogin();openDashboard();showTab('overview',document.querySelector('[data-tab="overview"]'))}
 function authError(e){return e?.message||'Đăng nhập thất bại.'}
 function openDashboard(){document.getElementById('dashboard').classList.add('open');document.body.style.overflow='hidden';renderDash('overview')}function closeDashboard(){document.getElementById('dashboard').classList.remove('open');document.body.style.overflow='';renderAll()}function logout(){if(sb)sb.auth.signOut();sessionStorage.removeItem('bhd_admin');closeDashboard()}
-function showTab(tab,btn){document.querySelectorAll('.side button[data-tab]').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');document.getElementById('dashTitle').textContent={overview:'Tổng quan',timeline:'Hành trình',work:'Work & Research',posts:'Blog / Ghi chép',achievements:'Thành tích',learning:'Trọng tâm',goals:'Mục tiêu',library:'Thư viện ảnh',profile:'Hồ sơ'}[tab];renderDash(tab)}
+function showTab(tab,btn){document.querySelectorAll('.side button[data-tab]').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');document.getElementById('dashTitle').textContent={overview:'Tổng quan',timeline:'Hành trình',work:'Work & Research',posts:'Blog / Ghi chép',achievements:'Thành tích',learning:'Trọng tâm',goals:'Mục tiêu',library:'Thư viện ảnh',profile:'Hồ sơ & CV'}[tab];renderDash(tab)}
 
 function renderDash(tab){const c=document.getElementById('dashContent');if(tab==='overview'){c.innerHTML=`<div class="dash-grid"><div class="dash-stat"><b>${data.timeline.length}</b><div class="muted">Mốc hành trình</div></div><div class="dash-stat"><b>${data.posts.length}</b><div class="muted">Bài viết</div></div><div class="dash-stat"><b>${data.achievements.length}</b><div class="muted">Thành tích</div></div><div class="dash-stat"><b>${(data.library||[]).length}</b><div class="muted">Ảnh tư liệu</div></div></div><div class="dash-panel"><h3>Không gian của bạn</h3><p class="muted">Đây là CMS cá nhân. Bạn có thể ghi nhận quá khứ, cập nhật hiện tại và thêm những điều mới trong tương lai.</p><div class="actions"><button class="primary" onclick="showTab('timeline',document.querySelector('[data-tab=timeline]'))">+ Thêm Hành trình</button><button class="primary" onclick="showTab('work',document.querySelector('[data-tab=work]'))">+ Work & Research</button><button class="ghost" onclick="showTab('posts',document.querySelector('[data-tab=posts]'))">+ Viết Bài (Blog)</button><button class="ghost" onclick="showTab('achievements',document.querySelector('[data-tab=achievements]'))">+ Thành tích</button></div></div>`}else if(tab==='timeline')renderListEditor(c,'timeline','Hành trình','date,title,type,text,image');else if(tab==='work')renderListEditor(c,'work','Work & Research','title,meta,text,image,link');else if(tab==='posts')renderListEditor(c,'posts','Blog / Ghi chép','date,title,type,excerpt,content,image,images,link');else if(tab==='achievements')renderListEditor(c,'achievements','Thành tích','date,title,text,image,featured,link');else if(tab==='library')renderListEditor(c,'library','Thư viện ảnh','title,category,image,images');else if(tab==='learning')renderListEditor(c,'learning','Trọng tâm phát triển (Đang học)','name,status,note,image');else if(tab==='goals')renderListEditor(c,'goals','Mục tiêu','text,status');else if(tab==='profile')renderProfile(c)}
 
@@ -249,8 +262,9 @@ async function uploadImageFile(input,targetId){const file=input.files&&input.fil
 async function saveItem(key,i){const cfg={timeline:['date','title','type','text','image'],work:['title','meta','text','image','link'],posts:['date','title','type','excerpt','content','image','images','link'],achievements:['date','title','text','image','featured','link'],library:['title','category','image','images'],learning:['name','status','note','image'],goals:['text','status']}[key];if(!cfg){toast('Không xác định được loại nội dung');return}let o={};cfg.forEach(f=>{const el=document.getElementById('f_'+f);if(el)o[f]=el.value});if(key==='posts'||key==='library'){o.images=String(o.images||'').split(/\n|,/).map(x=>x.trim()).filter(Boolean);if(!o.image&&o.images.length)o.image=o.images[0]}if(key==='achievements')o.featured=o.featured==='true';if(i<0){o.id=key==='work'?('work-'+Date.now()+'-'+Math.random().toString(36).slice(2,8)):Date.now();data[key].push(o)}else{const old=data[key][i];data[key][i]={...old,...o,id:old?.id??(key==='work'?('work-'+Date.now()):Date.now())}}const ok=await save();if(ok!==false)toast('Đã lưu');renderDash(key)}
 async function deleteItem(key,i){if(!Array.isArray(data[key])||!data[key][i]){toast('Không tìm thấy mục cần xóa');return}if(confirm('Xóa nội dung này?')){data[key].splice(i,1);await save();renderDash(key);toast('Đã xóa')}}
 function renderProfile(c){
-  c.innerHTML=`<div class="dash-panel" style="margin-top:0"><h2>Quản lý Hồ sơ (Section 1 & Cuối trang)</h2><p class="muted">Bạn có thể tự do sửa đổi các tiêu đề và đoạn văn giới thiệu.</p>
+  c.innerHTML=`<div class="dash-panel" style="margin-top:0"><h2>Quản lý Hồ sơ & CV</h2><p class="muted">Tùy chỉnh thông tin cá nhân và tài liệu hiển thị trên trang chủ.</p>
   ${[
+    ['cv_link','Link xem/tải CV (Dán link PDF / Google Drive vào đây)'],
     ['avatar','Ảnh đại diện (Màn hình chính)'],
     ['name','Họ tên'],
     ['title','Chức danh'],
@@ -270,6 +284,8 @@ function renderProfile(c){
       inputHtml = `<textarea id="p_${f}">${esc(data.profile[f])}</textarea>`;
     } else if (f === 'avatar') {
       inputHtml = `<input id="p_avatar" value="${esc(data.profile[f]||'assets/Anh_the.png')}"><input type="file" accept="image/*" onchange="uploadImageFile(this,'p_avatar')">`;
+    } else if (f === 'cv_link') {
+      inputHtml = `<input id="p_${f}" value="${esc(data.profile[f])}" placeholder="VD: https://drive.google.com/file/d/12345/view"><small class="muted" style="display:block;margin-top:4px;">Lưu ý: Nếu để trống ô này, nút Tải CV trên web sẽ tự động ẩn đi.</small>`;
     } else {
       inputHtml = `<input id="p_${f}" value="${esc(data.profile[f])}">`;
     }
@@ -278,7 +294,7 @@ function renderProfile(c){
   <button class="primary" style="margin-top:10px" onclick="saveProfile()">Lưu hồ sơ</button></div>`;
 }
 async function saveProfile(){
-  ['avatar','name','title','about_title','about_desc','about_h1','bio','about_h2','about_text2','now','email','phone','facebook'].forEach(f=>{
+  ['avatar','name','title','about_title','about_desc','about_h1','bio','about_h2','about_text2','now','email','phone','facebook', 'cv_link'].forEach(f=>{
     const e=document.getElementById('p_'+f);
     if(e) data.profile[f]=e.value;
   });
