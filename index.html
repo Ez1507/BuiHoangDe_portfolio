@@ -7,30 +7,90 @@
 <meta property="og:image" content="assets/Anh_the.png">
 <meta property="og:type" content="website">
 
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script>
 <style>
-:root{--ink:#10283a;--muted:#4a5d6a;--paper:#f6faf8;--card:#fff;--line:#dce8e4;--teal:#159a91;--green:#55a879;--aqua:#dff4ef;--shadow:0 24px 70px rgba(16,40,58,.08);--r:24px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 85% 0,#e8f7f2 0,transparent 28%),var(--paper);color:var(--ink);font:15px/1.7 'DM Sans',sans-serif}a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}.wrap{width:min(1160px,calc(100% - 36px));margin:auto}.top{position:sticky;top:0;z-index:30;background:rgba(246,250,248,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(220,232,228,.7)}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:800;letter-spacing:-.04em}.brand small{display:block;font-size:10px;letter-spacing:.18em;color:var(--teal);font-weight:700}.links{display:flex;gap:22px;align-items:center}.links a{font-size:13px;color:#48606e;transition:color 0.3s ease}.links a:hover{color:var(--teal)}.admin-btn,.primary{background:var(--ink);color:#fff;padding:11px 16px;border-radius:14px;font-weight:700}.ghost{background:#fff;border:1px solid var(--line);padding:11px 16px;border-radius:14px;font-weight:700;display:inline-flex;align-items:center;gap:6px}
-/* HIỆU ỨNG NÚT BẤM CAO CẤP (CUBIC-BEZIER) */
-.primary, .ghost, .admin-btn, .chip, .filter { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-.primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(16,40,58,.15); background: #0c1f2e; }
-.ghost:hover { background: var(--aqua); border-color: transparent; color: var(--teal); transform: translateY(-2px); }
-.chip:hover { background: var(--aqua); color: var(--teal); transform: translateY(-1px); }
+/* TONE MÀU "JURIST / HÃNG LUẬT CAO CẤP" */
+:root{
+  --ink: #0d1b2a; /* Xanh Navy cực đậm - Quyền lực */
+  --muted: #5e6f7e;
+  --paper: #fcfcfb;
+  --card: #ffffff;
+  --line: #e2e8e6;
+  --teal: #1a4a40; /* Xanh rêu đậm cổ điển */
+  --gold: #aa864d; /* Vàng Champagne điểm nhấn */
+  --gold-light: #f5f0e6;
+  --shadow: 0 12px 30px rgba(13, 27, 42, 0.05);
+  --r: 8px; /* Bo góc sắc nét, nghiêm túc */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.8 'DM Sans',sans-serif}
+a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}
+.wrap{width:min(1160px,calc(100% - 36px));margin:auto}
 
-.hero{padding:88px 0 72px;min-height:650px;display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center}
-.eyebrow{display:inline-flex;gap:9px;align-items:center;padding:7px 11px;border-radius:999px;background:var(--aqua);color:#0f5b55;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.hero h1{font:700 clamp(48px,7.4vw,88px)/.96 'Playfair Display',serif;letter-spacing:-.055em;margin:18px 0;white-space:nowrap}.hero h1 span{display:block;color:var(--teal)}.lead{font-size:18px;color:var(--muted);max-width:620px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.portrait{position:relative;max-width:440px;margin-left:auto}.portrait:before{content:'';position:absolute;inset:-30px -20px 35px 25px;border:1px solid #b9ddd3;border-radius:40px;transform:rotate(5deg);transition:transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)}.portrait:hover:before{transform:rotate(2deg) scale(1.02)}.portrait:after{content:'LEGAL · RESEARCH · JOURNEY';position:absolute;right:-25px;bottom:15px;background:var(--ink);color:#fff;padding:12px 16px;border-radius:14px;font-size:10px;letter-spacing:.13em;z-index:2}.portrait img{position:relative;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:36px;display:block;box-shadow:var(--shadow);z-index:1}.mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px}.stat{background:#fff;border:1px solid var(--line);padding:14px;border-radius:17px}.stat b{font-size:20px;display:block}.stat span{font-size:11px;color:var(--muted)}section{padding:82px 0}.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:34px}.kicker{color:var(--teal);font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.section-head h2{font:700 clamp(34px,5vw,58px)/1 'Playfair Display',serif;margin:8px 0 0;letter-spacing:-.04em}.section-head p{max-width:430px;color:var(--muted);margin:0;line-height:1.6}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.panel{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px;box-shadow:0 10px 40px rgba(16,40,58,.03);transition:transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1)}.panel:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(16,40,58,.06)}.panel h3{margin:0 0 10px}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{padding:8px 11px;background:#edf7f4;border-radius:999px;font-size:12px;cursor:default}.timeline{position:relative;padding-left:35px}.timeline:before{content:'';position:absolute;left:9px;top:5px;bottom:5px;width:1px;background:#bddbd3}.event{position:relative;margin:0 0 26px;transition:transform 0.4s ease}.event:hover{transform:translateX(4px)}.event:before{content:'';position:absolute;left:-31px;top:7px;width:11px;height:11px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 5px var(--paper);transition:transform 0.4s ease}.event:hover:before{transform:scale(1.3)}.event .year{font-size:11px;font-weight:800;color:var(--teal);letter-spacing:.12em}.event h3{margin:4px 0 6px;font-size:20px}.event p{margin:0;color:var(--muted)}.event .event-meta{margin-top:12px;display:flex;gap:7px;flex-wrap:wrap}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+/* HOẠT ẢNH XUẤT HIỆN TỪ TỪ (SCROLL REVEAL) */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+.reveal.active { opacity: 1; transform: translateY(0); }
 
-/* HIỆU ỨNG THẺ (CARD) CAO CẤP */
-.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:0 10px 40px rgba(16,40,58,.03);transition:transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);display:flex;flex-direction:column}
-.card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(16,40,58,.08)}
-.card-media{aspect-ratio:16/10;background:#e8f2ef;overflow:hidden}
-.card-media img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;transition:transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)}
+/* HEADER & NAV */
+.top{position:sticky;top:0;z-index:30;background:rgba(252,252,251,.9);backdrop-filter:blur(12px);border-bottom:1px solid rgba(226,232,230,.8)}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:800;letter-spacing:-.04em}.brand small{display:block;font-size:10px;letter-spacing:.18em;color:var(--gold);font-weight:700}.links{display:flex;gap:22px;align-items:center}.links a{font-size:13px;color:#48606e;transition:color 0.3s ease;font-weight:500}.links a:hover{color:var(--gold)}
+
+/* BUTTONS */
+.admin-btn,.primary{background:var(--ink);color:#fff;padding:12px 20px;border-radius:6px;font-weight:600}.ghost{background:#fff;border:1px solid var(--line);padding:12px 20px;border-radius:6px;font-weight:600;display:inline-flex;align-items:center;gap:8px}
+.primary, .ghost, .admin-btn, .chip, .filter { transition: all 0.4s var(--ease); }
+.primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(13,27,42,.15); background: #172a3d; }
+.ghost:hover { background: var(--gold-light); border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+.chip:hover { background: var(--gold-light); color: var(--gold); transform: translateY(-1px); }
+
+/* HERO SECTION */
+.hero{padding:90px 0 80px;min-height:85vh;display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
+.eyebrow{display:inline-flex;gap:9px;align-items:center;padding:8px 12px;border-radius:4px;background:var(--gold-light);color:var(--gold);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(170,134,77,0.2)}.hero h1{font:700 clamp(44px,7vw,82px)/1 'Playfair Display',serif;letter-spacing:-.04em;margin:22px 0;white-space:nowrap}.hero h1 span{display:block;color:var(--teal)}.lead{font-size:17px;color:var(--muted);max-width:620px;line-height:1.8}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}.portrait{position:relative;max-width:420px;margin-left:auto}.portrait:before{content:'';position:absolute;inset:-20px -20px 20px 20px;border:1px solid var(--gold);border-radius:var(--r);transform:rotate(3deg);transition:transform 1s var(--ease)}.portrait:hover:before{transform:rotate(0deg) scale(1.02)}.portrait:after{content:'LEGAL & RESEARCH';position:absolute;right:-15px;bottom:25px;background:var(--gold);color:#fff;padding:12px 18px;border-radius:4px;font-size:10px;letter-spacing:.15em;z-index:2;box-shadow:0 10px 20px rgba(170,134,77,0.2)}.portrait img{position:relative;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:var(--r);display:block;box-shadow:var(--shadow);z-index:1}.mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:30px;border-top:1px solid var(--line);padding-top:24px}.stat b{font-size:22px;display:block;font-family:'Playfair Display',serif;color:var(--teal)}.stat span{font-size:12px;color:var(--muted)}
+
+/* SECTIONS */
+section{padding:90px 0}.section-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:40px;border-bottom:1px solid var(--line);padding-bottom:20px}.kicker{color:var(--gold);font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}.section-head h2{font:700 clamp(32px,5vw,52px)/1 'Playfair Display',serif;margin:12px 0 0;letter-spacing:-.02em;color:var(--ink)}.section-head p{max-width:480px;color:var(--muted);margin:0;line-height:1.7}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.panel{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:36px;box-shadow:var(--shadow);transition:transform 0.5s var(--ease), box-shadow 0.5s var(--ease)}.panel:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(13,27,42,.08)}.panel h3{margin:0 0 16px;font-family:'Playfair Display',serif;font-size:22px;color:var(--teal)}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.chip{padding:8px 14px;background:var(--paper);border:1px solid var(--line);border-radius:4px;font-size:12px;cursor:default}
+
+/* TIMELINE - VẺ ĐẸP CỔ ĐIỂN */
+.timeline{position:relative;padding-left:40px}.timeline:before{content:'';position:absolute;left:11px;top:5px;bottom:5px;width:1px;background:var(--line)}.event{position:relative;margin:0 0 35px;transition:transform 0.4s ease}.event:hover{transform:translateX(6px)}.event:before{content:'';position:absolute;left:-33px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 6px var(--paper);transition:transform 0.4s ease}.event:hover:before{transform:scale(1.4);background:var(--teal)}.event .year{font-size:12px;font-weight:700;color:var(--gold);letter-spacing:.1em;text-transform:uppercase}.event h3{margin:6px 0 8px;font-size:20px;font-family:'Playfair Display',serif}.event p{margin:0;color:var(--muted);line-height:1.7}.event .event-meta{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
+
+/* GRID & SMART CARDS (Xử lý chữ dài) */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);transition:transform 0.6s var(--ease), box-shadow 0.6s var(--ease);display:flex;flex-direction:column;cursor:pointer}
+.card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(13,27,42,.1)}
+.card-media{aspect-ratio:16/10;background:#f0f2f1;overflow:hidden;border-bottom:1px solid var(--line)}
+.card-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.8s var(--ease)}
 .card:hover .card-media img{transform:scale(1.05)}
-.card-body{padding:20px;flex:1;display:flex;flex-direction:column}.card-body h3{margin:6px 0;font-size:18px;line-height:1.35}.meta{font-size:11px;color:var(--teal);font-weight:800;letter-spacing:.06em}.desc{color:var(--muted);font-size:13px;flex:1}.achievement .card-media{aspect-ratio:4/3}.featured{grid-column:span 2}.featured .card-media{aspect-ratio:16/8}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}.filter.active{background:var(--ink);color:#fff}.filter{background:#fff;border:1px solid var(--line);padding:9px 13px;border-radius:999px}.filter:hover:not(.active){background:var(--aqua);color:var(--teal)}.learning{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.learn-item{display:flex;gap:16px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line);transition:transform 0.3s ease}.learn-item:hover{transform:translateX(6px)}.learn-item:last-child{border-bottom:0}.learn-thumb{width:64px;height:64px;border-radius:14px;object-fit:cover;background:#eef5f3;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.04)}.learn-content{flex:1}.learn-content strong{display:block;font-size:15px;margin-bottom:3px}.learn-content span{font-size:13px;color:var(--muted);line-height:1.45;display:block}
-.pill{padding:6px 9px;border-radius:999px;background:#eef8f4;color:#277866;font-size:11px;font-weight:700;white-space:nowrap}.now{background:var(--ink);color:#fff;border-radius:32px;padding:45px;display:grid;grid-template-columns:1.1fr .9fr;gap:50px;position:relative;overflow:hidden}.now:after{content:'';position:absolute;width:360px;height:360px;border:1px solid rgba(255,255,255,.12);border-radius:50%;right:-120px;top:-150px}.now p{color:#bfd0d8}.now h2{font:700 50px/1 'Playfair Display',serif;margin:7px 0 18px}.now-list{display:grid;gap:12px}.now-list div{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12);transition:padding-left 0.3s ease}.now-list div:hover{padding-left:8px;border-color:rgba(255,255,255,.3)}
-.muted{color:var(--muted)}.modal{position:fixed;inset:0;background:rgba(5,18,25,.88);backdrop-filter:blur(5px);z-index:100;display:none;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity 0.3s ease}.modal.open{display:flex;opacity:1}.modal img{max-width:min(1200px,94vw);max-height:88vh;object-fit:contain;border-radius:12px;transform:scale(0.95);transition:transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)}.modal.open img{transform:scale(1)}.close{position:absolute;top:20px;right:20px;background:#fff;border-radius:50%;width:42px;height:42px;font-size:20px;transition:transform 0.3s ease}.close:hover{transform:rotate(90deg)}.reader{background:#fff;color:var(--ink);max-width:850px;max-height:90vh;overflow:auto;border-radius:28px;padding:40px;transform:translateY(20px);transition:transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)}.modal.open .reader{transform:translateY(0)}.reader img{max-width:100%;border-radius:18px;margin:12px 0}.reader h1{font:700 42px/1.1 'Playfair Display',serif}.dash{position:fixed;inset:0;background:#f4f8f7;z-index:80;display:none}.dash.open{display:grid;grid-template-columns:245px 1fr}.side{background:var(--ink);color:#dbe8ec;padding:22px;display:flex;flex-direction:column;overflow-y:auto}.side .brand{color:#fff;margin-bottom:28px}.side button{background:transparent;color:#b8cad0;text-align:left;padding:12px;border-radius:12px;margin:2px 0;transition:all 0.2s ease}.side button.active,.side button:hover{background:#183a4d;color:#fff;transform:translateX(4px)}.dash-main{overflow:auto}.dash-top{height:74px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 30px;position:sticky;top:0;z-index:2}.dash-content{padding:30px;max-width:1200px}.dash-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.dash-stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;transition:transform 0.3s ease}.dash-stat:hover{transform:translateY(-3px)}.dash-stat b{font-size:28px}.dash-panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;margin-top:18px}.list-row{display:grid;grid-template-columns:72px 1fr auto;gap:15px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line);transition:background 0.3s ease}.list-row:hover{background:#fafcfb}.thumb{width:72px;height:55px;border-radius:10px;object-fit:cover;background:#edf5f2}.row-actions{display:flex;gap:7px;flex-wrap:wrap}.smallbtn{padding:8px 10px;border-radius:10px;background:#edf5f2;display:flex;align-items:center;gap:4px;transition:all 0.2s ease}.smallbtn:hover:not([style*="not-allowed"]){background:#dfece8;transform:translateY(-1px)}.danger{background:#fff0ef;color:#a22}.danger:hover:not([style*="not-allowed"]){background:#fee2e1}.editor{display:grid;grid-template-columns:1fr 300px;gap:18px}.field{display:grid;gap:6px;margin-bottom:14px}.field label{font-size:12px;font-weight:800}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);background:#fbfdfc;border-radius:12px;padding:11px 12px;outline:none;transition:border-color 0.3s ease}.field input:focus,.field textarea:focus{border-color:var(--teal)}.field textarea{min-height:140px;resize:vertical}.editor-actions{display:flex;gap:9px;justify-content:flex-end}.empty{padding:35px;text-align:center;color:var(--muted)}.toast{position:fixed;right:20px;bottom:20px;background:var(--ink);color:#fff;padding:12px 16px;border-radius:13px;z-index:200;display:none}.toast.show{display:block;animation:popIn 0.4s cubic-bezier(0.16, 1, 0.3, 1)}
-@keyframes popIn { from {opacity:0; transform:translateY(20px) scale(0.9)} to {opacity:1; transform:translateY(0) scale(1)} }
+.card-body{padding:24px;flex:1;display:flex;flex-direction:column}
+.card-body h3{margin:8px 0;font-size:19px;line-height:1.4;font-family:'Playfair Display',serif}
+.meta{font-size:11px;color:var(--gold);font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+/* Thuật toán cắt gọn chữ thông minh */
+.desc{color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1}
+/* Nút đọc thêm viền dưới */
+.read-more{font-size:13px;font-weight:700;color:var(--teal);margin-top:auto;display:inline-flex;align-items:center;gap:4px;transition:gap 0.3s ease}
+.card:hover .read-more{gap:8px;color:var(--gold)}
+
+.achievement .card-media{aspect-ratio:4/3}.featured{grid-column:span 2}.featured .card-media{aspect-ratio:16/7}.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}.filter.active{background:var(--ink);color:#fff;border-color:var(--ink)}.filter{background:transparent;border:1px solid var(--line);padding:10px 18px;border-radius:6px;font-weight:600}.filter:hover:not(.active){background:var(--paper);border-color:var(--muted)}
+
+/* HỌC TẬP & FOCUS */
+.learning{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.learn-item{display:flex;gap:18px;align-items:center;padding:20px;border:1px solid var(--line);border-radius:var(--r);background:#fff;transition:transform 0.4s var(--ease), box-shadow 0.4s var(--ease)}.learn-item:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.learn-thumb{width:56px;height:56px;border-radius:6px;object-fit:cover;background:var(--gold-light);flex-shrink:0;display:grid;place-items:center;color:var(--gold);font-size:20px;border:1px solid rgba(170,134,77,0.2)}
+.learn-content{flex:1}.learn-content strong{display:block;font-size:16px;margin-bottom:4px;font-family:'Playfair Display',serif}.learn-content span{font-size:13px;color:var(--muted);line-height:1.5;display:block}
+.pill{padding:6px 10px;border-radius:4px;background:var(--ink);color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+
+/* NOW SECTION */
+.now{background:var(--ink);color:#fff;border-radius:12px;padding:60px;display:grid;grid-template-columns:1fr 1fr;gap:60px;position:relative;overflow:hidden}.now:after{content:'';position:absolute;width:400px;height:400px;border:1px solid rgba(170,134,77,0.2);border-radius:50%;right:-100px;top:-100px}.now p{color:#a9b9c6;line-height:1.8}.now h2{font:700 48px/1.1 'Playfair Display',serif;margin:12px 0 24px;color:var(--gold-light)}.now-list{display:grid;gap:0}.now-list div{padding:18px 0;border-bottom:1px solid rgba(255,255,255,.08);transition:padding-left 0.3s ease}.now-list div:hover{padding-left:12px;border-color:var(--gold)}
+
+/* MODAL & READER CHUYÊN NGHIỆP */
+.modal{position:fixed;inset:0;background:rgba(13,27,42,.92);backdrop-filter:blur(8px);z-index:100;display:none;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity 0.4s var(--ease)}.modal.open{display:flex;opacity:1}.modal img{max-width:min(1200px,94vw);max-height:88vh;object-fit:contain;border-radius:4px;transform:scale(0.95);transition:transform 0.5s var(--ease), box-shadow 0.5s}.modal.open img{transform:scale(1);box-shadow:0 30px 60px rgba(0,0,0,0.4)}.close{position:absolute;top:25px;right:25px;background:var(--card);color:var(--ink);border-radius:50%;width:44px;height:44px;font-size:22px;transition:transform 0.3s ease, background 0.3s}.close:hover{transform:rotate(90deg);background:var(--gold);color:#fff}
+.reader{background:var(--paper);color:var(--ink);width:100%;max-width:760px;max-height:90vh;overflow-y:auto;border-radius:8px;padding:60px;transform:translateY(30px);transition:transform 0.5s var(--ease);box-shadow:0 24px 60px rgba(0,0,0,0.3)}.modal.open .reader{transform:translateY(0)}.reader img{max-width:100%;border-radius:4px;margin:24px 0;border:1px solid var(--line)}.reader h1{font:700 40px/1.2 'Playfair Display',serif;margin:16px 0;color:var(--ink)}.reader-kicker{font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.1em;text-transform:uppercase}.reader-excerpt{font-size:18px;line-height:1.7;color:var(--teal);font-style:italic;margin-bottom:30px;border-left:3px solid var(--gold);padding-left:20px}.reader-content{white-space:pre-wrap;line-height:1.9;font-size:16px;color:#33414a}
+
+/* DASHBOARD & UTILS (Giữ nguyên) */
+.dash{position:fixed;inset:0;background:#f4f8f7;z-index:80;display:none}.dash.open{display:grid;grid-template-columns:245px 1fr}.side{background:var(--ink);color:#dbe8ec;padding:22px;display:flex;flex-direction:column;overflow-y:auto}.side .brand{color:#fff;margin-bottom:28px}.side button{background:transparent;color:#b8cad0;text-align:left;padding:12px;border-radius:6px;margin:2px 0;transition:all 0.2s ease}.side button.active,.side button:hover{background:#1a3143;color:var(--gold-light);transform:translateX(4px);border-left:3px solid var(--gold)}.dash-main{overflow:auto}.dash-top{height:74px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 30px;position:sticky;top:0;z-index:2}.dash-content{padding:30px;max-width:1200px}.dash-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.dash-stat{background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px;transition:transform 0.3s ease}.dash-stat:hover{transform:translateY(-3px)}.dash-stat b{font-size:28px;color:var(--teal)}.dash-panel{background:#fff;border:1px solid var(--line);border-radius:8px;padding:30px;margin-top:20px}.list-row{display:grid;grid-template-columns:72px 1fr auto;gap:15px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line);transition:background 0.3s ease}.list-row:hover{background:#fafcfb}.thumb{width:72px;height:55px;border-radius:4px;object-fit:cover;background:#edf5f2;border:1px solid var(--line)}.row-actions{display:flex;gap:7px;flex-wrap:wrap}.smallbtn{padding:8px 12px;border-radius:4px;background:#f0f4f2;display:flex;align-items:center;gap:4px;transition:all 0.2s ease;font-weight:600}.smallbtn:hover:not([style*="not-allowed"]){background:var(--gold-light);color:var(--gold);transform:translateY(-1px)}.danger{background:#fff0ef;color:#a22}.danger:hover:not([style*="not-allowed"]){background:#fee2e1;color:#a22}.editor{display:grid;grid-template-columns:1fr 300px;gap:24px}.field{display:grid;gap:8px;margin-bottom:18px}.field label{font-size:12px;font-weight:800;color:var(--ink);text-transform:uppercase;letter-spacing:.05em}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);background:#fff;border-radius:6px;padding:12px 14px;outline:none;transition:border-color 0.3s ease;font-family:inherit}.field input:focus,.field textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-light)}.field textarea{min-height:160px;resize:vertical}.editor-actions{display:flex;gap:12px;justify-content:flex-end;margin-top:20px;border-top:1px solid var(--line);padding-top:20px}.empty{padding:40px;text-align:center;color:var(--muted);background:var(--paper);border-radius:8px;border:1px dashed var(--line)}.toast{position:fixed;right:20px;bottom:20px;background:var(--ink);color:var(--gold-light);padding:14px 20px;border-radius:6px;z-index:200;display:none;box-shadow:0 10px 30px rgba(0,0,0,0.2)}.toast.show{display:block;animation:popIn 0.5s var(--ease)}
+@keyframes popIn { from {opacity:0; transform:translateY(20px) scale(0.95)} to {opacity:1; transform:translateY(0) scale(1)} }
 
 @media(max-width:900px){
   .links{display:none}.hero{grid-template-columns:1fr;padding-top:55px}.portrait{margin:0 auto;width:min(440px,90%)}.grid{grid-template-columns:1fr 1fr}.featured{grid-column:span 2}.now,.learning,.about-grid{grid-template-columns:1fr}
@@ -45,50 +105,50 @@
 }
 @media(min-width:901px){ .side-bottom { margin-top: auto; display:flex; flex-direction:column; gap:4px; } }
 @media(max-width:620px){
-  .wrap{width:min(100% - 24px,1160px)}section{padding:60px 0}.hero h1{font-size:clamp(38px,10.2vw,48px);line-height:1;letter-spacing:-.045em;white-space:nowrap;max-width:100%;}.mini-stats{grid-template-columns:1fr 1fr}.mini-stats .stat:last-child{grid-column:span 2}.grid{grid-template-columns:1fr}.featured{grid-column:auto}.section-head{display:block}.section-head p{margin-top:14px}.now{padding:28px;border-radius:24px}.now h2{font-size:32px}.dash-content{padding:16px}.list-row{grid-template-columns:58px 1fr}.list-row .row-actions{grid-column:2;margin-top:6px}.thumb{width:58px;height:48px}.reader{padding:24px}.reader h1{font-size:32px}
+  .wrap{width:min(100% - 24px,1160px)}section{padding:70px 0}.hero h1{font-size:clamp(40px,10vw,48px);line-height:1.05;letter-spacing:-.03em;white-space:normal;max-width:100%;}.mini-stats{grid-template-columns:1fr 1fr}.mini-stats .stat:last-child{grid-column:span 2}.grid{grid-template-columns:1fr}.featured{grid-column:auto}.section-head{display:block;padding-bottom:16px;margin-bottom:30px}.section-head p{margin-top:14px}.now{padding:36px;border-radius:12px;grid-template-columns:1fr;gap:30px}.now h2{font-size:36px}.dash-content{padding:16px}.list-row{grid-template-columns:58px 1fr}.list-row .row-actions{grid-column:2;margin-top:8px}.thumb{width:58px;height:48px}.reader{padding:30px 24px;width:calc(100% - 20px)}.reader h1{font-size:32px}.card-media{aspect-ratio:16/9}
 }
 
-/* ===== FOOTER DARK THEME ===== */
-.footer-redesign { background: var(--ink); color: #fff; padding: 70px 0 30px; margin-top: 40px; border-radius: 40px 40px 0 0; box-shadow: 0 -10px 40px rgba(16,40,58,0.08); }
-.footer-container { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; margin-bottom: 50px; }
-.footer-redesign .brand { color: #fff; font-size: 18px; margin-bottom: 16px; }
-.footer-redesign .brand small { color: var(--teal); }
-.footer-desc { color: #9cb3c9; font-size: 15px; max-width: 380px; line-height: 1.7; margin: 0; }
-.footer-col h4 { font-family: 'Playfair Display', serif; font-size: 18px; margin: 0 0 20px; color: #fff; letter-spacing: 0.02em; }
-.footer-links { display: flex; flex-direction: column; gap: 14px; }
-.footer-links a, .footer-links span { color: #9cb3c9; font-size: 14px; text-decoration: none; transition: color 0.3s ease, transform 0.3s ease; display: inline-block; }
-.footer-links a:hover { color: var(--teal); transform: translateX(6px); }
-.footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; color: #6b859d; font-size: 13px; }
-.footer-bottom-links a { color: #6b859d; margin-left: 16px; transition:color 0.3s ease }
-.footer-bottom-links a:hover { color: #fff; }
+/* FOOTER DARK THEME - JURIST STYLE */
+.footer-redesign { background: var(--ink); color: #fff; padding: 80px 0 40px; margin-top: 50px; border-top: 4px solid var(--gold); }
+.footer-container { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+.footer-redesign .brand { color: var(--gold-light); font-size: 20px; margin-bottom: 18px; font-family:'Playfair Display',serif; }
+.footer-redesign .brand small { color: var(--gold); font-family:'DM Sans',sans-serif; }
+.footer-desc { color: #8c9ea9; font-size: 15px; max-width: 400px; line-height: 1.8; margin: 0; }
+.footer-col h4 { font-family: 'Playfair Display', serif; font-size: 18px; margin: 0 0 24px; color: var(--gold-light); letter-spacing: 0.05em; border-bottom: 1px solid rgba(170,134,77,0.3); padding-bottom: 10px; display:inline-block;}
+.footer-links { display: flex; flex-direction: column; gap: 16px; }
+.footer-links a, .footer-links span { color: #8c9ea9; font-size: 14px; text-decoration: none; transition: color 0.3s var(--ease), transform 0.3s var(--ease); display: inline-block; }
+.footer-links a:hover { color: var(--gold); transform: translateX(6px); }
+.footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; color: #5e6f7e; font-size: 13px; }
+.footer-bottom-links a { color: #5e6f7e; margin-left: 20px; transition:color 0.3s ease; text-transform:uppercase; font-weight:700; letter-spacing:0.05em }
+.footer-bottom-links a:hover { color: var(--gold); }
 @media (max-width: 800px) { .footer-container { grid-template-columns: 1fr 1fr; gap: 40px; } .footer-info { grid-column: span 2; } }
-@media (max-width: 620px) { .footer-redesign { border-radius: 28px 28px 0 0; padding: 50px 0 24px; } .footer-container { grid-template-columns: 1fr; gap: 36px; } .footer-info { grid-column: span 1; } .footer-bottom { flex-direction: column; gap: 12px; align-items: flex-start; } .footer-bottom-links a { margin-left: 0; margin-right: 16px; } }
+@media (max-width: 620px) { .footer-redesign { padding: 60px 0 30px; } .footer-container { grid-template-columns: 1fr; gap: 46px; } .footer-info { grid-column: span 1; } .footer-bottom { flex-direction: column; gap: 16px; align-items: flex-start; } .footer-bottom-links a { margin-left: 0; margin-right: 20px; } }
 
-.placeholder-media{display:grid;place-items:center;align-content:center;gap:4px;background:linear-gradient(135deg,#eef6f3,#f8fbfa);color:#72858d;text-align:center}.placeholder-media span{font-size:12px;font-weight:700}.placeholder-media small{font-size:10px;color:#98a8ae}.hero-status{font-variant-numeric:tabular-nums; margin:14px 0 0;color:#71838d;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
-@media(max-width:390px){.hero h1{font-size:38px;letter-spacing:-.05em}} 
-.gallery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;background:var(--line)}.gallery-grid .card-media{aspect-ratio:1/1}.gallery-grid .card-media img{cursor:zoom-in}@media(max-width:620px){.gallery-grid{grid-template-columns:1fr 1fr}}
+.placeholder-media{display:grid;place-items:center;align-content:center;gap:6px;background:var(--paper);color:var(--muted);text-align:center;border-bottom:1px solid var(--line)}.placeholder-media span{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em}.placeholder-media small{font-size:10px;color:#98a8ae}.hero-status{font-variant-numeric:tabular-nums; margin:14px 0 0;color:var(--muted);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+.gallery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line)}.gallery-grid .card-media{aspect-ratio:1/1}.gallery-grid .card-media img{cursor:zoom-in}@media(max-width:620px){.gallery-grid{grid-template-columns:1fr 1fr}}
 </style></head><body>
 <header class="top"><div class="wrap nav"><a class="brand" href="#home">BÙI HOÀNG DỂ<small>PERSONAL PROFILE</small></a><nav class="links"><a href="#about">Về tôi</a><a href="#journey">Hành trình</a><a href="#work">Chuyên môn</a><a href="#achievements">Thành tích</a><a href="#library">Thư viện</a><a href="#blog">Ghi chép</a></nav><button class="admin-btn" onclick="openLogin()">Quản trị</button></div></header>
 <main id="public">
-<section class="hero wrap" id="home"><div><span class="eyebrow">Legal · Research · Journey</span><p class="hero-status">TP. HCM · 2022 — nay</p><h1>Bùi Hoàng <span>Dể.</span></h1><p class="lead">Một hồ sơ cá nhân được xây dựng theo thời gian — ghi lại những cột mốc, trải nghiệm pháp lý, nghiên cứu, thành tích và những điều tôi đang tiếp tục học.</p>
+<section class="hero wrap" id="home"><div class="reveal">
+<span class="eyebrow">Legal · Research · Journey</span><p class="hero-status">TP. HCM · 2022 — nay</p><h1>Bùi Hoàng <span>Dể.</span></h1><p class="lead">Một hồ sơ cá nhân được xây dựng theo thời gian — ghi lại những cột mốc, trải nghiệm pháp lý, nghiên cứu, thành tích và những điều tôi đang tiếp tục học.</p>
 <div class="actions" id="heroActions"></div>
-<div class="mini-stats"><div class="stat"><b>2022</b><span>Bắt đầu học Luật</span></div><div class="stat"><b>2026</b><span>Tốt nghiệp</span></div><div class="stat"><b id="statYears">—</b><span>Năm ghi lại hành trình</span></div></div></div><div class="portrait"><img id="heroAvatar" src="assets/Anh_the.png" loading="lazy" alt="Bùi Hoàng Dể"></div></section>
+<div class="mini-stats"><div class="stat"><b>2022</b><span>Bắt đầu học Luật</span></div><div class="stat"><b>2026</b><span>Tốt nghiệp</span></div><div class="stat"><b id="statYears">—</b><span>Năm ghi lại hành trình</span></div></div></div><div class="portrait reveal" style="transition-delay:0.2s"><img id="heroAvatar" src="assets/Anh_the.png" alt="Bùi Hoàng Dể"></div></section>
 
-<section id="about"><div class="wrap"><div class="section-head"><div><div class="kicker">01 / Profile</div><h2 id="out_about_title">Tổng quan Hồ sơ</h2></div><p id="out_about_desc"></p></div><div class="about-grid"><div class="panel"><h3 id="out_about_h1"></h3><p id="aboutText"></p><div class="chips" id="aboutChips"></div></div><div class="panel"><h3 id="out_about_h2"></h3><p id="out_about_text2"></p></div></div></div></section>
+<section id="about"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">01 / Profile</div><h2 id="out_about_title">Tổng quan Hồ sơ</h2></div><p id="out_about_desc"></p></div><div class="about-grid"><div class="panel reveal"><h3 id="out_about_h1"></h3><p id="aboutText" style="color:var(--muted);line-height:1.7"></p><div class="chips" id="aboutChips"></div></div><div class="panel reveal" style="transition-delay:0.2s"><h3 id="out_about_h2"></h3><p id="out_about_text2" style="color:var(--muted);line-height:1.7"></p></div></div></div></section>
 
-<section id="journey"><div class="wrap"><div class="section-head"><div><div class="kicker" id="out_s2_k"></div><h2 id="out_s2_t"></h2></div><p id="out_s2_d"></p></div><div class="timeline" id="timeline"></div></div></section>
+<section id="journey" style="background:#fff"><div class="wrap"><div class="section-head reveal"><div><div class="kicker" id="out_s2_k"></div><h2 id="out_s2_t"></h2></div><p id="out_s2_d"></p></div><div class="timeline" id="timeline"></div></div></section>
 
-<section id="work"><div class="wrap"><div class="section-head"><div><div class="kicker" id="out_s3_k"></div><h2 id="out_s3_t"></h2></div><p id="out_s3_d"></p></div><div class="grid" id="workGrid"></div></div></section>
+<section id="work"><div class="wrap"><div class="section-head reveal"><div><div class="kicker" id="out_s3_k"></div><h2 id="out_s3_t"></h2></div><p id="out_s3_d"></p></div><div class="grid" id="workGrid"></div></div></section>
 
-<section id="achievements"><div class="wrap"><div class="section-head"><div><div class="kicker" id="out_s4_k"></div><h2 id="out_s4_t"></h2></div><p id="out_s4_d"></p></div><div class="grid" id="achievementGrid"></div></div></section>
+<section id="achievements" style="background:#fff"><div class="wrap"><div class="section-head reveal"><div><div class="kicker" id="out_s4_k"></div><h2 id="out_s4_t"></h2></div><p id="out_s4_d"></p></div><div class="grid" id="achievementGrid"></div></div></section>
 
-<section id="library"><div class="wrap"><div class="section-head"><div><div class="kicker" id="out_s5_k"></div><h2 id="out_s5_t"></h2></div><p id="out_s5_d"></p></div><div class="grid" id="libraryGrid"></div></div></section>
+<section id="library"><div class="wrap"><div class="section-head reveal"><div><div class="kicker" id="out_s5_k"></div><h2 id="out_s5_t"></h2></div><p id="out_s5_d"></p></div><div class="grid" id="libraryGrid"></div></div></section>
 
-<section id="blog"><div class="wrap"><div class="section-head"><div><div class="kicker" id="out_s6_k"></div><h2 id="out_s6_t"></h2></div><p id="out_s6_d"></p></div><div class="filters"><button class="filter active" onclick="filterPosts('all',this)">Tất cả</button><button class="filter" onclick="filterPosts('journey',this)">Hành trình</button><button class="filter" onclick="filterPosts('blog',this)">Blog</button><button class="filter" onclick="filterPosts('learning',this)">Bài học</button></div><div class="grid" id="blogGrid"></div></div></section>
+<section id="blog" style="background:#fff"><div class="wrap"><div class="section-head reveal"><div><div class="kicker" id="out_s6_k"></div><h2 id="out_s6_t"></h2></div><p id="out_s6_d"></p></div><div class="filters reveal"><button class="filter active" onclick="filterPosts('all',this)">Tất cả</button><button class="filter" onclick="filterPosts('journey',this)">Hành trình</button><button class="filter" onclick="filterPosts('blog',this)">Blog</button><button class="filter" onclick="filterPosts('learning',this)">Bài học</button></div><div class="grid" id="blogGrid"></div></div></section>
 
-<section id="learning"><div class="wrap"><div class="section-head"><div><div class="kicker" id="out_s7_k"></div><h2 id="out_s7_t"></h2></div><p id="out_s7_d"></p></div><div class="learning panel" id="learningList"></div></div></section>
+<section id="learning"><div class="wrap"><div class="section-head reveal"><div><div class="kicker" id="out_s7_k"></div><h2 id="out_s7_t"></h2></div><p id="out_s7_d"></p></div><div class="learning" id="learningList"></div></div></section>
 
-<section><div class="wrap"><div class="now"><div><div class="kicker" style="color:#71d2c5">NOW</div><h2>Đang ở đâu,<br>đang hướng tới đâu?</h2><p id="nowText"></p></div><div class="now-list" id="goalsList"></div></div></div></section>
+<section style="background:#fff"><div class="wrap"><div class="now reveal"><div><div class="kicker" style="color:var(--gold)">NOW</div><h2>Đang ở đâu,<br>đang hướng tới đâu?</h2><p id="nowText"></p></div><div class="now-list" id="goalsList"></div></div></div></section>
 </main>
 
 <footer class="footer-redesign">
@@ -120,15 +180,15 @@
       <span>&copy; 2026 Bùi Hoàng Dể. Thiết kế phục vụ lưu trữ cá nhân.</span>
       <div class="footer-bottom-links">
         <a href="#" onclick="openLogin(); return false;">Đăng nhập quản trị</a>
-        <a href="#home">↑ Lên đầu trang</a>
+        <a href="#home">Về đầu trang</a>
       </div>
     </div>
   </div>
 </footer>
 
 <div class="modal" id="imageModal" onclick="if(event.target===this)closeModal()"><button class="close" onclick="closeModal()">×</button><img id="modalImg" alt="Ảnh đầy đủ"></div>
-<div class="modal" id="readerModal"><button class="close" onclick="closeReader()">×</button><article class="reader" id="reader"></article></div>
-<div class="modal" id="loginModal"><button class="close" onclick="closeLogin()">×</button><div class="reader" style="max-width:430px"><div class="kicker">Private area</div><h2 style="font:700 36px 'Playfair Display';margin:8px 0">Quản trị cá nhân</h2><p class="muted">Đăng nhập tài khoản quản trị để thêm, sửa và xóa nội dung.</p><div class="field"><label>Email</label><input id="loginEmail" type="email" value="Hoangdeb751@gmail.com"></div><div class="field"><label>Mật khẩu</label><input id="loginPassword" type="password" placeholder="Mật khẩu Supabase"></div><button class="primary" style="width:100%" onclick="login()">Đăng nhập</button><p id="loginError" class="muted" style="font-size:12px"></p></div></div>
+<div class="modal" id="readerModal" onclick="if(event.target===this)closeReader()"><button class="close" onclick="closeReader()">×</button><article class="reader" id="reader"></article></div>
+<div class="modal" id="loginModal" onclick="if(event.target===this)closeLogin()"><button class="close" onclick="closeLogin()">×</button><div class="reader" style="max-width:430px;padding:40px"><div class="kicker">Private area</div><h2 style="font:700 32px 'Playfair Display';margin:8px 0 20px">Quản trị cá nhân</h2><p class="muted" style="margin-bottom:24px">Đăng nhập tài khoản quản trị để thêm, sửa và xóa nội dung.</p><div class="field"><label>Email</label><input id="loginEmail" type="email" value="Hoangdeb751@gmail.com"></div><div class="field"><label>Mật khẩu</label><input id="loginPassword" type="password" placeholder="Mật khẩu Supabase"></div><button class="primary" style="width:100%;margin-top:10px" onclick="login()">Đăng nhập</button><p id="loginError" class="muted" style="font-size:12px;margin-top:16px"></p></div></div>
 <div class="dash" id="dashboard">
   <aside class="side">
     <div class="brand">BÙI HOÀNG DỂ<small>ADMIN</small></div>
@@ -157,7 +217,7 @@
 <div class="toast" id="toast"></div>
 <script>
 const ADMIN_EMAIL='Hoangdeb751@gmail.com';
-const KEY='bhd_profile_v5';
+const KEY='bhd_profile_v6';
 const initial={
   profile:{
     avatar:'assets/Anh_the.png', name:'Bùi Hoàng Dể', title:'Nhân viên pháp lý',
@@ -173,60 +233,76 @@ const initial={
     cv_link:'', proof1_name:'', proof1_link:'', proof2_name:'', proof2_link:'', proof3_name:'', proof3_link:'', proof4_name:'', proof4_link:'', proof5_name:'', proof5_link:'',
     s2_k:'02 / Timeline', s2_t:'Hành trình', s2_d:'Quá khứ được ghi nhận. Hiện tại được cập nhật. Tương lai tiếp tục được viết.',
     s3_k:'03 / Work & Research', s3_t:'Nghiên cứu & công việc', s3_d:'Những trải nghiệm tạo nên cách tôi nhìn và xử lý vấn đề pháp lý.',
-    s4_k:'04 / Milestones', s4_t:'Thành tích & dấu mốc', s4_d:'Ảnh có thể không hiển thị trọn vẹn trên card. Hãy click để xem bản đầy đủ.',
-    s5_k:'05 / Gallery', s5_t:'Thư viện', s5_d:'Hệ thống tự động gom các ảnh minh chứng và hoạt động từ các mục trên.',
+    s4_k:'04 / Milestones', s4_t:'Thành tích & dấu mốc', s4_d:'Các cột mốc học tập và chứng nhận. Bấm vào từng thẻ để đọc thông tin chi tiết.',
+    s5_k:'05 / Gallery', s5_t:'Thư viện ảnh', s5_d:'Hệ thống tự động gom các ảnh minh chứng và hoạt động từ các mục trên.',
     s6_k:'06 / Journal', s6_t:'Blog & ghi chép', s6_d:'Những suy nghĩ, bài học, ghi chú và câu chuyện có thể được cập nhật bất cứ lúc nào.',
     s7_k:'07 / Focus', s7_t:'Trọng tâm phát triển', s7_d:'Không chỉ lưu những gì đã đạt được, mà còn cho thấy tôi đang tập trung phát triển chuyên môn theo hướng nào.'
   },
   timeline:[
-    {id:1,date:'08/2022',title:'Bắt đầu hành trình tại Trường Đại học Luật TP.HCM',type:'Học tập',text:'Học ngành Luật – Luật Dân sự, đồng thời tham gia hoạt động lớp, học thuật và phong trào sinh viên.',image:''},
-    {id:2,date:'2023',title:'Nghiên cứu, hoạt động và tình nguyện',type:'Hoạt động',text:'Tham gia nghiên cứu khoa học, hoạt động Đoàn – Hội, tình nguyện và các chương trình của Nhà trường.',image:'assets/NCKH_2023-2024.jpg'},
-    {id:3,date:'08/2024',title:'Thực tập sinh pháp lý',type:'Công việc',text:'Tiếp xúc và làm quen với môi trường thực tế tại Công ty Luật TNHH T&T.',image:''},
-    {id:4,date:'2024',title:'Mở rộng trải nghiệm học thuật',type:'Nghiên cứu',text:'Tiếp tục nghiên cứu, viết bài, tham gia các hoạt động học thuật và hỗ trợ tổ chức sự kiện.',image:'assets/NCKH_2024-2025.jpg'},
-    {id:5,date:'03/2025',title:'Bước vào môi trường thi hành án',type:'Công việc',text:'Làm Thư ký thi hành án tại Chi cục Thi hành án dân sự TP.HCM; soạn thảo, quản lý hồ sơ và xác minh thi hành án.',image:''},
-    {id:6,date:'08/2025',title:'Đội hình Chuyển đổi số cộng đồng',type:'Hoạt động',text:'Tham gia Đội hình tình nguyện Chuyển đổi số cộng đồng TP.HCM do Trung tâm Phát triển Khoa học và Công nghệ Trẻ tổ chức.',image:''},
-    {id:7,date:'05/2026',title:'Pháp chế doanh nghiệp',type:'Công việc',text:'Làm pháp chế: hồ sơ pháp lý, rà soát hợp đồng, visa, giấy phép lao động, thẻ tạm trú và thủ tục doanh nghiệp.',image:''},
-    {id:8,date:'08/2026',title:'Tốt nghiệp — một cột mốc, không phải điểm kết thúc',type:'Cột mốc',text:'Hoàn thành chặng đường đại học và bắt đầu một giai đoạn mới của hành trình nghề nghiệp pháp lý.',image:''}
+    {id:'tl1',date:'08/2022',title:'Bắt đầu hành trình tại Trường Đại học Luật TP.HCM',type:'Học tập',text:'Học ngành Luật – Luật Dân sự, đồng thời tham gia hoạt động lớp, học thuật và phong trào sinh viên.',image:''},
+    {id:'tl2',date:'2023',title:'Nghiên cứu, hoạt động và tình nguyện',type:'Hoạt động',text:'Tham gia nghiên cứu khoa học, hoạt động Đoàn – Hội, tình nguyện và các chương trình của Nhà trường.',image:'assets/NCKH_2023-2024.jpg'},
+    {id:'tl3',date:'08/2024',title:'Thực tập sinh pháp lý',type:'Công việc',text:'Tiếp xúc và làm quen với môi trường thực tế tại Công ty Luật TNHH T&T.',image:''},
+    {id:'tl4',date:'2024',title:'Mở rộng trải nghiệm học thuật',type:'Nghiên cứu',text:'Tiếp tục nghiên cứu, viết bài, tham gia các hoạt động học thuật và hỗ trợ tổ chức sự kiện.',image:'assets/NCKH_2024-2025.jpg'},
+    {id:'tl5',date:'03/2025',title:'Bước vào môi trường thi hành án',type:'Công việc',text:'Làm Thư ký thi hành án tại Chi cục Thi hành án dân sự TP.HCM; soạn thảo, quản lý hồ sơ và xác minh thi hành án.',image:''},
+    {id:'tl6',date:'08/2025',title:'Đội hình Chuyển đổi số cộng đồng',type:'Hoạt động',text:'Tham gia Đội hình tình nguyện Chuyển đổi số cộng đồng TP.HCM do Trung tâm Phát triển Khoa học và Công nghệ Trẻ tổ chức.',image:''},
+    {id:'tl7',date:'05/2026',title:'Pháp chế doanh nghiệp',type:'Công việc',text:'Làm pháp chế: hồ sơ pháp lý, rà soát hợp đồng, visa, giấy phép lao động, thẻ tạm trú và thủ tục doanh nghiệp.',image:''},
+    {id:'tl8',date:'08/2026',title:'Tốt nghiệp',type:'Cột mốc',text:'Hoàn thành chặng đường đại học và bắt đầu một giai đoạn mới của hành trình nghề nghiệp pháp lý.',image:''}
   ],
   work:[
-    {title:'Sự kiểm soát quyền lực nhà nước',meta:'Nghiên cứu khoa học',text:'Đánh giá cơ chế kiểm soát quyền lực giữa Quốc hội và Toà án nhân dân tối cao ở Việt Nam hiện nay.',image:'',link:''},
-    {title:'Chính sách hỗ trợ thanh niên khởi nghiệp',meta:'Hội nghị Khoa học trẻ 2025',text:'Nghiên cứu tham luận nộp cho HNKHT do Đoàn trường ĐH Luật TP.HCM tổ chức.',image:'',link:''},
-    {title:'Thực tiễn pháp lý & hồ sơ',meta:'Công việc · 2025–2026',text:'Kinh nghiệm xử lý hồ sơ, hợp đồng, thủ tục cư trú – lao động – doanh nghiệp.',image:'',link:''}
+    {id:'w1',title:'Sự kiểm soát quyền lực nhà nước',meta:'Nghiên cứu khoa học',text:'Đánh giá cơ chế kiểm soát quyền lực giữa Quốc hội và Toà án nhân dân tối cao ở Việt Nam hiện nay.',image:'',link:''},
+    {id:'w2',title:'Chính sách hỗ trợ thanh niên khởi nghiệp',meta:'Hội nghị Khoa học trẻ 2025',text:'Nghiên cứu tham luận nộp cho HNKHT do Đoàn trường ĐH Luật TP.HCM tổ chức.',image:'',link:''},
+    {id:'w3',title:'Thực tiễn pháp lý & hồ sơ',meta:'Công việc · 2025–2026',text:'Kinh nghiệm xử lý hồ sơ, hợp đồng, thủ tục cư trú – lao động – doanh nghiệp.',image:'',link:''}
   ],
   achievements:[
-    {id:1,date:'05/08/2026',title:'Sinh viên giỏi toàn khóa 2022–2026',text:'Một dấu mốc học tập quan trọng khi hoàn thành chương trình đại học.',image:'',featured:true,link:''},
-    {id:2,date:'05/08/2026',title:'Sinh viên có nhiều đóng góp trong các hoạt động của Nhà trường',text:'Ghi nhận quá trình tham gia hoạt động Nhà trường.',image:'',featured:false,link:''},
-    {id:3,date:'06/11/2025',title:'Sinh viên giỏi năm học 2024–2025',text:'Danh hiệu sinh viên giỏi năm học 2024–2025.',image:'assets/Sinhviengioinamhoc_2024-2025.jpg',featured:false,link:''},
-    {id:4,date:'28/05/2025',title:'Thanh niên tiên tiến làm theo lời Bác tiêu biểu',text:'Trường Đại học Luật TP.HCM, năm học 2024–2025.',image:'',featured:false,link:''},
-    {id:5,date:'18/03/2025',title:'Đoàn viên tiêu biểu',text:'Trường Đại học Luật TP.HCM, năm học 2024.',image:'',featured:false,link:''},
-    {id:6,date:'22/05/2024',title:'Thanh niên tiên tiến làm theo lời Bác',text:'Trường Đại học Luật TP.HCM, năm học 2023–2024.',image:'',featured:false,link:''},
-    {id:7,date:'03/08/2023',title:'Thành tích xuất sắc trong Chiến dịch Thanh niên tình nguyện hè 2023',text:'Ghi nhận thành tích trong hoạt động tình nguyện.',image:'',featured:false,link:''}
+    {id:'a1',date:'05/08/2026',title:'Sinh viên giỏi toàn khóa 2022–2026',text:'Một dấu mốc học tập quan trọng khi hoàn thành chương trình đại học.',image:'',featured:true,link:''},
+    {id:'a2',date:'05/08/2026',title:'Sinh viên có đóng góp tích cực',text:'Ghi nhận quá trình tham gia hoạt động Nhà trường.',image:'',featured:false,link:''},
+    {id:'a3',date:'06/11/2025',title:'Sinh viên giỏi năm học 2024–2025',text:'Danh hiệu sinh viên giỏi năm học 2024–2025.',image:'assets/Sinhviengioinamhoc_2024-2025.jpg',featured:false,link:''},
+    {id:'a4',date:'28/05/2025',title:'Thanh niên tiên tiến làm theo lời Bác tiêu biểu',text:'Trường Đại học Luật TP.HCM, năm học 2024–2025.',image:'',featured:false,link:''},
+    {id:'a5',date:'18/03/2025',title:'Đoàn viên tiêu biểu',text:'Trường Đại học Luật TP.HCM, năm học 2024.',image:'',featured:false,link:''},
+    {id:'a6',date:'22/05/2024',title:'Thanh niên tiên tiến làm theo lời Bác',text:'Trường Đại học Luật TP.HCM, năm học 2023–2024.',image:'',featured:false,link:''},
+    {id:'a7',date:'03/08/2023',title:'Thành tích xuất sắc Chiến dịch TNTN Hè 2023',text:'Ghi nhận thành tích trong hoạt động tình nguyện.',image:'',featured:false,link:''}
   ],
   posts:[
-    {id:1,date:'2026-08-08',type:'journey',title:'Tốt nghiệp: một cột mốc để nhìn lại',excerpt:'Từ những ngày đầu học Luật đến khi khép lại chặng đường đại học.',content:'Đây là nơi tôi có thể viết lại câu chuyện của mình, không chỉ ghi nhận điều đã đạt được mà còn ghi lại những gì tôi học được sau mỗi chặng đường.',image:'',link:''},
-    {id:2,date:'2025-11-06',type:'learning',title:'Điều tôi học được từ những việc tưởng như rất nhỏ',excerpt:'Một ghi chú cá nhân về việc học từ công việc và trải nghiệm thực tế.',content:'Những công việc lặp lại, hồ sơ và những lần phải kiểm tra lại một chi tiết đều giúp tôi hiểu hơn về sự cẩn thận và trách nhiệm trong nghề pháp lý.',image:'',link:''}
+    {id:'p1',date:'2026-08-08',type:'journey',title:'Tốt nghiệp: một cột mốc để nhìn lại',excerpt:'Từ những ngày đầu học Luật đến khi khép lại chặng đường đại học.',content:'Đây là nơi tôi có thể viết lại câu chuyện của mình, không chỉ ghi nhận điều đã đạt được mà còn ghi lại những gì tôi học được sau mỗi chặng đường.',image:'',link:''},
+    {id:'p2',date:'2025-11-06',type:'learning',title:'Điều tôi học được từ những việc tưởng như rất nhỏ',excerpt:'Một ghi chú cá nhân về việc học từ công việc và trải nghiệm thực tế.',content:'Những công việc lặp lại, hồ sơ và những lần phải kiểm tra lại một chi tiết đều giúp tôi hiểu hơn về sự cẩn thận và trách nhiệm trong nghề pháp lý.',image:'',link:''}
   ],
   learning:[
-    {id:1,name:'Pháp chế doanh nghiệp',status:'Đang phát triển',note:'Tập trung vào tư duy pháp chế và xử lý vấn đề thực tế.',image:''},
-    {id:2,name:'Nghiên cứu pháp luật',status:'Đang rèn luyện',note:'Tiếp tục rèn kỹ năng tìm kiếm, phân tích và viết pháp lý.',image:''},
-    {id:3,name:'Tiếng Anh / TOEIC',status:'Đang học',note:'Ôn luyện chuẩn bị cho kỳ thi TOEIC phục vụ chuyên môn.',image:''},
-    {id:4,name:'AI hỗ trợ công việc',status:'Đang khám phá',note:'Tìm cách ứng dụng AI có trách nhiệm vào nghiên cứu và công việc.',image:''}
+    {id:'l1',name:'Pháp chế doanh nghiệp',status:'Đang phát triển',note:'Tập trung vào tư duy pháp chế và xử lý vấn đề thực tế.',image:''},
+    {id:'l2',name:'Nghiên cứu pháp luật',status:'Đang rèn luyện',note:'Tiếp tục rèn kỹ năng tìm kiếm, phân tích và viết pháp lý.',image:''},
+    {id:'l3',name:'Tiếng Anh / TOEIC',status:'Đang học',note:'Ôn luyện chuẩn bị cho kỳ thi TOEIC phục vụ chuyên môn.',image:''},
+    {id:'l4',name:'AI hỗ trợ công việc',status:'Đang khám phá',note:'Tìm cách ứng dụng AI có trách nhiệm vào nghiên cứu và công việc.',image:''}
   ],
   goals:[
-    {id:1,text:'Phát triển chuyên môn pháp chế',status:'Đang thực hiện'},
-    {id:2,text:'Cải thiện tiếng Anh',status:'Đang thực hiện'},
-    {id:3,text:'Tích lũy kinh nghiệm thực tiễn',status:'Đang thực hiện'}
+    {id:'g1',text:'Phát triển chuyên môn pháp chế',status:'Đang thực hiện'},
+    {id:'g2',text:'Cải thiện tiếng Anh',status:'Đang thực hiện'},
+    {id:'g3',text:'Tích lũy kinh nghiệm thực tiễn',status:'Đang thực hiện'}
   ]
 };
 
 let data=load(); let currentFilter='all'; let sb=null; let remoteLoaded=false;
 try{const u=window.PORTFOLIO_SUPABASE_URL||'',k=window.PORTFOLIO_SUPABASE_ANON_KEY||''; if(u&&k)sb=supabase.createClient(u,k)}catch(e){console.error(e)}
 function load(){try{const saved=JSON.parse(localStorage.getItem(KEY));return saved?{...structuredClone(initial),...saved,profile:{...initial.profile,...(saved.profile||{})}}:structuredClone(initial)}catch{return structuredClone(initial)}}
-function mergeState(remote){if(!remote||typeof remote!=='object')return;data={...structuredClone(initial),...remote,profile:{...initial.profile,...(remote.profile||{})},timeline:Array.isArray(remote.timeline)?remote.timeline:structuredClone(initial.timeline),work:Array.isArray(remote.work)?remote.work:structuredClone(initial.work),achievements:Array.isArray(remote.achievements)?remote.achievements:structuredClone(initial.achievements),posts:Array.isArray(remote.posts)?remote.posts:structuredClone(initial.posts),learning:Array.isArray(remote.learning)?remote.learning:structuredClone(initial.learning),goals:Array.isArray(remote.goals)?remote.goals:structuredClone(initial.goals)};data.work=data.work.map((x,i)=>({...x,id:x.id??('work-'+i+'-'+Date.now())}))}
+function mergeState(remote){if(!remote||typeof remote!=='object')return;data={...structuredClone(initial),...remote,profile:{...initial.profile,...(remote.profile||{})},timeline:Array.isArray(remote.timeline)?remote.timeline:structuredClone(initial.timeline),work:Array.isArray(remote.work)?remote.work:structuredClone(initial.work),achievements:Array.isArray(remote.achievements)?remote.achievements:structuredClone(initial.achievements),posts:Array.isArray(remote.posts)?remote.posts:structuredClone(initial.posts),learning:Array.isArray(remote.learning)?remote.learning:structuredClone(initial.learning),goals:Array.isArray(remote.goals)?remote.goals:structuredClone(initial.goals)};
+  // Đảm bảo mọi item đều có id hợp lệ
+  ['timeline','work','achievements','posts','learning','goals'].forEach(key=>{data[key]=data[key].map((x,i)=>({...x,id:x.id??(key+'-'+Date.now()+'-'+i)}))});
+}
 function hasRemoteContent(state){return !!state && typeof state==='object' && Object.keys(state).some(k=>Array.isArray(state[k])?state[k].length>0:k==='profile'&&state.profile&&Object.keys(state.profile).length>0)}
 async function loadRemoteState(){if(!sb)return;try{const {data:rows,error}=await sb.from('portfolio_state').select('state,updated_at').eq('id',1).maybeSingle();if(error)throw error;const remote=rows?.state;if(hasRemoteContent(remote)){mergeState(remote);localStorage.setItem(KEY,JSON.stringify(data));remoteLoaded=true;renderAll();}else{remoteLoaded=true;renderAll();}return true}catch(e){remoteLoaded=false;console.warn('Supabase state load:',e.message);toast('Không đọc được dữ liệu online: '+e.message);return false}}
-async function save(){renderAll();localStorage.setItem(KEY,JSON.stringify(data));if(!sb){toast('Đã lưu trên trình duyệt (chưa có Supabase)');return false}try{const {data:session}=await sb.auth.getSession();const user=session?.session?.user;if(!user||user.email.toLowerCase()!==ADMIN_EMAIL.toLowerCase()){toast('Bạn cần đăng nhập Admin để đồng bộ Supabase');return false}const {error}=await sb.from('portfolio_state').upsert({id:1,state:data,updated_at:new Date().toISOString()},{onConflict:'id'});if(error)throw error;remoteLoaded=true;return true}catch(e){console.error('Supabase state save:',e.message);toast('Chưa đồng bộ Supabase: '+e.message);return false}}
+async function save(){renderAll();localStorage.setItem(KEY,JSON.stringify(data));if(!sb){toast('Đã lưu trên trình duyệt');return false}try{const {data:session}=await sb.auth.getSession();const user=session?.session?.user;if(!user||user.email.toLowerCase()!==ADMIN_EMAIL.toLowerCase()){toast('Chưa đăng nhập quản trị');return false}const {error}=await sb.from('portfolio_state').upsert({id:1,state:data,updated_at:new Date().toISOString()},{onConflict:'id'});if(error)throw error;remoteLoaded=true;return true}catch(e){toast('Lỗi lưu online: '+e.message);return false}}
 function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+
+// HÀM KHỞI TẠO HOẠT ẢNH CUỘN MƯỢT MÀ
+function initScrollReveal() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.08, rootMargin: "0px 0px -50px 0px" });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
 function renderAll(){
   document.getElementById('out_about_title').textContent = data.profile.about_title || 'Tổng quan Hồ sơ';
   document.getElementById('out_about_desc').textContent = data.profile.about_desc || '';
@@ -253,6 +329,7 @@ function renderAll(){
       actionsHtml += `<a class="ghost" href="${esc(pLink)}" target="_blank" rel="noopener noreferrer">🔗 ${esc(pName)}</a>`;
     }
   }
+  actionsHtml += `<a class="ghost" href="#journey" style="background:transparent;border:0;color:var(--muted)">Hành trình ↓</a>`;
   actionsDiv.innerHTML = actionsHtml;
 
   ['2','3','4','5','6','7'].forEach(i => {
@@ -262,13 +339,17 @@ function renderAll(){
   });
 
   renderTimeline();renderWork();renderAchievements();renderPosts();renderLearning();renderGoals();renderLibrary();
+  
+  // Gọi lại hiệu ứng mượt mỗi khi render xong
+  setTimeout(initScrollReveal, 100);
 }
-function img(src,alt){return src?`<div class="card-media"><img src="${esc(src)}" loading="lazy" alt="${esc(alt)}" onclick="event.stopPropagation();openImage('${esc(src)}')"></div>`:`<div class="card-media placeholder-media"><span>Chưa có ảnh</span><small></small></div>`}
 
-function renderTimeline(){const el=document.getElementById('timeline');el.innerHTML=data.timeline.map(x=>`<div class="event"><div class="year">${esc(x.date)} · ${esc(x.type)}</div><h3>${esc(x.title)}</h3><p>${esc(x.text)}</p>${x.image?`<div class="event-meta"><button class="chip" onclick="openImage('${esc(x.image)}')">Xem ảnh ↗</button></div>`:''}</div>`).join('')}
-function renderWork(){document.getElementById('workGrid').innerHTML=data.work.map(x=>`<article class="card">${img(x.image,x.title)}<div class="card-body"><div class="meta">${esc(x.meta)}</div><h3>${esc(x.title)}</h3><div class="desc">${esc(x.text)}</div>${x.link?`<div style="margin-top:14px"><a href="${esc(x.link)}" target="_blank" rel="noopener noreferrer" class="chip" style="display:inline-flex;text-decoration:none;color:var(--teal);font-weight:700">Xem minh chứng ↗</a></div>`:''}</div></article>`).join('')}
-function renderAchievements(){document.getElementById('achievementGrid').innerHTML=data.achievements.map((x,i)=>`<article class="card achievement ${x.featured?'featured':''}">${img(x.image,x.title)}<div class="card-body"><div class="meta">${esc(x.date)}</div><h3>${esc(x.title)}</h3><div class="desc">${esc(x.text)}</div>${x.link?`<div style="margin-top:14px"><a href="${esc(x.link)}" target="_blank" rel="noopener noreferrer" class="chip" style="display:inline-flex;text-decoration:none;color:var(--teal);font-weight:700">Xem minh chứng ↗</a></div>`:''}</div></article>`).join('')}
-function renderPosts(){let arr=data.posts.filter(x=>currentFilter==='all'||x.type===currentFilter);document.getElementById('blogGrid').innerHTML=arr.length?arr.map(x=>`<article class="card" onclick="openReader(${x.id})" style="cursor:pointer">${img(x.image,x.title)}<div class="card-body"><div class="meta">${esc(x.date)} · ${esc(x.type)}</div><h3>${esc(x.title)}</h3><div class="desc">${esc(x.excerpt)}</div></div></article>`).join(''):`<div class="empty">Chưa có nội dung ở mục này.</div>`}
+function img(src,alt){return src?`<div class="card-media"><img src="${esc(src)}" loading="lazy" alt="${esc(alt)}" onclick="event.stopPropagation();openImage('${esc(src)}')"></div>`:`<div class="card-media placeholder-media"><span>Hồ sơ minh chứng</span></div>`}
+
+function renderTimeline(){const el=document.getElementById('timeline');el.innerHTML=data.timeline.map((x,i)=>`<div class="event reveal" style="transition-delay:${i*0.1}s"><div class="year">${esc(x.date)} · ${esc(x.type)}</div><h3 style="cursor:pointer" onclick="openReader('timeline', '${x.id}')">${esc(x.title)}</h3><div class="desc" style="-webkit-line-clamp:2;cursor:pointer" onclick="openReader('timeline', '${x.id}')">${esc(x.text)}</div>${x.image?`<div class="event-meta"><button class="chip" onclick="openImage('${esc(x.image)}')">Xem ảnh ↗</button></div>`:''}</div>`).join('')}
+function renderWork(){document.getElementById('workGrid').innerHTML=data.work.map((x,i)=>`<article class="card reveal" style="transition-delay:${(i%3)*0.1}s" onclick="openReader('work', '${x.id}')">${img(x.image,x.title)}<div class="card-body"><div class="meta">${esc(x.meta)}</div><h3>${esc(x.title)}</h3><div class="desc">${esc(x.text)}</div><div class="read-more">Đọc toàn văn →</div></div></article>`).join('')}
+function renderAchievements(){document.getElementById('achievementGrid').innerHTML=data.achievements.map((x,i)=>`<article class="card achievement reveal ${x.featured?'featured':''}" style="transition-delay:${(i%3)*0.1}s" onclick="openReader('achievements', '${x.id}')">${img(x.image,x.title)}<div class="card-body"><div class="meta">${esc(x.date)}</div><h3>${esc(x.title)}</h3><div class="desc">${esc(x.text)}</div><div class="read-more">Đọc toàn văn →</div></div></article>`).join('')}
+function renderPosts(){let arr=data.posts.filter(x=>currentFilter==='all'||x.type===currentFilter);document.getElementById('blogGrid').innerHTML=arr.length?arr.map((x,i)=>`<article class="card reveal active" style="transition-delay:${(i%3)*0.1}s" onclick="openReader('posts', '${x.id}')">${img(x.image,x.title)}<div class="card-body"><div class="meta">${esc(x.date)} · ${esc(x.type)}</div><h3>${esc(x.title)}</h3><div class="desc">${esc(x.excerpt||x.content)}</div><div class="read-more">Đọc toàn văn →</div></div></article>`).join(''):`<div class="empty">Chưa có nội dung ở mục này.</div>`}
 function filterPosts(f,btn){currentFilter=f;document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));btn.classList.add('active');renderPosts()}
 
 function renderLibrary(){
@@ -285,13 +366,13 @@ function renderLibrary(){
     return;
   }
   document.getElementById('library').style.display = 'block';
-  el.innerHTML = autoImages.map(imgData => `<article class="card"><div class="card-media"><img src="${esc(imgData.src)}" loading="lazy" alt="${esc(imgData.title)}" onclick="openImage('${esc(imgData.src)}')"></div><div class="card-body"><div class="meta" style="text-transform:uppercase">${esc(imgData.category)}</div><h3>${esc(imgData.title||'Tư liệu hình ảnh')}</h3></div></article>`).join('');
+  el.innerHTML = autoImages.map((imgData, i) => `<article class="card reveal" style="transition-delay:${(i%3)*0.1}s;box-shadow:none;border-radius:4px"><div class="card-media" style="border:0"><img src="${esc(imgData.src)}" loading="lazy" alt="${esc(imgData.title)}" onclick="openImage('${esc(imgData.src)}')"></div><div class="card-body" style="padding:16px"><div class="meta" style="text-transform:uppercase;font-size:10px">${esc(imgData.category)}</div><h3 style="font-size:15px;margin:4px 0 0">${esc(imgData.title||'Tư liệu hình ảnh')}</h3></div></article>`).join('');
 }
 
 function renderLearning(){
-  document.getElementById('learningList').innerHTML = data.learning.map(x => `
-    <div class="learn-item">
-      ${x.image ? `<img class="learn-thumb" src="${esc(x.image)}" loading="lazy" alt="">` : `<div class="learn-thumb" style="display:grid; place-items:center;"><span style="font-size:24px; color:#c0d4ce;">✦</span></div>`}
+  document.getElementById('learningList').innerHTML = data.learning.map((x,i) => `
+    <div class="learn-item reveal" style="transition-delay:${i*0.1}s">
+      ${x.image ? `<img class="learn-thumb" src="${esc(x.image)}" loading="lazy" alt="">` : `<div class="learn-thumb">✦</div>`}
       <div class="learn-content">
         <strong>${esc(x.name)}</strong>
         <span>${esc(x.note)}</span>
@@ -300,16 +381,38 @@ function renderLearning(){
     </div>
   `).join('');
 }
-function renderGoals(){document.getElementById('goalsList').innerHTML=data.goals.map(x=>`<div><strong>${esc(x.text)}</strong><br><span style="font-size:11px;color:#8eb0ba">${esc(x.status)}</span></div>`).join('')}
+function renderGoals(){document.getElementById('goalsList').innerHTML=data.goals.map(x=>`<div><strong style="color:var(--gold-light)">${esc(x.text)}</strong><br><span style="font-size:12px;color:#8eb0ba;letter-spacing:0.05em;text-transform:uppercase">${esc(x.status)}</span></div>`).join('')}
 function openImage(src){document.getElementById('modalImg').src=src;document.getElementById('imageModal').classList.add('open')}function closeModal(){document.getElementById('imageModal').classList.remove('open')}
-function openReader(id){const x=data.posts.find(p=>p.id===id);if(!x)return;const gallery=(x.images&&x.images.length?x.images:(x.image?[x.image]:[]));document.getElementById('reader').innerHTML=`<div class="kicker">${esc(x.type)} · ${esc(x.date)}</div><h1>${esc(x.title)}</h1>${gallery.map(u=>`<img src="${esc(u)}" loading="lazy" alt="">`).join('')}<p style="font-size:18px;color:#526875">${esc(x.excerpt)}</p><div style="white-space:pre-wrap">${esc(x.content)}</div>${x.link?`<div style="margin-top:30px;padding-top:20px;border-top:1px solid var(--line)"><a href="${esc(x.link)}" target="_blank" rel="noopener noreferrer" style="color:var(--teal);font-weight:700;text-decoration:none">🔗 Xem nguồn / Minh chứng chi tiết ↗</a></div>`:''}`;document.getElementById('readerModal').classList.add('open')}function closeReader(){document.getElementById('readerModal').classList.remove('open')}
+
+/* TRÌNH ĐỌC (READER) CAO CẤP TỔNG HỢP */
+function openReader(collection, id){
+  const x = data[collection].find(p => String(p.id) === String(id));
+  if(!x) return;
+  const gallery = (x.images && x.images.length ? x.images : (x.image ? [x.image] : []));
+  const meta = x.date || x.meta || x.type || x.status || collection;
+  const title = x.title || x.name || '';
+  const content = x.content || x.text || x.note || '';
+  const excerpt = x.excerpt || '';
+  
+  document.getElementById('reader').innerHTML=`
+    <div class="reader-kicker">${esc(meta)}</div>
+    <h1>${esc(title)}</h1>
+    ${gallery.map(u=>`<img src="${esc(u)}" loading="lazy" alt="">`).join('')}
+    ${excerpt ? `<div class="reader-excerpt">${esc(excerpt)}</div>` : ''}
+    <div class="reader-content">${esc(content)}</div>
+    ${x.link ? `<div style="margin-top:40px;padding-top:20px;border-top:1px solid var(--line);text-align:center"><a href="${esc(x.link)}" target="_blank" rel="noopener noreferrer" class="primary" style="display:inline-block;border-radius:999px">📄 Xem hồ sơ minh chứng đầy đủ ↗</a></div>` : ''}
+  `;
+  document.getElementById('readerModal').classList.add('open');
+}
+function closeReader(){document.getElementById('readerModal').classList.remove('open')}
+
 function openLogin(){document.getElementById('loginModal').classList.add('open')}function closeLogin(){document.getElementById('loginModal').classList.remove('open')}
 async function login(){const email=document.getElementById('loginEmail').value.trim(),pass=document.getElementById('loginPassword').value;if(email.toLowerCase()!==ADMIN_EMAIL.toLowerCase()){document.getElementById('loginError').textContent='Tài khoản này không có quyền quản trị.';return}if(!sb){document.getElementById('loginError').textContent='Chưa cấu hình Supabase.';return}const {data:authData,error}=await sb.auth.signInWithPassword({email,password:pass});if(error){document.getElementById('loginError').textContent=authError(error);return}if(!authData.user||authData.user.email.toLowerCase()!==ADMIN_EMAIL.toLowerCase()){await sb.auth.signOut();document.getElementById('loginError').textContent='Tài khoản này không có quyền quản trị.';return}await loadRemoteState();sessionStorage.setItem('bhd_admin','1');closeLogin();openDashboard();showTab('overview',document.querySelector('[data-tab="overview"]'))}
 function authError(e){return e?.message||'Đăng nhập thất bại.'}
 function openDashboard(){document.getElementById('dashboard').classList.add('open');document.body.style.overflow='hidden';renderDash('overview')}function closeDashboard(){document.getElementById('dashboard').classList.remove('open');document.body.style.overflow='';renderAll()}function logout(){if(sb)sb.auth.signOut();sessionStorage.removeItem('bhd_admin');closeDashboard()}
 function showTab(tab,btn){document.querySelectorAll('.side button[data-tab]').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');document.getElementById('dashTitle').textContent={overview:'Tổng quan',timeline:'Hành trình',work:'Work & Research',posts:'Blog / Ghi chép',achievements:'Thành tích',learning:'Trọng tâm',goals:'Mục tiêu',settings:'Cấu hình Tiêu đề',profile:'Hồ sơ & Nút liên kết'}[tab];renderDash(tab)}
 
-function renderDash(tab){const c=document.getElementById('dashContent');if(tab==='overview'){c.innerHTML=`<div class="dash-grid"><div class="dash-stat"><b>${data.timeline.length}</b><div class="muted">Mốc hành trình</div></div><div class="dash-stat"><b>${data.posts.length}</b><div class="muted">Bài viết</div></div><div class="dash-stat"><b>${data.achievements.length}</b><div class="muted">Thành tích</div></div><div class="dash-stat"><b>Tự động</b><div class="muted">Thư viện ảnh</div></div></div><div class="dash-panel"><h3>Không gian của bạn</h3><p class="muted">Đây là CMS cá nhân. Trình duyệt tự động lưu thứ tự hiển thị dựa trên cách bạn sắp xếp bằng nút ▲ ▼.</p><div class="actions"><button class="primary" onclick="showTab('timeline',document.querySelector('[data-tab=timeline]'))">+ Thêm Hành trình</button><button class="primary" onclick="showTab('work',document.querySelector('[data-tab=work]'))">+ Work & Research</button><button class="ghost" onclick="showTab('posts',document.querySelector('[data-tab=posts]'))">+ Viết Bài (Blog)</button><button class="ghost" onclick="showTab('achievements',document.querySelector('[data-tab=achievements]'))">+ Thành tích</button></div></div>`}else if(tab==='timeline')renderListEditor(c,'timeline','Hành trình','date,title,type,text,image');else if(tab==='work')renderListEditor(c,'work','Work & Research','title,meta,text,image,link');else if(tab==='posts')renderListEditor(c,'posts','Blog / Ghi chép','date,title,type,excerpt,content,image,images,link');else if(tab==='achievements')renderListEditor(c,'achievements','Thành tích','date,title,text,image,featured,link');else if(tab==='learning')renderListEditor(c,'learning','Trọng tâm phát triển (Đang học)','name,status,note,image');else if(tab==='goals')renderListEditor(c,'goals','Mục tiêu','text,status');else if(tab==='profile')renderProfile(c);else if(tab==='settings')renderSettings(c)}
+function renderDash(tab){const c=document.getElementById('dashContent');if(tab==='overview'){c.innerHTML=`<div class="dash-grid"><div class="dash-stat"><b>${data.timeline.length}</b><div class="muted">Mốc hành trình</div></div><div class="dash-stat"><b>${data.posts.length}</b><div class="muted">Bài viết</div></div><div class="dash-stat"><b>${data.achievements.length}</b><div class="muted">Thành tích</div></div><div class="dash-stat"><b>Tự động</b><div class="muted">Thư viện ảnh</div></div></div><div class="dash-panel"><h3>Không gian của bạn</h3><p class="muted">Hệ thống xử lý văn bản tự động cắt gọn chữ thành 3 dòng ở giao diện thẻ. Người đọc bấm vào sẽ mở khung đọc chi tiết. Hãy viết bao nhiêu tùy thích!</p><div class="actions"><button class="primary" onclick="showTab('timeline',document.querySelector('[data-tab=timeline]'))">+ Thêm Hành trình</button><button class="primary" onclick="showTab('work',document.querySelector('[data-tab=work]'))">+ Work & Research</button><button class="ghost" onclick="showTab('posts',document.querySelector('[data-tab=posts]'))">+ Viết Bài (Blog)</button><button class="ghost" onclick="showTab('achievements',document.querySelector('[data-tab=achievements]'))">+ Thành tích</button></div></div>`}else if(tab==='timeline')renderListEditor(c,'timeline','Hành trình','date,title,type,text,image');else if(tab==='work')renderListEditor(c,'work','Work & Research','title,meta,text,image,link');else if(tab==='posts')renderListEditor(c,'posts','Blog / Ghi chép','date,title,type,excerpt,content,image,images,link');else if(tab==='achievements')renderListEditor(c,'achievements','Thành tích','date,title,text,image,featured,link');else if(tab==='learning')renderListEditor(c,'learning','Trọng tâm phát triển (Đang học)','name,status,note,image');else if(tab==='goals')renderListEditor(c,'goals','Mục tiêu','text,status');else if(tab==='profile')renderProfile(c);else if(tab==='settings')renderSettings(c)}
 
 window.moveItem = async function(key, index, direction) {
     if (direction === -1 && index > 0) {
@@ -335,14 +438,14 @@ function renderListEditor(c,key,label,fields){
   </div></div>`).join(''):'<div class="empty">Chưa có nội dung.</div>'}</div></div>`
 }
 
-function formFor(key,x={}){const configs={timeline:[['date','Ngày'],['title','Tiêu đề'],['type','Loại'],['text','Nội dung'],['image','Ảnh']],work:[['title','Tiêu đề'],['meta','Thông tin / loại nghiên cứu hoặc công việc'],['text','Mô tả'],['image','Ảnh'],['link','Link minh chứng / Nguồn (URL)']],posts:[['date','Ngày'],['title','Tiêu đề'],['type','Loại: journey / blog / learning'],['excerpt','Tóm tắt'],['content','Nội dung'],['image','Ảnh cover'],['images','Ảnh trong bài'],['link','Link nguồn (URL)']],achievements:[['date','Ngày'],['title','Tên thành tích'],['text','Mô tả'],['image','Ảnh chứng nhận'],['featured','Nổi bật: true / false'],['link','Link minh chứng (URL)']],learning:[['name','Tên nội dung'],['status','Trạng thái'],['note','Ghi chú chi tiết'],['image','Ảnh minh họa (Icon/Thumb)']],goals:[['text','Mục tiêu'],['status','Trạng thái']]};return configs[key].map(([f,l])=>{const val=esc(x[f]??'');const isArea=['text','content','excerpt','note'].includes(f);if(f==='images')return '<div class="field"><label>'+l+' (có thể chọn nhiều ảnh)</label><textarea id="f_images" placeholder="Mỗi dòng là một URL ảnh">'+esc((x.images||[]).join('\n'))+'</textarea><input type="file" accept="image/*" multiple onchange="uploadMultipleImages(this,\'f_images\')"><small class="muted">Chọn nhiều ảnh cùng lúc.</small></div>';if(f==='image')return '<div class="field"><label>'+l+'</label><input id="f_image" value="'+val+'" placeholder="URL hoặc đường dẫn"><input type="file" accept="image/*" onchange="uploadImageFile(this,\'f_image\')"><small class="muted">Chọn ảnh từ thiết bị.</small></div>';return '<div class="field"><label>'+l+'</label>'+(isArea?'<textarea id="f_'+f+'">'+val+'</textarea>':'<input id="f_'+f+'" value="'+val+'">')+'</div>'}).join('')}
+function formFor(key,x={}){const configs={timeline:[['date','Ngày'],['title','Tiêu đề'],['type','Loại'],['text','Nội dung chi tiết (Trình duyệt sẽ tự cắt chữ gọn lại)'],['image','Ảnh']],work:[['title','Tiêu đề'],['meta','Thông tin / loại nghiên cứu hoặc công việc'],['text','Nội dung chi tiết'],['image','Ảnh'],['link','Link minh chứng / Nguồn (URL)']],posts:[['date','Ngày'],['title','Tiêu đề'],['type','Loại: journey / blog / learning'],['excerpt','Tóm tắt (3 dòng)'],['content','Nội dung chi tiết toàn bài'],['image','Ảnh cover'],['images','Ảnh trong bài'],['link','Link nguồn (URL)']],achievements:[['date','Ngày'],['title','Tên thành tích'],['text','Mô tả chi tiết'],['image','Ảnh chứng nhận'],['featured','Nổi bật: true / false'],['link','Link minh chứng (URL)']],learning:[['name','Tên nội dung'],['status','Trạng thái'],['note','Ghi chú chi tiết'],['image','Ảnh minh họa (Icon/Thumb)']],goals:[['text','Mục tiêu'],['status','Trạng thái']]};return configs[key].map(([f,l])=>{const val=esc(x[f]??'');const isArea=['text','content','excerpt','note'].includes(f);if(f==='images')return '<div class="field"><label>'+l+' (có thể chọn nhiều ảnh)</label><textarea id="f_images" placeholder="Mỗi dòng là một URL ảnh">'+esc((x.images||[]).join('\n'))+'</textarea><input type="file" accept="image/*" multiple onchange="uploadMultipleImages(this,\'f_images\')"><small class="muted">Chọn nhiều ảnh cùng lúc.</small></div>';if(f==='image')return '<div class="field"><label>'+l+'</label><input id="f_image" value="'+val+'" placeholder="URL hoặc đường dẫn"><input type="file" accept="image/*" onchange="uploadImageFile(this,\'f_image\')"><small class="muted">Chọn ảnh từ thiết bị.</small></div>';return '<div class="field"><label>'+l+'</label>'+(isArea?'<textarea id="f_'+f+'">'+val+'</textarea>':'<input id="f_'+f+'" value="'+val+'">')+'</div>'}).join('')}
 function newItem(key){editForm(key,-1,{})}function editItem(key,i){if(!Array.isArray(data[key])||!data[key][i]){toast('Không tìm thấy mục cần chỉnh sửa');return}editForm(key,i,data[key][i])}
-function editForm(key,i,x){const c=document.getElementById('dashContent');c.innerHTML=`<div class="dash-panel" style="margin-top:0"><div class="section-head" style="margin-bottom:20px"><div><div class="kicker">EDITOR</div><h2>${i<0?'Thêm mới':'Chỉnh sửa'}</h2></div></div><div class="editor"><div>${formFor(key,x)}</div><div class="panel"><h3>Gợi ý</h3><p class="muted" style="font-size:12px">Bạn có thể ghi ngắn hoặc dài. Đối với ô Link nguồn, hãy dán chính xác đường dẫn (bao gồm cả https://).</p><p class="muted" style="font-size:12px">Thư viện ảnh trên web sẽ tự động gom các ảnh bạn thêm ở đây.</p></div></div><div class="editor-actions"><button class="ghost" onclick="renderDash('${key}')">Hủy</button><button class="primary" onclick="saveItem('${key}',${i})">Lưu thay đổi</button></div></div>`}
+function editForm(key,i,x){const c=document.getElementById('dashContent');c.innerHTML=`<div class="dash-panel" style="margin-top:0"><div class="section-head" style="margin-bottom:20px"><div><div class="kicker">EDITOR</div><h2>${i<0?'Thêm mới':'Chỉnh sửa'}</h2></div></div><div class="editor"><div>${formFor(key,x)}</div><div class="panel"><h3>Gợi ý thông minh</h3><p class="muted" style="font-size:13px;line-height:1.6">Bạn có thể viết dài bao nhiêu tùy thích ở phần Nội dung. Thuật toán của trang web sẽ tự động cắt chữ thành 3 dòng mượt mà khi hiển thị trên thẻ, và chỉ bung ra toàn văn khi nhà tuyển dụng bấm vào nút "Đọc toàn văn".</p></div></div><div class="editor-actions"><button class="ghost" onclick="renderDash('${key}')">Hủy</button><button class="primary" onclick="saveItem('${key}',${i})">Lưu thay đổi</button></div></div>`}
 async function uploadMultipleImages(input,targetId){const files=[...(input.files||[])];if(!files.length)return;const target=document.getElementById(targetId);if(!target)return;try{const urls=sb?await Promise.all(files.map(file=>{const safe=file.name.toLowerCase().replace(/[^a-z0-9._-]+/g,'-');const path='portfolio/'+Date.now()+'-'+Math.random().toString(36).slice(2)+'-'+safe;return sb.storage.from('portfolio-images').upload(path,file,{upsert:false,contentType:file.type}).then(({error})=>{if(error)throw error;const {data:pub}=sb.storage.from('portfolio-images').getPublicUrl(path);return pub.publicUrl})})):await Promise.all(files.map(file=>new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(file)})));const current=target.value.split(/\n|,/).map(x=>x.trim()).filter(Boolean);target.value=[...current,...urls].join('\n');toast(`Đã thêm ${urls.length} ảnh`)}catch(e){alert('Không tải được ảnh: '+e.message)}input.value=''}
 async function uploadImageFile(input,targetId){const file=input.files&&input.files[0];if(!file)return;const target=document.getElementById(targetId);try{if(sb){const safe=file.name.toLowerCase().replace(/[^a-z0-9._-]+/g,'-');const path='portfolio/'+Date.now()+'-'+safe;const {error}=await sb.storage.from('portfolio-images').upload(path,file,{upsert:false,contentType:file.type});if(error)throw error;const {data:pub}=sb.storage.from('portfolio-images').getPublicUrl(path);target.value=pub.publicUrl;toast('Đã tải ảnh lên Storage');return}const reader=new FileReader();reader.onload=()=>{target.value=reader.result;toast('Đã nạp ảnh cục bộ — hãy bấm Lưu')};reader.readAsDataURL(file)}catch(e){alert('Không tải được ảnh: '+e.message)}}
-async function saveItem(key,i){const cfg={timeline:['date','title','type','text','image'],work:['title','meta','text','image','link'],posts:['date','title','type','excerpt','content','image','images','link'],achievements:['date','title','text','image','featured','link'],learning:['name','status','note','image'],goals:['text','status']}[key];if(!cfg){toast('Không xác định được loại nội dung');return}let o={};cfg.forEach(f=>{const el=document.getElementById('f_'+f);if(el)o[f]=el.value});if(key==='posts'){o.images=String(o.images||'').split(/\n|,/).map(x=>x.trim()).filter(Boolean);if(!o.image&&o.images.length)o.image=o.images[0]}if(key==='achievements')o.featured=o.featured==='true';if(i<0){o.id=key==='work'?('work-'+Date.now()+'-'+Math.random().toString(36).slice(2,8)):Date.now();
+async function saveItem(key,i){const cfg={timeline:['date','title','type','text','image'],work:['title','meta','text','image','link'],posts:['date','title','type','excerpt','content','image','images','link'],achievements:['date','title','text','image','featured','link'],learning:['name','status','note','image'],goals:['text','status']}[key];if(!cfg){toast('Không xác định được loại nội dung');return}let o={};cfg.forEach(f=>{const el=document.getElementById('f_'+f);if(el)o[f]=el.value});if(key==='posts'){o.images=String(o.images||'').split(/\n|,/).map(x=>x.trim()).filter(Boolean);if(!o.image&&o.images.length)o.image=o.images[0]}if(key==='achievements')o.featured=o.featured==='true';if(i<0){o.id=key+'-'+Date.now().toString(36)+Math.random().toString(36).substr(2,4);
   data[key].unshift(o);
-}else{const old=data[key][i];data[key][i]={...old,...o,id:old?.id??(key==='work'?('work-'+Date.now()):Date.now())}}const ok=await save();if(ok!==false)toast('Đã lưu');renderDash(key)}
+}else{const old=data[key][i];data[key][i]={...old,...o,id:old?.id??(key+'-'+Date.now())}}const ok=await save();if(ok!==false)toast('Đã lưu');renderDash(key)}
 async function deleteItem(key,i){if(!Array.isArray(data[key])||!data[key][i]){toast('Không tìm thấy mục cần xóa');return}if(confirm('Xóa nội dung này?')){data[key].splice(i,1);await save();renderDash(key);toast('Đã xóa')}}
 
 function renderSettings(c){
