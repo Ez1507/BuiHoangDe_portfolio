@@ -30,8 +30,7 @@ a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}b
 .wrap{width:min(1160px,calc(100% - 36px));margin:auto}
 
 .alt-bg { background: linear-gradient(180deg, #ffffff 0%, rgba(242,246,245,0.4) 100%); border-top: 1px solid rgba(220,229,227,0.5); border-bottom: 1px solid rgba(220,229,227,0.5); }
-.reveal { opacity: 0; transform: translateY(35px); transition: opacity 1.2s var(--ease), transform 1.2s var(--ease); }
-.reveal.active { opacity: 1; transform: translateY(0); }
+.reveal { opacity: 1 !important; transform: translateY(0) !important; } /* Đảm bảo luôn hiện rõ, không bị ẩn lỗi */
 
 .top{position:sticky;top:0;z-index:30;background:rgba(242,246,245,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(220,229,227,.8)}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:800;letter-spacing:-.04em;font-size:16px}.brand small{display:block;font-size:10px;letter-spacing:.18em;color:var(--teal);font-weight:700}.links{display:flex;gap:22px;align-items:center}.links a{font-size:13px;color:var(--muted);transition:color 0.4s ease;font-weight:600}.links a:hover{color:var(--teal)}
 
@@ -48,7 +47,6 @@ section{padding:100px 0}.section-head{display:flex;justify-content:space-between
 
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.panel{background:linear-gradient(145deg, #ffffff, #f9fbfb);border:1px solid rgba(220,229,227,0.6);border-radius:var(--r);padding:40px;box-shadow:0 10px 30px rgba(10,25,41,.03);transition:transform 0.6s var(--ease), box-shadow 0.6s var(--ease)}.panel:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(10,25,41,.06)}.panel h3{margin:0 0 18px;font-family:'Playfair Display',serif;font-size:24px;color:var(--ink)}.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.chip{padding:8px 16px;background:rgba(30,101,83,0.05);border:1px solid rgba(30,101,83,0.1);color:var(--teal);border-radius:6px;font-size:13px;font-weight:600;cursor:default}
 
-/* TIMELINE - CÓ THÊM KHUNG ẢNH MINH HỌA CHUẨN XÁC */
 .timeline{position:relative;padding-left:45px;max-width:900px}.timeline:before{content:'';position:absolute;left:13px;top:8px;bottom:8px;width:1px;background:linear-gradient(to bottom, var(--teal), rgba(30,101,83,0.1))}.event{position:relative;margin:0 0 45px;transition:transform 0.5s var(--ease)}.event:hover{transform:translateX(8px)}.event:before{content:'';position:absolute;left:-36px;top:10px;width:10px;height:10px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 6px var(--card);transition:transform 0.5s var(--ease), background 0.3s}.event:hover:before{transform:scale(1.5);background:var(--gold)}.event .year{font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}.event h3{margin:8px 0 10px;font-size:22px;font-family:'Playfair Display',serif;color:var(--ink);cursor:pointer}.event p{margin:0;color:var(--muted);line-height:1.75;font-size:15px}.event-thumb{width:100%;max-width:280px;aspect-ratio:16/10;object-fit:cover;border-radius:6px;margin-top:14px;border:1px solid var(--line);cursor:zoom-in;transition:transform 0.4s var(--ease)}.event-thumb:hover{transform:scale(1.02)}
 
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -211,7 +209,7 @@ section{padding:100px 0}.section-head{display:flex;justify-content:space-between
 <div class="toast" id="toast"></div>
 <script>
 const ADMIN_EMAIL='Hoangdeb751@gmail.com';
-const KEY='bhd_profile_v10';
+const KEY='bhd_profile_v11';
 const initial={
   profile:{
     avatar:'assets/Anh_the.png', name:'Bùi Hoàng Dể', title:'Nhân viên pháp lý',
@@ -246,8 +244,8 @@ const initial={
     {id:'w1',date:'2024-2025',title:'Chứng cứ điện tử trong tố tụng hành chính',meta:'Nghiên cứu khoa học · 2024–2025',text:'Đề tài nghiên cứu khoa học sinh viên đánh giá về quy định và thực tiễn áp dụng chứng cứ điện tử trong tố tụng hành chính.',image:'assets/NCKH_2024-2025.jpg',link:''},
     {id:'w2',date:'2023-2024',title:'Bảo vệ quyền lợi người tiêu dùng dễ bị tổn thương',meta:'Nghiên cứu khoa học · 2023–2024',text:'Nghiên cứu phân tích các khung pháp lý bảo vệ nhóm người tiêu dùng dễ bị tổn thương theo pháp luật bảo vệ quyền lợi người tiêu dùng.',image:'assets/NCKH_2023-2024.jpg',link:''},
     {id:'w3',date:'2025',title:'Hội nghị khoa học trẻ 2025',meta:'Hội nghị khoa học trẻ · 2025',text:'Tham gia báo cáo tại Hội nghị khoa học trẻ cấp Trường Đại học Luật TP.HCM năm 2025 với các bài nghiên cứu về chính sách pháp luật.',image:'assets/Hoi_nghi_khoa_hoc_tre_2025.jpg',link:''},
-    {id:'w4',date:'Định kỳ',meta:'Ngòi bút luật gia · Cấp dưỡng',text:'Bài viết nghiên cứu chuyên sâu về quy định pháp luật và thực tiễn giải quyết tranh chấp nghĩa vụ cấp dưỡng.',image:'assets/NBLG_Capduong.jpg',link:''},
-    {id:'w5',date:'Định kỳ',meta:'Ngòi bút luật gia · Bồi thường thiệt hại',text:'Nghiên cứu pháp lý về các cấu thành trách nhiệm bồi thường thiệt hại ngoài hợp đồng.',image:'assets/NBLG_Boithuongthiethai.jpg',link:''},
+    {id:'w4',date:'Định kỳ',title:'NBLG — Bồi thường thiệt hại',meta:'Ngòi bút luật gia · Bồi thường thiệt hại',text:'Nghiên cứu pháp lý về các cấu thành trách nhiệm bồi thường thiệt hại ngoài hợp đồng.',image:'assets/NBLG_Boithuongthiethai.jpg',link:''},
+    {id:'w5',date:'Định kỳ',title:'NBLG — Cấp dưỡng',meta:'Ngòi bút luật gia · Cấp dưỡng',text:'Bài viết nghiên cứu chuyên sâu về quy định pháp luật và thực tiễn giải quyết tranh chấp nghĩa vụ cấp dưỡng.',image:'assets/NBLG_Capduong.jpg',link:''},
     {id:'w6',date:'2025-2026',title:'Thực tiễn pháp lý & hồ sơ',meta:'Công việc · 2025–2026',text:'Kinh nghiệm xử lý hồ sơ, hợp đồng, thủ tục cư trú – lao động – doanh nghiệp tại các cơ quan và doanh nghiệp.',image:'',link:''}
   ],
   achievements:[
@@ -287,17 +285,6 @@ async function loadRemoteState(){if(!sb)return;try{const {data:rows,error}=await
 async function save(){renderAll();localStorage.setItem(KEY,JSON.stringify(data));if(!sb){toast('Đã lưu trên trình duyệt');return false}try{const {data:session}=await sb.auth.getSession();const user=session?.session?.user;if(!user||user.email.toLowerCase()!==ADMIN_EMAIL.toLowerCase()){toast('Chưa đăng nhập quản trị');return false}const {error}=await sb.from('portfolio_state').upsert({id:1,state:data,updated_at:new Date().toISOString()},{onConflict:'id'});if(error)throw error;remoteLoaded=true;return true}catch(e){toast('Lỗi lưu online: '+e.message);return false}}
 function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 
-function initScrollReveal() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      }
-    });
-  }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-}
-
 function renderAll(){
   document.getElementById('out_about_title').textContent = data.profile.about_title || 'Tổng quan Hồ sơ';
   document.getElementById('out_about_desc').textContent = data.profile.about_desc || '';
@@ -334,7 +321,6 @@ function renderAll(){
   });
 
   renderTimeline();renderWork();renderAchievements();renderPosts();renderLearning();renderGoals();renderLibrary();
-  setTimeout(initScrollReveal, 100);
 }
 
 function img(src,alt){return src?`<div class="card-media"><img src="${esc(src)}" loading="lazy" alt="${esc(alt)}" onclick="event.stopPropagation();openImage('${esc(src)}')"></div>`:`<div class="card-media placeholder-media"><span>Hồ sơ / Minh chứng</span></div>`}
@@ -342,7 +328,7 @@ function img(src,alt){return src?`<div class="card-media"><img src="${esc(src)}"
 function renderTimeline(){
   const el=document.getElementById('timeline');
   el.innerHTML=data.timeline.map((x,i)=>`
-    <div class="event reveal" style="transition-delay:${(i%5)*0.1}s">
+    <div class="event reveal">
       <div class="year">${esc(x.date)} · ${esc(x.type)}</div>
       <h3 style="cursor:pointer" onclick="openReader('timeline', '${x.id}')">${esc(x.title)}</h3>
       <div class="desc" style="-webkit-line-clamp:2;cursor:pointer" onclick="openReader('timeline', '${x.id}')">${esc(x.text)}</div>
@@ -351,9 +337,9 @@ function renderTimeline(){
   `).join('');
 }
 
-function renderWork(){document.getElementById('workGrid').innerHTML=data.work.map((x,i)=>`<article class="card reveal" style="transition-delay:${(i%3)*0.1}s" onclick="openReader('work', '${x.id}')">${img(x.image,x.title)}<div class="card-body"><div class="meta">${esc(x.meta)}</div><h3>${esc(x.title)}</h3><div class="desc">${esc(x.text)}</div><div class="read-more">Đọc toàn văn →</div></div></article>`).join('')}
-function renderAchievements(){document.getElementById('achievementGrid').innerHTML=data.achievements.map((x,i)=>`<article class="card achievement reveal ${x.featured?'featured':''}" style="transition-delay:${(i%3)*0.1}s" onclick="openReader('achievements', '${x.id}')">${img(x.image,x.title)}<div class="card-body"><div class="meta">${esc(x.date)}</div><h3>${esc(x.title)}</h3><div class="desc">${esc(x.text)}</div><div class="read-more">Đọc toàn văn →</div></div></article>`).join('')}
-function renderPosts(){let arr=data.posts.filter(x=>currentFilter==='all'||x.type===currentFilter);document.getElementById('blogGrid').innerHTML=arr.length?arr.map((x,i)=>`<article class="card reveal active" style="transition-delay:${(i%3)*0.1}s" onclick="openReader('posts', '${x.id}')">${img(x.image,x.title)}<div class="card-body"><div class="meta">${esc(x.date)} · ${esc(x.type)}</div><h3>${esc(x.title)}</h3><div class="desc">${esc(x.excerpt||x.content)}</div><div class="read-more">Đọc toàn văn →</div></div></article>`).join(''):`<div class="empty">Chưa có nội dung ở mục này.</div>`}
+function renderWork(){document.getElementById('workGrid').innerHTML=data.work.map((x,i)=>`<article class="card reveal" onclick="openReader('work', '${x.id}')">${img(x.image,x.title)}<div class="card-body"><div class="meta">${esc(x.meta)}</div><h3>${esc(x.title)}</h3><div class="desc">${esc(x.text)}</div><div class="read-more">Đọc toàn văn →</div></div></article>`).join('')}
+function renderAchievements(){document.getElementById('achievementGrid').innerHTML=data.achievements.map((x,i)=>`<article class="card achievement reveal ${x.featured?'featured':''}" onclick="openReader('achievements', '${x.id}')">${img(x.image,x.title)}<div class="card-body"><div class="meta">${esc(x.date)}</div><h3>${esc(x.title)}</h3><div class="desc">${esc(x.text)}</div><div class="read-more">Đọc toàn văn →</div></div></article>`).join('')}
+function renderPosts(){let arr=data.posts.filter(x=>currentFilter==='all'||x.type===currentFilter);document.getElementById('blogGrid').innerHTML=arr.length?arr.map((x,i)=>`<article class="card reveal active" onclick="openReader('posts', '${x.id}')">${img(x.image,x.title)}<div class="card-body"><div class="meta">${esc(x.date)} · ${esc(x.type)}</div><h3>${esc(x.title)}</h3><div class="desc">${esc(x.excerpt||x.content)}</div><div class="read-more">Đọc toàn văn →</div></div></article>`).join(''):`<div class="empty">Chưa có nội dung ở mục này.</div>`}
 function filterPosts(f,btn){currentFilter=f;document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));btn.classList.add('active');renderPosts()}
 
 function renderLibrary(){
@@ -380,12 +366,12 @@ function renderLibrary(){
     return;
   }
   document.getElementById('library').style.display = 'block';
-  el.innerHTML = autoImages.map((imgData, i) => `<article class="card reveal" style="transition-delay:${(i%3)*0.1}s;box-shadow:none;border-radius:6px;border:1px solid rgba(220,229,227,0.8)"><div class="card-media" style="border:0"><img src="${esc(imgData.src)}" loading="lazy" alt="${esc(imgData.title)}" onclick="openImage('${esc(imgData.src)}')"></div><div class="card-body" style="padding:18px"><div class="meta" style="font-size:10px">${esc(imgData.category)}</div><h3 style="font-size:15px;margin:6px 0 0">${esc(imgData.title||'Tư liệu hình ảnh')}</h3></div></article>`).join('');
+  el.innerHTML = autoImages.map((imgData, i) => `<article class="card reveal" style="box-shadow:none;border-radius:6px;border:1px solid rgba(220,229,227,0.8)"><div class="card-media" style="border:0"><img src="${esc(imgData.src)}" loading="lazy" alt="${esc(imgData.title)}" onclick="openImage('${esc(imgData.src)}')"></div><div class="card-body" style="padding:18px"><div class="meta" style="font-size:10px">${esc(imgData.category)}</div><h3 style="font-size:15px;margin:6px 0 0">${esc(imgData.title||'Tư liệu hình ảnh')}</h3></div></article>`).join('');
 }
 
 function renderLearning(){
   document.getElementById('learningList').innerHTML = data.learning.map((x,i) => `
-    <div class="learn-item reveal" style="transition-delay:${(i%2)*0.1}s" onclick="openReader('learning', '${x.id}')">
+    <div class="learn-item reveal" onclick="openReader('learning', '${x.id}')">
       <div class="learn-header">
         <div class="learn-title-group">
           ${x.image ? `<img class="learn-thumb" src="${esc(x.image)}" loading="lazy" alt="">` : `<div class="learn-thumb">✦</div>`}
@@ -404,7 +390,7 @@ function renderGoals(){document.getElementById('goalsList').innerHTML=data.goals
 
 function openImage(src){document.getElementById('modalImg').src=src;document.getElementById('imageModal').classList.add('open')}function closeModal(){document.getElementById('imageModal').classList.remove('open')}
 
-/* HÀM ĐỌC TOÀN VĂN AN TOÀN VÀ ĐẦY ĐỦ NHẤT */
+/* HÀM ĐỌC TOÀN VĂN ĐƯỢC CHUẨN HÓA VÀ BẢO ĐẢM HIỂN THỊ 100% */
 function openReader(collection, id){
   const x = data[collection].find(p => String(p.id) === String(id));
   if(!x) return;
@@ -432,7 +418,7 @@ function authError(e){return e?.message||'Đăng nhập thất bại.'}
 function openDashboard(){document.getElementById('dashboard').classList.add('open');document.body.style.overflow='hidden';renderDash('overview')}function closeDashboard(){document.getElementById('dashboard').classList.remove('open');document.body.style.overflow='';renderAll()}function logout(){if(sb)sb.auth.signOut();sessionStorage.removeItem('bhd_admin');closeDashboard()}
 function showTab(tab,btn){document.querySelectorAll('.side button[data-tab]').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');document.getElementById('dashTitle').textContent={overview:'Tổng quan',timeline:'Hành trình',work:'Work & Research',posts:'Blog / Ghi chép',achievements:'Thành tích',learning:'Trọng tâm',goals:'Mục tiêu',settings:'Cấu hình Tiêu đề',profile:'Hồ sơ & Nút liên kết'}[tab];renderDash(tab)}
 
-function renderDash(tab){const c=document.getElementById('dashContent');if(tab==='overview'){c.innerHTML=`<div class="dash-grid"><div class="dash-stat"><b>${data.timeline.length}</b><div class="muted">Mốc hành trình</div></div><div class="dash-stat"><b>${data.posts.length}</b><div class="muted">Bài viết</div></div><div class="dash-stat"><b>${data.achievements.length}</b><div class="muted">Thành tích</div></div><div class="dash-stat"><b>Tự động</b><div class="muted">Thư viện ảnh</div></div></div><div class="dash-panel"><h3>Không gian của bạn</h3><p class="muted" style="font-size:15px">Hệ thống xử lý văn bản sẽ tự động cắt gọn chữ thành 3 dòng ở giao diện thẻ trên trang chủ. Khi khách truy cập bấm vào, một Khung Đọc (Reader) cỡ lớn sẽ mở ra để hiển thị toàn văn.<br><br><b>Mẹo:</b> Bạn có thể viết nội dung dài bao nhiêu tùy ý mà không sợ vỡ bố cục web.</p><div class="actions"><button class="primary" onclick="showTab('timeline',document.querySelector('[data-tab=timeline]'))">+ Thêm Hành trình</button><button class="primary" onclick="showTab('work',document.querySelector('[data-tab=work]'))">+ Work & Research</button><button class="ghost" onclick="showTab('posts',document.querySelector('[data-tab=posts]'))">+ Viết Bài (Blog)</button><button class="ghost" onclick="showTab('achievements',document.querySelector('[data-tab=achievements]'))">+ Thành tích</button></div></div>`}else if(tab==='timeline')renderListEditor(c,'timeline','Hành trình','date,title,type,text,image');else if(tab==='work')renderListEditor(c,'work','Work & Research','title,meta,text,image,link');else if(tab==='posts')renderListEditor(c,'posts','Blog / Ghi chép','date,title,type,excerpt,content,image,images,link');else if(tab==='achievements')renderListEditor(c,'achievements','Thành tích','date,title,text,image,featured,link');else if(tab==='learning')renderListEditor(c,'learning','Trọng tâm phát triển (Đang học)','name,status,note,image');else if(tab==='goals')renderListEditor(c,'goals','Mục tiêu','text,status');else if(tab==='profile')renderProfile(c);else if(tab==='settings')renderSettings(c)}
+function renderDash(tab){const c=document.getElementById('dashContent');if(tab==='overview'){c.innerHTML=`<div class="dash-grid"><div class="dash-stat"><b>${data.timeline.length}</b><div class="muted">Mốc hành trình</div></div><div class="dash-stat"><b>${data.posts.length}</b><div class="muted">Bài viết</div></div><div class="dash-stat"><b>${data.achievements.length}</b><div class="muted">Thành tích</div></div><div class="dash-stat"><b>Tự động</b><div class="muted">Thư viện ảnh</div></div></div><div class="dash-panel"><h3>Không gian của bạn</h3><p class="muted" style="font-size:15px">Hệ thống xử lý văn bản sẽ tự động cắt gọn chữ thành 3 dòng ở giao diện thẻ trên trang chủ. Khi khách truy cập bấm vào, một Khung Đọc (Reader) cỡ lớn sẽ mở ra để hiển thị toàn văn.</p><div class="actions"><button class="primary" onclick="showTab('timeline',document.querySelector('[data-tab=timeline]'))">+ Thêm Hành trình</button><button class="primary" onclick="showTab('work',document.querySelector('[data-tab=work]'))">+ Work & Research</button><button class="ghost" onclick="showTab('posts',document.querySelector('[data-tab=posts]'))">+ Viết Bài (Blog)</button><button class="ghost" onclick="showTab('achievements',document.querySelector('[data-tab=achievements]'))">+ Thành tích</button></div></div>`}else if(tab==='timeline')renderListEditor(c,'timeline','Hành trình','date,title,type,text,image');else if(tab==='work')renderListEditor(c,'work','Work & Research','date,title,meta,text,image,link');else if(tab==='posts')renderListEditor(c,'posts','Blog / Ghi chép','date,title,type,excerpt,content,image,images,link');else if(tab==='achievements')renderListEditor(c,'achievements','Thành tích','date,title,text,image,featured,link');else if(tab==='learning')renderListEditor(c,'learning','Trọng tâm phát triển (Đang học)','name,status,note,image');else if(tab==='goals')renderListEditor(c,'goals','Mục tiêu','text,status');else if(tab==='profile')renderProfile(c);else if(tab==='settings')renderSettings(c)}
 
 window.moveItem = async function(key, index, direction) {
     if (direction === -1 && index > 0) {
@@ -458,12 +444,12 @@ function renderListEditor(c,key,label,fields){
   </div></div>`).join(''):'<div class="empty">Chưa có nội dung.</div>'}</div></div>`
 }
 
-function formFor(key,x={}){const configs={timeline:[['date','Ngày / Năm'],['title','Tiêu đề'],['type','Loại (Công việc/Học tập)'],['text','Nội dung chi tiết (Sẽ tự động cắt chữ thành 3 dòng khi xem thẻ)'],['image','Ảnh (Tùy chọn)']],work:[['title','Tiêu đề'],['meta','Thông tin / Loại công việc'],['text','Nội dung chi tiết'],['image','Ảnh'],['link','Link minh chứng gốc (Google Drive / Báo...)']],posts:[['date','Ngày'],['title','Tiêu đề'],['type','Phân loại'],['excerpt','Tóm tắt (3-4 dòng)'],['content','Nội dung chi tiết toàn bài'],['image','Ảnh bìa'],['images','Ảnh đính kèm trong bài'],['link','Link nguồn / Tệp đính kèm']],achievements:[['date','Ngày'],['title','Tên thành tích'],['text','Mô tả chi tiết'],['image','Ảnh chứng nhận'],['featured','Đánh dấu nổi bật (true / false)'],['link','Link minh chứng (URL)']],learning:[['name','Tên kỹ năng / Trọng tâm'],['status','Trạng thái'],['note','Ghi chú chi tiết'],['image','Ảnh minh họa (Icon/Thumb)']],goals:[['text','Mục tiêu'],['status','Trạng thái']]};return configs[key].map(([f,l])=>{const val=esc(x[f]??'');const isArea=['text','content','excerpt','note'].includes(f);if(f==='images')return '<div class="field"><label>'+l+'</label><textarea id="f_images" placeholder="Mỗi dòng là một URL ảnh">'+esc((x.images||[]).join('\n'))+'</textarea><input type="file" accept="image/*" multiple onchange="uploadMultipleImages(this,\'f_images\')"><small class="muted">Chọn nhiều ảnh cùng lúc.</small></div>';if(f==='image')return '<div class="field"><label>'+l+'</label><input id="f_image" value="'+val+'" placeholder="URL hoặc đường dẫn"><input type="file" accept="image/*" onchange="uploadImageFile(this,\'f_image\')"><small class="muted">Tải ảnh từ máy lên hệ thống.</small></div>';return '<div class="field"><label>'+l+'</label>'+(isArea?'<textarea id="f_'+f+'">'+val+'</textarea>':'<input id="f_'+f+'" value="'+val+'">')+'</div>'}).join('')}
+function formFor(key,x={}){const configs={timeline:[['date','Ngày / Năm'],['title','Tiêu đề'],['type','Loại (Công việc/Học tập)'],['text','Nội dung chi tiết'],['image','Ảnh (Tùy chọn)']],work:[['date','Thời gian (VD: 2024-2025)'],['title','Tiêu đề'],['meta','Thông tin / Loại công việc'],['text','Nội dung chi tiết'],['image','Ảnh'],['link','Link minh chứng gốc']],posts:[['date','Ngày'],['title','Tiêu đề'],['type','Phân loại'],['excerpt','Tóm tắt'],['content','Nội dung chi tiết'],['image','Ảnh bìa'],['images','Ảnh đính kèm'],['link','Link nguồn']],achievements:[['date','Ngày'],['title','Tên thành tích'],['text','Mô tả chi tiết'],['image','Ảnh chứng nhận'],['featured','Đánh dấu nổi bật (true / false)'],['link','Link minh chứng (URL)']],learning:[['name','Tên kỹ năng / Trọng tâm'],['status','Trạng thái'],['note','Ghi chú chi tiết'],['image','Ảnh minh họa (Icon/Thumb)']],goals:[['text','Mục tiêu'],['status','Trạng thái']]};return configs[key].map(([f,l])=>{const val=esc(x[f]??'');const isArea=['text','content','excerpt','note'].includes(f);if(f==='images')return '<div class="field"><label>'+l+'</label><textarea id="f_images" placeholder="Mỗi dòng là một URL ảnh">'+esc((x.images||[]).join('\n'))+'</textarea><input type="file" accept="image/*" multiple onchange="uploadMultipleImages(this,\'f_images\')"></div>';if(f==='image')return '<div class="field"><label>'+l+'</label><input id="f_image" value="'+val+'"><input type="file" accept="image/*" onchange="uploadImageFile(this,\'f_image\')"></div>';return '<div class="field"><label>'+l+'</label>'+(isArea?'<textarea id="f_'+f+'">'+val+'</textarea>':'<input id="f_'+f+'" value="'+val+'">')+'</div>'}).join('')}
 function newItem(key){editForm(key,-1,{})}function editItem(key,i){if(!Array.isArray(data[key])||!data[key][i]){toast('Không tìm thấy mục cần chỉnh sửa');return}editForm(key,i,data[key][i])}
-function editForm(key,i,x){const c=document.getElementById('dashContent');c.innerHTML=`<div class="dash-panel" style="margin-top:0"><div class="section-head" style="margin-bottom:24px;border-bottom:1px solid var(--line);padding-bottom:16px"><div><div class="kicker">EDITOR</div><h2 style="margin-top:6px">${i<0?'Thêm mới':'Chỉnh sửa nội dung'}</h2></div></div><div class="editor"><div>${formFor(key,x)}</div><div class="panel" style="box-shadow:none;border:1px solid #ced6d4"><h3>Gợi ý thông minh</h3><p class="muted" style="font-size:14px;line-height:1.7">Bạn có thể viết dài bao nhiêu tùy thích ở phần Nội dung.<br><br>Trang web sẽ tự động giới hạn 3 dòng cực kỳ mượt mà khi hiển thị trên thẻ ngoài màn hình chủ, và chỉ mở rộng toàn văn khi nhà tuyển dụng bấm vào.</p></div></div><div class="editor-actions"><button class="ghost" onclick="renderDash('${key}')">Hủy</button><button class="primary" onclick="saveItem('${key}',${i})">Lưu thay đổi</button></div></div>`}
+function editForm(key,i,x){const c=document.getElementById('dashContent');c.innerHTML=`<div class="dash-panel" style="margin-top:0"><div class="section-head" style="margin-bottom:24px;border-bottom:1px solid var(--line);padding-bottom:16px"><div><div class="kicker">EDITOR</div><h2 style="margin-top:6px">${i<0?'Thêm mới':'Chỉnh sửa nội dung'}</h2></div></div><div class="editor"><div>${formFor(key,x)}</div><div class="panel" style="box-shadow:none;border:1px solid #ced6d4"><h3>Gợi ý</h3><p class="muted" style="font-size:14px;line-height:1.7">Mọi nội dung viết ở phần chi tiết sẽ tự động thu gọn 3 dòng ngoài trang chủ và hiển thị đầy đủ khi bấm Đọc toàn văn.</p></div></div><div class="editor-actions"><button class="ghost" onclick="renderDash('${key}')">Hủy</button><button class="primary" onclick="saveItem('${key}',${i})">Lưu thay đổi</button></div></div>`}
 async function uploadMultipleImages(input,targetId){const files=[...(input.files||[])];if(!files.length)return;const target=document.getElementById(targetId);if(!target)return;try{const urls=sb?await Promise.all(files.map(file=>{const safe=file.name.toLowerCase().replace(/[^a-z0-9._-]+/g,'-');const path='portfolio/'+Date.now()+'-'+Math.random().toString(36).slice(2)+'-'+safe;return sb.storage.from('portfolio-images').upload(path,file,{upsert:false,contentType:file.type}).then(({error})=>{if(error)throw error;const {data:pub}=sb.storage.from('portfolio-images').getPublicUrl(path);return pub.publicUrl})})):await Promise.all(files.map(file=>new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(file)})));const current=target.value.split(/\n|,/).map(x=>x.trim()).filter(Boolean);target.value=[...current,...urls].join('\n');toast(`Đã thêm ${urls.length} ảnh`)}catch(e){alert('Không tải được ảnh: '+e.message)}input.value=''}
 async function uploadImageFile(input,targetId){const file=input.files&&input.files[0];if(!file)return;const target=document.getElementById(targetId);try{if(sb){const safe=file.name.toLowerCase().replace(/[^a-z0-9._-]+/g,'-');const path='portfolio/'+Date.now()+'-'+safe;const {error}=await sb.storage.from('portfolio-images').upload(path,file,{upsert:false,contentType:file.type});if(error)throw error;const {data:pub}=sb.storage.from('portfolio-images').getPublicUrl(path);target.value=pub.publicUrl;toast('Đã tải ảnh lên Storage');return}const reader=new FileReader();reader.onload=()=>{target.value=reader.result;toast('Đã nạp ảnh cục bộ — hãy bấm Lưu')};reader.readAsDataURL(file)}catch(e){alert('Không tải được ảnh: '+e.message)}}
-async function saveItem(key,i){const cfg={timeline:['date','title','type','text','image'],work:['title','meta','text','image','link'],posts:['date','title','type','excerpt','content','image','images','link'],achievements:['date','title','text','image','featured','link'],learning:['name','status','note','image'],goals:['text','status']}[key];if(!cfg){toast('Không xác định được loại nội dung');return}let o={};cfg.forEach(f=>{const el=document.getElementById('f_'+f);if(el)o[f]=el.value});if(key==='posts'){o.images=String(o.images||'').split(/\n|,/).map(x=>x.trim()).filter(Boolean);if(!o.image&&o.images.length)o.image=o.images[0]}if(key==='achievements')o.featured=o.featured==='true';if(i<0){o.id=key+'-'+Date.now().toString(36)+Math.random().toString(36).substr(2,4);
+async function saveItem(key,i){const cfg={timeline:['date','title','type','text','image'],work:['date','title','meta','text','image','link'],posts:['date','title','type','excerpt','content','image','images','link'],achievements:['date','title','text','image','featured','link'],learning:['name','status','note','image'],goals:['text','status']}[key];if(!cfg){toast('Không xác định được loại nội dung');return}let o={};cfg.forEach(f=>{const el=document.getElementById('f_'+f);if(el)o[f]=el.value});if(key==='posts'){o.images=String(o.images||'').split(/\n|,/).map(x=>x.trim()).filter(Boolean);if(!o.image&&o.images.length)o.image=o.images[0]}if(key==='achievements')o.featured=o.featured==='true';if(i<0){o.id=key+'-'+Date.now().toString(36)+Math.random().toString(36).substr(2,4);
   data[key].unshift(o);
 }else{const old=data[key][i];data[key][i]={...old,...o,id:old?.id??(key+'-'+Date.now())}}const ok=await save();if(ok!==false)toast('Đã lưu');renderDash(key)}
 async function deleteItem(key,i){if(!Array.isArray(data[key])||!data[key][i]){toast('Không tìm thấy mục cần xóa');return}if(confirm('Xóa nội dung này?')){data[key].splice(i,1);await save();renderDash(key);toast('Đã xóa')}}
@@ -477,7 +463,7 @@ function renderSettings(c){
      {i:'6', label:'Mục 6 (Blog)'},
      {i:'7', label:'Mục 7 (Trọng tâm)'}
   ];
-  let html = `<div class="dash-panel" style="margin-top:0"><h2>Cấu hình Tiêu đề (Bỏ chữ Tự Động)</h2><p class="muted">Tùy biến toàn bộ nhãn, tiêu đề chính và đoạn văn mô tả của các khu vực.</p>`;
+  let html = `<div class="dash-panel" style="margin-top:0"><h2>Cấu hình Tiêu đề</h2><p class="muted">Tùy biến toàn bộ nhãn và tiêu đề chính.</p>`;
   fields.forEach(f => {
      html += `<div style="border-top:1px solid var(--line); margin-top:24px; padding-top:24px">
         <h3 style="margin-top:0; font-size:16px; color:var(--teal)">${f.label}</h3>
@@ -507,50 +493,18 @@ function renderProfile(c){
   for(let i=1; i<=5; i++) {
     extraProofHtml += `
       <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:16px;margin-bottom:16px">
-        <div class="field"><label>Tên Nút Phụ ${i}</label><input id="p_proof${i}_name" value="${esc(data.profile['proof'+i+'_name'])}" placeholder="VD: Bằng Cử nhân"></div>
-        <div class="field"><label>Link (URL) Nút ${i}</label><input id="p_proof${i}_link" value="${esc(data.profile['proof'+i+'_link'])}" placeholder="Link Drive..."></div>
+        <div class="field"><label>Tên Nút Phụ ${i}</label><input id="p_proof${i}_name" value="${esc(data.profile['proof'+i+'_name'])}"></div>
+        <div class="field"><label>Link (URL) Nút ${i}</label><input id="p_proof${i}_link" value="${esc(data.profile['proof'+i+'_link'])}"></div>
       </div>
     `;
   }
-
-  c.innerHTML=`<div class="dash-panel" style="margin-top:0"><h2>Quản lý Hồ sơ & Các nút liên kết</h2><p class="muted">Tùy chỉnh thông tin cá nhân trên màn hình chính.</p>
-  ${[
-    ['cv_link','Link xem/tải CV (Dán link PDF / Google Drive vào đây)'],
-    ['avatar','Ảnh đại diện'],
-    ['name','Họ tên'],
-    ['title','Chức danh'],
-    ['about_title','Tiêu đề mục 1 (Vd: Tổng quan Hồ sơ)'],
-    ['about_desc','Mô tả dưới tiêu đề mục 1'],
-    ['about_h1','Tiêu đề cột trái (Vd: Kỹ năng chuyên môn)'],
-    ['bio','Nội dung giới thiệu chung (cột trái)'],
-    ['skills','Từ khóa kỹ năng (Ngăn cách bằng dấu phẩy)'],
-    ['about_h2','Tiêu đề cột phải (Vd: Giá trị cốt lõi)'],
-    ['about_text2','Nội dung cột phải'],
-    ['now','Mô tả phần "Đang ở đâu" (Cuối trang)'],
-    ['email','Email liên hệ'],
-    ['phone','Số điện thoại'],
-    ['facebook','Link Facebook']
-  ].map(([f,l])=>{
-    let inputHtml = '';
-    if(['bio','now','about_desc','about_text2', 'skills'].includes(f)){
-      inputHtml = `<textarea id="p_${f}">${esc(data.profile[f])}</textarea>`;
-      if(f === 'skills') inputHtml += `<small class="muted" style="display:block;margin-top:4px;">Ví dụ: Pháp lý doanh nghiệp, Soạn thảo hợp đồng...</small>`;
-    } else if (f === 'avatar') {
-      inputHtml = `<input id="p_avatar" value="${esc(data.profile[f]||'assets/Anh_the.png')}"><input type="file" accept="image/*" onchange="uploadImageFile(this,'p_avatar')">`;
-    } else if (f === 'cv_link') {
-      inputHtml = `<input id="p_${f}" value="${esc(data.profile[f])}" placeholder="VD: https://drive.google.com/..."><small class="muted" style="display:block;margin-top:4px;">Nếu để trống ô này, nút Tải CV trên web sẽ tự động ẩn đi.</small>`;
-    } else {
-      inputHtml = `<input id="p_${f}" value="${esc(data.profile[f])}">`;
-    }
+  c.innerHTML=`<div class="dash-panel" style="margin-top:0"><h2>Quản lý Hồ sơ</h2><p class="muted">Tùy chỉnh thông tin cá nhân.</p>
+  ${[['cv_link','Link CV'],['avatar','Ảnh đại diện'],['name','Họ tên'],['title','Chức danh'],['about_title','Tiêu đề mục 1'],['about_desc','Mô tả mục 1'],['about_h1','Tiêu đề trái'],['bio','Giới thiệu chung'],['skills','Kỹ năng (cách nhau dấu phẩy)'],['about_h2','Tiêu đề phải'],['about_text2','Nội dung phải'],['now','Phần NOW'],['email','Email'],['phone','Điện thoại'],['facebook','Facebook']].map(([f,l])=>{
+    let inputHtml = ['bio','now','about_desc','about_text2','skills'].includes(f) ? `<textarea id="p_${f}">${esc(data.profile[f])}</textarea>` : `<input id="p_${f}" value="${esc(data.profile[f])}">`;
+    if(f==='avatar') inputHtml += `<input type="file" accept="image/*" onchange="uploadImageFile(this,'p_avatar')">`;
     return `<div class="field"><label>${l}</label>${inputHtml}</div>`;
   }).join('')}
-  
-  <div style="border-top:1px solid var(--line); margin: 40px 0 24px; padding-top:30px">
-    <h3 style="margin-top:0; color:var(--ink)">5 Nút Minh Chứng Tùy Chọn</h3>
-    <p class="muted" style="font-size:14px; margin-bottom: 24px">Cứ điền là có nút, bỏ trống là nút tự ẩn.</p>
-    ${extraProofHtml}
-  </div>
-
+  <div style="border-top:1px solid var(--line); margin: 40px 0 24px; padding-top:30px"><h3>5 Nút Minh Chứng Tùy Chọn</h3>${extraProofHtml}</div>
   <button class="primary" style="margin-top:10px;width:100%" onclick="saveProfile()">Lưu toàn bộ hồ sơ</button></div>`;
 }
 async function saveProfile(){
