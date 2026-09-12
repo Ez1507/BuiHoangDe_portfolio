@@ -1,294 +1,537 @@
-<!doctype html>
-<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bùi Hoàng Dể — Personal Profile</title>
-<meta name="description" content="Bùi Hoàng Dể — hồ sơ cá nhân, hành trình, nghiên cứu, thành tích và những điều đang học.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script>
-<style>
-:root{--ink:#10283a;--muted:#526675;--paper:#f6faf8;--card:#fff;--line:#dce8e4;--teal:#159a91;--green:#55a879;--aqua:#dff4ef;--shadow:0 24px 70px rgba(16,40,58,.10);--r:24px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 85% 0,#e8f7f2 0,transparent 28%),var(--paper);color:var(--ink);font:15px/1.7 'DM Sans',sans-serif}a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}.wrap{width:min(1160px,calc(100% - 36px));margin:auto}.top{position:sticky;top:0;z-index:30;background:rgba(246,250,248,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(220,232,228,.7)}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:800;letter-spacing:-.04em}.brand small{display:block;font-size:10px;letter-spacing:.18em;color:var(--teal);font-weight:700}.links{display:flex;gap:22px;align-items:center}.links a{font-size:13px;color:#48606e}.links a:hover{color:var(--teal)}.admin-btn,.primary{background:var(--ink);color:#fff;padding:11px 16px;border-radius:14px;font-weight:700}.ghost{background:#fff;border:1px solid var(--line);padding:11px 16px;border-radius:14px;font-weight:700}.hero{padding:88px 0 72px;min-height:650px;display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center}
-.eyebrow{display:inline-flex;gap:9px;align-items:center;padding:7px 11px;border-radius:999px;background:var(--aqua);color:#0f5b55;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.hero h1{font:700 clamp(48px,7.4vw,88px)/.96 'Playfair Display',serif;letter-spacing:-.055em;margin:18px 0;white-space:nowrap}.hero h1 span{display:block;color:var(--teal)}.lead{font-size:18px;color:var(--muted);max-width:620px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.portrait{position:relative;max-width:440px;margin-left:auto}.portrait:before{content:'';position:absolute;inset:-30px -20px 35px 25px;border:1px solid #b9ddd3;border-radius:40px;transform:rotate(5deg)}.portrait:after{content:'LEGAL · RESEARCH · JOURNEY';position:absolute;right:-25px;bottom:15px;background:var(--ink);color:#fff;padding:12px 16px;border-radius:14px;font-size:10px;letter-spacing:.13em}.portrait img{position:relative;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:36px;display:block;box-shadow:var(--shadow)}.mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px}.stat{background:#fff;border:1px solid var(--line);padding:14px;border-radius:17px}.stat b{font-size:20px;display:block}.stat span{font-size:11px;color:var(--muted)}section{padding:82px 0}.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:34px}.kicker{color:var(--teal);font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.section-head h2{font:700 clamp(34px,5vw,58px)/1 'Playfair Display',serif;margin:8px 0 0;letter-spacing:-.04em}.section-head p{max-width:430px;color:var(--muted);margin:0}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.panel{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px;box-shadow:0 10px 40px rgba(16,40,58,.04)}.panel h3{margin:0 0 10px}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{padding:8px 11px;background:#edf7f4;border-radius:999px;font-size:12px}.timeline{position:relative;padding-left:35px}.timeline:before{content:'';position:absolute;left:9px;top:5px;bottom:5px;width:1px;background:#bddbd3}.event{position:relative;margin:0 0 26px}.event:before{content:'';position:absolute;left:-31px;top:7px;width:11px;height:11px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 5px var(--paper)}.event .year{font-size:11px;font-weight:800;color:var(--teal);letter-spacing:.12em}.event h3{margin:4px 0 6px;font-size:20px}.event p{margin:0;color:var(--muted)}.event .event-meta{margin-top:12px;display:flex;gap:7px;flex-wrap:wrap}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:0 10px 40px rgba(16,40,58,.04);transition:.25s}.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.card-media{aspect-ratio:16/10;background:#e8f2ef;overflow:hidden}
-.card-media img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;transition:transform 0.4s ease}.card:hover .card-media img{transform:scale(1.04)}.card-body{padding:20px}.card-body h3{margin:6px 0;font-size:18px;line-height:1.35}.meta{font-size:11px;color:var(--teal);font-weight:800;letter-spacing:.06em}.desc{color:var(--muted);font-size:13px}.achievement .card-media{aspect-ratio:4/3}.featured{grid-column:span 2}.featured .card-media{aspect-ratio:16/8}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}.filter.active{background:var(--ink);color:#fff}.filter{background:#fff;border:1px solid var(--line);padding:9px 13px;border-radius:999px}.learning{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.learn-item{display:flex;gap:16px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}.learn-item:last-child{border-bottom:0}.learn-thumb{width:64px;height:64px;border-radius:14px;object-fit:cover;background:#eef5f3;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.04)}.learn-content{flex:1}.learn-content strong{display:block;font-size:15px;margin-bottom:3px}.learn-content span{font-size:13px;color:var(--muted);line-height:1.45;display:block}
-.pill{padding:6px 9px;border-radius:999px;background:#eef8f4;color:#277866;font-size:11px;font-weight:700;white-space:nowrap}.now{background:var(--ink);color:#fff;border-radius:32px;padding:45px;display:grid;grid-template-columns:1.1fr .9fr;gap:50px;position:relative;overflow:hidden}.now:after{content:'';position:absolute;width:360px;height:360px;border:1px solid rgba(255,255,255,.12);border-radius:50%;right:-120px;top:-150px}.now p{color:#bfd0d8}.now h2{font:700 50px/1 'Playfair Display',serif;margin:7px 0 18px}.now-list{display:grid;gap:12px}.now-list div{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12)}
-.muted{color:var(--muted)}.modal{position:fixed;inset:0;background:rgba(5,18,25,.82);z-index:100;display:none;align-items:center;justify-content:center;padding:24px}.modal.open{display:flex}.modal img{max-width:min(1200px,94vw);max-height:88vh;object-fit:contain;border-radius:12px}.close{position:absolute;top:20px;right:20px;background:#fff;border-radius:50%;width:42px;height:42px;font-size:20px}.reader{background:#fff;color:var(--ink);max-width:850px;max-height:90vh;overflow:auto;border-radius:28px;padding:40px}.reader img{max-width:100%;border-radius:18px;margin:12px 0}.reader h1{font:700 42px/1.1 'Playfair Display',serif}.dash{position:fixed;inset:0;background:#f4f8f7;z-index:80;display:none}.dash.open{display:grid;grid-template-columns:245px 1fr}.side{background:var(--ink);color:#dbe8ec;padding:22px;display:flex;flex-direction:column;overflow-y:auto}.side .brand{color:#fff;margin-bottom:28px}.side button{background:transparent;color:#b8cad0;text-align:left;padding:12px;border-radius:12px;margin:2px 0}.side button.active,.side button:hover{background:#183a4d;color:#fff}.dash-main{overflow:auto}.dash-top{height:74px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 30px;position:sticky;top:0;z-index:2}.dash-content{padding:30px;max-width:1200px}.dash-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.dash-stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}.dash-stat b{font-size:28px}.dash-panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;margin-top:18px}.list-row{display:grid;grid-template-columns:72px 1fr auto;gap:15px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.thumb{width:72px;height:55px;border-radius:10px;object-fit:cover;background:#edf5f2}.row-actions{display:flex;gap:7px;flex-wrap:wrap}.smallbtn{padding:8px 10px;border-radius:10px;background:#edf5f2}.danger{background:#fff0ef;color:#a22}.editor{display:grid;grid-template-columns:1fr 300px;gap:18px}.field{display:grid;gap:6px;margin-bottom:14px}.field label{font-size:12px;font-weight:800}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);background:#fbfdfc;border-radius:12px;padding:11px 12px;outline:none}.field textarea{min-height:140px;resize:vertical}.editor-actions{display:flex;gap:9px;justify-content:flex-end}.empty{padding:35px;text-align:center;color:var(--muted)}.toast{position:fixed;right:20px;bottom:20px;background:var(--ink);color:#fff;padding:12px 16px;border-radius:13px;z-index:200;display:none}.toast.show{display:block}
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#1a1f28" />
 
-/* Cập nhật UI Responsive cho Dashboard trên điện thoại */
-@media(max-width:900px){
-  .links{display:none}.hero{grid-template-columns:1fr;padding-top:55px}.portrait{margin:0 auto;width:min(440px,90%)}.grid{grid-template-columns:1fr 1fr}.featured{grid-column:span 2}.now,.learning,.about-grid{grid-template-columns:1fr}
-  .dash.open{grid-template-columns:1fr; grid-template-rows: auto 1fr}
-  .side{flex-direction:row; padding:10px 16px; overflow-x:auto; gap:8px; border-bottom:1px solid var(--line); align-items:center}
-  .side::-webkit-scrollbar { display: none; }
-  .side .brand{display:none}
-  .side button{margin:0; padding:8px 14px; font-size:13px; white-space:nowrap; flex-shrink:0}
-  .side-bottom { display:flex; flex-direction:row; gap:8px; margin-left: 10px }
-  .editor{grid-template-columns:1fr}
-  .dash-grid{grid-template-columns:1fr 1fr}
-}
-@media(min-width:901px){ .side-bottom { margin-top: auto; display:flex; flex-direction:column; gap:4px; } }
-@media(max-width:620px){
-  .wrap{width:min(100% - 24px,1160px)}section{padding:60px 0}.hero h1{font-size:clamp(38px,10.2vw,48px);line-height:1;letter-spacing:-.045em;white-space:nowrap;max-width:100%;}.mini-stats{grid-template-columns:1fr 1fr}.mini-stats .stat:last-child{grid-column:span 2}.grid{grid-template-columns:1fr}.featured{grid-column:auto}.section-head{display:block}.section-head p{margin-top:14px}.now{padding:28px;border-radius:24px}.now h2{font-size:32px}.dash-content{padding:16px}.list-row{grid-template-columns:58px 1fr}.list-row .row-actions{grid-column:2}.thumb{width:58px;height:48px}.reader{padding:24px}.reader h1{font-size:32px}
-}
+<!-- ============ SEO ============ -->
+<title>Bùi Hoàng Dể — Hồ sơ Pháp lý, Nghiên cứu & Hành trình</title>
+<meta name="description" content="Hồ sơ cá nhân của Bùi Hoàng Dể: hành trình học Luật tại Trường Đại học Luật TP.HCM, nghiên cứu khoa học, kinh nghiệm pháp chế và những cột mốc đáng nhớ." />
+<meta name="author" content="Bùi Hoàng Dể" />
+<meta name="keywords" content="Bùi Hoàng Dể, luật, pháp chế, nghiên cứu pháp luật, portfolio, Đại học Luật TP.HCM" />
+<link rel="canonical" href="https://buihoangde-portfolio.hoangdeb751.workers.dev/" />
 
-/* ===== FOOTER DARK THEME ===== */
-.footer-redesign { background: var(--ink); color: #fff; padding: 70px 0 30px; margin-top: 40px; border-radius: 40px 40px 0 0; box-shadow: 0 -10px 40px rgba(16,40,58,0.08); }
-.footer-container { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; margin-bottom: 50px; }
-.footer-redesign .brand { color: #fff; font-size: 18px; margin-bottom: 16px; }
-.footer-redesign .brand small { color: var(--teal); }
-.footer-desc { color: #9cb3c9; font-size: 15px; max-width: 380px; line-height: 1.7; margin: 0; }
-.footer-col h4 { font-family: 'Playfair Display', serif; font-size: 18px; margin: 0 0 20px; color: #fff; letter-spacing: 0.02em; }
-.footer-links { display: flex; flex-direction: column; gap: 14px; }
-.footer-links a, .footer-links span { color: #9cb3c9; font-size: 14px; text-decoration: none; transition: color 0.2s ease, transform 0.2s ease; display: inline-block; }
-.footer-links a:hover { color: var(--teal); transform: translateX(4px); }
-.footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; color: #6b859d; font-size: 13px; }
-.footer-bottom-links a { color: #6b859d; margin-left: 16px; }
-.footer-bottom-links a:hover { color: #fff; }
-@media (max-width: 800px) { .footer-container { grid-template-columns: 1fr 1fr; gap: 40px; } .footer-info { grid-column: span 2; } }
-@media (max-width: 620px) { .footer-redesign { border-radius: 28px 28px 0 0; padding: 50px 0 24px; } .footer-container { grid-template-columns: 1fr; gap: 36px; } .footer-info { grid-column: span 1; } .footer-bottom { flex-direction: column; gap: 12px; align-items: flex-start; } .footer-bottom-links a { margin-left: 0; margin-right: 16px; } }
+<!-- Open Graph -->
+<meta property="og:type" content="profile" />
+<meta property="og:title" content="Bùi Hoàng Dể — Hồ sơ Pháp lý & Nghiên cứu" />
+<meta property="og:description" content="Hành trình học Luật, nghiên cứu khoa học và kinh nghiệm pháp lý thực tiễn." />
+<meta property="og:url" content="https://buihoangde-portfolio.hoangdeb751.workers.dev/" />
+<meta property="og:locale" content="vi_VN" />
+<meta property="og:image" content="https://buihoangde-portfolio.hoangdeb751.workers.dev/images/og-default.jpg" />
 
-.placeholder-media{display:grid;place-items:center;align-content:center;gap:4px;background:linear-gradient(135deg,#eef6f3,#f8fbfa);color:#72858d;text-align:center}.placeholder-media span{font-size:12px;font-weight:700}.placeholder-media small{font-size:10px;color:#98a8ae}.hero-status{font-variant-numeric:tabular-nums; margin:14px 0 0;color:#71838d;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
-@media(max-width:390px){.hero h1{font-size:38px;letter-spacing:-.05em}} 
-.gallery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;background:var(--line)}.gallery-grid .card-media{aspect-ratio:1/1}.gallery-grid .card-media img{cursor:zoom-in}@media(max-width:620px){.gallery-grid{grid-template-columns:1fr 1fr}}
-</style></head><body>
-<header class="top"><div class="wrap nav"><a class="brand" href="#home">BÙI HOÀNG DỂ<small>PERSONAL PROFILE</small></a><nav class="links"><a href="#about">Về tôi</a><a href="#journey">Hành trình</a><a href="#work">Chuyên môn</a><a href="#achievements">Thành tích</a><a href="#blog">Journal</a></nav><button class="admin-btn" onclick="openLogin()">Quản trị</button></div></header>
-<main id="public">
-<section class="hero wrap" id="home"><div><span class="eyebrow">Legal · Research · Journey</span><p class="hero-status">TP. HCM · 2022 — nay</p><h1>Bùi Hoàng <span>Dể.</span></h1><p class="lead">Một hồ sơ cá nhân được xây dựng theo thời gian — ghi lại những cột mốc, trải nghiệm pháp lý, nghiên cứu, thành tích và những điều tôi đang tiếp tục học.</p><div class="actions"><a class="primary" href="#journey">Xem hành trình</a><a class="ghost" href="#about">Về tôi</a></div><div class="mini-stats"><div class="stat"><b>2022</b><span>Bắt đầu học Luật</span></div><div class="stat"><b>2026</b><span>Tốt nghiệp</span></div><div class="stat"><b id="statYears">—</b><span>Năm ghi lại hành trình</span></div></div></div><div class="portrait"><img id="heroAvatar" src="assets/Anh_the.png" alt="Bùi Hoàng Dể"></div></section>
-<section id="about"><div class="wrap"><div class="section-head"><div><div class="kicker">01 / Profile</div><h2 id="out_about_title">Tổng quan Hồ sơ</h2></div><p id="out_about_desc"></p></div><div class="about-grid"><div class="panel"><h3 id="out_about_h1"></h3><p id="aboutText"></p><div class="chips"><span class="chip">Legal Research</span><span class="chip">Corporate Legal</span><span class="chip">Contracts</span><span class="chip">Legal Procedures</span></div></div><div class="panel"><h3 id="out_about_h2"></h3><p id="out_about_text2"></p></div></div></div></section>
-<section id="journey"><div class="wrap"><div class="section-head"><div><div class="kicker">02 / Timeline</div><h2>Hành trình</h2></div><p>Quá khứ được ghi nhận. Hiện tại được cập nhật. Tương lai tiếp tục được viết.</p></div><div class="timeline" id="timeline"></div></div></section>
-<section id="work"><div class="wrap"><div class="section-head"><div><div class="kicker">03 / Work & Research</div><h2>Nghiên cứu & công việc</h2></div><p>Những trải nghiệm tạo nên cách tôi nhìn và xử lý vấn đề pháp lý.</p></div><div class="grid" id="workGrid"></div></div></section>
-<section id="achievements"><div class="wrap"><div class="section-head"><div><div class="kicker">04 / Milestones</div><h2>Thành tích & dấu mốc</h2></div><p>Ảnh có thể không hiển thị trọn vẹn trên card. Hãy click để xem bản đầy đủ.</p></div><div class="grid" id="achievementGrid"></div></div></section>
-<section id="library"><div class="wrap"><div class="section-head"><div><div class="kicker">05 / Library</div><h2>Thư viện tư liệu</h2></div><p>Ảnh chứng nhận, hoạt động và những tư liệu quan trọng có thể được thêm dần theo thời gian. Bấm vào ảnh để xem bản đầy đủ.</p></div><div class="grid" id="libraryGrid"></div></div></section><section id="blog"><div class="wrap"><div class="section-head"><div><div class="kicker">06 / Journal</div><h2>Blog & ghi chép</h2></div><p>Những suy nghĩ, bài học, ghi chú và câu chuyện có thể được cập nhật bất cứ lúc nào.</p></div><div class="filters"><button class="filter active" onclick="filterPosts('all',this)">Tất cả</button><button class="filter" onclick="filterPosts('journey',this)">Hành trình</button><button class="filter" onclick="filterPosts('blog',this)">Blog</button><button class="filter" onclick="filterPosts('learning',this)">Bài học</button></div><div class="grid" id="blogGrid"></div></div></section>
-<section id="learning"><div class="wrap"><div class="section-head"><div><div class="kicker">07 / Focus</div><h2>Trọng tâm phát triển</h2></div><p>Không chỉ lưu những gì đã đạt được, mà còn cho thấy tôi đang tập trung phát triển chuyên môn theo hướng nào.</p></div><div class="learning panel" id="learningList"></div></div></section>
-<section><div class="wrap"><div class="now"><div><div class="kicker" style="color:#71d2c5">NOW</div><h2>Đang ở đâu,<br>đang hướng tới đâu?</h2><p id="nowText"></p></div><div class="now-list" id="goalsList"></div></div></div></section>
-</main>
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Bùi Hoàng Dể — Hồ sơ Pháp lý & Nghiên cứu" />
+<meta name="twitter:description" content="Hành trình học Luật, nghiên cứu khoa học và kinh nghiệm pháp lý thực tiễn." />
 
-<footer class="footer-redesign">
-  <div class="wrap">
-    <div class="footer-container">
-      <div class="footer-info">
-        <div class="brand">BÙI HOÀNG DỂ<small>PERSONAL PROFILE</small></div>
-        <p class="footer-desc">Theo đuổi sự chính xác, bảo mật và tư duy hệ thống. Xây dựng nền tảng chuyên môn vững chắc để giải quyết các vấn đề pháp lý thực tiễn.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Khám phá</h4>
-        <div class="footer-links">
-          <a href="#about">Về tôi</a>
-          <a href="#journey">Hành trình</a>
-          <a href="#work">Nghiên cứu & Công việc</a>
-          <a href="#blog">Blog & Ghi chép</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Kết nối</h4>
-        <div class="footer-links">
-          <span>Email: Hoangdeb751@gmail.com</span>
-          <span>Điện thoại: 0358 297 366</span>
-          <a href="https://www.facebook.com/hoangde.bui.03/" target="_blank">Facebook ↗</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 Bùi Hoàng Dể. Thiết kế phục vụ lưu trữ cá nhân.</span>
-      <div class="footer-bottom-links">
-        <a href="#" onclick="openLogin(); return false;">Đăng nhập quản trị</a>
-        <a href="#home">↑ Lên đầu trang</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<div class="modal" id="imageModal" onclick="if(event.target===this)closeModal()"><button class="close" onclick="closeModal()">×</button><img id="modalImg" alt="Ảnh đầy đủ"></div>
-<div class="modal" id="readerModal"><button class="close" onclick="closeReader()">×</button><article class="reader" id="reader"></article></div>
-<div class="modal" id="loginModal"><button class="close" onclick="closeLogin()">×</button><div class="reader" style="max-width:430px"><div class="kicker">Private area</div><h2 style="font:700 36px 'Playfair Display';margin:8px 0">Quản trị cá nhân</h2><p class="muted">Đăng nhập tài khoản quản trị để thêm, sửa và xóa nội dung.</p><div class="field"><label>Email</label><input id="loginEmail" type="email" value="Hoangdeb751@gmail.com"></div><div class="field"><label>Mật khẩu</label><input id="loginPassword" type="password" placeholder="Mật khẩu Supabase"></div><button class="primary" style="width:100%" onclick="login()">Đăng nhập</button><p id="loginError" class="muted" style="font-size:12px"></p></div></div>
-<div class="dash" id="dashboard">
-  <aside class="side">
-    <div class="brand">BÙI HOÀNG DỂ<small>ADMIN</small></div>
-    <button class="active" data-tab="overview" onclick="showTab('overview',this)">Tổng quan</button>
-    <button data-tab="profile" onclick="showTab('profile',this)">Hồ sơ</button>
-    <button data-tab="timeline" onclick="showTab('timeline',this)">Hành trình</button>
-    <button data-tab="work" onclick="showTab('work',this)">Work & Research</button>
-    <button data-tab="posts" onclick="showTab('posts',this)">Blog / Ghi chép</button>
-    <button data-tab="achievements" onclick="showTab('achievements',this)">Thành tích</button>
-    <button data-tab="library" onclick="showTab('library',this)">Thư viện ảnh</button>
-    <button data-tab="learning" onclick="showTab('learning',this)">Trọng tâm (Đang học)</button>
-    <button data-tab="goals" onclick="showTab('goals',this)">Mục tiêu</button>
-    <div class="side-bottom">
-      <button onclick="logout()">Đăng xuất</button>
-      <button onclick="closeDashboard()">← Về website</button>
-    </div>
-  </aside>
-  <div class="dash-main">
-    <div class="dash-top">
-      <strong id="dashTitle">Tổng quan</strong>
-      <span id="syncStatus" class="muted">Đang kết nối dữ liệu…</span>
-    </div>
-    <div class="dash-content" id="dashContent"></div>
-  </div>
-</div>
-<div class="toast" id="toast"></div>
-<script>
-const ADMIN_EMAIL='Hoangdeb751@gmail.com';
-const KEY='bhd_profile_v3';
-const initial={
-  profile:{
-    avatar:'assets/Anh_the.png', name:'Bùi Hoàng Dể', title:'Nhân viên pháp lý',
-    about_title:'Tổng quan Hồ sơ', 
-    about_desc:'Một góc nhìn bao quát về định hướng và những giá trị cốt lõi tôi theo đuổi trong công việc.',
-    about_h1:'Trọng tâm hiện tại', 
-    bio:'Tôi phát triển chuyên môn trong lĩnh vực pháp lý, quan tâm đến pháp chế doanh nghiệp, nghiên cứu pháp luật, hợp đồng và xử lý các thủ tục pháp lý thực tiễn.',
-    about_h2:'Giá trị cốt lõi',
-    about_text2:'Cẩn thận, trách nhiệm, chính xác và bảo mật. Tôi thích tư duy có hệ thống, chủ động học hỏi, tiếp nhận nhiệm vụ mới và cải thiện từ phản hồi.',
-    now:'Tôi đang xây dựng nền tảng chuyên môn pháp lý và tiếp tục tích lũy kinh nghiệm thực tiễn.',
-    email:'Hoangdeb751@gmail.com', phone:'0358297366', facebook:'https://www.facebook.com/hoangde.bui.03/'
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Bùi Hoàng Dể",
+  "jobTitle": "Legal Professional",
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Trường Đại học Luật TP.HCM"
   },
-  timeline:[
-    {id:1,date:'08/2022',title:'Bắt đầu hành trình tại Trường Đại học Luật TP.HCM',type:'Học tập',text:'Học ngành Luật – Luật Dân sự, đồng thời tham gia hoạt động lớp, học thuật và phong trào sinh viên.',image:''},
-    {id:2,date:'2023',title:'Nghiên cứu, hoạt động và tình nguyện',type:'Hoạt động',text:'Tham gia nghiên cứu khoa học, hoạt động Đoàn – Hội, tình nguyện và các chương trình của Nhà trường.',image:'assets/NCKH_2023-2024.jpg'},
-    {id:3,date:'08/2024',title:'Thực tập sinh pháp lý',type:'Công việc',text:'Tiếp xúc và làm quen với môi trường thực tế tại Công ty Luật TNHH T&T.',image:''},
-    {id:4,date:'2024',title:'Mở rộng trải nghiệm học thuật',type:'Nghiên cứu',text:'Tiếp tục nghiên cứu, viết bài, tham gia các hoạt động học thuật và hỗ trợ tổ chức sự kiện.',image:'assets/NCKH_2024-2025.jpg'},
-    {id:5,date:'03/2025',title:'Bước vào môi trường thi hành án',type:'Công việc',text:'Làm Thư ký thi hành án tại Chi cục Thi hành án dân sự TP.HCM; soạn thảo, quản lý hồ sơ và xác minh thi hành án.',image:''},
-    {id:6,date:'08/2025',title:'Đội hình Chuyển đổi số cộng đồng',type:'Hoạt động',text:'Tham gia Đội hình tình nguyện Chuyển đổi số cộng đồng TP.HCM do Trung tâm Phát triển Khoa học và Công nghệ Trẻ tổ chức.',image:''},
-    {id:7,date:'05/2026',title:'Pháp chế doanh nghiệp',type:'Công việc',text:'Làm pháp chế: hồ sơ pháp lý, rà soát hợp đồng, visa, giấy phép lao động, thẻ tạm trú và thủ tục doanh nghiệp.',image:''},
-    {id:8,date:'08/2026',title:'Tốt nghiệp — một cột mốc, không phải điểm kết thúc',type:'Cột mốc',text:'Hoàn thành chặng đường đại học và bắt đầu một giai đoạn mới của hành trình nghề nghiệp pháp lý.',image:''}
-  ],
-  work:[
-    {title:'Sự kiểm soát quyền lực nhà nước',meta:'Nghiên cứu khoa học',text:'Đánh giá cơ chế kiểm soát quyền lực giữa Quốc hội và Toà án nhân dân tối cao ở Việt Nam hiện nay.',image:''},
-    {title:'Chính sách hỗ trợ thanh niên khởi nghiệp',meta:'Hội nghị Khoa học trẻ 2025',text:'Nghiên cứu tham luận nộp cho HNKHT do Đoàn trường ĐH Luật TP.HCM tổ chức.',image:''},
-    {title:'Thực tiễn pháp lý & hồ sơ',meta:'Công việc · 2025–2026',text:'Kinh nghiệm xử lý hồ sơ, hợp đồng, thủ tục cư trú – lao động – doanh nghiệp.',image:''}
-  ],
-  achievements:[
-    {id:1,date:'05/08/2026',title:'Sinh viên giỏi toàn khóa 2022–2026',text:'Một dấu mốc học tập quan trọng khi hoàn thành chương trình đại học.',image:'' ,featured:true},
-    {id:2,date:'05/08/2026',title:'Sinh viên có nhiều đóng góp trong các hoạt động của Nhà trường',text:'Ghi nhận quá trình tham gia hoạt động Nhà trường.',image:'',featured:false},
-    {id:3,date:'06/11/2025',title:'Sinh viên giỏi năm học 2024–2025',text:'Danh hiệu sinh viên giỏi năm học 2024–2025.',image:'assets/Sinhviengioinamhoc_2024-2025.jpg',featured:false},
-    {id:4,date:'28/05/2025',title:'Thanh niên tiên tiến làm theo lời Bác tiêu biểu',text:'Trường Đại học Luật TP.HCM, năm học 2024–2025.',image:'',featured:false},
-    {id:5,date:'18/03/2025',title:'Đoàn viên tiêu biểu',text:'Trường Đại học Luật TP.HCM, năm học 2024.',image:'',featured:false},
-    {id:6,date:'22/05/2024',title:'Thanh niên tiên tiến làm theo lời Bác',text:'Trường Đại học Luật TP.HCM, năm học 2023–2024.',image:'',featured:false},
-    {id:7,date:'03/08/2023',title:'Thành tích xuất sắc trong Chiến dịch Thanh niên tình nguyện hè 2023',text:'Ghi nhận thành tích trong hoạt động tình nguyện.',image:'',featured:false}
-  ],
-  library:[
-    {id:1,title:'Ảnh chân dung',category:'Cá nhân',image:'assets/Anh_the.png'},
-    {id:2,title:'Hội nghị khoa học trẻ 2025',category:'Hoạt động học thuật',image:'assets/Hoi_nghi_khoa_hoc_tre_2025.jpg'},
-    {id:3,title:'NBLG — Cấp dưỡng',category:'Hoạt động',image:'assets/NBLG_Capduong.jpg'},
-    {id:4,title:'NBLG — Bồi thường thiệt hại',category:'Nghiên cứu',image:'assets/NBLG_Boithuongthiethai.jpg'},
-    {id:5,title:'NCKH 2023–2024',category:'Nghiên cứu',image:'assets/NCKH_2023-2024.jpg'},
-    {id:6,title:'NCKH 2024–2025',category:'Nghiên cứu',image:'assets/NCKH_2024-2025.jpg'},
-    {id:7,title:'Sinh viên giỏi năm học 2024–2025',category:'Thành tích',image:'assets/Sinhviengioinamhoc_2024-2025.jpg'}
-  ],
-  posts:[
-    {id:1,date:'2026-08-08',type:'journey',title:'Tốt nghiệp: một cột mốc để nhìn lại',excerpt:'Từ những ngày đầu học Luật đến khi khép lại chặng đường đại học.',content:'Đây là nơi tôi có thể viết lại câu chuyện của mình, không chỉ ghi nhận điều đã đạt được mà còn ghi lại những gì tôi học được sau mỗi chặng đường.',image:''},
-    {id:2,date:'2025-11-06',type:'learning',title:'Điều tôi học được từ những việc tưởng như rất nhỏ',excerpt:'Một ghi chú cá nhân về việc học từ công việc và trải nghiệm thực tế.',content:'Những công việc lặp lại, hồ sơ và những lần phải kiểm tra lại một chi tiết đều giúp tôi hiểu hơn về sự cẩn thận và trách nhiệm trong nghề pháp lý.',image:''}
-  ],
-  learning:[
-    {id:1,name:'Pháp chế doanh nghiệp',status:'Đang phát triển',note:'Tập trung vào tư duy pháp chế và xử lý vấn đề thực tế.',image:''},
-    {id:2,name:'Nghiên cứu pháp luật',status:'Đang rèn luyện',note:'Tiếp tục rèn kỹ năng tìm kiếm, phân tích và viết pháp lý.',image:''},
-    {id:3,name:'Tiếng Anh / TOEIC',status:'Đang học',note:'Ôn luyện chuẩn bị cho kỳ thi TOEIC phục vụ chuyên môn.',image:''},
-    {id:4,name:'AI hỗ trợ công việc',status:'Đang khám phá',note:'Tìm cách ứng dụng AI có trách nhiệm vào nghiên cứu và công việc.',image:''}
-  ],
-  goals:[
-    {id:1,text:'Phát triển chuyên môn pháp chế',status:'Đang thực hiện'},
-    {id:2,text:'Cải thiện tiếng Anh',status:'Đang thực hiện'},
-    {id:3,text:'Tích lũy kinh nghiệm thực tiễn',status:'Đang thực hiện'}
-  ]
-};
-
-let data=load(); let currentFilter='all'; let sb=null; let remoteLoaded=false;
-try{const u=window.PORTFOLIO_SUPABASE_URL||'',k=window.PORTFOLIO_SUPABASE_ANON_KEY||''; if(u&&k)sb=supabase.createClient(u,k)}catch(e){console.error(e)}
-function load(){try{const saved=JSON.parse(localStorage.getItem(KEY));return saved?{...structuredClone(initial),...saved,profile:{...initial.profile,...(saved.profile||{})},library:saved.library||structuredClone(initial.library)}:structuredClone(initial)}catch{return structuredClone(initial)}}
-function mergeState(remote){if(!remote||typeof remote!=='object')return;data={...structuredClone(initial),...remote,profile:{...initial.profile,...(remote.profile||{})},library:Array.isArray(remote.library)?remote.library:structuredClone(initial.library),timeline:Array.isArray(remote.timeline)?remote.timeline:structuredClone(initial.timeline),work:Array.isArray(remote.work)?remote.work:structuredClone(initial.work),achievements:Array.isArray(remote.achievements)?remote.achievements:structuredClone(initial.achievements),posts:Array.isArray(remote.posts)?remote.posts:structuredClone(initial.posts),learning:Array.isArray(remote.learning)?remote.learning:structuredClone(initial.learning),goals:Array.isArray(remote.goals)?remote.goals:structuredClone(initial.goals)};data.work=data.work.map((x,i)=>({...x,id:x.id??('work-'+i+'-'+Date.now())}))}
-function hasRemoteContent(state){return !!state && typeof state==='object' && Object.keys(state).some(k=>Array.isArray(state[k])?state[k].length>0:k==='profile'&&state.profile&&Object.keys(state.profile).length>0)}
-async function loadRemoteState(){if(!sb)return;try{const {data:rows,error}=await sb.from('portfolio_state').select('state,updated_at').eq('id',1).maybeSingle();if(error)throw error;const remote=rows?.state;if(hasRemoteContent(remote)){mergeState(remote);localStorage.setItem(KEY,JSON.stringify(data));remoteLoaded=true;renderAll();}else{remoteLoaded=true;renderAll();}return true}catch(e){remoteLoaded=false;console.warn('Supabase state load:',e.message);toast('Không đọc được dữ liệu online: '+e.message);return false}}
-async function save(){renderAll();localStorage.setItem(KEY,JSON.stringify(data));if(!sb){toast('Đã lưu trên trình duyệt (chưa có Supabase)');return false}try{const {data:session}=await sb.auth.getSession();const user=session?.session?.user;if(!user||user.email.toLowerCase()!==ADMIN_EMAIL.toLowerCase()){toast('Bạn cần đăng nhập Admin để đồng bộ Supabase');return false}const {error}=await sb.from('portfolio_state').upsert({id:1,state:data,updated_at:new Date().toISOString()},{onConflict:'id'});if(error)throw error;remoteLoaded=true;return true}catch(e){console.error('Supabase state save:',e.message);toast('Chưa đồng bộ Supabase: '+e.message);return false}}
-function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function dateValue(v){const s=String(v||'').trim();let m;if(/^\d{2}\/\d{4}$/.test(s)){m=s.match(/^(\d{2})\/(\d{4})$/);return new Date(Number(m[2]),Number(m[1])-1,1).getTime()}if(/^\d{2}\/\d{2}\/\d{4}$/.test(s)){m=s.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);return new Date(Number(m[3]),Number(m[2])-1,Number(m[1])).getTime()}if(/^\d{4}-\d{2}-\d{2}$/.test(s))return new Date(s+'T00:00:00').getTime();if(/^\d{4}$/.test(s))return new Date(Number(s),0,1).getTime();const t=Date.parse(s);return Number.isNaN(t)?0:t}
-function renderAll(){
-  document.getElementById('out_about_title').textContent = data.profile.about_title || 'Tổng quan Hồ sơ';
-  document.getElementById('out_about_desc').textContent = data.profile.about_desc || '';
-  document.getElementById('out_about_h1').textContent = data.profile.about_h1 || 'Hiện tại';
-  document.getElementById('out_about_h2').textContent = data.profile.about_h2 || 'Giá trị cốt lõi';
-  document.getElementById('aboutText').textContent = data.profile.bio;
-  document.getElementById('out_about_text2').textContent = data.profile.about_text2 || '';
-  document.getElementById('nowText').textContent = data.profile.now;
-  document.getElementById('heroAvatar').src = data.profile.avatar || 'assets/Anh_the.png';
-  document.getElementById('statYears').textContent = Math.max(1,new Set(data.timeline.map(x=>String(x.date).slice(-4))).size);
-  renderTimeline();renderWork();renderAchievements();renderLibrary();renderPosts();renderLearning();renderGoals();
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "TP. Hồ Chí Minh",
+    "addressCountry": "VN"
+  },
+  "url": "https://buihoangde-portfolio.hoangdeb751.workers.dev/",
+  "knowsAbout": ["Luật Dân sự", "Pháp chế doanh nghiệp", "Nghiên cứu pháp luật", "Thi hành án dân sự"]
 }
-function img(src,alt){return src?`<div class="card-media"><img src="${esc(src)}" alt="${esc(alt)}" onclick="event.stopPropagation();openImage('${esc(src)}')"></div>`:`<div class="card-media placeholder-media"><span>Chưa có ảnh</span><small>Thêm từ Quản trị</small></div>`}
-function renderTimeline(){const el=document.getElementById('timeline');const arr=data.timeline.slice().sort((a,b)=>dateValue(a.date)-dateValue(b.date)||(Number(a.id)||0)-(Number(b.id)||0));el.innerHTML=arr.map(x=>`<div class="event"><div class="year">${esc(x.date)} · ${esc(x.type)}</div><h3>${esc(x.title)}</h3><p>${esc(x.text)}</p>${x.image?`<div class="event-meta"><button class="chip" onclick="openImage('${esc(x.image)}')">Xem ảnh ↗</button></div>`:''}</div>`).join('')}
-function renderWork(){document.getElementById('workGrid').innerHTML=data.work.map(x=>`<article class="card">${img(x.image,x.title)}<div class="card-body"><div class="meta">${esc(x.meta)}</div><h3>${esc(x.title)}</h3><div class="desc">${esc(x.text)}</div></div></article>`).join('')}
-function renderLibrary(){const el=document.getElementById('libraryGrid');if(!el)return;el.innerHTML=(data.library||[]).map(x=>{const gallery=(x.images&&x.images.length?x.images:(x.image?[x.image]:[]));return `<article class="card">${gallery.length?`<div class="gallery-grid">${gallery.map(u=>`<div class="card-media"><img src="${esc(u)}" alt="${esc(x.title)}" onclick="openImage('${esc(u)}')"></div>`).join('')}</div>`:`<div class="card-media placeholder-media"><span>Chưa có ảnh</span><small>Thêm từ Quản trị</small></div>`}<div class="card-body"><div class="meta">${esc(x.category||'Tư liệu')}</div><h3>${esc(x.title)}</h3><div class="desc">Bấm vào ảnh để xem bản đầy đủ.</div></div></article>`}).join('')||'<div class="empty">Chưa có ảnh. Bạn có thể thêm trong Quản trị → Thư viện.</div>'}
-function renderAchievements(){document.getElementById('achievementGrid').innerHTML=data.achievements.slice().sort((a,b)=>b.featured-a.featured||String(b.date).localeCompare(String(a.date))).map((x,i)=>`<article class="card achievement ${x.featured?'featured':''}">${img(x.image,x.title)}<div class="card-body"><div class="meta">${esc(x.date)}</div><h3>${esc(x.title)}</h3><div class="desc">${esc(x.text)}</div></div></article>`).join('')}
-function renderPosts(){let arr=data.posts.filter(x=>currentFilter==='all'||x.type===currentFilter);document.getElementById('blogGrid').innerHTML=arr.length?arr.slice().sort((a,b)=>currentFilter==='journey'?dateValue(a.date)-dateValue(b.date):dateValue(b.date)-dateValue(a.date)).map(x=>`<article class="card" onclick="openReader(${x.id})" style="cursor:pointer">${img(x.image,x.title)}<div class="card-body"><div class="meta">${esc(x.date)} · ${esc(x.type)}</div><h3>${esc(x.title)}</h3><div class="desc">${esc(x.excerpt)}</div></div></article>`).join(''):`<div class="empty">Chưa có nội dung ở mục này.</div>`}
-function filterPosts(f,btn){currentFilter=f;document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));btn.classList.add('active');renderPosts()}
+</script>
 
-function renderLearning(){
-  document.getElementById('learningList').innerHTML = data.learning.map(x => `
-    <div class="learn-item">
-      ${x.image ? `<img class="learn-thumb" src="${esc(x.image)}" alt="">` : `<div class="learn-thumb" style="display:grid; place-items:center;"><span style="font-size:24px; color:#c0d4ce;">✦</span></div>`}
-      <div class="learn-content">
-        <strong>${esc(x.name)}</strong>
-        <span>${esc(x.note)}</span>
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+<!-- Favicon (inline SVG) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231a1f28'/%3E%3Ctext x='50' y='68' font-size='56' font-family='serif' fill='%23b89a6f' text-anchor='middle' font-weight='600'%3ED%3C/text%3E%3C/svg%3E" />
+
+<style>
+/* ============================================================
+   1. RESET & TOKENS
+============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink-50:#f6f7f9; --ink-100:#eceef2; --ink-200:#d5dae1;
+  --ink-300:#b0b9c6; --ink-400:#8492a6; --ink-500:#65758b;
+  --ink-600:#4f5d72; --ink-700:#404b5c; --ink-800:#2a323d;
+  --ink-900:#1a1f28; --ink-950:#0f1319;
+  --accent:#8b6f47; --accent-light:#b89a6f; --accent-dark:#5c4828;
+  --bg:#f6f7f9; --fg:#1a1f28; --muted:#4f5d72; --card:#ffffff; --border:#d5dae1;
+  --shadow-sm:0 1px 2px rgba(15,19,25,.06);
+  --shadow-md:0 4px 16px rgba(15,19,25,.08);
+  --shadow-lg:0 20px 50px -12px rgba(15,19,25,.18);
+  --radius:14px; --radius-sm:8px;
+  --maxw:1120px; --maxw-narrow:760px;
+  --font-sans:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --font-serif:'Lora',Georgia,'Times New Roman',serif;
+}
+html[data-theme="dark"]{
+  --bg:#0f1319; --fg:#f6f7f9; --muted:#b0b9c6; --card:#1a1f28; --border:#2a323d;
+  --ink-50:#1a1f28; --ink-100:#2a323d; --ink-200:#404b5c; --ink-300:#65758b;
+  --ink-400:#8492a6; --ink-500:#b0b9c6; --ink-600:#d5dae1; --ink-700:#eceef2;
+  --ink-800:#f6f7f9; --ink-900:#ffffff;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.3);
+  --shadow-md:0 4px 16px rgba(0,0,0,.4);
+  --shadow-lg:0 20px 50px -12px rgba(0,0,0,.6);
+}
+
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font-sans);
+  background:var(--bg);color:var(--fg);
+  line-height:1.65;font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  transition:background .3s ease,color .3s ease;
+  overflow-x:hidden;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none;transition:color .2s}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+::selection{background:var(--accent);color:#fff}
+:focus-visible{outline:2px solid var(--accent-light);outline-offset:3px;border-radius:4px}
+
+/* ============================================================
+   2. LAYOUT
+============================================================ */
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.container-narrow{max-width:var(--maxw-narrow);margin:0 auto;padding:0 24px}
+section{padding:88px 0;position:relative}
+@media(max-width:640px){section{padding:64px 0}}
+
+.section-label{
+  font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:10px;
+}
+.section-label::before{content:'';width:24px;height:1px;background:var(--accent)}
+h2.section-title{
+  font-family:var(--font-serif);font-size:clamp(28px,4vw,42px);
+  font-weight:600;line-height:1.15;letter-spacing:-.01em;margin-bottom:16px;
+}
+.section-desc{color:var(--muted);font-size:16px;max-width:640px;margin-bottom:48px}
+
+/* ============================================================
+   3. HEADER
+============================================================ */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  background:color-mix(in srgb,var(--bg) 82%,transparent);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s,background .3s;
+}
+.site-header.scrolled{border-color:var(--border)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px}
+.brand-mark{
+  width:32px;height:32px;border-radius:9px;
+  background:var(--ink-900);color:var(--accent-light);
+  display:grid;place-items:center;font-family:var(--font-serif);
+  font-weight:600;font-size:17px;
+}
+html[data-theme="dark"] .brand-mark{background:var(--accent);color:#fff}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-links a{
+  padding:8px 14px;border-radius:8px;font-size:14px;font-weight:500;
+  color:var(--muted);transition:background .2s,color .2s;
+}
+.nav-links a:hover{color:var(--fg);background:var(--ink-100)}
+html[data-theme="dark"] .nav-links a:hover{background:var(--ink-200)}
+.theme-toggle{
+  width:38px;height:38px;border-radius:10px;
+  display:grid;place-items:center;
+  border:1px solid var(--border);margin-left:8px;
+  transition:background .2s,transform .2s;
+}
+.theme-toggle:hover{background:var(--ink-100);transform:rotate(15deg)}
+html[data-theme="dark"] .theme-toggle:hover{background:var(--ink-200)}
+.theme-toggle svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.icon-sun{display:none}
+html[data-theme="dark"] .icon-sun{display:block}
+html[data-theme="dark"] .icon-moon{display:none}
+@media(max-width:760px){.nav-links a{display:none}.nav-links a.keep{display:inline-block}}
+
+/* ============================================================
+   4. HERO
+============================================================ */
+.hero{
+  padding:80px 0 96px;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 0%,color-mix(in srgb,var(--accent) 12%,transparent),transparent 70%),
+    radial-gradient(ellipse 40% 40% at 0% 100%,color-mix(in srgb,var(--accent-light) 8%,transparent),transparent 70%);
+  pointer-events:none;
+}
+.hero-inner{position:relative;z-index:1}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:6px 14px;border-radius:999px;
+  background:color-mix(in srgb,var(--accent) 10%,transparent);
+  border:1px solid color-mix(in srgb,var(--accent) 25%,transparent);
+  font-size:12.5px;font-weight:500;color:var(--accent-dark);letter-spacing:.04em;
+  margin-bottom:24px;
+}
+html[data-theme="dark"] .hero-eyebrow{color:var(--accent-light)}
+.hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+
+.hero h1{
+  font-family:var(--font-serif);
+  font-size:clamp(44px,8vw,88px);
+  font-weight:600;line-height:1;letter-spacing:-.025em;
+  margin-bottom:24px;
+}
+.hero h1 .accent{color:var(--accent)}
+.hero-lede{
+  font-size:clamp(16px,1.8vw,19px);color:var(--muted);
+  max-width:620px;line-height:1.7;margin-bottom:40px;
+}
+.hero-meta{
+  display:flex;flex-wrap:wrap;gap:32px;
+  padding-top:32px;border-top:1px solid var(--border);
+}
+.hero-stat{display:flex;flex-direction:column;gap:4px}
+.hero-stat .num{
+  font-family:var(--font-serif);font-size:28px;font-weight:600;
+  color:var(--accent);line-height:1;
+}
+.hero-stat .lbl{font-size:12.5px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+
+/* ============================================================
+   5. CARDS / GRIDS
+============================================================ */
+.grid{display:grid;gap:20px}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+
+.card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s,border-color .3s;
+  position:relative;overflow:hidden;
+}
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-lg);
+  border-color:color-mix(in srgb,var(--accent) 40%,var(--border));
+}
+.card-tag{
+  display:inline-block;font-size:11.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:12px;
+}
+.card h3{
+  font-family:var(--font-serif);font-size:19px;font-weight:600;
+  line-height:1.35;margin-bottom:10px;
+}
+.card p{color:var(--muted);font-size:14.5px;line-height:1.65}
+
+/* ============================================================
+   6. TIMELINE
+============================================================ */
+.timeline{list-style:none;position:relative;padding-left:32px}
+.timeline::before{
+  content:'';position:absolute;left:7px;top:8px;bottom:8px;
+  width:1.5px;background:linear-gradient(to bottom,var(--accent),var(--border));
+}
+.timeline li{position:relative;padding-bottom:44px}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{
+  content:'';position:absolute;left:-32px;top:6px;
+  width:16px;height:16px;border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 0 4px var(--bg),0 0 0 5px var(--border);
+  transition:transform .3s;
+}
+.timeline li:hover::before{transform:scale(1.25)}
+.timeline .meta{
+  display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+  font-size:13px;color:var(--muted);margin-bottom:8px;
+}
+.timeline .meta time{font-weight:600;color:var(--accent)}
+.timeline .meta .sep{opacity:.4}
+.timeline h3{
+  font-family:var(--font-serif);font-size:20px;font-weight:600;
+  line-height:1.35;margin-bottom:8px;
+}
+.timeline p{color:var(--muted);font-size:15px;line-height:1.7;max-width:640px}
+
+/* ============================================================
+   7. MILESTONES (gallery)
+============================================================ */
+.milestone-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s;
+}
+.milestone-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.milestone-thumb{
+  aspect-ratio:16/10;background:linear-gradient(135deg,var(--ink-100),var(--ink-200));
+  display:grid;place-items:center;color:var(--ink-500);
+  font-size:13px;position:relative;overflow:hidden;
+}
+html[data-theme="dark"] .milestone-thumb{background:linear-gradient(135deg,var(--ink-100),var(--ink-200))}
+.milestone-thumb img{width:100%;height:100%;object-fit:cover}
+.milestone-body{padding:22px}
+.milestone-body h3{
+  font-family:var(--font-serif);font-size:17px;font-weight:600;
+  line-height:1.4;margin-bottom:8px;
+}
+.milestone-body p{color:var(--muted);font-size:14px}
+
+/* ============================================================
+   8. FOCUS CARDS
+============================================================ */
+.focus-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:24px;
+  display:flex;flex-direction:column;gap:10px;
+  transition:transform .3s,box-shadow .3s,border-color .3s;
+}
+.focus-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:color-mix(in srgb,var(--accent) 40%,var(--border))}
+.focus-status{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11.5px;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--accent);
+  padding:4px 10px;border-radius:999px;
+  background:color-mix(in srgb,var(--accent) 10%,transparent);
+  align-self:flex-start;
+}
+.focus-status::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+.focus-card h3{font-family:var(--font-serif);font-size:18px;font-weight:600;line-height:1.35}
+.focus-card p{color:var(--muted);font-size:14.5px;line-height:1.6}
+
+/* ============================================================
+   9. NOW BLOCK
+============================================================ */
+.now-block{
+  background:linear-gradient(135deg,var(--ink-900),var(--ink-800));
+  color:#f6f7f9;border-radius:var(--radius);
+  padding:56px 40px;position:relative;overflow:hidden;
+  box-shadow:var(--shadow-lg);
+}
+html[data-theme="dark"] .now-block{background:linear-gradient(135deg,#0a0d12,#1a1f28)}
+.now-block::before{
+  content:'';position:absolute;top:-50%;right:-20%;width:60%;height:200%;
+  background:radial-gradient(circle,color-mix(in srgb,var(--accent) 22%,transparent),transparent 60%);
+  pointer-events:none;
+}
+.now-block .tag{
+  display:inline-block;font-size:12px;font-weight:600;
+  letter-spacing:.2em;color:var(--accent-light);margin-bottom:16px;
+}
+.now-block h2{
+  font-family:var(--font-serif);font-size:clamp(26px,3.5vw,38px);
+  font-weight:600;line-height:1.2;margin-bottom:16px;position:relative;
+}
+.now-block > p{color:#b0b9c6;max-width:600px;margin-bottom:36px;position:relative}
+.now-list{list-style:none;display:grid;gap:12px;position:relative;max-width:560px}
+.now-list li{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px;border-radius:10px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
+  font-size:15px;backdrop-filter:blur(6px);
+}
+.now-list .badge{
+  font-size:11.5px;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--accent-light);
+  display:flex;align-items:center;gap:6px;
+}
+.now-list .badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent-light);animation:pulse 2s infinite}
+
+/* ============================================================
+   10. FOOTER
+============================================================ */
+footer{
+  padding:48px 0 32px;border-top:1px solid var(--border);
+  margin-top:48px;color:var(--muted);font-size:14px;
+}
+.footer-inner{
+  display:flex;flex-wrap:wrap;justify-content:space-between;
+  align-items:center;gap:16px;
+}
+.footer-status{display:flex;align-items:center;gap:8px;font-size:13px}
+.footer-status .dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,.2)}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{font-size:13.5px;transition:color .2s}
+.footer-links a:hover{color:var(--accent)}
+
+/* ============================================================
+   11. ANIMATION ON SCROLL
+============================================================ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+.reveal.visible{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+
+/* ============================================================
+   12. SKIP LINK
+============================================================ */
+.skip-link{
+  position:absolute;top:-100px;left:16px;z-index:999;
+  padding:10px 18px;background:var(--accent);color:#fff;
+  border-radius:8px;font-weight:600;font-size:14px;
+  transition:top .2s;
+}
+.skip-link:focus{top:16px}
+
+/* ============================================================
+   13. MOBILE
+============================================================ */
+@media(max-width:600px){
+  .hero{padding:56px 0 72px}
+  .hero-meta{gap:24px}
+  .hero-stat .num{font-size:24px}
+  .now-block{padding:40px 24px}
+  .now-list li{flex-direction:column;align-items:flex-start;gap:6px}
+}
+</style>
+</head>
+
+<body>
+<a href="#main" class="skip-link">Bỏ qua và đến nội dung chính</a>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <nav class="nav" aria-label="Điều hướng chính">
+      <a href="#" class="brand" aria-label="Bùi Hoàng Dể — Trang chủ">
+        <span class="brand-mark" aria-hidden="true">D</span>
+        <span>Bùi Hoàng Dể</span>
+      </a>
+      <div class="nav-links">
+        <a href="#profile">Hồ sơ</a>
+        <a href="#timeline">Hành trình</a>
+        <a href="#work">Nghiên cứu</a>
+        <a href="#milestones">Thành tích</a>
+        <a href="#focus" class="keep">Trọng tâm</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Chuyển chế độ sáng/tối" title="Chuyển chế độ sáng/tối">
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </button>
       </div>
-      <span class="pill">${esc(x.status)}</span>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= HERO ================= -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero-inner">
+    <span class="hero-eyebrow"><span class="dot" aria-hidden="true"></span>Legal · Research · Journey</span>
+    <h1 id="hero-title">Bùi Hoàng <span class="accent">Dể.</span></h1>
+    <p class="hero-lede">
+      Một hồ sơ cá nhân được xây dựng theo thời gian — ghi lại những cột mốc, trải nghiệm pháp lý, nghiên cứu, thành tích và những điều tôi đang tiếp tục học.
+    </p>
+    <div class="hero-meta">
+      <div class="hero-stat"><span class="num">2022</span><span class="lbl">Bắt đầu học Luật</span></div>
+      <div class="hero-stat"><span class="num">2026</span><span class="lbl">Tốt nghiệp</span></div>
+      <div class="hero-stat"><span class="num">05</span><span class="lbl">Năm ghi lại hành trình</span></div>
     </div>
-  `).join('');
-}
+  </div>
+</section>
 
-function renderGoals(){document.getElementById('goalsList').innerHTML=data.goals.map(x=>`<div><strong>${esc(x.text)}</strong><br><span style="font-size:11px;color:#8eb0ba">${esc(x.status)}</span></div>`).join('')}
-function openImage(src){document.getElementById('modalImg').src=src;document.getElementById('imageModal').classList.add('open')}function closeModal(){document.getElementById('imageModal').classList.remove('open')}
-function openReader(id){const x=data.posts.find(p=>p.id===id);if(!x)return;const gallery=(x.images&&x.images.length?x.images:(x.image?[x.image]:[]));document.getElementById('reader').innerHTML=`<div class="kicker">${esc(x.type)} · ${esc(x.date)}</div><h1>${esc(x.title)}</h1>${gallery.map(u=>`<img src="${esc(u)}" alt="">`).join('')}<p style="font-size:18px;color:#526875">${esc(x.excerpt)}</p><div style="white-space:pre-wrap">${esc(x.content)}</div>`;document.getElementById('readerModal').classList.add('open')}function closeReader(){document.getElementById('readerModal').classList.remove('open')}
-function openLogin(){document.getElementById('loginModal').classList.add('open')}function closeLogin(){document.getElementById('loginModal').classList.remove('open')}
-async function login(){const email=document.getElementById('loginEmail').value.trim(),pass=document.getElementById('loginPassword').value;if(email.toLowerCase()!==ADMIN_EMAIL.toLowerCase()){document.getElementById('loginError').textContent='Tài khoản này không có quyền quản trị.';return}if(!sb){document.getElementById('loginError').textContent='Chưa cấu hình Supabase.';return}const {data:authData,error}=await sb.auth.signInWithPassword({email,password:pass});if(error){document.getElementById('loginError').textContent=authError(error);return}if(!authData.user||authData.user.email.toLowerCase()!==ADMIN_EMAIL.toLowerCase()){await sb.auth.signOut();document.getElementById('loginError').textContent='Tài khoản này không có quyền quản trị.';return}await loadRemoteState();sessionStorage.setItem('bhd_admin','1');closeLogin();openDashboard();showTab('overview',document.querySelector('[data-tab="overview"]'))}
-function authError(e){return e?.message||'Đăng nhập thất bại.'}
-function openDashboard(){document.getElementById('dashboard').classList.add('open');document.body.style.overflow='hidden';renderDash('overview')}function closeDashboard(){document.getElementById('dashboard').classList.remove('open');document.body.style.overflow='';renderAll()}function logout(){if(sb)sb.auth.signOut();sessionStorage.removeItem('bhd_admin');closeDashboard()}
-function showTab(tab,btn){document.querySelectorAll('.side button[data-tab]').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');document.getElementById('dashTitle').textContent={overview:'Tổng quan',timeline:'Hành trình',work:'Work & Research',posts:'Blog / Ghi chép',achievements:'Thành tích',learning:'Trọng tâm',goals:'Mục tiêu',library:'Thư viện ảnh',profile:'Hồ sơ'}[tab];renderDash(tab)}
+<!-- ================= PROFILE ================= -->
+<section id="profile" aria-labelledby="profile-title">
+  <div class="container">
+    <p class="section-label">01 / Profile</p>
+    <h2 class="section-title" id="profile-title">Tổng quan Hồ sơ</h2>
+    <p class="section-desc">Một góc nhìn bao quát về định hướng và những giá trị cốt lõi tôi theo đuổi trong công việc.</p>
 
-function renderDash(tab){const c=document.getElementById('dashContent');if(tab==='overview'){c.innerHTML=`<div class="dash-grid"><div class="dash-stat"><b>${data.timeline.length}</b><div class="muted">Mốc hành trình</div></div><div class="dash-stat"><b>${data.posts.length}</b><div class="muted">Bài viết</div></div><div class="dash-stat"><b>${data.achievements.length}</b><div class="muted">Thành tích</div></div><div class="dash-stat"><b>${(data.library||[]).length}</b><div class="muted">Ảnh tư liệu</div></div></div><div class="dash-panel"><h3>Không gian của bạn</h3><p class="muted">Đây là CMS cá nhân. Bạn có thể ghi nhận quá khứ, cập nhật hiện tại và thêm những điều mới trong tương lai.</p><div class="actions"><button class="primary" onclick="showTab('timeline',document.querySelector('[data-tab=timeline]'))">+ Thêm Hành trình</button><button class="primary" onclick="showTab('work',document.querySelector('[data-tab=work]'))">+ Work & Research</button><button class="ghost" onclick="showTab('posts',document.querySelector('[data-tab=posts]'))">+ Viết Bài (Blog)</button><button class="ghost" onclick="showTab('achievements',document.querySelector('[data-tab=achievements]'))">+ Thành tích</button></div></div>`}else if(tab==='timeline')renderListEditor(c,'timeline','Hành trình','date,title,type,text,image');else if(tab==='work')renderListEditor(c,'work','Work & Research','title,meta,text,image');else if(tab==='posts')renderListEditor(c,'posts','Blog / Ghi chép','date,title,type,excerpt,content,image');else if(tab==='achievements')renderListEditor(c,'achievements','Thành tích','date,title,text,image,featured');else if(tab==='library')renderListEditor(c,'library','Thư viện ảnh','title,category,image');else if(tab==='learning')renderListEditor(c,'learning','Trọng tâm phát triển (Đang học)','name,status,note,image');else if(tab==='goals')renderListEditor(c,'goals','Mục tiêu','text,status');else if(tab==='profile')renderProfile(c)}
+    <div class="grid grid-2">
+      <article class="card reveal">
+        <span class="card-tag">Trọng tâm hiện tại</span>
+        <h3>Phát triển chuyên môn pháp lý</h3>
+        <p>Tôi phát triển chuyên môn trong lĩnh vực pháp lý, quan tâm nghiên cứu pháp luật, hợp đồng và xử lý các thủ tục pháp lý thực tiễn.</p>
+        <p style="margin-top:16px;font-size:13px;color:var(--accent);letter-spacing:.04em;font-weight:500">
+          Legal Research · Corporate Legal · Contracts · Legal Procedures
+        </p>
+      </article>
 
-function renderListEditor(c,key,label,fields){const arr=data[key].map((x,index)=>({x,index})).sort((a,b)=>{if(key==='timeline')return dateValue(a.x.date)-dateValue(b.x.date)||(Number(a.x.id)||0)-(Number(b.x.id)||0);if(key==='posts')return dateValue(b.x.date)-dateValue(a.x.date);if(key==='achievements')return dateValue(b.x.date)-dateValue(a.x.date);return 0});c.innerHTML=`<div class="dash-panel" style="margin-top:0"><div style="display:flex;justify-content:space-between;gap:15px;align-items:center"><div><h2 style="margin:0">${label}</h2><p class="muted">${arr.length} mục · có thể thêm, sửa, xóa bất cứ lúc nào</p></div><button class="primary" onclick="newItem('${key}')">＋ Thêm mới</button></div><div style="margin-top:16px">${arr.length?arr.map(({x,index})=>`<div class="list-row">${x.image?`<img class="thumb" src="${esc(x.image)}" onclick="openImage('${esc(x.image)}')">`:`<div class="thumb"></div>`}<div><strong>${esc(x.title||x.name||x.text||'Không có tiêu đề')}</strong><div class="muted" style="font-size:12px">${esc(x.date||x.status||x.type||'')}</div></div><div class="row-actions"><button type="button" class="smallbtn" onclick="editItem('${key}',${index})">✎ Sửa</button><button class="smallbtn danger" onclick="deleteItem('${key}',${index})">Xóa</button></div></div>`).join(''):'<div class="empty">Chưa có nội dung.</div>'}</div></div>`}
-function formFor(key,x={}){const configs={timeline:[['date','Ngày'],['title','Tiêu đề'],['type','Loại'],['text','Nội dung'],['image','Ảnh']],work:[['title','Tiêu đề'],['meta','Thông tin / loại nghiên cứu hoặc công việc'],['text','Mô tả'],['image','Ảnh']],posts:[['date','Ngày'],['title','Tiêu đề'],['type','Loại: journey / blog / learning'],['excerpt','Tóm tắt'],['content','Nội dung'],['image','Ảnh cover'],['images','Ảnh trong bài']],achievements:[['date','Ngày'],['title','Tên thành tích'],['text','Mô tả'],['image','Ảnh chứng nhận'],['featured','Nổi bật: true / false']],library:[['title','Tên ảnh / tư liệu'],['category','Nhóm'],['image','Ảnh đại diện'],['images','Nhiều ảnh (tuỳ chọn)']],learning:[['name','Tên nội dung'],['status','Trạng thái'],['note','Ghi chú chi tiết'],['image','Ảnh minh họa (Icon/Thumb)']],goals:[['text','Mục tiêu'],['status','Trạng thái']]};return configs[key].map(([f,l])=>{const val=esc(x[f]??'');const isArea=['text','content','excerpt','note'].includes(f);if(f==='images')return '<div class="field"><label>'+l+' (có thể chọn nhiều ảnh)</label><textarea id="f_images" placeholder="Mỗi dòng là một URL ảnh">'+esc((x.images||[]).join('\n'))+'</textarea><input type="file" accept="image/*" multiple onchange="uploadMultipleImages(this,\'f_images\')"><small class="muted">Chọn nhiều ảnh cùng lúc. Ảnh sẽ được tải lên Supabase Storage.</small></div>';if(f==='image')return '<div class="field"><label>'+l+'</label><input id="f_image" value="'+val+'" placeholder="URL hoặc đường dẫn"><input type="file" accept="image/*" onchange="uploadImageFile(this,\'f_image\')"><small class="muted">Chọn ảnh từ thiết bị.</small></div>';return '<div class="field"><label>'+l+'</label>'+(isArea?'<textarea id="f_'+f+'">'+val+'</textarea>':'<input id="f_'+f+'" value="'+val+'">')+'</div>'}).join('')}
-function newItem(key){editForm(key,-1,{})}function editItem(key,i){if(!Array.isArray(data[key])||!data[key][i]){toast('Không tìm thấy mục cần chỉnh sửa');return}editForm(key,i,data[key][i])}
-function editForm(key,i,x){const c=document.getElementById('dashContent');c.innerHTML=`<div class="dash-panel" style="margin-top:0"><div class="section-head" style="margin-bottom:20px"><div><div class="kicker">EDITOR</div><h2>${i<0?'Thêm mới':'Chỉnh sửa'}</h2></div></div><div class="editor"><div>${formFor(key,x)}</div><div class="panel"><h3>Gợi ý</h3><p class="muted" style="font-size:12px">Bạn có thể ghi ngắn hoặc dài. Ảnh sẽ được click để xem bản đầy đủ trên website.</p><p class="muted" style="font-size:12px">Bạn có thể chọn ảnh trực tiếp từ máy.</p></div></div><div class="editor-actions"><button class="ghost" onclick="renderDash('${key}')">Hủy</button><button class="primary" onclick="saveItem('${key}',${i})">Lưu thay đổi</button></div></div>`}
-async function uploadMultipleImages(input,targetId){const files=[...(input.files||[])];if(!files.length)return;const target=document.getElementById(targetId);if(!target)return;try{const urls=sb?await Promise.all(files.map(file=>{const safe=file.name.toLowerCase().replace(/[^a-z0-9._-]+/g,'-');const path='portfolio/'+Date.now()+'-'+Math.random().toString(36).slice(2)+'-'+safe;return sb.storage.from('portfolio-images').upload(path,file,{upsert:false,contentType:file.type}).then(({error})=>{if(error)throw error;const {data:pub}=sb.storage.from('portfolio-images').getPublicUrl(path);return pub.publicUrl})})):await Promise.all(files.map(file=>new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(file)})));const current=target.value.split(/\n|,/).map(x=>x.trim()).filter(Boolean);target.value=[...current,...urls].join('\n');toast(`Đã thêm ${urls.length} ảnh`)}catch(e){alert('Không tải được ảnh: '+e.message)}input.value=''}
-async function uploadImageFile(input,targetId){const file=input.files&&input.files[0];if(!file)return;const target=document.getElementById(targetId);try{if(sb){const safe=file.name.toLowerCase().replace(/[^a-z0-9._-]+/g,'-');const path='portfolio/'+Date.now()+'-'+safe;const {error}=await sb.storage.from('portfolio-images').upload(path,file,{upsert:false,contentType:file.type});if(error)throw error;const {data:pub}=sb.storage.from('portfolio-images').getPublicUrl(path);target.value=pub.publicUrl;toast('Đã tải ảnh lên Storage');return}const reader=new FileReader();reader.onload=()=>{target.value=reader.result;toast('Đã nạp ảnh cục bộ — hãy bấm Lưu')};reader.readAsDataURL(file)}catch(e){alert('Không tải được ảnh: '+e.message)}}
-async function saveItem(key,i){const cfg={timeline:['date','title','type','text','image'],work:['title','meta','text','image'],posts:['date','title','type','excerpt','content','image','images'],achievements:['date','title','text','image','featured'],library:['title','category','image','images'],learning:['name','status','note','image'],goals:['text','status']}[key];if(!cfg){toast('Không xác định được loại nội dung');return}let o={};cfg.forEach(f=>{const el=document.getElementById('f_'+f);if(el)o[f]=el.value});if(key==='posts'||key==='library'){o.images=String(o.images||'').split(/\n|,/).map(x=>x.trim()).filter(Boolean);if(!o.image&&o.images.length)o.image=o.images[0]}if(key==='achievements')o.featured=o.featured==='true';if(i<0){o.id=key==='work'?('work-'+Date.now()+'-'+Math.random().toString(36).slice(2,8)):Date.now();data[key].push(o)}else{const old=data[key][i];data[key][i]={...old,...o,id:old?.id??(key==='work'?('work-'+Date.now()):Date.now())}}const ok=await save();if(ok!==false)toast('Đã lưu');renderDash(key)}
-async function deleteItem(key,i){if(!Array.isArray(data[key])||!data[key][i]){toast('Không tìm thấy mục cần xóa');return}if(confirm('Xóa nội dung này?')){data[key].splice(i,1);await save();renderDash(key);toast('Đã xóa')}}
-function renderProfile(c){
-  c.innerHTML=`<div class="dash-panel" style="margin-top:0"><h2>Quản lý Hồ sơ (Section 1 & Cuối trang)</h2><p class="muted">Bạn có thể tự do sửa đổi các tiêu đề và đoạn văn giới thiệu.</p>
-  ${[
-    ['avatar','Ảnh đại diện (Màn hình chính)'],
-    ['name','Họ tên'],
-    ['title','Chức danh'],
-    ['about_title','Tiêu đề mục 1 (Vd: Tổng quan Hồ sơ)'],
-    ['about_desc','Mô tả dưới tiêu đề mục 1'],
-    ['about_h1','Tiêu đề cột trái (Vd: Trọng tâm hiện tại)'],
-    ['bio','Nội dung cột trái'],
-    ['about_h2','Tiêu đề cột phải (Vd: Giá trị cốt lõi)'],
-    ['about_text2','Nội dung cột phải'],
-    ['now','Mô tả phần "Đang ở đâu" (Cuối trang)'],
-    ['email','Email liên hệ'],
-    ['phone','Số điện thoại'],
-    ['facebook','Link Facebook']
-  ].map(([f,l])=>{
-    let inputHtml = '';
-    if(['bio','now','about_desc','about_text2'].includes(f)){
-      inputHtml = `<textarea id="p_${f}">${esc(data.profile[f])}</textarea>`;
-    } else if (f === 'avatar') {
-      inputHtml = `<input id="p_avatar" value="${esc(data.profile[f]||'assets/Anh_the.png')}"><input type="file" accept="image/*" onchange="uploadImageFile(this,'p_avatar')">`;
-    } else {
-      inputHtml = `<input id="p_${f}" value="${esc(data.profile[f])}">`;
-    }
-    return `<div class="field"><label>${l}</label>${inputHtml}</div>`;
-  }).join('')}
-  <button class="primary" style="margin-top:10px" onclick="saveProfile()">Lưu hồ sơ</button></div>`;
-}
-async function saveProfile(){
-  ['avatar','name','title','about_title','about_desc','about_h1','bio','about_h2','about_text2','now','email','phone','facebook'].forEach(f=>{
-    const e=document.getElementById('p_'+f);
-    if(e) data.profile[f]=e.value;
-  });
-  await save();
-  toast('Đã cập nhật hồ sơ');
-  renderProfile(document.getElementById('dashContent'));
-}
-function toast(t){const e=document.getElementById('toast');e.textContent=t;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),1800)}
-renderAll();
-if(sb){loadRemoteState().then(()=>{const e=document.getElementById('syncStatus');if(e)e.textContent=remoteLoaded?'● Supabase đã kết nối':'Không đồng bộ được';});}else{const e=document.getElementById('syncStatus');if(e)e.textContent='Chưa cấu hình Supabase';}
-</script></body></html>
+      <article class="card reveal">
+        <span class="card-tag">Giá trị cốt lõi</span>
+        <h3>Cẩn thận, trách nhiệm, chính xác</h3>
+        <p>Cẩn thận, trách nhiệm, chính xác và bảo mật. Tôi thích tư duy có hệ thống, chủ động học hỏi, tiếp nhận nhiệm vụ mới và cải thiện từ phản hồi.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TIMELINE ================= -->
+<section id="timeline" aria-labelledby="timeline-title" style="background:color-mix(in srgb,var(--ink-100) 55%,transparent)">
+  <div class="container-narrow">
+    <p class="section-label">02 / Timeline</p>
+    <h2 class="section-title" id="timeline-title">Hành trình</h2>
+    <p class="section-desc">Quá khứ được ghi nhận. Hiện tại được cập nhật. Tương lai tiếp tục được viết.</p>
+
+    <ol class="timeline">
+      <li class="reveal">
+        <div class="meta"><time>08/2022</time><span class="sep">·</span><span>Học tập</span></div>
+        <h3>Bắt đầu hành trình tại Trường Đại học Luật TP.HCM</h3>
+        <p>Học ngành Luật – Luật Dân sự, đồng thời tham gia hoạt động lớp, học thuật và phong trào sinh viên.</p>
+      </li>
+      <li class="reveal">
+        <div class="meta"><time>2023</time><span class="sep">·</span><span>Hoạt động</span></div>
+        <h3>Nghiên cứu, hoạt động và tình nguyện</h3>
+        <p>Tham gia nghiên cứu khoa học, hoạt động Đoàn – Hội, tình nguyện và các chương trình của Nhà trường.</p>
+      </li>
+      <li class="reveal">
+        <div class="meta"><time>2024</time><span class="sep">·</span><span>Nghiên cứu</span></div>
+        <h3>Mở rộng trải nghiệm học thuật</h3>
+        <p>Tiếp tục nghiên cứu, viết bài, tham gia các hoạt động học thuật và hỗ trợ tổ chức sự kiện.</p>
+      </li>
+      <li class="reveal">
+        <div class="meta"><time>03/2025</time><span class="sep">·</span><span>Công việc</span></div>
+        <h3>Bước vào môi trường thi hành án</h3>
+        <p>Làm Thư ký thi hành án tại Chi cục Thi hành án dân sự TP.HCM; soạn thảo, quản lý hồ sơ và xác minh thi hành án.</p>
+      </li>
+      <li class="reveal">
+        <div class="meta"><time>05/2026</time><span class="sep">·</span><span>Công việc</span></div>
+        <h3>Pháp chế doanh nghiệp</h3>
+        <p>Làm pháp chế: hồ sơ pháp lý, rà soát hợp đồng, visa, giấy phép lao động, thẻ tạm trú và thủ tục doanh nghiệp.</p>
+      </li>
+      <li class="reveal">
+        <div class="meta"><time>08/2026</time><span class="sep">·</span><span>Cột mốc</span></div>
+        <h3>Tốt nghiệp — một cột mốc, không phải điểm kết thúc</h3>
+        <p>Hoàn thành chặng đường đại học và bắt đầu một giai đoạn mới của hành trình nghề nghiệp pháp lý.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= WORK ================= -->
+<section id="work" aria-labelledby="work-title">
+  <div class="container">
+    <p class="section-label">03 / Work &amp; Research</p>
+    <h2 class="section-title" id="work-title">Nghiên cứu &amp; công việc</h2>
+    <p class="section-desc">Những trải nghiệm tạo nên cách tôi nhìn và xử lý vấn đề pháp lý.</p>
+
+    <div class="grid grid-3">
+      <article class="card reveal">
+        <span class="card-tag">Nghiên cứu</span>
+        <h3>Chứng cứ điện tử trong tố tụng hành chính</h3>
+        <p>Một trong những đề tài nghiên cứu được thực hiện trong quá trình học Luật.</p>
+      </article>
+      <article class="card reveal">
+        <span class="card-tag">Nghiên cứu</span>
+        <h3>Bảo vệ quyền lợi người tiêu dùng dễ bị tổn thương</h3>
+        <p>Nghiên cứu về bảo vệ nhóm người tiêu dùng dễ bị tổn thương.</p>
+      </article>
+      <article class="card reveal">
+        <span class
