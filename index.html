@@ -211,7 +211,9 @@ section{padding:100px 0}.section-head{display:flex;justify-content:space-between
 <div class="toast" id="toast"></div>
 <script>
 const ADMIN_EMAIL='Hoangdeb751@gmail.com';
-const KEY='bhd_profile_v8';
+const KEY='bhd_profile_v9';
+
+/* CẬP NHẬT DỮ LIỆU ĐẦY ĐỦ: HNKHT VÀ NBLG ĐƯỢC ĐƯA VÀO ĐÚNG MỤC WORK & RESEARCH */
 const initial={
   profile:{
     avatar:'assets/Anh_the.png', name:'Bùi Hoàng Dể', title:'Nhân viên pháp lý',
@@ -243,11 +245,12 @@ const initial={
     {id:'tl8',date:'08/2026',title:'Tốt nghiệp',type:'Cột mốc',text:'Hoàn thành chặng đường đại học và bắt đầu một giai đoạn mới của hành trình nghề nghiệp pháp lý.',image:''}
   ],
   work:[
-    {id:'w1',title:'Sự kiểm soát quyền lực nhà nước',meta:'Nghiên cứu khoa học',text:'Đánh giá cơ chế kiểm soát quyền lực giữa Quốc hội và Toà án nhân dân tối cao ở Việt Nam hiện nay.',image:'',link:''},
-    {id:'w2',title:'Chính sách hỗ trợ thanh niên khởi nghiệp',meta:'Hội nghị Khoa học trẻ 2025',text:'Nghiên cứu tham luận xuất sắc nộp cho Hội nghị Khoa học trẻ do Đoàn trường ĐH Luật TP.HCM tổ chức.',image:'assets/Hoi_nghi_khoa_hoc_tre_2025.jpg',link:''},
-    {id:'w4',title:'NBLG — Bồi thường thiệt hại',meta:'Nghiên cứu Bài tập lớn',text:'Phân tích chuyên sâu các quy định pháp luật dân sự về bồi thường thiệt hại ngoài hợp đồng.',image:'assets/NBLG_Boithuongthiethai.jpg',link:''},
-    {id:'w5',title:'NBLG — Cấp dưỡng',meta:'Nghiên cứu Bài tập lớn',text:'Nghiên cứu quy định và thực tiễn áp dụng pháp luật về nghĩa vụ cấp dưỡng trong Luật Hôn nhân và Gia đình.',image:'assets/NBLG_Capduong.jpg',link:''},
-    {id:'w3',title:'Thực tiễn pháp lý & hồ sơ',meta:'Công việc · 2025–2026',text:'Kinh nghiệm xử lý hồ sơ, hợp đồng, thủ tục cư trú – lao động – doanh nghiệp.',image:'',link:''}
+    {id:'w1',date:'2024-2025',title:'Chứng cứ điện tử trong tố tụng hành chính',meta:'Nghiên cứu khoa học · 2024–2025',text:'Đề tài nghiên cứu khoa học sinh viên đánh giá về quy định và thực tiễn áp dụng chứng cứ điện tử trong tố tụng hành chính.',image:'assets/NCKH_2024-2025.jpg',link:''},
+    {id:'w2',date:'2023-2024',title:'Bảo vệ quyền lợi người tiêu dùng dễ bị tổn thương',meta:'Nghiên cứu khoa học · 2023–2024',text:'Nghiên cứu phân tích các khung pháp lý bảo vệ nhóm người tiêu dùng dễ bị tổn thương theo pháp luật bảo vệ quyền lợi người tiêu dùng.',image:'assets/NCKH_2023-2024.jpg',link:''},
+    {id:'w3',date:'2025',title:'Hội nghị khoa học trẻ 2025',meta:'Hội nghị khoa học trẻ · 2025',text:'Tham gia báo cáo tại Hội nghị khoa học trẻ cấp Trường Đại học Luật TP.HCM năm 2025 với các bài nghiên cứu về chính sách pháp luật.',image:'assets/Hoi_nghi_khoa_hoc_tre_2025.jpg',link:''},
+    {id:'w4',date:'Định kỳ',meta:'Ngòi bút luật gia · Cấp dưỡng',text:'Bài viết nghiên cứu chuyên sâu về quy định pháp luật và thực tiễn giải quyết tranh chấp nghĩa vụ cấp dưỡng.',image:'assets/NBLG_Capduong.jpg',link:''},
+    {id:'w5',date:'Định kỳ',meta:'Ngòi bút luật gia · Bồi thường thiệt hại',text:'Nghiên cứu pháp lý về các cấu thành trách nhiệm bồi thường thiệt hại ngoài hợp đồng.',image:'assets/NBLG_Boithuongthiethai.jpg',link:''},
+    {id:'w6',date:'2025-2026',title:'Thực tiễn pháp lý & hồ sơ',meta:'Công việc · 2025–2026',text:'Kinh nghiệm xử lý hồ sơ, hợp đồng, thủ tục cư trú – lao động – doanh nghiệp tại các cơ quan và doanh nghiệp.',image:'',link:''}
   ],
   achievements:[
     {id:'a1',date:'05/08/2026',title:'Sinh viên giỏi toàn khóa 2022–2026',text:'Một dấu mốc học tập quan trọng khi hoàn thành chương trình đại học.',image:'',featured:true,link:''},
@@ -344,15 +347,27 @@ function renderAchievements(){document.getElementById('achievementGrid').innerHT
 function renderPosts(){let arr=data.posts.filter(x=>currentFilter==='all'||x.type===currentFilter);document.getElementById('blogGrid').innerHTML=arr.length?arr.map((x,i)=>`<article class="card reveal active" style="transition-delay:${(i%3)*0.1}s" onclick="openReader('posts', '${x.id}')">${img(x.image,x.title)}<div class="card-body"><div class="meta">${esc(x.date)} · ${esc(x.type)}</div><h3>${esc(x.title)}</h3><div class="desc">${esc(x.excerpt||x.content)}</div><div class="read-more">Đọc toàn văn →</div></div></article>`).join(''):`<div class="empty">Chưa có nội dung ở mục này.</div>`}
 function filterPosts(f,btn){currentFilter=f;document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));btn.classList.add('active');renderPosts()}
 
+/* THUẬT TOÁN LỌC ẢNH TRÙNG LẶP CHO THƯ VIỆN */
 function renderLibrary(){
   const el=document.getElementById('libraryGrid');
-  let autoImages = [];
+  let rawImages = [];
   ['achievements', 'work', 'timeline', 'posts', 'learning'].forEach(key => {
     if(data[key]) data[key].forEach(item => {
-      if(item.image) autoImages.push({src: item.image, title: item.title || item.name, category: key});
-      if(item.images) item.images.forEach(imgSrc => autoImages.push({src: imgSrc, title: item.title, category: key}));
+      if(item.image) rawImages.push({src: item.image, title: item.title || item.name, category: key});
+      if(item.images) item.images.forEach(imgSrc => rawImages.push({src: imgSrc, title: item.title, category: key}));
     });
   });
+
+  // Lọc bỏ ảnh trùng lặp dựa trên URL nguồn (src)
+  let seen = new Set();
+  let autoImages = [];
+  rawImages.forEach(img => {
+    if(img.src && img.src.trim() !== '' && !seen.has(img.src)) {
+      seen.add(img.src);
+      autoImages.push(img);
+    }
+  });
+
   if(autoImages.length === 0) {
     document.getElementById('library').style.display = 'none';
     return;
