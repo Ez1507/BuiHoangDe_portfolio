@@ -10,34 +10,34 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script>
 <style>
-/* HỆ MÀU NGỌC TRẦM (FENG SHUI & ZODIAC HARMONY) */
+/* HỆ MÀU NGỌC TRẦM (FENG SHUI: THỦY SINH MỘC) */
 :root{
-  --ink: #0A1929; /* Đen Đại Dương - Cự Giải / Thủy */
+  --ink: #0A1929; /* Đen Đại Dương */
   --muted: #536A7A;
-  --paper: #F0F4F4; /* Trắng Ngọc Trai ánh Thủy */
+  --paper: #F2F6F5; /* Trắng Ngọc Trai ánh Thủy */
   --card: #FFFFFF;
   --line: #DCE5E3;
-  --teal: #1E6553; /* Xanh Dương Liễu - Mộc */
+  --teal: #1E6553; /* Xanh Ngọc Lục Bảo - Mộc */
   --accent: #2A8B73;
-  --gold: #A38C6D;
-  --shadow: 0 16px 40px rgba(10, 25, 41, 0.06);
+  --gold: #A38C6D; /* Vàng Champagne */
+  --shadow: 0 16px 40px rgba(10, 25, 41, 0.05);
   --r: 10px;
   --ease: cubic-bezier(0.25, 1, 0.5, 1);
 }
 *{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.8 'DM Sans',sans-serif}
+body{margin:0;background:var(--paper);background-image:radial-gradient(circle at 100% 0%, rgba(30,101,83,0.03) 0%, transparent 40%), radial-gradient(circle at 0% 100%, rgba(163,140,109,0.03) 0%, transparent 40%);color:var(--ink);font:15px/1.8 'DM Sans',sans-serif}
 a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}
 .wrap{width:min(1160px,calc(100% - 36px));margin:auto}
 
-/* ALTERNATING BACKGROUNDS */
-.alt-bg { background: #ffffff; border-top: 1px solid rgba(220,229,227,0.5); border-bottom: 1px solid rgba(220,229,227,0.5); }
+/* ALTERNATING BACKGROUNDS CÓ CHIỀU SÂU */
+.alt-bg { background: linear-gradient(180deg, #ffffff 0%, rgba(242,246,245,0.4) 100%); border-top: 1px solid rgba(220,229,227,0.5); border-bottom: 1px solid rgba(220,229,227,0.5); }
 
-/* SCROLL REVEAL ANIMATION */
+/* SCROLL REVEAL ANIMATION MƯỢT MÀ */
 .reveal { opacity: 0; transform: translateY(35px); transition: opacity 1.2s var(--ease), transform 1.2s var(--ease); }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
 /* HEADER & NAV */
-.top{position:sticky;top:0;z-index:30;background:rgba(240,244,244,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(220,229,227,.8)}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:800;letter-spacing:-.04em;font-size:16px}.brand small{display:block;font-size:10px;letter-spacing:.18em;color:var(--teal);font-weight:700}.links{display:flex;gap:22px;align-items:center}.links a{font-size:13px;color:var(--muted);transition:color 0.4s ease;font-weight:600}.links a:hover{color:var(--teal)}
+.top{position:sticky;top:0;z-index:30;background:rgba(242,246,245,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(220,229,227,.8)}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:800;letter-spacing:-.04em;font-size:16px}.brand small{display:block;font-size:10px;letter-spacing:.18em;color:var(--teal);font-weight:700}.links{display:flex;gap:22px;align-items:center}.links a{font-size:13px;color:var(--muted);transition:color 0.4s ease;font-weight:600}.links a:hover{color:var(--teal)}
 
 /* BUTTONS */
 .admin-btn,.primary{background:var(--ink);color:#fff;padding:12px 22px;border-radius:6px;font-weight:600}.ghost{background:rgba(255,255,255,0.8);border:1px solid var(--line);padding:12px 22px;border-radius:6px;font-weight:600;display:inline-flex;align-items:center;gap:8px;color:var(--ink)}
@@ -75,27 +75,32 @@ section{padding:100px 0}.section-head{display:flex;justify-content:space-between
 
 .achievement .card-media{aspect-ratio:4/3}.featured{grid-column:span 2}.featured .card-media{aspect-ratio:16/7}.filters{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px}.filter.active{background:var(--teal);color:#fff;border-color:var(--teal)}.filter{background:transparent;border:1px solid var(--line);padding:10px 20px;border-radius:6px;font-weight:600;color:var(--muted)}.filter:hover:not(.active){background:rgba(30,101,83,0.05);color:var(--teal);border-color:rgba(30,101,83,0.2)}
 
-/* TRỌNG TÂM PHÁT TRIỂN (LEARNING) - BLOCK CARDS MỚI */
+/* TRỌNG TÂM PHÁT TRIỂN (LEARNING) - BLOCK CARDS ĐÃ ĐƯỢC TỐI ƯU CẮT CHỮ */
 .learning{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.learn-item{display:flex;flex-direction:column;align-items:flex-start;gap:20px;padding:36px;background:linear-gradient(150deg, #ffffff 0%, #f4f8f7 100%);border-radius:12px;border:1px solid rgba(30,101,83,0.08);border-top:4px solid var(--teal);box-shadow:0 12px 35px rgba(10,25,41,.03);transition:transform 0.6s var(--ease), box-shadow 0.6s var(--ease)}.learn-item:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(10,25,41,.08)}
-.learn-header{display:flex;align-items:center;justify-content:space-between;width:100%;gap:16px}
+.learn-item{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:32px;background:linear-gradient(150deg, #ffffff 0%, rgba(242,246,245,0.7) 100%);border-radius:12px;border:1px solid rgba(30,101,83,0.08);border-top:4px solid var(--teal);box-shadow:0 12px 35px rgba(10,25,41,.03);transition:transform 0.6s var(--ease), box-shadow 0.6s var(--ease);cursor:pointer;position:relative;overflow:hidden}
+.learn-item:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(10,25,41,.08)}
+.learn-item:after{content:'';position:absolute;right:-30px;bottom:-30px;width:120px;height:120px;background:radial-gradient(circle, rgba(163,140,109,0.05) 0%, transparent 70%);border-radius:50%}
+.learn-header{display:flex;align-items:flex-start;justify-content:space-between;width:100%;gap:16px}
 .learn-title-group{display:flex;align-items:center;gap:16px}
 .learn-thumb{width:48px;height:48px;border-radius:50%;object-fit:cover;background:rgba(30,101,83,0.05);color:var(--teal);display:grid;place-items:center;font-size:20px;border:1px solid rgba(30,101,83,0.15)}
 .learn-title-group strong{font-family:'Playfair Display',serif;font-size:20px;color:var(--ink)}
-.learn-content{width:100%}
-.learn-content span{font-size:15px;color:var(--muted);line-height:1.75;display:block}
+.learn-content{width:100%;flex:1}
+/* Cắt chữ 3 dòng thông minh cho khung học tập */
+.learn-content span{font-size:14.5px;color:var(--muted);line-height:1.75;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.learn-read-more{font-size:13px;font-weight:700;color:var(--teal);margin-top:auto;display:inline-flex;align-items:center;gap:4px;transition:gap 0.3s ease}
+.learn-item:hover .learn-read-more{gap:8px;color:var(--gold)}
 .pill{padding:6px 12px;border-radius:4px;background:rgba(30,101,83,0.08);color:var(--teal);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;border:1px solid rgba(30,101,83,0.15)}
 
 /* NOW SECTION */
-.now{background:var(--ink);color:#fff;border-radius:16px;padding:70px;display:grid;grid-template-columns:1.05fr .95fr;gap:60px;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(10,25,41,.15)}.now:after{content:'';position:absolute;width:500px;height:500px;border:1px solid rgba(255,255,255,0.05);border-radius:50%;right:-150px;top:-150px}.now p{color:#8c9ea9;line-height:1.8;font-size:16px}.now h2{font-700 52px/1.1 'Playfair Display',serif;margin:16px 0 28px;color:#fff}.now-list{display:grid;gap:0;z-index:2;position:relative}.now-list div{padding:20px 0;border-bottom:1px solid rgba(255,255,255,.06);transition:padding-left 0.4s var(--ease), border-color 0.4s}.now-list div:hover{padding-left:16px;border-color:rgba(255,255,255,.3)}
+.now{background:var(--ink);color:#fff;border-radius:16px;padding:70px;display:grid;grid-template-columns:1.05fr .95fr;gap:60px;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(10,25,41,.15)}.now:after{content:'';position:absolute;width:500px;height:500px;border:1px solid rgba(255,255,255,0.05);border-radius:50%;right:-150px;top:-150px}.now p{color:#8c9ea9;line-height:1.8;font-size:16px}.now h2{font-weight:700;font-size:52px;line-height:1.1;font-family:'Playfair Display',serif;margin:16px 0 28px;color:#fff}.now-list{display:grid;gap:0;z-index:2;position:relative}.now-list div{padding:20px 0;border-bottom:1px solid rgba(255,255,255,.06);transition:padding-left 0.4s var(--ease), border-color 0.4s}.now-list div:hover{padding-left:16px;border-color:var(--gold)}
 
 /* MODAL & READER TỐI ƯU HÓA */
 .modal{position:fixed;inset:0;background:rgba(10,25,41,.92);backdrop-filter:blur(10px);z-index:100;display:none;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity 0.5s var(--ease)}.modal.open{display:flex;opacity:1}.modal img{max-width:min(1200px,94vw);max-height:88vh;object-fit:contain;border-radius:8px;transform:scale(0.96);transition:transform 0.6s var(--ease), box-shadow 0.6s}.modal.open img{transform:scale(1);box-shadow:0 30px 80px rgba(0,0,0,0.5)}.close{position:absolute;top:30px;right:30px;background:#fff;color:var(--ink);border-radius:50%;width:48px;height:48px;font-size:24px;display:grid;place-items:center;transition:transform 0.4s var(--ease), background 0.3s}.close:hover{transform:rotate(90deg);background:var(--teal);color:#fff}
-.reader{background:#fff;color:var(--ink);width:100%;max-width:800px;max-height:90vh;overflow-y:auto;border-radius:12px;padding:70px;transform:translateY(40px);transition:transform 0.6s var(--ease);box-shadow:0 24px 80px rgba(0,0,0,0.4)}.modal.open .reader{transform:translateY(0)}.reader img{max-width:100%;border-radius:8px;margin:30px 0;border:1px solid var(--line)}.reader h1{font:700 44px/1.2 'Playfair Display',serif;margin:18px 0;color:var(--ink)}.reader-kicker{font-size:12px;color:var(--teal);font-weight:800;letter-spacing:.12em;text-transform:uppercase}.reader-excerpt{font-size:18px;line-height:1.75;color:#4a5d6a;font-style:italic;margin-bottom:36px;border-left:4px solid var(--teal);padding-left:24px;background:rgba(30,101,83,0.03);padding:20px 24px;border-radius:0 8px 8px 0}.reader-content{white-space:pre-wrap;line-height:1.85;font-size:16px;color:#2c3942}
+.reader{background:#fff;color:var(--ink);width:100%;max-width:800px;max-height:90vh;overflow-y:auto;border-radius:12px;padding:70px;transform:translateY(40px);transition:transform 0.6s var(--ease);box-shadow:0 24px 80px rgba(0,0,0,0.4)}.modal.open .reader{transform:translateY(0)}.reader img{max-width:100%;border-radius:8px;margin:30px 0;border:1px solid var(--line)}.reader h1{font-weight:700;font-size:44px;line-height:1.2;font-family:'Playfair Display',serif;margin:18px 0;color:var(--ink)}.reader-kicker{font-size:12px;color:var(--teal);font-weight:800;letter-spacing:.12em;text-transform:uppercase}.reader-excerpt{font-size:18px;line-height:1.75;color:#4a5d6a;font-style:italic;margin-bottom:36px;border-left:4px solid var(--teal);padding-left:24px;background:rgba(30,101,83,0.03);padding:20px 24px;border-radius:0 8px 8px 0}.reader-content{white-space:pre-wrap;line-height:1.85;font-size:16px;color:#2c3942}
 
 /* DASHBOARD & UTILS (Giữ nguyên logic) */
 .dash{position:fixed;inset:0;background:#f4f8f7;z-index:80;display:none}.dash.open{display:grid;grid-template-columns:250px 1fr}.side{background:var(--ink);color:#dbe8ec;padding:26px;display:flex;flex-direction:column;overflow-y:auto}.side .brand{color:#fff;margin-bottom:32px}.side button{background:transparent;color:#8c9ea9;text-align:left;padding:14px;border-radius:6px;margin:4px 0;transition:all 0.3s ease;font-weight:500}.side button.active,.side button:hover{background:#132a42;color:#fff;transform:translateX(6px);border-left:3px solid var(--teal)}.dash-main{overflow:auto}.dash-top{height:76px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 36px;position:sticky;top:0;z-index:2}.dash-content{padding:36px;max-width:1200px}.dash-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.dash-stat{background:#fff;border:1px solid var(--line);border-radius:8px;padding:24px;transition:transform 0.4s var(--ease)}.dash-stat:hover{transform:translateY(-4px)}.dash-stat b{font-size:32px;color:var(--ink);font-family:'Playfair Display',serif}.dash-panel{background:#fff;border:1px solid var(--line);border-radius:8px;padding:36px;margin-top:24px}.list-row{display:grid;grid-template-columns:80px 1fr auto;gap:20px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line);transition:background 0.3s ease}.list-row:hover{background:var(--paper)}.thumb{width:80px;height:60px;border-radius:6px;object-fit:cover;background:#edf5f2;border:1px solid var(--line)}.row-actions{display:flex;gap:8px;flex-wrap:wrap}.smallbtn{padding:10px 14px;border-radius:6px;background:#f0f4f4;display:flex;align-items:center;gap:6px;transition:all 0.3s var(--ease);font-weight:600;color:var(--ink)}.smallbtn:hover:not([style*="not-allowed"]){background:rgba(30,101,83,0.1);color:var(--teal);transform:translateY(-2px)}.danger{background:#fff0ef;color:#a22}.danger:hover:not([style*="not-allowed"]){background:#fee2e1;color:#a22}.editor{display:grid;grid-template-columns:1fr 320px;gap:30px}.field{display:grid;gap:8px;margin-bottom:20px}.field label{font-size:12px;font-weight:800;color:var(--ink);text-transform:uppercase;letter-spacing:.05em}.field input,.field textarea,.field select{width:100%;border:1px solid #ced6d4;background:#fff;border-radius:6px;padding:14px 16px;outline:none;transition:border-color 0.4s var(--ease);font-family:inherit;font-size:15px}.field input:focus,.field textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(30,101,83,0.1)}.field textarea{min-height:180px;resize:vertical}.editor-actions{display:flex;gap:14px;justify-content:flex-end;margin-top:24px;border-top:1px solid var(--line);padding-top:24px}.empty{padding:50px;text-align:center;color:var(--muted);background:var(--paper);border-radius:8px;border:1px dashed #ced6d4}.toast{position:fixed;right:24px;bottom:24px;background:var(--ink);color:#fff;padding:16px 24px;border-radius:8px;z-index:200;display:none;box-shadow:0 12px 35px rgba(10,25,41,0.2)}.toast.show{display:block;animation:popIn 0.6s var(--ease)}
-@keyframes popIn { from {opacity:0; transform:translateY(30px) scale(0.9)} to {opacity:1; transform:translateY(0) scale(1)} }
+@keyframes popIn { from {opacity:0; transform:translateY(30px) scale(0.95)} to {opacity:1; transform:translateY(0) scale(1)} }
 
 @media(max-width:900px){
   .links{display:none}.hero{grid-template-columns:1fr;padding-top:60px}.portrait{margin:0 auto;width:min(440px,90%)}.grid{grid-template-columns:1fr 1fr}.featured{grid-column:span 2}.now,.learning,.about-grid{grid-template-columns:1fr}
@@ -110,7 +115,7 @@ section{padding:100px 0}.section-head{display:flex;justify-content:space-between
 }
 @media(min-width:901px){ .side-bottom { margin-top: auto; display:flex; flex-direction:column; gap:6px; } }
 @media(max-width:620px){
-  .wrap{width:min(100% - 32px,1160px)}section{padding:80px 0}.hero h1{font-size:clamp(42px,10vw,50px);line-height:1.1;letter-spacing:-.02em;white-space:normal;max-width:100%;}.mini-stats{grid-template-columns:1fr 1fr}.mini-stats .stat:last-child{grid-column:span 2}.grid{grid-template-columns:1fr}.featured{grid-column:auto}.section-head{display:block;padding-bottom:20px;margin-bottom:36px}.section-head p{margin-top:16px}.now{padding:40px;border-radius:12px;grid-template-columns:1fr;gap:36px}.now h2{font-size:40px}.dash-content{padding:20px}.list-row{grid-template-columns:64px 1fr}.list-row .row-actions{grid-column:2;margin-top:10px}.thumb{width:64px;height:52px}.reader{padding:40px 24px;width:calc(100% - 24px)}.reader h1{font-size:36px;line-height:1.25}.card-media{aspect-ratio:16/9}.learn-header{flex-direction:column;align-items:flex-start}.learn-item{padding:28px}
+  .wrap{width:min(100% - 32px,1160px)}section{padding:80px 0}.hero h1{font-size:clamp(42px,10vw,50px);line-height:1.1;letter-spacing:-.02em;white-space:normal;max-width:100%;}.mini-stats{grid-template-columns:1fr 1fr}.mini-stats .stat:last-child{grid-column:span 2}.grid{grid-template-columns:1fr}.featured{grid-column:auto}.section-head{display:block;padding-bottom:20px;margin-bottom:36px}.section-head p{margin-top:16px}.now{padding:40px;border-radius:12px;grid-template-columns:1fr;gap:36px}.now h2{font-size:40px}.dash-content{padding:20px}.list-row{grid-template-columns:64px 1fr}.list-row .row-actions{grid-column:2;margin-top:10px}.thumb{width:64px;height:52px}.reader{padding:40px 24px;width:calc(100% - 24px)}.reader h1{font-size:36px;line-height:1.25}.card-media{aspect-ratio:16/9}.learn-header{align-items:flex-start}.learn-item{padding:28px}
 }
 
 /* FOOTER - JURIST STYLE */
@@ -147,7 +152,7 @@ section{padding:100px 0}.section-head{display:flex;justify-content:space-between
 
 <section id="achievements"><div class="wrap"><div class="section-head reveal"><div><div class="kicker" id="out_s4_k"></div><h2 id="out_s4_t"></h2></div><p id="out_s4_d"></p></div><div class="grid" id="achievementGrid"></div></div></section>
 
-<section id="library" class="alt-bg"><div class="wrap"><div class="section-head reveal"><div><div class="kicker" id="out_s5_k"></div><h2 id="out_s5_t"></h2></div><p id="out_s5_d"></p></div><div class="grid" id="libraryGrid"></div></div></section>
+<section id="library" class="alt-bg"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">05 / Gallery</div><h2 id="out_s5_t"></h2></div><p id="out_s5_d"></p></div><div class="grid" id="libraryGrid"></div></div></section>
 
 <section id="blog"><div class="wrap"><div class="section-head reveal"><div><div class="kicker" id="out_s6_k"></div><h2 id="out_s6_t"></h2></div><p id="out_s6_d"></p></div><div class="filters reveal"><button class="filter active" onclick="filterPosts('all',this)">Tất cả</button><button class="filter" onclick="filterPosts('journey',this)">Hành trình</button><button class="filter" onclick="filterPosts('blog',this)">Blog</button><button class="filter" onclick="filterPosts('learning',this)">Bài học</button></div><div class="grid" id="blogGrid"></div></div></section>
 
@@ -193,7 +198,7 @@ section{padding:100px 0}.section-head{display:flex;justify-content:space-between
 
 <div class="modal" id="imageModal" onclick="if(event.target===this)closeModal()"><button class="close" onclick="closeModal()">×</button><img id="modalImg" alt="Ảnh đầy đủ"></div>
 <div class="modal" id="readerModal" onclick="if(event.target===this)closeReader()"><button class="close" onclick="closeReader()">×</button><article class="reader" id="reader"></article></div>
-<div class="modal" id="loginModal" onclick="if(event.target===this)closeLogin()"><button class="close" onclick="closeLogin()">×</button><div class="reader" style="max-width:440px;padding:50px"><div class="kicker">Private area</div><h2 style="font:700 32px 'Playfair Display';margin:8px 0 24px">Quản trị cá nhân</h2><p class="muted" style="margin-bottom:30px">Đăng nhập tài khoản quản trị để thêm, sửa và xóa nội dung.</p><div class="field"><label>Email</label><input id="loginEmail" type="email" value="Hoangdeb751@gmail.com"></div><div class="field"><label>Mật khẩu</label><input id="loginPassword" type="password" placeholder="Mật khẩu Supabase"></div><button class="primary" style="width:100%;margin-top:14px" onclick="login()">Đăng nhập</button><p id="loginError" class="muted" style="font-size:13px;margin-top:18px"></p></div></div>
+<div class="modal" id="loginModal" onclick="if(event.target===this)closeLogin()"><button class="close" onclick="closeLogin()">×</button><div class="reader" style="max-width:440px;padding:50px"><div class="kicker">Private area</div><h2 style="font-weight:700;font-size:32px;font-family:'Playfair Display',serif;margin:8px 0 24px">Quản trị cá nhân</h2><p class="muted" style="margin-bottom:30px">Đăng nhập tài khoản quản trị để thêm, sửa và xóa nội dung.</p><div class="field"><label>Email</label><input id="loginEmail" type="email" value="Hoangdeb751@gmail.com"></div><div class="field"><label>Mật khẩu</label><input id="loginPassword" type="password" placeholder="Mật khẩu Supabase"></div><button class="primary" style="width:100%;margin-top:14px" onclick="login()">Đăng nhập</button><p id="loginError" class="muted" style="font-size:13px;margin-top:18px"></p></div></div>
 <div class="dash" id="dashboard">
   <aside class="side">
     <div class="brand">BÙI HOÀNG DỂ<small>ADMIN</small></div>
@@ -222,7 +227,9 @@ section{padding:100px 0}.section-head{display:flex;justify-content:space-between
 <div class="toast" id="toast"></div>
 <script>
 const ADMIN_EMAIL='Hoangdeb751@gmail.com';
-const KEY='bhd_profile_v7';
+const KEY='bhd_profile_v8';
+
+/* DỮ LIỆU ĐÃ ĐƯỢC CHUẨN HÓA LẠI: ĐƯA NBLG & HNKHT VÀO MỤC WORK & RESEARCH */
 const initial={
   profile:{
     avatar:'assets/Anh_the.png', name:'Bùi Hoàng Dể', title:'Nhân viên pháp lý',
@@ -255,7 +262,9 @@ const initial={
   ],
   work:[
     {id:'w1',title:'Sự kiểm soát quyền lực nhà nước',meta:'Nghiên cứu khoa học',text:'Đánh giá cơ chế kiểm soát quyền lực giữa Quốc hội và Toà án nhân dân tối cao ở Việt Nam hiện nay.',image:'',link:''},
-    {id:'w2',title:'Chính sách hỗ trợ thanh niên khởi nghiệp',meta:'Hội nghị Khoa học trẻ 2025',text:'Nghiên cứu tham luận nộp cho HNKHT do Đoàn trường ĐH Luật TP.HCM tổ chức.',image:'',link:''},
+    {id:'w2',title:'Chính sách hỗ trợ thanh niên khởi nghiệp',meta:'Hội nghị Khoa học trẻ 2025',text:'Nghiên cứu tham luận xuất sắc nộp cho Hội nghị Khoa học trẻ do Đoàn trường ĐH Luật TP.HCM tổ chức.',image:'assets/Hoi_nghi_khoa_hoc_tre_2025.jpg',link:''},
+    {id:'w4',title:'NBLG — Bồi thường thiệt hại',meta:'Nghiên cứu Bài tập lớn',text:'Phân tích chuyên sâu các quy định pháp luật dân sự về bồi thường thiệt hại ngoài hợp đồng.',image:'assets/NBLG_Boithuongthiethai.jpg',link:''},
+    {id:'w5',title:'NBLG — Cấp dưỡng',meta:'Nghiên cứu Bài tập lớn',text:'Nghiên cứu quy định và thực tiễn áp dụng pháp luật về nghĩa vụ cấp dưỡng trong Luật Hôn nhân và Gia đình.',image:'assets/NBLG_Capduong.jpg',link:''},
     {id:'w3',title:'Thực tiễn pháp lý & hồ sơ',meta:'Công việc · 2025–2026',text:'Kinh nghiệm xử lý hồ sơ, hợp đồng, thủ tục cư trú – lao động – doanh nghiệp.',image:'',link:''}
   ],
   achievements:[
@@ -274,8 +283,8 @@ const initial={
   learning:[
     {id:'l1',name:'Pháp chế doanh nghiệp',status:'Đang phát triển',note:'Tập trung vào tư duy pháp chế và xử lý vấn đề thực tế.',image:''},
     {id:'l2',name:'Nghiên cứu pháp luật',status:'Đang rèn luyện',note:'Tiếp tục rèn kỹ năng tìm kiếm, phân tích và viết pháp lý.',image:''},
-    {id:'l3',name:'Tiếng Anh / TOEIC',status:'Đang học',note:'Ôn luyện chuẩn bị cho kỳ thi TOEIC phục vụ chuyên môn.',image:''},
-    {id:'l4',name:'AI hỗ trợ công việc',status:'Đang khám phá',note:'Tìm cách ứng dụng AI có trách nhiệm vào nghiên cứu và công việc.',image:''}
+    {id:'l3',name:'Tiếng Anh / TOEIC',status:'Đang học',note:'Cải thiện khả năng đọc hiểu và giao tiếp phục vụ công việc. Hướng đến mục tiêu hoàn thành chứng chỉ TOEIC.',image:''},
+    {id:'l4',name:'AI hỗ trợ công việc',status:'Đang khám phá',note:'HỌC CÁCH DÙNG AI - HỌC CÁCH LÀM VIỆC TỐT HƠN. Trước đây, tôi nghĩ AI đơn giản là một công cụ để hỏi đáp hoặc tìm một câu trả lời nhanh. Nhưng càng sử dụng, tôi càng nhận ra điều quan trọng không nằm ở việc AI có thể làm được bao nhiêu, mà là mình biết sử dụng nó như thế nào.\n\nTrong quá trình học tập và làm việc, tôi bắt đầu thử ứng dụng AI vào nhiều việc khác nhau: hỗ trợ tìm hiểu và phân tích vấn đề pháp luật, xây dựng và chỉnh sửa nội dung, hỗ trợ soạn thảo, dịch và trao đổi với khách hàng nước ngoài, học tiếng Anh, lên ý tưởng hình ảnh, xây dựng website cá nhân và xử lý những vấn đề kỹ thuật mà trước đây tôi gần như không biết bắt đầu từ đâu. Nhưng tôi cũng dần hiểu rằng, AI không thể thay thế tư duy của mình. Một câu trả lời có thể rất thuyết phục nhưng chưa chắc đã đúng. Một nội dung có thể viết rất trôi chảy nhưng chưa chắc phù hợp với hoàn cảnh. Vì vậy, tôi tập cho mình thói quen đặt câu hỏi rõ hơn, kiểm tra thông tin, đối chiếu nguồn, chỉnh sửa lại kết quả và quan trọng nhất là tự chịu trách nhiệm với sản phẩm cuối cùng.\n\nCó những lúc tôi dùng AI để tiết kiệm vài chục phút. Có những lúc lại mất nhiều thời gian hơn vì phải thử, sửa, hỏi lại cho ra đúng ý mình. Nhưng tôi tin rằng, việc tự học và thử nghiệm mỗi ngày sẽ giúp mình tìm ra cách làm việc hiệu quả hơn trong tương lai.',image:''}
   ],
   goals:[
     {id:'g1',text:'Phát triển chuyên môn pháp chế',status:'Đang thực hiện'},
@@ -295,7 +304,6 @@ async function loadRemoteState(){if(!sb)return;try{const {data:rows,error}=await
 async function save(){renderAll();localStorage.setItem(KEY,JSON.stringify(data));if(!sb){toast('Đã lưu trên trình duyệt');return false}try{const {data:session}=await sb.auth.getSession();const user=session?.session?.user;if(!user||user.email.toLowerCase()!==ADMIN_EMAIL.toLowerCase()){toast('Chưa đăng nhập quản trị');return false}const {error}=await sb.from('portfolio_state').upsert({id:1,state:data,updated_at:new Date().toISOString()},{onConflict:'id'});if(error)throw error;remoteLoaded=true;return true}catch(e){toast('Lỗi lưu online: '+e.message);return false}}
 function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 
-// HÀM KHỞI TẠO HOẠT ẢNH CUỘN MƯỢT MÀ
 function initScrollReveal() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -373,7 +381,7 @@ function renderLibrary(){
 
 function renderLearning(){
   document.getElementById('learningList').innerHTML = data.learning.map((x,i) => `
-    <div class="learn-item reveal" style="transition-delay:${(i%2)*0.1}s">
+    <div class="learn-item reveal" style="transition-delay:${(i%2)*0.1}s" onclick="openReader('learning', '${x.id}')">
       <div class="learn-header">
         <div class="learn-title-group">
           ${x.image ? `<img class="learn-thumb" src="${esc(x.image)}" loading="lazy" alt="">` : `<div class="learn-thumb">✦</div>`}
@@ -384,6 +392,7 @@ function renderLearning(){
       <div class="learn-content">
         <span>${esc(x.note)}</span>
       </div>
+      <div class="learn-read-more">Đọc toàn văn →</div>
     </div>
   `).join('');
 }
