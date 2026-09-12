@@ -1,165 +1,546 @@
 <!doctype html>
-<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bùi Hoàng Dể — Personal Profile</title>
-<meta name="description" content="Bùi Hoàng Dể — hồ sơ cá nhân, hành trình, nghiên cứu, thành tích và những điều đang học.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bùi Hoàng Dể — Personal Profile</title>
+<meta name="description" content="Hồ sơ cá nhân, hành trình, nghiên cứu, thành tích và chuyên môn pháp lý của Bùi Hoàng Dể.">
+<meta property="og:title" content="Bùi Hoàng Dể — Personal Profile">
+<meta property="og:description" content="Chuyên viên pháp lý. Theo đuổi sự chính xác, bảo mật và tư duy hệ thống.">
+<meta property="og:image" content="assets/Anh_the.png">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script>
 <style>
-:root{--ink:#10283a;--muted:#617381;--paper:#f6faf8;--card:#fff;--line:#dce8e4;--teal:#159a91;--green:#55a879;--aqua:#dff4ef;--shadow:0 24px 70px rgba(16,40,58,.10);--r:24px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 85% 0,#e8f7f2 0,transparent 28%),var(--paper);color:var(--ink);font:15px/1.7 'DM Sans',sans-serif}a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}.wrap{width:min(1160px,calc(100% - 36px));margin:auto}.top{position:sticky;top:0;z-index:30;background:rgba(246,250,248,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(220,232,228,.7)}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:800;letter-spacing:-.04em}.brand small{display:block;font-size:10px;letter-spacing:.18em;color:var(--teal);font-weight:700}.links{display:flex;gap:22px;align-items:center}.links a{font-size:13px;color:#48606e}.links a:hover{color:var(--teal)}.admin-btn,.primary{background:var(--ink);color:#fff;padding:11px 16px;border-radius:14px;font-weight:700}.ghost{background:#fff;border:1px solid var(--line);padding:11px 16px;border-radius:14px;font-weight:700}.hero{padding:88px 0 72px;min-height:650px;display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center}.eyebrow{display:inline-flex;gap:9px;align-items:center;padding:7px 11px;border-radius:999px;background:var(--aqua);color:#147d75;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.hero h1{font:700 clamp(48px,7.4vw,88px)/.96 'Playfair Display',serif;letter-spacing:-.055em;margin:18px 0;white-space:nowrap}.hero h1 span{display:block;color:var(--teal)}.lead{font-size:18px;color:var(--muted);max-width:620px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.portrait{position:relative;max-width:440px;margin-left:auto}.portrait:before{content:'';position:absolute;inset:-30px -20px 35px 25px;border:1px solid #b9ddd3;border-radius:40px;transform:rotate(5deg)}.portrait:after{content:'LEGAL · RESEARCH · JOURNEY';position:absolute;right:-25px;bottom:15px;background:var(--ink);color:#fff;padding:12px 16px;border-radius:14px;font-size:10px;letter-spacing:.13em}.portrait img{position:relative;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:36px;display:block;box-shadow:var(--shadow)}.mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px}.stat{background:#fff;border:1px solid var(--line);padding:14px;border-radius:17px}.stat b{font-size:20px;display:block}.stat span{font-size:11px;color:var(--muted)}section{padding:82px 0}.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:34px}.kicker{color:var(--teal);font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.section-head h2{font:700 clamp(34px,5vw,58px)/1 'Playfair Display',serif;margin:8px 0 0;letter-spacing:-.04em}.section-head p{max-width:430px;color:var(--muted);margin:0}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.panel{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px;box-shadow:0 10px 40px rgba(16,40,58,.04)}.panel h3{margin:0 0 10px}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{padding:8px 11px;background:#edf7f4;border-radius:999px;font-size:12px}.timeline{position:relative;padding-left:35px}.timeline:before{content:'';position:absolute;left:9px;top:5px;bottom:5px;width:1px;background:#bddbd3}.event{position:relative;margin:0 0 26px}.event:before{content:'';position:absolute;left:-31px;top:7px;width:11px;height:11px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 5px var(--paper)}.event .year{font-size:11px;font-weight:800;color:var(--teal);letter-spacing:.12em}.event h3{margin:4px 0 6px;font-size:20px}.event p{margin:0;color:var(--muted)}.event .event-meta{margin-top:12px;display:flex;gap:7px;flex-wrap:wrap}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:0 10px 40px rgba(16,40,58,.04);transition:.25s}.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.card-media{aspect-ratio:16/10;background:#e8f2ef;overflow:hidden}.card-media img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in}.card-body{padding:20px}.card-body h3{margin:6px 0;font-size:18px;line-height:1.35}.meta{font-size:11px;color:var(--teal);font-weight:800;letter-spacing:.06em}.desc{color:var(--muted);font-size:13px}.achievement .card-media{aspect-ratio:4/3}.featured{grid-column:span 2}.featured .card-media{aspect-ratio:16/8}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}.filter.active{background:var(--ink);color:#fff}.filter{background:#fff;border:1px solid var(--line);padding:9px 13px;border-radius:999px}.learning{display:grid;grid-template-columns:1fr 1fr;gap:18px}.learn-item{display:flex;justify-content:space-between;gap:20px;align-items:start;padding:18px 0;border-bottom:1px solid var(--line)}.learn-item:last-child{border-bottom:0}.learn-item strong{display:block}.learn-item span{font-size:12px;color:var(--muted)}.pill{padding:6px 9px;border-radius:999px;background:#eef8f4;color:#277866;font-size:11px;font-weight:700;white-space:nowrap}.now{background:var(--ink);color:#fff;border-radius:32px;padding:45px;display:grid;grid-template-columns:1.1fr .9fr;gap:50px;position:relative;overflow:hidden}.now:after{content:'';position:absolute;width:360px;height:360px;border:1px solid rgba(255,255,255,.12);border-radius:50%;right:-120px;top:-150px}.now p{color:#bfd0d8}.now h2{font:700 50px/1 'Playfair Display',serif;margin:7px 0 18px}.now-list{display:grid;gap:12px}.now-list div{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12)}footer{padding:60px 0 90px;border-top:1px solid var(--line)}.footer{display:flex;justify-content:space-between;gap:20px;align-items:end}.muted{color:var(--muted)}.modal{position:fixed;inset:0;background:rgba(5,18,25,.82);z-index:100;display:none;align-items:center;justify-content:center;padding:24px}.modal.open{display:flex}.modal img{max-width:min(1200px,94vw);max-height:88vh;object-fit:contain;border-radius:12px}.close{position:absolute;top:20px;right:20px;background:#fff;border-radius:50%;width:42px;height:42px;font-size:20px}.reader{background:#fff;color:var(--ink);max-width:850px;max-height:90vh;overflow:auto;border-radius:28px;padding:40px}.reader img{max-width:100%;border-radius:18px;margin:12px 0}.reader h1{font:700 42px/1.1 'Playfair Display',serif}.dash{position:fixed;inset:0;background:#f4f8f7;z-index:80;display:none}.dash.open{display:grid;grid-template-columns:245px 1fr}.side{background:var(--ink);color:#dbe8ec;padding:22px;display:flex;flex-direction:column}.side .brand{color:#fff;margin-bottom:28px}.side button{background:transparent;color:#b8cad0;text-align:left;padding:12px;border-radius:12px;margin:2px 0}.side button.active,.side button:hover{background:#183a4d;color:#fff}.dash-main{overflow:auto}.dash-top{height:74px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 30px;position:sticky;top:0;z-index:2}.dash-content{padding:30px;max-width:1200px}.dash-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.dash-stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}.dash-stat b{font-size:28px}.dash-panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;margin-top:18px}.list-row{display:grid;grid-template-columns:72px 1fr auto;gap:15px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.thumb{width:72px;height:55px;border-radius:10px;object-fit:cover;background:#edf5f2}.row-actions{display:flex;gap:7px;flex-wrap:wrap}.smallbtn{padding:8px 10px;border-radius:10px;background:#edf5f2}.smallbtn:disabled{opacity:.35;cursor:not-allowed}.danger{background:#fff0ef;color:#a22}.editor{display:grid;grid-template-columns:1fr 300px;gap:18px}.field{display:grid;gap:6px;margin-bottom:14px}.field label{font-size:12px;font-weight:800}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);background:#fbfdfc;border-radius:12px;padding:11px 12px;outline:none}.field textarea{min-height:180px;resize:vertical}.editor-actions{display:flex;gap:9px;justify-content:flex-end}.empty{padding:35px;text-align:center;color:var(--muted)}.toast{position:fixed;right:20px;bottom:20px;background:var(--ink);color:#fff;padding:12px 16px;border-radius:13px;z-index:200;display:none}.toast.show{display:block}@media(max-width:900px){.links{display:none}.hero{grid-template-columns:1fr;padding-top:55px}.portrait{margin:0 auto;width:min(440px,90%)}.grid{grid-template-columns:1fr 1fr}.featured{grid-column:span 2}.now,.learning,.about-grid{grid-template-columns:1fr}.dash.open{grid-template-columns:1fr}.side{display:none}.editor{grid-template-columns:1fr}.dash-grid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.wrap{width:min(100% - 24px,1160px)}section{padding:60px 0}.hero h1{font-size:clamp(38px,10.2vw,48px);line-height:1;letter-spacing:-.045em;white-space:nowrap;max-width:100%;}.mini-stats{grid-template-columns:1fr 1fr}.mini-stats .stat:last-child{grid-column:span 2}.grid{grid-template-columns:1fr}.featured{grid-column:auto}.section-head{display:block}.section-head p{margin-top:14px}.now{padding:28px;border-radius:24px}.now h2{font-size:40px}.dash-content{padding:16px}.list-row{grid-template-columns:58px 1fr}.list-row .row-actions{grid-column:2}.thumb{width:58px;height:48px}.reader{padding:24px}.reader h1{font-size:32px}}
-
-/* ===== 2026 VISUAL REFINEMENT ===== */
+/* HỆ MÀU NGỌC TRẦM (FENG SHUI: THỦY SINH MỘC) */
 :root{
-  --ink:#122433; --muted:#667783; --paper:#f7faf9; --card:#ffffff;
-  --line:#dfe9e6; --teal:#178f87; --green:#5caa83; --aqua:#e5f5f1;
-  --soft:#eff6f3; --shadow:0 18px 55px rgba(18,36,51,.075); --r:22px;
+  --ink: #0A1929;
+  --muted: #536A7A;
+  --paper: #F2F6F5;
+  --card: #FFFFFF;
+  --line: #DCE5E3;
+  --teal: #1E6553;
+  --accent: #2A8B73;
+  --gold: #A38C6D;
+  --shadow: 0 16px 40px rgba(10, 25, 41, 0.05);
+  --r: 10px;
+  --ease: cubic-bezier(0.25, 1, 0.5, 1);
 }
-.hero-status{margin:14px 0 0;color:#71838d;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
-body{background:linear-gradient(180deg,#f8fbfa 0%,#f5f9f7 100%);color:var(--ink);font-size:15px;overflow-x:hidden}
-.wrap{width:min(1180px,calc(100% - 48px))}
-.top{background:rgba(248,251,250,.92);border-bottom:1px solid rgba(211,225,220,.75);box-shadow:0 6px 24px rgba(18,36,51,.035)}
-.nav{height:72px;gap:24px}.brand{font-size:14px;white-space:nowrap}.brand small{font-size:9px;margin-top:2px}
-.links{gap:6px;margin-left:auto}.links a{font-size:12px;padding:9px 10px;border-radius:10px;white-space:nowrap}.links a:hover{background:var(--aqua);color:var(--ink)}
-.admin-btn,.primary,.ghost{min-height:42px;padding:10px 15px;border-radius:12px}.admin-btn{font-size:12px;white-space:nowrap}
-.hero{padding:74px 0 82px;min-height:0;grid-template-columns:minmax(0,1.02fr) minmax(330px,.78fr);gap:64px;align-items:center}
-.hero>div:first-child{max-width:660px}.eyebrow{padding:7px 10px;font-size:10px;letter-spacing:.11em}.hero h1{font-size:clamp(58px,7vw,88px);line-height:.94;margin:18px 0 20px;max-width:680px}.lead{font-size:17px;line-height:1.75;max-width:600px}
-.actions{margin-top:24px}.mini-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:28px;max-width:650px}.stat{padding:15px 16px;border-radius:15px;min-width:0}.stat b{font-size:19px}.stat span{display:block;line-height:1.35;margin-top:3px}
-.portrait{width:min(100%,400px);margin-left:auto;padding:12px}.portrait:before{inset:2px -2px 22px 22px;border-radius:30px;transform:rotate(4deg);background:rgba(229,245,241,.4)}.portrait:after{right:-3px;bottom:18px;padding:10px 13px;border-radius:11px;font-size:9px;letter-spacing:.1em;box-shadow:0 12px 30px rgba(18,36,51,.12)}.portrait img{border-radius:28px;aspect-ratio:4/4.8}
-section{padding:76px 0}.section-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,430px);align-items:end;gap:36px;margin-bottom:28px}.section-head h2{font-size:clamp(38px,4.6vw,52px);line-height:1.03;margin:7px 0 0}.section-head p{font-size:14px;line-height:1.65}.kicker{font-size:10px;letter-spacing:.14em}
-.about-grid,.learning{gap:16px}.panel{padding:26px;border-radius:20px;box-shadow:0 8px 30px rgba(18,36,51,.035)}.panel h3{font-size:18px}.panel p{line-height:1.75}
-.chips{gap:7px}.chip{padding:7px 10px;font-size:11px}
-.timeline{padding-left:34px;max-width:900px}.timeline:before{left:8px;background:#c7ddd7}.event{margin-bottom:18px;padding:0 0 8px}.event:before{left:-31px;top:5px;width:10px;height:10px}.event h3{font-size:18px;line-height:1.4;margin:4px 0 5px}.event p{font-size:13px;line-height:1.7}.event .event-meta{margin-top:9px}
-.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.card{border-radius:20px;box-shadow:0 8px 28px rgba(18,36,51,.045);height:100%;display:flex;flex-direction:column}.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.card-media{aspect-ratio:16/9;flex:none}.achievement .card-media{aspect-ratio:4/3}.featured{grid-column:span 2}.featured .card-media{aspect-ratio:16/7.7}.card-body{padding:18px 19px 20px;display:flex;flex-direction:column;flex:1}.card-body h3{font-size:17px;line-height:1.4;margin:6px 0 7px}.desc{font-size:13px;line-height:1.65;margin-top:auto}.meta{font-size:10px;letter-spacing:.08em}
-.filters{gap:7px;margin-bottom:18px}.filter{padding:8px 12px;border-radius:10px;font-size:12px}.learning.panel{display:grid;grid-template-columns:1fr 1fr;box-shadow:none}.learn-item{padding:16px 4px}.learn-item strong{font-size:14px}.learn-item span{line-height:1.45}.pill{font-size:10px}
-.now{padding:42px;border-radius:26px;grid-template-columns:minmax(0,1fr) minmax(280px,.8fr);gap:46px;box-shadow:0 18px 55px rgba(18,36,51,.12)}.now h2{font-size:46px;line-height:1.03}.now p{line-height:1.7}.now-list div{padding:13px 0}.now-list strong{font-size:14px}
-footer{padding:48px 0 70px}.footer{align-items:center}.footer .muted{font-size:12px}
-.modal{padding:18px;background:rgba(7,20,28,.88)}.modal img{max-width:94vw;max-height:86vh;border-radius:14px}.close{top:16px;right:16px;width:40px;height:40px}
-.reader{max-width:820px;padding:34px;border-radius:22px}.reader h1{font-size:38px;line-height:1.12}.reader p{line-height:1.8}
-/* dashboard */
-.dash.open{grid-template-columns:228px 1fr}.side{padding:20px}.side button{font-size:13px;padding:10px}.dash-top{height:70px;padding:0 26px}.dash-content{padding:26px;max-width:1180px}.dash-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.dash-stat{border-radius:16px;padding:18px}.dash-stat b{font-size:25px}.dash-panel{border-radius:18px;padding:20px;margin-top:15px}.list-row{grid-template-columns:64px minmax(0,1fr) auto;gap:13px;padding:12px 0}.list-row>div:nth-child(2){min-width:0}.list-row strong{display:block;line-height:1.4}.thumb{width:64px;height:50px}.row-actions{justify-content:flex-end}.smallbtn{font-size:12px;padding:7px 9px}.editor{grid-template-columns:minmax(0,1fr) 280px}.field{margin-bottom:13px}.field input,.field textarea,.field select{border-radius:10px;padding:10px 11px}.field textarea{min-height:150px}
-@media(max-width:1080px){.links{gap:1px}.links a{padding:8px 7px}.nav{gap:12px}.hero{gap:40px}.hero h1{font-size:clamp(54px,7vw,76px)}}
-@media(max-width:900px){.wrap{width:min(100% - 32px,1180px)}.nav{height:68px}.links{display:flex;overflow-x:auto;max-width:55vw;scrollbar-width:none}.links::-webkit-scrollbar{display:none}.links a{flex:0 0 auto}.hero{grid-template-columns:1fr;gap:38px;padding:58px 0 66px}.hero>div:first-child{max-width:720px}.portrait{margin:0 auto;width:min(390px,82vw)}section{padding:66px 0}.section-head{grid-template-columns:1fr;gap:10px;align-items:start}.section-head p{max-width:680px}.grid{grid-template-columns:1fr 1fr}.featured{grid-column:span 2}.now{grid-template-columns:1fr;gap:26px}.dash-grid{grid-template-columns:1fr 1fr}.dash.open{grid-template-columns:1fr}.side{display:none}.editor{grid-template-columns:1fr}}
-@media(max-width:620px){.wrap{width:calc(100% - 24px)}.top{position:sticky}.brand{font-size:12px}.brand small{font-size:8px}.links{max-width:38vw;gap:0}.links a{font-size:11px;padding:7px 6px}.admin-btn{padding:9px 11px;font-size:11px}.hero{padding:46px 0 56px}.hero h1{font-size:56px;letter-spacing:-.045em}.lead{font-size:15px}.mini-stats{grid-template-columns:1fr 1fr}.mini-stats .stat:last-child{grid-column:span 2}.stat{padding:13px}.section-head h2{font-size:39px}.section-head{margin-bottom:22px}.grid{grid-template-columns:1fr}.featured{grid-column:auto}.card-body{padding:17px}.learning.panel{grid-template-columns:1fr}.now{padding:28px;border-radius:22px}.now h2{font-size:38px}.footer{display:grid;gap:18px;align-items:start}.dash-content{padding:14px}.dash-grid{grid-template-columns:1fr 1fr}.list-row{grid-template-columns:52px minmax(0,1fr);gap:10px}.list-row .row-actions{grid-column:2;justify-content:flex-start}.thumb{width:52px;height:44px}.reader{padding:22px}.reader h1{font-size:31px}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);background-image:radial-gradient(circle at 100% 0%, rgba(30,101,83,0.03) 0%, transparent 40%), radial-gradient(circle at 0% 100%, rgba(163,140,109,0.03) 0%, transparent 40%);color:var(--ink);font:15px/1.8 'DM Sans',sans-serif}
+a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}
+.wrap{width:min(1160px,calc(100% - 36px));margin:auto}
 
-.placeholder-media{display:grid;place-items:center;align-content:center;gap:4px;background:linear-gradient(135deg,#eef6f3,#f8fbfa);color:#72858d;text-align:center}.placeholder-media span{font-size:12px;font-weight:700}.placeholder-media small{font-size:10px;color:#98a8ae}.hero-status{font-variant-numeric:tabular-nums}
-@media(max-width:390px){.hero h1{font-size:38px;letter-spacing:-.05em}} 
+.alt-bg { background: linear-gradient(180deg, #ffffff 0%, rgba(242,246,245,0.4) 100%); border-top: 1px solid rgba(220,229,227,0.5); border-bottom: 1px solid rgba(220,229,227,0.5); }
+.reveal { opacity: 0; transform: translateY(35px); transition: opacity 1.2s var(--ease), transform 1.2s var(--ease); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+.top{position:sticky;top:0;z-index:30;background:rgba(242,246,245,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(220,229,227,.8)}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:800;letter-spacing:-.04em;font-size:16px}.brand small{display:block;font-size:10px;letter-spacing:.18em;color:var(--teal);font-weight:700}.links{display:flex;gap:22px;align-items:center}.links a{font-size:13px;color:var(--muted);transition:color 0.4s ease;font-weight:600}.links a:hover{color:var(--teal)}
+
+.admin-btn,.primary{background:var(--ink);color:#fff;padding:12px 22px;border-radius:6px;font-weight:600}.ghost{background:rgba(255,255,255,0.8);border:1px solid var(--line);padding:12px 22px;border-radius:6px;font-weight:600;display:inline-flex;align-items:center;gap:8px;color:var(--ink)}
+.primary, .ghost, .admin-btn, .chip, .filter { transition: all 0.5s var(--ease); }
+.primary:hover { transform: translateY(-3px); box-shadow: 0 12px 24px rgba(10,25,41,.15); background: #132a42; }
+.ghost:hover { background: #fff; border-color: var(--teal); color: var(--teal); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(30,101,83,.08); }
+.chip:hover { background: var(--teal); color: #fff; transform: translateY(-2px); border-color:transparent;}
+
+.hero{padding:100px 0 80px;min-height:85vh;display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}
+.eyebrow{display:inline-flex;gap:9px;align-items:center;padding:8px 14px;border-radius:4px;background:rgba(30,101,83,0.08);color:var(--teal);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(30,101,83,0.15)}.hero h1{font:700 clamp(44px,7.5vw,86px)/1.05 'Playfair Display',serif;letter-spacing:-.03em;margin:24px 0;white-space:nowrap}.hero h1 span{display:block;color:var(--teal)}.lead{font-size:17px;color:var(--muted);max-width:620px;line-height:1.8}.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}.portrait{position:relative;max-width:420px;margin-left:auto}.portrait:before{content:'';position:absolute;inset:-20px -20px 20px 20px;border:1px solid rgba(30,101,83,0.3);border-radius:var(--r);transform:rotate(4deg);transition:transform 1.2s var(--ease)}.portrait:hover:before{transform:rotate(0deg) scale(1.03)}.portrait:after{content:'LEGAL & RESEARCH';position:absolute;right:-15px;bottom:30px;background:var(--teal);color:#fff;padding:12px 20px;border-radius:4px;font-size:10px;letter-spacing:.15em;z-index:2;box-shadow:0 12px 24px rgba(30,101,83,0.25)}.portrait img{position:relative;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:var(--r);display:block;box-shadow:var(--shadow);z-index:1}.mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:40px;border-top:1px solid var(--line);padding-top:28px}.stat b{font-size:24px;display:block;font-family:'Playfair Display',serif;color:var(--ink)}.stat span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;font-weight:600}
+
+section{padding:100px 0}.section-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:50px}.kicker{color:var(--gold);font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}.section-head h2{font:700 clamp(36px,5vw,56px)/1.1 'Playfair Display',serif;margin:12px 0 0;letter-spacing:-.02em;color:var(--ink)}.section-head p{max-width:500px;color:var(--muted);margin:0;line-height:1.7;font-size:15px}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.panel{background:linear-gradient(145deg, #ffffff, #f9fbfb);border:1px solid rgba(220,229,227,0.6);border-radius:var(--r);padding:40px;box-shadow:0 10px 30px rgba(10,25,41,.03);transition:transform 0.6s var(--ease), box-shadow 0.6s var(--ease)}.panel:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(10,25,41,.06)}.panel h3{margin:0 0 18px;font-family:'Playfair Display',serif;font-size:24px;color:var(--ink)}.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.chip{padding:8px 16px;background:rgba(30,101,83,0.05);border:1px solid rgba(30,101,83,0.1);color:var(--teal);border-radius:6px;font-size:13px;font-weight:600;cursor:default}
+
+.timeline{position:relative;padding-left:45px;max-width:900px}.timeline:before{content:'';position:absolute;left:13px;top:8px;bottom:8px;width:1px;background:linear-gradient(to bottom, var(--teal), rgba(30,101,83,0.1))}.event{position:relative;margin:0 0 45px;transition:transform 0.5s var(--ease)}.event:hover{transform:translateX(8px)}.event:before{content:'';position:absolute;left:-36px;top:10px;width:10px;height:10px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 6px var(--card);transition:transform 0.5s var(--ease), background 0.3s}.event:hover:before{transform:scale(1.5);background:var(--gold)}.event .year{font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}.event h3{margin:8px 0 10px;font-size:22px;font-family:'Playfair Display',serif;color:var(--ink)}.event p{margin:0;color:var(--muted);line-height:1.75;font-size:15px}.event .event-meta{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:#fff;border:1px solid rgba(220,229,227,0.8);border-radius:var(--r);overflow:hidden;box-shadow:0 8px 24px rgba(10,25,41,.03);transition:transform 0.7s var(--ease), box-shadow 0.7s var(--ease);display:flex;flex-direction:column;cursor:pointer}
+.card:hover{transform:translateY(-10px);box-shadow:0 24px 60px rgba(10,25,41,.08)}
+.card-media{aspect-ratio:16/10;background:#f4f7f6;overflow:hidden;border-bottom:1px solid rgba(220,229,227,0.5)}
+.card-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1s var(--ease)}
+.card:hover .card-media img{transform:scale(1.06)}
+.card-body{padding:26px;flex:1;display:flex;flex-direction:column}
+.card-body h3{margin:10px 0;font-size:20px;line-height:1.4;font-family:'Playfair Display',serif;color:var(--ink)}
+.meta{font-size:11px;color:var(--teal);font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.desc{color:var(--muted);font-size:14px;line-height:1.65;margin-bottom:20px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1}
+.read-more{font-size:13px;font-weight:700;color:var(--ink);margin-top:auto;display:inline-flex;align-items:center;gap:6px;transition:gap 0.4s var(--ease), color 0.4s}
+.card:hover .read-more{gap:12px;color:var(--teal)}
+
+.achievement .card-media{aspect-ratio:4/3}.featured{grid-column:span 2}.featured .card-media{aspect-ratio:16/7}.filters{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px}.filter.active{background:var(--teal);color:#fff;border-color:var(--teal)}.filter{background:transparent;border:1px solid var(--line);padding:10px 20px;border-radius:6px;font-weight:600;color:var(--muted)}.filter:hover:not(.active){background:rgba(30,101,83,0.05);color:var(--teal);border-color:rgba(30,101,83,0.2)}
+
+.learning{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.learn-item{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:32px;background:linear-gradient(150deg, #ffffff 0%, rgba(242,246,245,0.7) 100%);border-radius:12px;border:1px solid rgba(30,101,83,0.08);border-top:4px solid var(--teal);box-shadow:0 12px 35px rgba(10,25,41,.03);transition:transform 0.6s var(--ease), box-shadow 0.6s var(--ease);cursor:pointer;position:relative;overflow:hidden}
+.learn-item:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(10,25,41,.08)}
+.learn-item:after{content:'';position:absolute;right:-30px;bottom:-30px;width:120px;height:120px;background:radial-gradient(circle, rgba(163,140,109,0.05) 0%, transparent 70%);border-radius:50%}
+.learn-header{display:flex;align-items:flex-start;justify-content:space-between;width:100%;gap:16px}
+.learn-title-group{display:flex;align-items:center;gap:16px}
+.learn-thumb{width:48px;height:48px;border-radius:50%;object-fit:cover;background:rgba(30,101,83,0.05);color:var(--teal);display:grid;place-items:center;font-size:20px;border:1px solid rgba(30,101,83,0.15)}
+.learn-title-group strong{font-family:'Playfair Display',serif;font-size:20px;color:var(--ink)}
+.learn-content{width:100%;flex:1}
+.learn-content span{font-size:14.5px;color:var(--muted);line-height:1.75;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.learn-read-more{font-size:13px;font-weight:700;color:var(--teal);margin-top:auto;display:inline-flex;align-items:center;gap:4px;transition:gap 0.3s ease}
+.learn-item:hover .learn-read-more{gap:8px;color:var(--gold)}
+.pill{padding:6px 12px;border-radius:4px;background:rgba(30,101,83,0.08);color:var(--teal);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;border:1px solid rgba(30,101,83,0.15)}
+
+.now{background:var(--ink);color:#fff;border-radius:16px;padding:70px;display:grid;grid-template-columns:1.05fr .95fr;gap:60px;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(10,25,41,.15)}.now:after{content:'';position:absolute;width:500px;height:500px;border:1px solid rgba(255,255,255,0.05);border-radius:50%;right:-150px;top:-150px}.now p{color:#8c9ea9;line-height:1.8;font-size:16px}.now h2{font-weight:700;font-size:52px;line-height:1.1;font-family:'Playfair Display',serif;margin:16px 0 28px;color:#fff}.now-list{display:grid;gap:0;z-index:2;position:relative}.now-list div{padding:20px 0;border-bottom:1px solid rgba(255,255,255,.06);transition:padding-left 0.4s var(--ease), border-color 0.4s}.now-list div:hover{padding-left:16px;border-color:var(--gold)}
+
+.modal{position:fixed;inset:0;background:rgba(10,25,41,.92);backdrop-filter:blur(10px);z-index:100;display:none;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity 0.5s var(--ease)}.modal.open{display:flex;opacity:1}.modal img{max-width:min(1200px,94vw);max-height:88vh;object-fit:contain;border-radius:8px;transform:scale(0.96);transition:transform 0.6s var(--ease), box-shadow 0.6s}.modal.open img{transform:scale(1);box-shadow:0 30px 80px rgba(0,0,0,0.5)}.close{position:absolute;top:30px;right:30px;background:#fff;color:var(--ink);border-radius:50%;width:48px;height:48px;font-size:24px;display:grid;place-items:center;transition:transform 0.4s var(--ease), background 0.3s}.close:hover{transform:rotate(90deg);background:var(--teal);color:#fff}
+.reader{background:#fff;color:var(--ink);width:100%;max-width:800px;max-height:90vh;overflow-y:auto;border-radius:12px;padding:70px;transform:translateY(40px);transition:transform 0.6s var(--ease);box-shadow:0 24px 80px rgba(0,0,0,0.4)}.modal.open .reader{transform:translateY(0)}.reader img{max-width:100%;border-radius:8px;margin:30px 0;border:1px solid var(--line)}.reader h1{font-weight:700;font-size:44px;line-height:1.2;font-family:'Playfair Display',serif;margin:18px 0;color:var(--ink)}.reader-kicker{font-size:12px;color:var(--teal);font-weight:800;letter-spacing:.12em;text-transform:uppercase}.reader-excerpt{font-size:18px;line-height:1.75;color:#4a5d6a;font-style:italic;margin-bottom:36px;border-left:4px solid var(--teal);padding-left:24px;background:rgba(30,101,83,0.03);padding:20px 24px;border-radius:0 8px 8px 0}.reader-content{white-space:pre-wrap;line-height:1.85;font-size:16px;color:#2c3942}
+
+.dash{position:fixed;inset:0;background:#f4f8f7;z-index:80;display:none}.dash.open{display:grid;grid-template-columns:250px 1fr}.side{background:var(--ink);color:#dbe8ec;padding:26px;display:flex;flex-direction:column;overflow-y:auto}.side .brand{color:#fff;margin-bottom:32px}.side button{background:transparent;color:#8c9ea9;text-align:left;padding:14px;border-radius:6px;margin:4px 0;transition:all 0.3s ease;font-weight:500}.side button.active,.side button:hover{background:#132a42;color:#fff;transform:translateX(6px);border-left:3px solid var(--teal)}.dash-main{overflow:auto}.dash-top{height:76px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 36px;position:sticky;top:0;z-index:2}.dash-content{padding:36px;max-width:1200px}.dash-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.dash-stat{background:#fff;border:1px solid var(--line);border-radius:8px;padding:24px;transition:transform 0.4s var(--ease)}.dash-stat:hover{transform:translateY(-4px)}.dash-stat b{font-size:32px;color:var(--ink);font-family:'Playfair Display',serif}.dash-panel{background:#fff;border:1px solid var(--line);border-radius:8px;padding:36px;margin-top:24px}.list-row{display:grid;grid-template-columns:80px 1fr auto;gap:20px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line);transition:background 0.3s ease}.list-row:hover{background:var(--paper)}.thumb{width:80px;height:60px;border-radius:6px;object-fit:cover;background:#edf5f2;border:1px solid var(--line)}.row-actions{display:flex;gap:8px;flex-wrap:wrap}.smallbtn{padding:10px 14px;border-radius:6px;background:#f0f4f4;display:flex;align-items:center;gap:6px;transition:all 0.3s var(--ease);font-weight:600;color:var(--ink)}.smallbtn:hover:not([style*="not-allowed"]){background:rgba(30,101,83,0.1);color:var(--teal);transform:translateY(-2px)}.danger{background:#fff0ef;color:#a22}.danger:hover:not([style*="not-allowed"]){background:#fee2e1;color:#a22}.editor{display:grid;grid-template-columns:1fr 320px;gap:30px}.field{display:grid;gap:8px;margin-bottom:20px}.field label{font-size:12px;font-weight:800;color:var(--ink);text-transform:uppercase;letter-spacing:.05em}.field input,.field textarea,.field select{width:100%;border:1px solid #ced6d4;background:#fff;border-radius:6px;padding:14px 16px;outline:none;transition:border-color 0.4s var(--ease);font-family:inherit;font-size:15px}.field input:focus,.field textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(30,101,83,0.1)}.field textarea{min-height:180px;resize:vertical}.editor-actions{display:flex;gap:14px;justify-content:flex-end;margin-top:24px;border-top:1px solid var(--line);padding-top:24px}.empty{padding:50px;text-align:center;color:var(--muted);background:var(--paper);border-radius:8px;border:1px dashed #ced6d4}.toast{position:fixed;right:24px;bottom:24px;background:var(--ink);color:#fff;padding:16px 24px;border-radius:8px;z-index:200;display:none;box-shadow:0 12px 35px rgba(10,25,41,0.2)}.toast.show{display:block;animation:popIn 0.6s var(--ease)}
+@keyframes popIn { from {opacity:0; transform:translateY(30px) scale(0.95)} to {opacity:1; transform:translateY(0) scale(1)} }
+
+@media(max-width:900px){
+  .links{display:none}.hero{grid-template-columns:1fr;padding-top:60px}.portrait{margin:0 auto;width:min(440px,90%)}.grid{grid-template-columns:1fr 1fr}.featured{grid-column:span 2}.now,.learning,.about-grid{grid-template-columns:1fr}
+  .dash.open{grid-template-columns:1fr; grid-template-rows: auto 1fr}
+  .side{flex-direction:row; padding:12px 20px; overflow-x:auto; gap:10px; border-bottom:1px solid var(--line); align-items:center}
+  .side::-webkit-scrollbar { display: none; }
+  .side .brand{display:none}
+  .side button{margin:0; padding:10px 16px; font-size:14px; white-space:nowrap; flex-shrink:0}
+  .side-bottom { display:flex; flex-direction:row; gap:10px; margin-left: 14px }
+  .editor{grid-template-columns:1fr}
+  .dash-grid{grid-template-columns:1fr 1fr}
+}
+@media(min-width:901px){ .side-bottom { margin-top: auto; display:flex; flex-direction:column; gap:6px; } }
+@media(max-width:620px){
+  .wrap{width:min(100% - 32px,1160px)}section{padding:80px 0}.hero h1{font-size:clamp(42px,10vw,50px);line-height:1.1;letter-spacing:-.02em;white-space:normal;max-width:100%;}.mini-stats{grid-template-columns:1fr 1fr}.mini-stats .stat:last-child{grid-column:span 2}.grid{grid-template-columns:1fr}.featured{grid-column:auto}.section-head{display:block;padding-bottom:20px;margin-bottom:36px}.section-head p{margin-top:16px}.now{padding:40px;border-radius:12px;grid-template-columns:1fr;gap:36px}.now h2{font-size:40px}.dash-content{padding:20px}.list-row{grid-template-columns:64px 1fr}.list-row .row-actions{grid-column:2;margin-top:10px}.thumb{width:64px;height:52px}.reader{padding:40px 24px;width:calc(100% - 24px)}.reader h1{font-size:36px;line-height:1.25}.card-media{aspect-ratio:16/9}.learn-header{align-items:flex-start}.learn-item{padding:28px}
+}
+
+.footer-redesign { background: var(--ink); color: #fff; padding: 90px 0 40px; margin-top: 60px; border-top: 4px solid var(--teal); }
+.footer-container { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 70px; margin-bottom: 70px; }
+.footer-redesign .brand { color: #fff; font-size: 22px; margin-bottom: 20px; font-family:'Playfair Display',serif; }
+.footer-redesign .brand small { color: var(--teal); font-family:'DM Sans',sans-serif; letter-spacing:0.2em }
+.footer-desc { color: #8c9ea9; font-size: 15px; max-width: 420px; line-height: 1.85; margin: 0; }
+.footer-col h4 { font-family: 'Playfair Display', serif; font-size: 19px; margin: 0 0 26px; color: #fff; letter-spacing: 0.05em; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px; display:inline-block;}
+.footer-links { display: flex; flex-direction: column; gap: 18px; }
+.footer-links a, .footer-links span { color: #8c9ea9; font-size: 14px; text-decoration: none; transition: color 0.4s var(--ease), transform 0.4s var(--ease); display: inline-block; }
+.footer-links a:hover { color: #fff; transform: translateX(8px); }
+.footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 36px; display: flex; justify-content: space-between; align-items: center; color: #5e6f7e; font-size: 13px; }
+.footer-bottom-links a { color: #5e6f7e; margin-left: 24px; transition:color 0.4s ease; text-transform:uppercase; font-weight:700; letter-spacing:0.08em }
+.footer-bottom-links a:hover { color: #fff; }
+@media (max-width: 800px) { .footer-container { grid-template-columns: 1fr 1fr; gap: 50px; } .footer-info { grid-column: span 2; } }
+@media (max-width: 620px) { .footer-redesign { padding: 70px 0 30px; } .footer-container { grid-template-columns: 1fr; gap: 50px; margin-bottom:50px } .footer-info { grid-column: span 1; } .footer-bottom { flex-direction: column; gap: 20px; align-items: flex-start; } .footer-bottom-links a { margin-left: 0; margin-right: 24px; } }
+
+.placeholder-media{display:grid;place-items:center;align-content:center;gap:6px;background:var(--paper);color:var(--muted);text-align:center;border-bottom:1px solid var(--line)}.placeholder-media span{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em}.placeholder-media small{font-size:10px;color:#98a8ae}.hero-status{font-variant-numeric:tabular-nums; margin:16px 0 0;color:var(--muted);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:800}
 .gallery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;background:var(--line)}.gallery-grid .card-media{aspect-ratio:1/1}.gallery-grid .card-media img{cursor:zoom-in}@media(max-width:620px){.gallery-grid{grid-template-columns:1fr 1fr}}
+</style></head><body>
+<header class="top"><div class="wrap nav"><a class="brand" href="#home">BÙI HOÀNG DỂ<small>PERSONAL PROFILE</small></a><nav class="links"><a href="#about">Về tôi</a><a href="#journey">Hành trình</a><a href="#work">Chuyên môn</a><a href="#achievements">Thành tích</a><a href="#library">Thư viện</a><a href="#blog">Ghi chép</a></nav><button class="admin-btn" onclick="openLogin()">Quản trị</button></div></header>
+<main id="public">
+<section class="hero wrap" id="home"><div class="reveal">
+<span class="eyebrow">Legal · Research · Journey</span><p class="hero-status">TP. HCM · 2022 — nay</p><h1>Bùi Hoàng <span>Dể.</span></h1><p class="lead">Một hồ sơ cá nhân được xây dựng theo thời gian — ghi lại những cột mốc, trải nghiệm pháp lý, nghiên cứu, thành tích và những điều tôi đang tiếp tục học.</p>
+<div class="actions" id="heroActions"></div>
+<div class="mini-stats"><div class="stat"><b>2022</b><span>Bắt đầu học Luật</span></div><div class="stat"><b>2026</b><span>Tốt nghiệp</span></div><div class="stat"><b id="statYears">—</b><span>Năm ghi lại hành trình</span></div></div></div><div class="portrait reveal" style="transition-delay:0.15s"><img id="heroAvatar" src="assets/Anh_the.png" alt="Bùi Hoàng Dể"></div></section>
 
-/* === BHD VISUAL SYSTEM · reviewed & optimized === */
-:root{--ink:#10283a;--ink-2:#193b50;--teal:#168f86;--teal-2:#2aa79a;--sage:#78ad8d;--mist:#e8f5f0;--ivory:#fbfaf6;--gold:#c5a15a;--gold-soft:#f3ead5;--paper:#f7faf8;--line:#d9e6e1;--muted:#62737e;--card:#fff;--shadow:0 18px 55px rgba(16,40,58,.08)}
-body{background:radial-gradient(circle at 8% 0,rgba(120,173,141,.13),transparent 25%),radial-gradient(circle at 92% 4%,rgba(22,143,134,.11),transparent 28%),var(--paper)}
-.top{background:rgba(251,250,246,.88);border-bottom-color:rgba(197,161,90,.20)}
-.brand{color:var(--ink)}.brand small{color:var(--teal)}
-.hero{padding-top:78px;min-height:620px;gap:56px}.hero-status{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);font-weight:800;margin:0 0 8px}
-.hero h1{font-size:clamp(52px,7vw,86px);line-height:1.03;white-space:normal;margin:18px 0 22px;letter-spacing:-.055em}.hero h1 span{display:block;color:var(--teal);line-height:1.03;margin-top:.08em;padding-top:.01em}
-.hero .lead{max-width:590px}.eyebrow{background:var(--mist);color:#177a71}.portrait:before{border-color:rgba(197,161,90,.55)}.portrait:after{background:var(--ink-2)}
-.stat{background:rgba(255,255,255,.88);border-color:var(--line)}.stat:first-child b{color:var(--teal)}.stat:nth-child(2) b{color:var(--gold)}
-section{scroll-margin-top:86px}.section-head{margin-bottom:28px}.kicker{color:var(--teal)}.section-head h2{line-height:1.04}.section-head p{font-size:14px;line-height:1.65}
-.panel,.card{box-shadow:0 8px 32px rgba(16,40,58,.045)}.panel:hover,.card:hover{border-color:rgba(22,143,134,.28)}
-.chip{background:var(--mist);color:#245f5a}.card{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}.card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-.card-media{background:linear-gradient(135deg,#eef6f2,#f7f2e7)}.card-media img{transition:transform .35s ease}.card:hover .card-media img{transform:scale(1.025)}.placeholder-media{display:grid;place-items:center;align-content:center;color:#78908a;text-align:center;gap:3px}.placeholder-media span{font-weight:700}.placeholder-media small{font-size:11px}
-.meta{color:var(--teal)}.achievement .meta{color:#9a7730}.featured{border-color:rgba(197,161,90,.45)}
-.filter.active{background:var(--ink-2)}.filter:hover{border-color:var(--teal);color:var(--teal)}.filter.active:hover{color:#fff}
-.gallery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;background:var(--line)}.gallery-grid .card-media{aspect-ratio:1.2/1}.gallery-grid img{cursor:zoom-in}
-.now{background:linear-gradient(135deg,var(--ink),#173d52 65%,#245e63);box-shadow:0 22px 60px rgba(16,40,58,.14)}.now .kicker{color:#8ed9c8}.now-list div:last-child{border-bottom:0}
-footer{background:var(--ivory)}
-/* Better reading rhythm and touch targets */
-.card-body h3{overflow-wrap:anywhere}.desc{line-height:1.7}.event h3{overflow-wrap:anywhere}.event p{line-height:1.75}
-.close{box-shadow:0 8px 25px rgba(0,0,0,.18)}.reader{box-shadow:0 30px 90px rgba(0,0,0,.22)}.reader img{display:block;margin:16px auto;max-height:62vh;object-fit:contain}
-.field input:focus,.field textarea:focus,.field select:focus{border-color:rgba(22,143,134,.55);box-shadow:0 0 0 3px rgba(22,143,134,.10)}
-.primary{background:var(--ink-2)}.primary:hover{filter:brightness(1.07)}.ghost:hover{border-color:var(--teal);color:var(--teal)}
-@media(max-width:620px){.hero{padding-top:42px;gap:36px}.hero h1{font-size:clamp(40px,11.8vw,54px);line-height:1.04;white-space:normal;letter-spacing:-.045em}.hero h1 span{line-height:1.04;margin-top:.10em}.hero .lead{font-size:15px;line-height:1.7}.portrait{width:min(420px,94%)}.section-head h2{font-size:38px}.card-body{padding:18px}.gallery-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:390px){.hero h1{font-size:39px;line-height:1.05;letter-spacing:-.045em}.hero h1 span{margin-top:.12em}}
-</style>
-<style>
-:root{--ink:#0A1929;--ink-2:#17344a;--teal:#1E6553;--teal-2:#2c7b67;--pearl:#F2F6F5;--champ:#A38C6D;--gold-soft:#f2eadc;--line:#d9e3e1;--muted:#5d6d77;--paper:#fbfcfb;--r:10px;--ease:cubic-bezier(.25,1,.5,1)}
-.hero h1{white-space:normal!important;line-height:1.04!important}
-.hero h1 span{display:block;line-height:1.04!important;margin-top:.08em;padding-top:.01em}
-.card .desc{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.event p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}.gallery-grid .card-media{aspect-ratio:16/10}
-.placeholder-media{display:flex;align-items:center;justify-content:center;flex-direction:column;color:#70817c;background:var(--pearl)}
-.placeholder-media span{font-weight:800}.placeholder-media small{margin-top:3px}
-.work-proof{margin-top:14px}.work-proof button{font-size:12px}
-.section-reveal{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .7s var(--ease)}.section-reveal.is-visible{opacity:1;transform:none}
-@media(max-width:620px){.hero h1{font-size:clamp(42px,11vw,54px)!important;line-height:1.04!important}.hero h1 span{line-height:1.04!important;margin-top:.1em}}
-</style>
-<script>document.addEventListener('DOMContentLoaded',()=>{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}}),{threshold:.08});document.querySelectorAll('main section').forEach(e=>{e.classList.add('section-reveal');io.observe(e)})})</script>
-</head><body>
-<header class="top"><div class="wrap nav"><a class="brand" href="#home">BÙI HOÀNG DỂ<small>PERSONAL PROFILE</small></a><nav class="links"><a href="#about">Về tôi</a><a href="#journey">Hành trình</a><a href="#work">Chuyên môn</a><a href="#achievements">Thành tích</a><a href="#blog">Journal</a></nav><button class="admin-btn" onclick="openLogin()">Quản trị</button></div></header>
-<noscript><div style="padding:14px;background:#fff4d9;text-align:center">Trang này cần JavaScript để tải nội dung và quản trị.</div></noscript><main id="public">
-<section class="hero wrap" id="home"><div><span class="eyebrow">Legal · Research · Journey</span><p class="hero-status">TP. HCM · 2022 — nay</p><h1>Bùi Hoàng <span>Dể.</span></h1><p class="lead">Một hồ sơ cá nhân được xây dựng theo thời gian — ghi lại những cột mốc, trải nghiệm pháp lý, nghiên cứu, thành tích và những điều tôi đang tiếp tục học.</p><div class="actions"><a class="primary" href="#journey">Xem hành trình</a><a class="ghost" href="#about">Về tôi</a></div><div class="mini-stats"><div class="stat"><b>2022</b><span>Bắt đầu học Luật</span></div><div class="stat"><b>2026</b><span>Tốt nghiệp</span></div><div class="stat"><b id="statYears">—</b><span>Năm ghi lại hành trình</span></div></div></div><div class="portrait"><img id="heroAvatar" src="assets/Anh_the.png" alt="Bùi Hoàng Dể"></div></section>
-<section id="about"><div class="wrap"><div class="section-head"><div><div class="kicker">01 / Profile</div><h2>Tôi là ai?</h2></div><p>Phần này không phải một CV cố định. Đây là thông tin có thể được cập nhật khi tôi thay đổi.</p></div><div class="about-grid"><div class="panel"><h3>Hiện tại</h3><p id="aboutText">Tôi phát triển chuyên môn trong lĩnh vực pháp lý, quan tâm đến pháp chế doanh nghiệp, nghiên cứu pháp luật, hợp đồng và xử lý các thủ tục pháp lý thực tiễn.</p><div class="chips"><span class="chip">Legal Research</span><span class="chip">Corporate Legal</span><span class="chip">Contracts</span><span class="chip">Legal Procedures</span></div><div class="actions" style="margin-top:18px" id="profileLinks"><a id="cvLink" class="ghost" target="_blank" rel="noopener noreferrer" style="display:none">CV chính ↗</a><span id="profileProofs" style="display:flex;gap:8px;flex-wrap:wrap"></span></div></div><div class="panel"><h3>Điểm tôi coi trọng</h3><p>Cẩn thận, trách nhiệm, chính xác và bảo mật. Tôi thích tư duy có hệ thống, chủ động học hỏi, tiếp nhận nhiệm vụ mới và cải thiện từ phản hồi.</p><p class="muted">Mục tiêu dài hạn: xây dựng chuyên môn pháp lý vững vàng và khả năng xử lý độc lập các vấn đề thực tiễn.</p></div></div></div></section>
-<section id="journey"><div class="wrap"><div class="section-head"><div><div class="kicker" id="journeyKicker">02 / Timeline</div><h2 id="journeyTitle">Hành trình</h2></div><p id="journeyDesc">Quá khứ được ghi nhận. Hiện tại được cập nhật. Tương lai tiếp tục được viết.</p></div><div class="timeline" id="timeline"></div></div></section>
-<section id="work"><div class="wrap"><div class="section-head"><div><div class="kicker" id="workKicker">03 / Work & Research</div><h2 id="workTitle">Nghiên cứu & công việc</h2></div><p id="workDesc">Những trải nghiệm tạo nên cách tôi nhìn và xử lý vấn đề pháp lý.</p></div><div class="grid" id="workGrid"></div></div></section>
-<section id="achievements"><div class="wrap"><div class="section-head"><div><div class="kicker" id="achievementsKicker">04 / Milestones</div><h2 id="achievementsTitle">Thành tích & dấu mốc</h2></div><p id="achievementsDesc">Những dấu mốc nổi bật trong học tập và hoạt động. Bấm vào ảnh để xem bản đầy đủ.</p></div><div class="grid" id="achievementGrid"></div></div></section>
-<section id="library"><div class="wrap"><div class="section-head"><div><div class="kicker" id="libraryKicker">05 / Library</div><h2 id="libraryTitle">Thư viện tư liệu</h2></div><p id="libraryDesc">Ảnh chứng nhận, hoạt động và những tư liệu quan trọng có thể được thêm dần theo thời gian. Bấm vào ảnh để xem bản đầy đủ.</p></div><div class="grid" id="libraryGrid"></div></div></section><section id="blog"><div class="wrap"><div class="section-head"><div><div class="kicker" id="blogKicker">06 / Journal</div><h2 id="blogTitle">Blog & ghi chép</h2></div><p id="blogDesc">Những suy nghĩ, bài học, ghi chú và câu chuyện có thể được cập nhật bất cứ lúc nào.</p></div><div class="filters"><button class="filter active" onclick="filterPosts('all',this)">Tất cả</button><button class="filter" onclick="filterPosts('journey',this)">Hành trình</button><button class="filter" onclick="filterPosts('blog',this)">Blog</button><button class="filter" onclick="filterPosts('learning',this)">Bài học</button></div><div class="grid" id="blogGrid"></div></div></section>
-<section id="learning"><div class="wrap"><div class="section-head"><div><div class="kicker">07 / Now</div><h2>Tôi đang học gì?</h2></div><p>Không chỉ lưu những gì đã đạt được, mà còn cho thấy tôi đang phát triển theo hướng nào.</p></div><div class="learning panel" id="learningList"></div></div></section>
-<section id="goals"><div class="wrap"><div class="now"><div><div class="kicker" id="goalsKicker" style="color:#71d2c5">NOW</div><h2 id="goalsTitle">Đang ở đâu,<br>đang hướng tới đâu?</h2><p id="goalsDesc" class="muted" style="color:#bfd0d8"></p><p id="nowText">Tôi đang xây dựng nền tảng chuyên môn pháp lý và tiếp tục tích lũy kinh nghiệm thực tiễn.</p></div><div class="now-list" id="goalsList"></div></div></div></section>
+<section id="about" class="alt-bg"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">01 / Profile</div><h2 id="out_about_title">Tổng quan Hồ sơ</h2></div><p id="out_about_desc"></p></div><div class="about-grid"><div class="panel reveal"><h3 id="out_about_h1"></h3><p id="aboutText" style="color:var(--muted);line-height:1.75;font-size:15px"></p><div class="chips" id="aboutChips"></div></div><div class="panel reveal" style="transition-delay:0.15s"><h3 id="out_about_h2"></h3><p id="out_about_text2" style="color:var(--muted);line-height:1.75;font-size:15px"></p></div></div></div></section>
+
+<section id="journey"><div class="wrap"><div class="section-head reveal"><div><div class="kicker" id="out_s2_k"></div><h2 id="out_s2_t"></h2></div><p id="out_s2_d"></p></div><div class="timeline" id="timeline"></div></div></section>
+
+<section id="work" class="alt-bg"><div class="wrap"><div class="section-head reveal"><div><div class="kicker" id="out_s3_k"></div><h2 id="out_s3_t"></h2></div><p id="out_s3_d"></p></div><div class="grid" id="workGrid"></div></div></section>
+
+<section id="achievements"><div class="wrap"><div class="section-head reveal"><div><div class="kicker" id="out_s4_k"></div><h2 id="out_s4_t"></h2></div><p id="out_s4_d"></p></div><div class="grid" id="achievementGrid"></div></div></section>
+
+<section id="library" class="alt-bg"><div class="wrap"><div class="section-head reveal"><div><div class="kicker" id="out_s5_k"></div><h2 id="out_s5_t"></h2></div><p id="out_s5_d"></p></div><div class="grid" id="libraryGrid"></div></div></section>
+
+<section id="blog"><div class="wrap"><div class="section-head reveal"><div><div class="kicker" id="out_s6_k"></div><h2 id="out_s6_t"></h2></div><p id="out_s6_d"></p></div><div class="filters reveal"><button class="filter active" onclick="filterPosts('all',this)">Tất cả</button><button class="filter" onclick="filterPosts('journey',this)">Hành trình</button><button class="filter" onclick="filterPosts('blog',this)">Blog</button><button class="filter" onclick="filterPosts('learning',this)">Bài học</button></div><div class="grid" id="blogGrid"></div></div></section>
+
+<section id="learning" class="alt-bg"><div class="wrap"><div class="section-head reveal"><div><div class="kicker" id="out_s7_k"></div><h2 id="out_s7_t"></h2></div><p id="out_s7_d"></p></div><div class="learning" id="learningList"></div></div></section>
+
+<section><div class="wrap"><div class="now reveal"><div><div class="kicker" style="color:var(--teal)">NOW</div><h2>Đang ở đâu,<br>đang hướng tới đâu?</h2><p id="nowText"></p></div><div class="now-list" id="goalsList"></div></div></div></section>
 </main>
-<footer><div class="wrap footer"><div><div class="brand">BÙI HOÀNG DỂ<small>PERSONAL PROFILE</small></div><p class="muted">Legal · Research · Journey</p></div><div class="muted">0358 297 366 · Facebook</div></div></footer>
+
+<footer class="footer-redesign">
+  <div class="wrap">
+    <div class="footer-container">
+      <div class="footer-info">
+        <div class="brand">BÙI HOÀNG DỂ<small>PERSONAL PROFILE</small></div>
+        <p class="footer-desc">Theo đuổi sự chính xác, bảo mật và tư duy hệ thống. Xây dựng nền tảng chuyên môn vững chắc để giải quyết các vấn đề pháp lý thực tiễn.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Khám phá</h4>
+        <div class="footer-links">
+          <a href="#about">Về tôi</a>
+          <a href="#journey">Hành trình</a>
+          <a href="#work">Nghiên cứu & Công việc</a>
+          <a href="#blog">Blog & Ghi chép</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Kết nối</h4>
+        <div class="footer-links">
+          <span>Email: Hoangdeb751@gmail.com</span>
+          <span>Điện thoại: 0358 297 366</span>
+          <a href="https://www.facebook.com/hoangde.bui.03/" target="_blank" rel="noopener noreferrer">Facebook ↗</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Bùi Hoàng Dể. Thiết kế phục vụ lưu trữ cá nhân.</span>
+      <div class="footer-bottom-links">
+        <a href="#" onclick="openLogin(); return false;">Đăng nhập quản trị</a>
+        <a href="#home">Về đầu trang ↑</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
 <div class="modal" id="imageModal" onclick="if(event.target===this)closeModal()"><button class="close" onclick="closeModal()">×</button><img id="modalImg" alt="Ảnh đầy đủ"></div>
-<div class="modal" id="readerModal"><button class="close" onclick="closeReader()">×</button><article class="reader" id="reader"></article></div>
-<div class="modal" id="loginModal"><button class="close" onclick="closeLogin()">×</button><div class="reader" style="max-width:430px"><div class="kicker">Private area</div><h2 style="font:700 36px 'Playfair Display';margin:8px 0">Quản trị cá nhân</h2><p class="muted">Đăng nhập tài khoản quản trị để thêm, sửa và xóa nội dung.</p><div class="field"><label>Email</label><input id="loginEmail" type="email" value="Hoangdeb751@gmail.com"></div><div class="field"><label>Mật khẩu</label><input id="loginPassword" type="password" placeholder="Mật khẩu Supabase"></div><button class="primary" style="width:100%" onclick="login()">Đăng nhập</button><p id="loginError" class="muted" style="font-size:12px"></p></div></div>
-<div class="dash" id="dashboard"><aside class="side"><div class="brand">BÙI HOÀNG DỂ<small>ADMIN</small></div><button class="active" data-tab="overview" onclick="showTab('overview',this)">Tổng quan</button><button data-tab="timeline" onclick="showTab('timeline',this)">Hành trình</button><button data-tab="work" onclick="showTab('work',this)">Work & Research</button><button data-tab="posts" onclick="showTab('posts',this)">Blog / Ghi chép</button><button data-tab="achievements" onclick="showTab('achievements',this)">Thành tích</button><button data-tab="library" onclick="showTab('library',this)">Thư viện ảnh</button><button data-tab="learning" onclick="showTab('learning',this)">Đang học</button><button data-tab="goals" onclick="showTab('goals',this)">Mục tiêu</button><button data-tab="profile" onclick="showTab('profile',this)">Hồ sơ</button><button data-tab="settings" onclick="showTab('settings',this)">Cấu hình tiêu đề</button><div style="margin-top:auto"><button onclick="logout()">Đăng xuất</button><button onclick="closeDashboard()">← Về website</button></div></aside><div class="dash-main"><div class="dash-top"><strong id="dashTitle">Tổng quan</strong><span id="syncStatus" class="muted">Đang kết nối dữ liệu…</span></div><div class="dash-content" id="dashContent"></div></div></div>
+<div class="modal" id="readerModal" onclick="if(event.target===this)closeReader()"><button class="close" onclick="closeReader()">×</button><article class="reader" id="reader"></article></div>
+<div class="modal" id="loginModal" onclick="if(event.target===this)closeLogin()"><button class="close" onclick="closeLogin()">×</button><div class="reader" style="max-width:440px;padding:50px"><div class="kicker">Private area</div><h2 style="font-weight:700;font-size:32px;font-family:'Playfair Display',serif;margin:8px 0 24px">Quản trị cá nhân</h2><p class="muted" style="margin-bottom:30px">Đăng nhập tài khoản quản trị để thêm, sửa và xóa nội dung.</p><div class="field"><label>Email</label><input id="loginEmail" type="email" value="Hoangdeb751@gmail.com"></div><div class="field"><label>Mật khẩu</label><input id="loginPassword" type="password" placeholder="Mật khẩu Supabase"></div><button class="primary" style="width:100%;margin-top:14px" onclick="login()">Đăng nhập</button><p id="loginError" class="muted" style="font-size:13px;margin-top:18px"></p></div></div>
+<div class="dash" id="dashboard">
+  <aside class="side">
+    <div class="brand">BÙI HOÀNG DỂ<small>ADMIN</small></div>
+    <button class="active" data-tab="overview" onclick="showTab('overview',this)">Tổng quan</button>
+    <button data-tab="profile" onclick="showTab('profile',this)">Hồ sơ & Nút liên kết</button>
+    <button data-tab="settings" onclick="showTab('settings',this)">Cấu hình Tiêu đề</button>
+    <button data-tab="timeline" onclick="showTab('timeline',this)">Hành trình</button>
+    <button data-tab="work" onclick="showTab('work',this)">Work & Research</button>
+    <button data-tab="achievements" onclick="showTab('achievements',this)">Thành tích</button>
+    <button data-tab="posts" onclick="showTab('posts',this)">Blog / Ghi chép</button>
+    <button data-tab="learning" onclick="showTab('learning',this)">Trọng tâm (Đang học)</button>
+    <button data-tab="goals" onclick="showTab('goals',this)">Mục tiêu</button>
+    <div class="side-bottom">
+      <button onclick="logout()">Đăng xuất</button>
+      <button onclick="closeDashboard()">← Về website</button>
+    </div>
+  </aside>
+  <div class="dash-main">
+    <div class="dash-top">
+      <strong id="dashTitle">Tổng quan</strong>
+      <span id="syncStatus" class="muted">Đang kết nối dữ liệu…</span>
+    </div>
+    <div class="dash-content" id="dashContent"></div>
+  </div>
+</div>
 <div class="toast" id="toast"></div>
 <script>
 const ADMIN_EMAIL='Hoangdeb751@gmail.com';
-const KEY='bhd_profile_v3';
-const initial={profile:{avatar:'assets/Anh_the.png',name:'Bùi Hoàng Dể',title:'Nhân viên pháp lý',bio:'Tôi phát triển chuyên môn trong lĩnh vực pháp lý, quan tâm đến pháp chế doanh nghiệp, nghiên cứu pháp luật, hợp đồng và xử lý các thủ tục pháp lý thực tiễn.',now:'Tôi đang xây dựng nền tảng chuyên môn pháp lý và tiếp tục tích lũy kinh nghiệm thực tiễn.',email:'Hoangdeb751@gmail.com',phone:'0358297366',facebook:'https://www.facebook.com/hoangde.bui.03/',skills:['Legal Research','Corporate Legal','Contracts','Legal Procedures'],cv:'',proofs:['','','','',''],heroCta1Label:'Xem hành trình',heroCta1Link:'#journey',heroCta2Label:'Về tôi',heroCta2Link:'#about'},sectionSettings:{journey:{kicker:'02 / Timeline',title:'Hành trình',description:'Quá khứ được ghi nhận. Hiện tại được cập nhật. Tương lai tiếp tục được viết.'},work:{kicker:'03 / Work & Research',title:'Nghiên cứu & công việc',description:'Những trải nghiệm tạo nên cách tôi nhìn và xử lý vấn đề pháp lý.'},achievements:{kicker:'04 / Milestones',title:'Thành tích & dấu mốc',description:'Những dấu mốc nổi bật trong học tập và hoạt động. Bấm vào ảnh để xem bản đầy đủ.'},library:{kicker:'05 / Library',title:'Thư viện tư liệu',description:'Ảnh chứng nhận, hoạt động và những tư liệu quan trọng có thể được thêm dần theo thời gian. Bấm vào ảnh để xem bản đầy đủ.'},blog:{kicker:'06 / Journal',title:'Blog & ghi chép',description:'Những suy nghĩ, bài học, ghi chú và câu chuyện có thể được cập nhật bất cứ lúc nào.'},goals:{kicker:'NOW',title:'Đang ở đâu, đang hướng tới đâu?',description:'Một góc nhìn ngắn về hiện tại và những hướng tôi đang theo đuổi.'}},timeline:[
-{id:1,date:'08/2022',title:'Bắt đầu hành trình tại Trường Đại học Luật TP.HCM',type:'Học tập',text:'Học ngành Luật – Luật Dân sự, đồng thời tham gia hoạt động lớp, học thuật và phong trào sinh viên.',image:''},
-{id:2,date:'2023',title:'Nghiên cứu, hoạt động và tình nguyện',type:'Hoạt động',text:'Tham gia nghiên cứu khoa học, hoạt động Đoàn – Hội, tình nguyện và các chương trình của Nhà trường.',image:''},
-{id:3,date:'2024',title:'Mở rộng trải nghiệm học thuật',type:'Nghiên cứu',text:'Tiếp tục nghiên cứu, viết bài, tham gia các hoạt động học thuật và hỗ trợ tổ chức sự kiện.',image:''},
-{id:4,date:'03/2025',title:'Bước vào môi trường thi hành án',type:'Công việc',text:'Làm Thư ký thi hành án tại Chi cục Thi hành án dân sự TP.HCM; soạn thảo, quản lý hồ sơ và xác minh thi hành án.',image:''},
-{id:5,date:'05/2026',title:'Pháp chế doanh nghiệp',type:'Công việc',text:'Làm pháp chế: hồ sơ pháp lý, rà soát hợp đồng, visa, giấy phép lao động, thẻ tạm trú và thủ tục doanh nghiệp.',image:''},
-{id:6,date:'08/2026',title:'Tốt nghiệp — một cột mốc, không phải điểm kết thúc',type:'Cột mốc',text:'Hoàn thành chặng đường đại học và bắt đầu một giai đoạn mới của hành trình nghề nghiệp pháp lý.',image:''}],
-work:[{id:'w1',title:'Chứng cứ điện tử trong tố tụng hành chính',meta:'Nghiên cứu khoa học · 2023–2025',text:'Nghiên cứu về vị trí, giá trị và việc sử dụng chứng cứ điện tử trong tố tụng hành chính.',image:'assets/NCKH_2024-2025.jpg'},{id:'w2',title:'Bảo vệ quyền lợi người tiêu dùng dễ bị tổn thương',meta:'Nghiên cứu khoa học · 2023–2025',text:'Nghiên cứu về cơ chế bảo vệ nhóm người tiêu dùng dễ bị tổn thương và những vấn đề thực tiễn đặt ra.',image:'assets/NCKH_2023-2024.jpg'},{id:'w3',title:'Ngòi bút Luật gia — Cấp dưỡng',meta:'Bài viết học thuật · Trường ĐH Luật TP.HCM',text:'Một sản phẩm viết pháp lý, thể hiện quá trình rèn luyện khả năng nghiên cứu và trình bày vấn đề pháp luật.',image:'assets/NBLG_Capduong.jpg'},{id:'w4',title:'Ngòi bút Luật gia — Bồi thường thiệt hại',meta:'Bài viết học thuật · Trường ĐH Luật TP.HCM',text:'Bài viết pháp lý gắn với việc tìm hiểu quy định, phân tích vấn đề và diễn đạt theo hướng dễ tiếp cận.',image:'assets/NBLG_Boithuongthiethai.jpg'},{id:'w5',title:'Hội nghị Khoa học trẻ 2025',meta:'Hoạt động học thuật · 2025',text:'Tham gia hoạt động học thuật và có tư liệu ghi nhận từ Hội nghị Khoa học trẻ.',image:'assets/Hoi_nghi_khoa_hoc_tre_2025.jpg'},{id:'w6',title:'Thực tiễn pháp lý & hồ sơ',meta:'Kinh nghiệm công việc · 2025–2026',text:'Soạn thảo và quản lý hồ sơ, rà soát hợp đồng, xử lý thủ tục về lao động, cư trú và doanh nghiệp.',image:''}],
-achievements:[{id:1,date:'05/08/2026',title:'Sinh viên giỏi toàn khóa 2022–2026',text:'Một dấu mốc học tập quan trọng khi hoàn thành chương trình đại học.',image:'' ,featured:true},{id:2,date:'05/08/2026',title:'Sinh viên có nhiều đóng góp trong các hoạt động của Nhà trường',text:'Ghi nhận quá trình tham gia hoạt động Nhà trường.',image:'',featured:false},{id:3,date:'06/11/2025',title:'Sinh viên giỏi năm học 2024–2025',text:'Danh hiệu sinh viên giỏi năm học 2024–2025.',image:'assets/Sinhviengioinamhoc_2024-2025.jpg',featured:false},{id:4,date:'28/05/2025',title:'Thanh niên tiên tiến làm theo lời Bác tiêu biểu',text:'Trường Đại học Luật TP.HCM, năm học 2024–2025.',image:'',featured:false},{id:5,date:'18/03/2025',title:'Đoàn viên tiêu biểu',text:'Trường Đại học Luật TP.HCM, năm học 2024.',image:'',featured:false},{id:6,date:'22/05/2024',title:'Thanh niên tiên tiến làm theo lời Bác',text:'Trường Đại học Luật TP.HCM, năm học 2023–2024.',image:'',featured:false},{id:7,date:'03/08/2023',title:'Thành tích xuất sắc trong Chiến dịch Thanh niên tình nguyện hè 2023',text:'Ghi nhận thành tích trong hoạt động tình nguyện.',image:'',featured:false}],
-library:[{id:1,title:'Ảnh chân dung',category:'Cá nhân',image:'assets/Anh_the.png'},{id:2,title:'Hội nghị khoa học trẻ 2025',category:'Hoạt động học thuật',image:'assets/Hoi_nghi_khoa_hoc_tre_2025.jpg'},{id:3,title:'NBLG — Cấp dưỡng',category:'Hoạt động',image:'assets/NBLG_Capduong.jpg'},{id:4,title:'NBLG — Bồi thường thiệt hại',category:'Nghiên cứu',image:'assets/NBLG_Boithuongthiethai.jpg'},{id:5,title:'NCKH 2023–2024',category:'Nghiên cứu',image:'assets/NCKH_2023-2024.jpg'},{id:6,title:'NCKH 2024–2025',category:'Nghiên cứu',image:'assets/NCKH_2024-2025.jpg'},{id:7,title:'Tư liệu bổ sung',category:'Tư liệu',image:''}],
-posts:[{id:1,date:'2026-08-08',type:'journey',title:'Tốt nghiệp: một cột mốc để nhìn lại',excerpt:'Từ những ngày đầu học Luật đến khi khép lại chặng đường đại học.',content:'Đây là nơi tôi có thể viết lại câu chuyện của mình, không chỉ ghi nhận điều đã đạt được mà còn ghi lại những gì tôi học được sau mỗi chặng đường.',image:''},{id:2,date:'2025-11-06',type:'learning',title:'Điều tôi học được từ những việc tưởng như rất nhỏ',excerpt:'Một ghi chú cá nhân về việc học từ công việc và trải nghiệm thực tế.',content:'Những công việc lặp lại, hồ sơ và những lần phải kiểm tra lại một chi tiết đều giúp tôi hiểu hơn về sự cẩn thận và trách nhiệm trong nghề pháp lý.',image:''}],
-learning:[{id:1,name:'Pháp chế doanh nghiệp',status:'Đang phát triển',note:'Tập trung vào tư duy pháp chế và xử lý vấn đề thực tế.'},{id:2,name:'Nghiên cứu pháp luật',status:'Đang phát triển',note:'Tiếp tục rèn kỹ năng tìm kiếm, phân tích và viết pháp lý.'},{id:3,name:'Tiếng Anh / TOEIC',status:'Đang học',note:'Cải thiện khả năng đọc hiểu và giao tiếp phục vụ công việc.'},{id:4,name:'AI hỗ trợ công việc',status:'Đang khám phá',note:'Học cách đặt vấn đề, kiểm tra kết quả và ứng dụng AI có trách nhiệm vào nghiên cứu, nội dung và công việc.'}],goals:[{id:1,text:'Phát triển chuyên môn pháp chế',status:'Đang thực hiện'},{id:2,text:'Cải thiện tiếng Anh',status:'Đang thực hiện'},{id:3,text:'Tích lũy kinh nghiệm thực tiễn',status:'Đang thực hiện'}]};
+const KEY='bhd_profile_v8';
+const initial={
+  profile:{
+    avatar:'assets/Anh_the.png', name:'Bùi Hoàng Dể', title:'Nhân viên pháp lý',
+    about_title:'Tổng quan Hồ sơ', 
+    about_desc:'Một góc nhìn bao quát về định hướng và những giá trị cốt lõi tôi theo đuổi trong công việc.',
+    about_h1:'Kỹ năng chuyên môn', 
+    bio:'Tôi phát triển chuyên môn trong lĩnh vực pháp lý, quan tâm đến pháp chế doanh nghiệp, nghiên cứu pháp luật, hợp đồng và xử lý các thủ tục pháp lý thực tiễn.',
+    skills:'Pháp chế doanh nghiệp, Rà soát hợp đồng, Nghiên cứu pháp luật, Tiếng Anh (TOEIC)',
+    about_h2:'Giá trị cốt lõi',
+    about_text2:'Cẩn thận, trách nhiệm, chính xác và bảo mật. Tôi thích tư duy có hệ thống, chủ động học hỏi, tiếp nhận nhiệm vụ mới và cải thiện từ phản hồi.',
+    now:'Tôi đang xây dựng nền tảng chuyên môn pháp lý và tiếp tục tích lũy kinh nghiệm thực tiễn.',
+    email:'Hoangdeb751@gmail.com', phone:'0358297366', facebook:'https://www.facebook.com/hoangde.bui.03/',
+    cv_link:'', proof1_name:'', proof1_link:'', proof2_name:'', proof2_link:'', proof3_name:'', proof3_link:'', proof4_name:'', proof4_link:'', proof5_name:'', proof5_link:'',
+    s2_k:'02 / Timeline', s2_t:'Hành trình', s2_d:'Quá khứ được ghi nhận. Hiện tại được cập nhật. Tương lai tiếp tục được viết.',
+    s3_k:'03 / Work & Research', s3_t:'Nghiên cứu & công việc', s3_d:'Những trải nghiệm tạo nên cách tôi nhìn và xử lý vấn đề pháp lý.',
+    s4_k:'04 / Milestones', s4_t:'Thành tích & dấu mốc', s4_d:'Các cột mốc học tập và chứng nhận. Bấm vào từng thẻ để đọc toàn văn.',
+    s5_k:'05 / Gallery', s5_t:'Thư viện ảnh', s5_d:'Hệ thống tự động gom các ảnh minh chứng và hoạt động từ các mục trên.',
+    s6_k:'06 / Journal', s6_t:'Blog & ghi chép', s6_d:'Những suy nghĩ, bài học, ghi chú và câu chuyện có thể được cập nhật bất cứ lúc nào.',
+    s7_k:'07 / Focus', s7_t:'Trọng tâm phát triển', s7_d:'Không chỉ lưu những gì đã đạt được, mà còn cho thấy tôi đang tập trung phát triển chuyên môn theo hướng nào.'
+  },
+  timeline:[
+    {id:'tl1',date:'08/2022',title:'Bắt đầu hành trình tại Trường Đại học Luật TP.HCM',type:'Học tập',text:'Học ngành Luật – Luật Dân sự, đồng thời tham gia hoạt động lớp, học thuật và phong trào sinh viên.',image:''},
+    {id:'tl2',date:'2023',title:'Nghiên cứu, hoạt động và tình nguyện',type:'Hoạt động',text:'Tham gia nghiên cứu khoa học, hoạt động Đoàn – Hội, tình nguyện và các chương trình của Nhà trường.',image:'assets/NCKH_2023-2024.jpg'},
+    {id:'tl3',date:'08/2024',title:'Thực tập sinh pháp lý',type:'Công việc',text:'Tiếp xúc và làm quen với môi trường thực tế tại Công ty Luật TNHH T&T.',image:''},
+    {id:'tl4',date:'2024',title:'Mở rộng trải nghiệm học thuật',type:'Nghiên cứu',text:'Tiếp tục nghiên cứu, viết bài, tham gia các hoạt động học thuật và hỗ trợ tổ chức sự kiện.',image:'assets/NCKH_2024-2025.jpg'},
+    {id:'tl5',date:'03/2025',title:'Bước vào môi trường thi hành án',type:'Công việc',text:'Làm Thư ký thi hành án tại Chi cục Thi hành án dân sự TP.HCM; soạn thảo, quản lý hồ sơ và xác minh thi hành án.',image:''},
+    {id:'tl6',date:'08/2025',title:'Đội hình Chuyển đổi số cộng đồng',type:'Hoạt động',text:'Tham gia Đội hình tình nguyện Chuyển đổi số cộng đồng TP.HCM do Trung tâm Phát triển Khoa học và Công nghệ Trẻ tổ chức.',image:''},
+    {id:'tl7',date:'05/2026',title:'Pháp chế doanh nghiệp',type:'Công việc',text:'Làm pháp chế: hồ sơ pháp lý, rà soát hợp đồng, visa, giấy phép lao động, thẻ tạm trú và thủ tục doanh nghiệp.',image:''},
+    {id:'tl8',date:'08/2026',title:'Tốt nghiệp',type:'Cột mốc',text:'Hoàn thành chặng đường đại học và bắt đầu một giai đoạn mới của hành trình nghề nghiệp pháp lý.',image:''}
+  ],
+  work:[
+    {id:'w1',title:'Sự kiểm soát quyền lực nhà nước',meta:'Nghiên cứu khoa học',text:'Đánh giá cơ chế kiểm soát quyền lực giữa Quốc hội và Toà án nhân dân tối cao ở Việt Nam hiện nay.',image:'',link:''},
+    {id:'w2',title:'Chính sách hỗ trợ thanh niên khởi nghiệp',meta:'Hội nghị Khoa học trẻ 2025',text:'Nghiên cứu tham luận xuất sắc nộp cho Hội nghị Khoa học trẻ do Đoàn trường ĐH Luật TP.HCM tổ chức.',image:'assets/Hoi_nghi_khoa_hoc_tre_2025.jpg',link:''},
+    {id:'w4',title:'NBLG — Bồi thường thiệt hại',meta:'Nghiên cứu Bài tập lớn',text:'Phân tích chuyên sâu các quy định pháp luật dân sự về bồi thường thiệt hại ngoài hợp đồng.',image:'assets/NBLG_Boithuongthiethai.jpg',link:''},
+    {id:'w5',title:'NBLG — Cấp dưỡng',meta:'Nghiên cứu Bài tập lớn',text:'Nghiên cứu quy định và thực tiễn áp dụng pháp luật về nghĩa vụ cấp dưỡng trong Luật Hôn nhân và Gia đình.',image:'assets/NBLG_Capduong.jpg',link:''},
+    {id:'w3',title:'Thực tiễn pháp lý & hồ sơ',meta:'Công việc · 2025–2026',text:'Kinh nghiệm xử lý hồ sơ, hợp đồng, thủ tục cư trú – lao động – doanh nghiệp.',image:'',link:''}
+  ],
+  achievements:[
+    {id:'a1',date:'05/08/2026',title:'Sinh viên giỏi toàn khóa 2022–2026',text:'Một dấu mốc học tập quan trọng khi hoàn thành chương trình đại học.',image:'',featured:true,link:''},
+    {id:'a2',date:'05/08/2026',title:'Sinh viên có đóng góp tích cực',text:'Ghi nhận quá trình tham gia hoạt động Nhà trường.',image:'',featured:false,link:''},
+    {id:'a3',date:'06/11/2025',title:'Sinh viên giỏi năm học 2024–2025',text:'Danh hiệu sinh viên giỏi năm học 2024–2025.',image:'assets/Sinhviengioinamhoc_2024-2025.jpg',featured:false,link:''},
+    {id:'a4',date:'28/05/2025',title:'Thanh niên tiên tiến làm theo lời Bác tiêu biểu',text:'Trường Đại học Luật TP.HCM, năm học 2024–2025.',image:'',featured:false,link:''},
+    {id:'a5',date:'18/03/2025',title:'Đoàn viên tiêu biểu',text:'Trường Đại học Luật TP.HCM, năm học 2024.',image:'',featured:false,link:''},
+    {id:'a6',date:'22/05/2024',title:'Thanh niên tiên tiến làm theo lời Bác',text:'Trường Đại học Luật TP.HCM, năm học 2023–2024.',image:'',featured:false,link:''},
+    {id:'a7',date:'03/08/2023',title:'Thành tích xuất sắc Chiến dịch TNTN Hè 2023',text:'Ghi nhận thành tích trong hoạt động tình nguyện.',image:'',featured:false,link:''}
+  ],
+  posts:[
+    {id:'p1',date:'2026-08-08',type:'journey',title:'Tốt nghiệp: một cột mốc để nhìn lại',excerpt:'Từ những ngày đầu học Luật đến khi khép lại chặng đường đại học.',content:'Đây là nơi tôi có thể viết lại câu chuyện của mình, không chỉ ghi nhận điều đã đạt được mà còn ghi lại những gì tôi học được sau mỗi chặng đường.',image:'',link:''},
+    {id:'p2',date:'2025-11-06',type:'learning',title:'Điều tôi học được từ những việc tưởng như rất nhỏ',excerpt:'Một ghi chú cá nhân về việc học từ công việc và trải nghiệm thực tế.',content:'Những công việc lặp lại, hồ sơ và những lần phải kiểm tra lại một chi tiết đều giúp tôi hiểu hơn về sự cẩn thận và trách nhiệm trong nghề pháp lý.',image:'',link:''}
+  ],
+  learning:[
+    {id:'l1',name:'Pháp chế doanh nghiệp',status:'Đang phát triển',note:'Tập trung vào tư duy pháp chế và xử lý vấn đề thực tế.',image:''},
+    {id:'l2',name:'Nghiên cứu pháp luật',status:'Đang rèn luyện',note:'Tiếp tục rèn kỹ năng tìm kiếm, phân tích và viết pháp lý.',image:''},
+    {id:'l3',name:'Tiếng Anh / TOEIC',status:'Đang học',note:'Cải thiện khả năng đọc hiểu và giao tiếp phục vụ công việc. Hướng đến mục tiêu hoàn thành chứng chỉ TOEIC.',image:''},
+    {id:'l4',name:'AI hỗ trợ công việc',status:'Đang khám phá',note:'HỌC CÁCH DÙNG AI - HỌC CÁCH LÀM VIỆC TỐT HƠN. Trước đây, tôi nghĩ AI đơn giản là một công cụ để hỏi đáp hoặc tìm một câu trả lời nhanh. Nhưng càng sử dụng, tôi càng nhận ra điều quan trọng không nằm ở việc AI có thể làm được bao nhiêu, mà là mình biết sử dụng nó như thế nào.\n\nTrong quá trình học tập và làm việc, tôi bắt đầu thử ứng dụng AI vào nhiều việc khác nhau: hỗ trợ tìm hiểu và phân tích vấn đề pháp luật, xây dựng và chỉnh sửa nội dung, hỗ trợ soạn thảo, dịch và trao đổi với khách hàng nước ngoài, học tiếng Anh, lên ý tưởng hình ảnh, xây dựng website cá nhân và xử lý những vấn đề kỹ thuật mà trước đây tôi gần như không biết bắt đầu từ đâu. Nhưng tôi cũng dần hiểu rằng, AI không thể thay thế tư duy của mình. Một câu trả lời có thể rất thuyết phục nhưng chưa chắc đã đúng. Một nội dung có thể viết rất trôi chảy nhưng chưa chắc phù hợp với hoàn cảnh. Vì vậy, tôi tập cho mình thói quen đặt câu hỏi rõ hơn, kiểm tra thông tin, đối chiếu nguồn, chỉnh sửa lại kết quả và quan trọng nhất là tự chịu trách nhiệm với sản phẩm cuối cùng.\n\nCó những lúc tôi dùng AI để tiết kiệm vài chục phút. Có những lúc lại mất nhiều thời gian hơn vì phải thử, sửa, hỏi lại cho ra đúng ý mình. Nhưng tôi tin rằng, việc tự học và thử nghiệm mỗi ngày sẽ giúp mình tìm ra cách làm việc hiệu quả hơn trong tương lai.',image:''}
+  ],
+  goals:[
+    {id:'g1',text:'Phát triển chuyên môn pháp chế',status:'Đang thực hiện'},
+    {id:'g2',text:'Cải thiện tiếng Anh',status:'Đang thực hiện'},
+    {id:'g3',text:'Tích lũy kinh nghiệm thực tiễn',status:'Đang thực hiện'}
+  ]
+};
+
 let data=load(); let currentFilter='all'; let sb=null; let remoteLoaded=false;
 try{const u=window.PORTFOLIO_SUPABASE_URL||'',k=window.PORTFOLIO_SUPABASE_ANON_KEY||''; if(u&&k)sb=supabase.createClient(u,k)}catch(e){console.error(e)}
-function load(){try{const saved=JSON.parse(localStorage.getItem(KEY));if(!saved)return structuredClone(initial);return {...structuredClone(initial),...saved,profile:{...initial.profile,...(saved.profile||{}),skills:Array.isArray(saved?.profile?.skills)?saved.profile.skills:structuredClone(initial.profile.skills),proofs:Array.isArray(saved?.profile?.proofs)?saved.profile.proofs:structuredClone(initial.profile.proofs)},sectionSettings:{...initial.sectionSettings,...(saved.sectionSettings||{})},library:Array.isArray(saved.library)?saved.library:structuredClone(initial.library),timeline:Array.isArray(saved.timeline)?saved.timeline:structuredClone(initial.timeline),work:Array.isArray(saved.work)?saved.work:structuredClone(initial.work),achievements:Array.isArray(saved.achievements)?saved.achievements:structuredClone(initial.achievements),posts:Array.isArray(saved.posts)?saved.posts:structuredClone(initial.posts),learning:Array.isArray(saved.learning)?saved.learning:structuredClone(initial.learning),goals:Array.isArray(saved.goals)?saved.goals:structuredClone(initial.goals)}}catch{return structuredClone(initial)}}
-function mergeState(remote){if(!remote||typeof remote!=='object')return;data={...structuredClone(initial),...remote,profile:{...initial.profile,...(remote.profile||{}),skills:Array.isArray(remote?.profile?.skills)?remote.profile.skills:structuredClone(initial.profile.skills),proofs:Array.isArray(remote?.profile?.proofs)?remote.profile.proofs:structuredClone(initial.profile.proofs)},sectionSettings:{...initial.sectionSettings,...(remote.sectionSettings||{})},library:Array.isArray(remote.library)?remote.library:structuredClone(initial.library),timeline:Array.isArray(remote.timeline)?remote.timeline:structuredClone(initial.timeline),work:Array.isArray(remote.work)?remote.work:structuredClone(initial.work),achievements:Array.isArray(remote.achievements)?remote.achievements:structuredClone(initial.achievements),posts:Array.isArray(remote.posts)?remote.posts:structuredClone(initial.posts),learning:Array.isArray(remote.learning)?remote.learning:structuredClone(initial.learning),goals:Array.isArray(remote.goals)?remote.goals:structuredClone(initial.goals)};data.work=data.work.map((x,i)=>({...x,id:x.id??('work-'+i+'-'+Date.now())}))}
+function load(){try{const saved=JSON.parse(localStorage.getItem(KEY));return saved?{...structuredClone(initial),...saved,profile:{...initial.profile,...(saved.profile||{})}}:structuredClone(initial)}catch{return structuredClone(initial)}}
+function mergeState(remote){if(!remote||typeof remote!=='object')return;data={...structuredClone(initial),...remote,profile:{...initial.profile,...(remote.profile||{})},timeline:Array.isArray(remote.timeline)?remote.timeline:structuredClone(initial.timeline),work:Array.isArray(remote.work)?remote.work:structuredClone(initial.work),achievements:Array.isArray(remote.achievements)?remote.achievements:structuredClone(initial.achievements),posts:Array.isArray(remote.posts)?remote.posts:structuredClone(initial.posts),learning:Array.isArray(remote.learning)?remote.learning:structuredClone(initial.learning),goals:Array.isArray(remote.goals)?remote.goals:structuredClone(initial.goals)};
+  ['timeline','work','achievements','posts','learning','goals'].forEach(key=>{data[key]=data[key].map((x,i)=>({...x,id:x.id??(key+'-'+Date.now()+'-'+i)}))});
+}
 function hasRemoteContent(state){return !!state && typeof state==='object' && Object.keys(state).some(k=>Array.isArray(state[k])?state[k].length>0:k==='profile'&&state.profile&&Object.keys(state.profile).length>0)}
 async function loadRemoteState(){if(!sb)return;try{const {data:rows,error}=await sb.from('portfolio_state').select('state,updated_at').eq('id',1).maybeSingle();if(error)throw error;const remote=rows?.state;if(hasRemoteContent(remote)){mergeState(remote);localStorage.setItem(KEY,JSON.stringify(data));remoteLoaded=true;renderAll();}else{remoteLoaded=true;renderAll();}return true}catch(e){remoteLoaded=false;console.warn('Supabase state load:',e.message);toast('Không đọc được dữ liệu online: '+e.message);return false}}
-async function save(){renderAll();localStorage.setItem(KEY,JSON.stringify(data));if(!sb){toast('Đã lưu trên trình duyệt (chưa có Supabase)');return false}try{const {data:session}=await sb.auth.getSession();const user=session?.session?.user;if(!user||user.email.toLowerCase()!==ADMIN_EMAIL.toLowerCase()){toast('Bạn cần đăng nhập Admin để đồng bộ Supabase');return false}const {error}=await sb.from('portfolio_state').upsert({id:1,state:data,updated_at:new Date().toISOString()},{onConflict:'id'});if(error)throw error;remoteLoaded=true;return true}catch(e){console.error('Supabase state save:',e.message);toast('Chưa đồng bộ Supabase: '+e.message);return false}}
+async function save(){renderAll();localStorage.setItem(KEY,JSON.stringify(data));if(!sb){toast('Đã lưu trên trình duyệt');return false}try{const {data:session}=await sb.auth.getSession();const user=session?.session?.user;if(!user||user.email.toLowerCase()!==ADMIN_EMAIL.toLowerCase()){toast('Chưa đăng nhập quản trị');return false}const {error}=await sb.from('portfolio_state').upsert({id:1,state:data,updated_at:new Date().toISOString()},{onConflict:'id'});if(error)throw error;remoteLoaded=true;return true}catch(e){toast('Lỗi lưu online: '+e.message);return false}}
 function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function dateValue(v){const s=String(v||'').trim();let m;if(/^\d{2}\/\d{4}$/.test(s)){m=s.match(/^(\d{2})\/(\d{4})$/);return new Date(Number(m[2]),Number(m[1])-1,1).getTime()}if(/^\d{2}\/\d{2}\/\d{4}$/.test(s)){m=s.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);return new Date(Number(m[3]),Number(m[2])-1,Number(m[1])).getTime()}if(/^\d{4}-\d{2}-\d{2}$/.test(s))return new Date(s+'T00:00:00').getTime();if(/^\d{4}$/.test(s))return new Date(Number(s),0,1).getTime();const t=Date.parse(s);return Number.isNaN(t)?0:t}
-function curateContent(){let changed=false;const ensureWork=(title,meta,text,image,id)=>{let x=(data.work||[]).find(w=>w.title===title);if(!x){(data.work||[]).push({id,title,meta,text,image});changed=true}else{if(!x.id){x.id=id;changed=true}if(!x.meta){x.meta=meta;changed=true}if(!x.text){x.text=text;changed=true}if(!x.image&&image){x.image=image;changed=true}if(!x.proof&&image){x.proof=image;changed=true}}};ensureWork('Chứng cứ điện tử trong tố tụng hành chính','Nghiên cứu khoa học · 2023–2025','Nghiên cứu về vị trí, giá trị và việc sử dụng chứng cứ điện tử trong tố tụng hành chính.','assets/NCKH_2024-2025.jpg','w1');ensureWork('Bảo vệ quyền lợi người tiêu dùng dễ bị tổn thương','Nghiên cứu khoa học · 2023–2025','Nghiên cứu về cơ chế bảo vệ nhóm người tiêu dùng dễ bị tổn thương và những vấn đề thực tiễn đặt ra.','assets/NCKH_2023-2024.jpg','w2');ensureWork('Ngòi bút Luật gia — Cấp dưỡng','Bài viết học thuật · Trường ĐH Luật TP.HCM','Một sản phẩm viết pháp lý, thể hiện quá trình rèn luyện khả năng nghiên cứu và trình bày vấn đề pháp luật.','assets/NBLG_Capduong.jpg','w3');ensureWork('Ngòi bút Luật gia — Bồi thường thiệt hại','Bài viết học thuật · Trường ĐH Luật TP.HCM','Bài viết pháp lý gắn với việc tìm hiểu quy định, phân tích vấn đề và diễn đạt theo hướng dễ tiếp cận.','assets/NBLG_Boithuongthiethai.jpg','w4');ensureWork('Hội nghị Khoa học trẻ 2025','Hoạt động học thuật · 2025','Tham gia hoạt động học thuật và có tư liệu ghi nhận từ Hội nghị Khoa học trẻ.','assets/Hoi_nghi_khoa_hoc_tre_2025.jpg','w5');ensureWork('Thực tiễn pháp lý & hồ sơ','Kinh nghiệm công việc · 2025–2026','Soạn thảo và quản lý hồ sơ, rà soát hợp đồng, xử lý thủ tục về lao động, cư trú và doanh nghiệp.','','w6');const aiTitle='Học cách sử dụng AI — học cách làm việc tốt hơn';if(!(data.posts||[]).some(p=>p.title===aiTitle)){data.posts.unshift({id:'p-ai-20260913',date:'2026-09-13',type:'learning',title:aiTitle,excerpt:'Tôi đang học cách dùng AI như một công cụ hỗ trợ, không phải thay thế tư duy của mình.',content:'Trước đây, tôi nghĩ AI đơn giản là một công cụ để hỏi đáp hoặc tìm một câu trả lời nhanh. Nhưng càng sử dụng, tôi càng nhận ra điều quan trọng không nằm ở việc AI có thể làm được bao nhiêu, mà là mình biết sử dụng nó như thế nào.\n\nTrong quá trình học tập và làm việc, tôi bắt đầu thử ứng dụng AI vào nhiều việc khác nhau: hỗ trợ tìm hiểu và phân tích vấn đề pháp luật, xây dựng và chỉnh sửa nội dung, soạn thảo, dịch và trao đổi với khách hàng nước ngoài, học tiếng Anh, lên ý tưởng hình ảnh, xây dựng website cá nhân và xử lý những vấn đề kỹ thuật mà trước đây tôi gần như không biết bắt đầu từ đâu.\n\nTôi cũng dần hiểu rằng AI không thể thay thế tư duy của mình. Một câu trả lời có thể rất thuyết phục nhưng chưa chắc đã đúng. Vì vậy, tôi tập cho mình thói quen đặt câu hỏi rõ hơn, kiểm tra thông tin, đối chiếu nguồn, chỉnh sửa lại kết quả và tự chịu trách nhiệm với sản phẩm cuối cùng.\n\nTôi vẫn đang học cách sử dụng AI mỗi ngày — để học nhanh hơn, làm việc có hệ thống hơn và thích nghi tốt hơn với những công cụ mới.',image:''});changed=true}return changed}
-function renderAll(){const p=data.profile||{};document.getElementById('aboutText').textContent=p.bio||'';document.getElementById('nowText').textContent=p.now||'';document.getElementById('heroAvatar').src=p.avatar||'assets/Anh_the.png';const heroName=document.querySelector('.hero h1');if(heroName)heroName.innerHTML=esc(p.name||'Bùi Hoàng Dể').replace(/\s+(\S+)$/, ' <span>$1.</span>');const lead=document.querySelector('.hero .lead');if(lead&&p.bio)lead.textContent=p.bio;const ctas=document.querySelectorAll('.hero .actions a');if(ctas[0]){ctas[0].textContent=p.heroCta1Label||'Xem hành trình';ctas[0].href=p.heroCta1Link||'#journey'}if(ctas[1]){ctas[1].textContent=p.heroCta2Label||'Về tôi';ctas[1].href=p.heroCta2Link||'#about'}const chips=document.querySelector('.about-grid .chips');if(chips)chips.innerHTML=(p.skills||[]).filter(Boolean).map(x=>`<span class="chip">${esc(x)}</span>`).join('');const cv=document.getElementById('cvLink');if(cv){cv.href=p.cv||'#';cv.style.display=p.cv?'inline-flex':'none';cv.textContent='CV chính ↗'}const proofs=document.getElementById('profileProofs');if(proofs)proofs.innerHTML=(p.proofs||[]).filter(Boolean).slice(0,5).map((u,i)=>`<a class="chip" href="${esc(u)}" target="_blank" rel="noopener noreferrer">Minh chứng ${i+1} ↗</a>`).join('');applySectionSettings();document.getElementById('statYears').textContent=Math.max(1,new Set(data.timeline.map(x=>String(x.date).slice(-4))).size);renderTimeline();renderWork();renderAchievements();renderLibrary();renderPosts();renderLearning();renderGoals()}
-function applySectionSettings(){const map={journey:'journey',work:'work',achievements:'achievements',library:'library',blog:'blog',goals:'goals'};Object.entries(map).forEach(([key,id])=>{const s=data.sectionSettings?.[key]||{};['Kicker','Title','Desc'].forEach(t=>{const el=document.getElementById(id+t);if(el)el.textContent=s[t.toLowerCase()]||''})});const goalHead=document.querySelector('#goals .section-head');if(goalHead)goalHead.style.display='none'}
-function img(src,alt){return src?`<div class="card-media"><img src="${esc(src)}" alt="${esc(alt)}" onclick="event.stopPropagation();openImage('${esc(src)}')"></div>`:`<div class="card-media placeholder-media"><span>Chưa có ảnh</span><small>Thêm từ Quản trị</small></div>`}
-function renderTimeline(){const el=document.getElementById('timeline');const arr=data.timeline.slice();el.innerHTML=arr.map(x=>`<div class="event"><div class="year">${esc(x.date)} · ${esc(x.type)}</div><h3>${esc(x.title)}</h3><p>${esc(x.text)}</p>${x.image?`<div class="event-meta"><button class="chip" onclick="openImage('${esc(x.image)}')">Xem ảnh ↗</button></div>`:''}</div>`).join('')}
-function renderWork(){const el=document.getElementById('workGrid');const arr=(data.work||[]).slice();el.innerHTML=arr.length?arr.map(x=>`<article class="card">${img(x.image,x.title)}<div class="card-body"><div class="meta">${esc(x.meta||'')}</div><h3>${esc(x.title||'Không có tiêu đề')}</h3><div class="desc">${esc(x.text||'')}</div>${(x.proof||x.image)?`<div class="work-proof"><button class="ghost" type="button" onclick="event.stopPropagation();openImage('${esc(x.proof||x.image)}')">Xem minh chứng ↗</button></div>`:''}</div></article>`).join(''):'<div class="empty">Chưa có nội dung.</div>'}
 
-function renderLibrary(){const el=document.getElementById('libraryGrid');if(!el)return;const used=new Set();[...(data.work||[]),...(data.achievements||[])].forEach(x=>[x.image,...(x.images||[])].filter(Boolean).forEach(u=>used.add(u)));const seen=new Set();const items=(data.library||[]).map(x=>{const all=(x.images&&x.images.length?x.images:(x.image?[x.image]:[])).filter(Boolean);const gallery=all.filter(u=>!used.has(u)&&!seen.has(u));gallery.forEach(u=>seen.add(u));return {x,gallery}}).filter(({x,gallery})=>gallery.length||(!x.image&&!x.images?.length));el.innerHTML=items.map(({x,gallery})=>`<article class="card">${gallery.length?`<div class="gallery-grid">${gallery.map(u=>`<div class="card-media"><img src="${esc(u)}" alt="${esc(x.title||'Tư liệu')}" onclick="openImage('${esc(u)}')"></div>`).join('')}</div>`:`<div class="card-media placeholder-media"><span>Chưa có ảnh</span><small>Thêm từ Quản trị</small></div>`}<div class="card-body"><div class="meta">${esc(x.category||'Tư liệu')}</div><h3>${esc(x.title||'Tư liệu')}</h3><div class="desc">Bấm vào ảnh để xem bản đầy đủ.</div></div></article>`).join('')||'<div class="empty">Thư viện hiện chỉ hiển thị tư liệu chưa được dùng ở các mục chính.</div>'}
-function renderAchievements(){document.getElementById('achievementGrid').innerHTML=(data.achievements||[]).slice().map(x=>`<article class="card achievement ${x.featured?'featured':''}">${img(x.image,x.title)}<div class="card-body"><div class="meta">${esc(x.date||'')}</div><h3>${esc(x.title||'Không có tiêu đề')}</h3><div class="desc">${esc(x.text||'')}</div></div></article>`).join('')||'<div class="empty">Chưa có thành tích.</div>'}
-function renderPosts(){const el=document.getElementById('blogGrid');let arr=(data.posts||[]).filter(x=>currentFilter==='all'||x.type===currentFilter);el.innerHTML=arr.length?arr.map(x=>`<article class="card" onclick="openReader(${JSON.stringify(x.id)})" style="cursor:pointer">${img(x.image,x.title)}<div class="card-body"><div class="meta">${esc(x.date||'')} · ${esc(x.type||'')}</div><h3>${esc(x.title||'Không có tiêu đề')}</h3><div class="desc">${esc(x.excerpt||'')}</div></div></article>`).join(''):'<div class="empty">Chưa có nội dung ở mục này.</div>'}
+function initScrollReveal() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
+function renderAll(){
+  document.getElementById('out_about_title').textContent = data.profile.about_title || 'Tổng quan Hồ sơ';
+  document.getElementById('out_about_desc').textContent = data.profile.about_desc || '';
+  document.getElementById('out_about_h1').textContent = data.profile.about_h1 || 'Kỹ năng chuyên môn';
+  document.getElementById('out_about_h2').textContent = data.profile.about_h2 || 'Giá trị cốt lõi';
+  document.getElementById('aboutText').textContent = data.profile.bio;
+  document.getElementById('out_about_text2').textContent = data.profile.about_text2 || '';
+  document.getElementById('nowText').textContent = data.profile.now;
+  document.getElementById('heroAvatar').src = data.profile.avatar || 'assets/Anh_the.png';
+  document.getElementById('statYears').textContent = Math.max(1,new Set(data.timeline.map(x=>String(x.date).slice(-4))).size);
+  
+  const skillsStr = data.profile.skills || 'Legal Research, Corporate Legal, Contracts, Legal Procedures';
+  document.getElementById('aboutChips').innerHTML = skillsStr.split(',').map(s => s.trim()).filter(Boolean).map(s => `<span class="chip">${esc(s)}</span>`).join('');
+
+  const actionsDiv = document.getElementById('heroActions');
+  let actionsHtml = '';
+  if (data.profile.cv_link && data.profile.cv_link.trim() !== '') {
+    actionsHtml += `<a class="primary" href="${esc(data.profile.cv_link)}" target="_blank" rel="noopener noreferrer">📄 Xem / Tải CV</a>`;
+  }
+  for(let i=1; i<=5; i++) {
+    const pName = data.profile['proof'+i+'_name'];
+    const pLink = data.profile['proof'+i+'_link'];
+    if(pName && pName.trim() !== '' && pLink && pLink.trim() !== '') {
+      actionsHtml += `<a class="ghost" href="${esc(pLink)}" target="_blank" rel="noopener noreferrer">🔗 ${esc(pName)}</a>`;
+    }
+  }
+  actionsHtml += `<a class="ghost" href="#journey" style="background:transparent;border:0;color:var(--muted)">Hành trình ↓</a>`;
+  actionsDiv.innerHTML = actionsHtml;
+
+  ['2','3','4','5','6','7'].forEach(i => {
+     if(document.getElementById('out_s'+i+'_k')) document.getElementById('out_s'+i+'_k').textContent = data.profile['s'+i+'_k'] || '';
+     if(document.getElementById('out_s'+i+'_t')) document.getElementById('out_s'+i+'_t').textContent = data.profile['s'+i+'_t'] || '';
+     if(document.getElementById('out_s'+i+'_d')) document.getElementById('out_s'+i+'_d').textContent = data.profile['s'+i+'_d'] || '';
+  });
+
+  renderTimeline();renderWork();renderAchievements();renderPosts();renderLearning();renderGoals();renderLibrary();
+  setTimeout(initScrollReveal, 100);
+}
+
+function img(src,alt){return src?`<div class="card-media"><img src="${esc(src)}" loading="lazy" alt="${esc(alt)}" onclick="event.stopPropagation();openImage('${esc(src)}')"></div>`:`<div class="card-media placeholder-media"><span>Hồ sơ / Minh chứng</span></div>`}
+
+function renderTimeline(){const el=document.getElementById('timeline');el.innerHTML=data.timeline.map((x,i)=>`<div class="event reveal" style="transition-delay:${(i%5)*0.1}s"><div class="year">${esc(x.date)} · ${esc(x.type)}</div><h3 style="cursor:pointer" onclick="openReader('timeline', '${x.id}')">${esc(x.title)}</h3><div class="desc" style="-webkit-line-clamp:2;cursor:pointer" onclick="openReader('timeline', '${x.id}')">${esc(x.text)}</div>${x.image?`<div class="event-meta"><button class="chip" onclick="openImage('${esc(x.image)}')">Xem ảnh đính kèm ↗</button></div>`:''}</div>`).join('')}
+function renderWork(){document.getElementById('workGrid').innerHTML=data.work.map((x,i)=>`<article class="card reveal" style="transition-delay:${(i%3)*0.1}s" onclick="openReader('work', '${x.id}')">${img(x.image,x.title)}<div class="card-body"><div class="meta">${esc(x.meta)}</div><h3>${esc(x.title)}</h3><div class="desc">${esc(x.text)}</div><div class="read-more">Đọc toàn văn →</div></div></article>`).join('')}
+function renderAchievements(){document.getElementById('achievementGrid').innerHTML=data.achievements.map((x,i)=>`<article class="card achievement reveal ${x.featured?'featured':''}" style="transition-delay:${(i%3)*0.1}s" onclick="openReader('achievements', '${x.id}')">${img(x.image,x.title)}<div class="card-body"><div class="meta">${esc(x.date)}</div><h3>${esc(x.title)}</h3><div class="desc">${esc(x.text)}</div><div class="read-more">Đọc toàn văn →</div></div></article>`).join('')}
+function renderPosts(){let arr=data.posts.filter(x=>currentFilter==='all'||x.type===currentFilter);document.getElementById('blogGrid').innerHTML=arr.length?arr.map((x,i)=>`<article class="card reveal active" style="transition-delay:${(i%3)*0.1}s" onclick="openReader('posts', '${x.id}')">${img(x.image,x.title)}<div class="card-body"><div class="meta">${esc(x.date)} · ${esc(x.type)}</div><h3>${esc(x.title)}</h3><div class="desc">${esc(x.excerpt||x.content)}</div><div class="read-more">Đọc toàn văn →</div></div></article>`).join(''):`<div class="empty">Chưa có nội dung ở mục này.</div>`}
 function filterPosts(f,btn){currentFilter=f;document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));btn.classList.add('active');renderPosts()}
-function renderLearning(){document.getElementById('learningList').innerHTML=data.learning.map(x=>`<div class="learn-item"><div><strong>${esc(x.name)}</strong><span>${esc(x.note)}</span></div><span class="pill">${esc(x.status)}</span></div>`).join('')}
-function renderGoals(){document.getElementById('goalsList').innerHTML=data.goals.map(x=>`<div><strong>${esc(x.text)}</strong><br><span style="font-size:11px;color:#8eb0ba">${esc(x.status)}</span></div>`).join('')}
+
+function renderLibrary(){
+  const el=document.getElementById('libraryGrid');
+  let autoImages = [];
+  ['achievements', 'work', 'timeline', 'posts', 'learning'].forEach(key => {
+    if(data[key]) data[key].forEach(item => {
+      if(item.image) autoImages.push({src: item.image, title: item.title || item.name, category: key});
+      if(item.images) item.images.forEach(imgSrc => autoImages.push({src: imgSrc, title: item.title, category: key}));
+    });
+  });
+  if(autoImages.length === 0) {
+    document.getElementById('library').style.display = 'none';
+    return;
+  }
+  document.getElementById('library').style.display = 'block';
+  el.innerHTML = autoImages.map((imgData, i) => `<article class="card reveal" style="transition-delay:${(i%3)*0.1}s;box-shadow:none;border-radius:6px;border:1px solid rgba(220,229,227,0.8)"><div class="card-media" style="border:0"><img src="${esc(imgData.src)}" loading="lazy" alt="${esc(imgData.title)}" onclick="openImage('${esc(imgData.src)}')"></div><div class="card-body" style="padding:18px"><div class="meta" style="font-size:10px">${esc(imgData.category)}</div><h3 style="font-size:15px;margin:6px 0 0">${esc(imgData.title||'Tư liệu hình ảnh')}</h3></div></article>`).join('');
+}
+
+function renderLearning(){
+  document.getElementById('learningList').innerHTML = data.learning.map((x,i) => `
+    <div class="learn-item reveal" style="transition-delay:${(i%2)*0.1}s" onclick="openReader('learning', '${x.id}')">
+      <div class="learn-header">
+        <div class="learn-title-group">
+          ${x.image ? `<img class="learn-thumb" src="${esc(x.image)}" loading="lazy" alt="">` : `<div class="learn-thumb">✦</div>`}
+          <strong>${esc(x.name)}</strong>
+        </div>
+        <span class="pill">${esc(x.status)}</span>
+      </div>
+      <div class="learn-content">
+        <span>${esc(x.note)}</span>
+      </div>
+      <div class="learn-read-more">Đọc toàn văn →</div>
+    </div>
+  `).join('');
+}
+function renderGoals(){document.getElementById('goalsList').innerHTML=data.goals.map(x=>`<div><strong style="color:var(--gold-light);font-size:17px;font-weight:600">${esc(x.text)}</strong><br><span style="font-size:12px;color:rgba(255,255,255,0.5);letter-spacing:0.08em;text-transform:uppercase;font-weight:700;display:inline-block;margin-top:4px">${esc(x.status)}</span></div>`).join('')}
+
 function openImage(src){document.getElementById('modalImg').src=src;document.getElementById('imageModal').classList.add('open')}function closeModal(){document.getElementById('imageModal').classList.remove('open')}
-function openReader(id){const x=data.posts.find(p=>p.id===id);if(!x)return;const gallery=(x.images&&x.images.length?x.images:(x.image?[x.image]:[]));document.getElementById('reader').innerHTML=`<div class="kicker">${esc(x.type||'Ghi chép')} · ${esc(x.date||'')}</div><h1>${esc(x.title||'')}</h1>${gallery.map(u=>`<img src="${esc(u)}" alt="${esc(x.title||'')}" onclick="openImage('${esc(u)}')">`).join('')}<p style="font-size:18px;color:#526875">${esc(x.excerpt||'')}</p><div style="white-space:pre-wrap;line-height:1.85">${esc(x.content||'')}</div>`;document.getElementById('readerModal').classList.add('open')}function closeReader(){document.getElementById('readerModal').classList.remove('open')}
+function openReader(collection, id){
+  const x = data[collection].find(p => String(p.id) === String(id));
+  if(!x) return;
+  const gallery = (x.images && x.images.length ? x.images : (x.image ? [x.image] : []));
+  const meta = x.date || x.meta || x.type || x.status || collection;
+  const title = x.title || x.name || '';
+  const content = x.content || x.text || x.note || '';
+  const excerpt = x.excerpt || '';
+  
+  document.getElementById('reader').innerHTML=`
+    <div class="reader-kicker">${esc(meta)}</div>
+    <h1>${esc(title)}</h1>
+    ${gallery.map(u=>`<img src="${esc(u)}" loading="lazy" alt="">`).join('')}
+    ${excerpt ? `<div class="reader-excerpt">${esc(excerpt)}</div>` : ''}
+    <div class="reader-content">${esc(content)}</div>
+    ${x.link ? `<div style="margin-top:45px;padding-top:25px;border-top:1px solid var(--line);text-align:center"><a href="${esc(x.link)}" target="_blank" rel="noopener noreferrer" class="primary" style="display:inline-block;border-radius:8px;font-size:15px;padding:14px 28px;background:var(--teal)">📄 Đọc / Xem hồ sơ minh chứng gốc ↗</a></div>` : ''}
+  `;
+  document.getElementById('readerModal').classList.add('open');
+}
+function closeReader(){document.getElementById('readerModal').classList.remove('open')}
 function openLogin(){document.getElementById('loginModal').classList.add('open')}function closeLogin(){document.getElementById('loginModal').classList.remove('open')}
+
 async function login(){const email=document.getElementById('loginEmail').value.trim(),pass=document.getElementById('loginPassword').value;if(email.toLowerCase()!==ADMIN_EMAIL.toLowerCase()){document.getElementById('loginError').textContent='Tài khoản này không có quyền quản trị.';return}if(!sb){document.getElementById('loginError').textContent='Chưa cấu hình Supabase.';return}const {data:authData,error}=await sb.auth.signInWithPassword({email,password:pass});if(error){document.getElementById('loginError').textContent=authError(error);return}if(!authData.user||authData.user.email.toLowerCase()!==ADMIN_EMAIL.toLowerCase()){await sb.auth.signOut();document.getElementById('loginError').textContent='Tài khoản này không có quyền quản trị.';return}await loadRemoteState();sessionStorage.setItem('bhd_admin','1');closeLogin();openDashboard();showTab('overview',document.querySelector('[data-tab="overview"]'))}
 function authError(e){return e?.message||'Đăng nhập thất bại.'}
 function openDashboard(){document.getElementById('dashboard').classList.add('open');document.body.style.overflow='hidden';renderDash('overview')}function closeDashboard(){document.getElementById('dashboard').classList.remove('open');document.body.style.overflow='';renderAll()}function logout(){if(sb)sb.auth.signOut();sessionStorage.removeItem('bhd_admin');closeDashboard()}
-function showTab(tab,btn){document.querySelectorAll('.side button[data-tab]').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');document.getElementById('dashTitle').textContent={overview:'Tổng quan',timeline:'Hành trình',work:'Work & Research',posts:'Blog / Ghi chép',achievements:'Thành tích',learning:'Đang học',goals:'Mục tiêu',library:'Thư viện ảnh',profile:'Hồ sơ',settings:'Cấu hình tiêu đề'}[tab];renderDash(tab)}
-function renderDash(tab){const c=document.getElementById('dashContent');if(tab==='overview'){c.innerHTML=`<div class="dash-grid"><div class="dash-stat"><b>${data.timeline.length}</b><div class="muted">Mốc hành trình</div></div><div class="dash-stat"><b>${data.posts.length}</b><div class="muted">Bài viết</div></div><div class="dash-stat"><b>${data.achievements.length}</b><div class="muted">Thành tích</div></div><div class="dash-stat"><b>${(data.library||[]).length}</b><div class="muted">Ảnh tư liệu</div></div></div><div class="dash-panel"><h3>Không gian của bạn</h3><p class="muted">Đây là CMS cá nhân. Bạn có thể ghi nhận quá khứ, cập nhật hiện tại và thêm những điều mới trong tương lai mà không cần sửa HTML.</p><div class="actions"><button class="primary" onclick="showTab('timeline',document.querySelector('[data-tab=timeline]'))">+ Thêm cột mốc</button><button class="ghost" onclick="showTab('posts',document.querySelector('[data-tab=posts]'))">+ Viết bài</button><button class="ghost" onclick="showTab('achievements',document.querySelector('[data-tab=achievements]'))">+ Thành tích</button></div></div>`}else if(tab==='timeline')renderListEditor(c,'timeline','Hành trình','date,title,type,text,image');else if(tab==='work')renderListEditor(c,'work','Work & Research','title,meta,text,image');else if(tab==='posts')renderListEditor(c,'posts','Blog / Ghi chép','date,title,type,excerpt,content,image');else if(tab==='achievements')renderListEditor(c,'achievements','Thành tích','date,title,text,image,featured');else if(tab==='library')renderListEditor(c,'library','Thư viện ảnh','title,category,image');else if(tab==='learning')renderListEditor(c,'learning','Đang học','name,status,note');else if(tab==='goals')renderListEditor(c,'goals','Mục tiêu','text,status');else if(tab==='profile')renderProfile(c);else if(tab==='settings')renderSectionSettings(c)}
-function renderListEditor(c,key,label,fields){const arr=data[key].map((x,index)=>({x,index}));c.innerHTML=`<div class="dash-panel" style="margin-top:0"><div style="display:flex;justify-content:space-between;gap:15px;align-items:center"><div><h2 style="margin:0">${label}</h2><p class="muted">${arr.length} mục · có thể thêm, sửa, xóa bất cứ lúc nào</p></div><button class="primary" onclick="newItem('${key}')">＋ Thêm mới</button></div><div style="margin-top:16px">${arr.length?arr.map(({x,index})=>`<div class="list-row">${x.image?`<img class="thumb" src="${esc(x.image)}" onclick="openImage('${esc(x.image)}')">`:`<div class="thumb"></div>`}<div><strong>${esc(x.title||x.name||x.text||'Không có tiêu đề')}</strong><div class="muted" style="font-size:12px">${esc(x.date||x.status||x.type||'')}</div></div><div class="row-actions"><button type="button" class="smallbtn" onclick="moveItem('${key}',${index},-1)" ${index===0?'disabled':''}>▲</button><button type="button" class="smallbtn" onclick="moveItem('${key}',${index},1)" ${index===arr.length-1?'disabled':''}>▼</button><button type="button" class="smallbtn" onclick="editItem('${key}',${index})">✎ Sửa</button><button class="smallbtn danger" onclick="deleteItem('${key}',${index})">Xóa</button></div></div>`).join(''):'<div class="empty">Chưa có nội dung.</div>'}</div></div>`}
-async function moveItem(key,i,dir){if(!Array.isArray(data[key]))return;const j=i+dir;if(j<0||j>=data[key].length)return;[data[key][i],data[key][j]]=[data[key][j],data[key][i]];await save();renderDash(key)}
-function formFor(key,x={}){const configs={timeline:[['date','Ngày'],['title','Tiêu đề'],['type','Loại'],['text','Nội dung'],['image','Ảnh']],work:[['title','Tiêu đề'],['meta','Thông tin / loại nghiên cứu hoặc công việc'],['text','Mô tả'],['image','Ảnh bìa'],['proof','Minh chứng / ảnh tài liệu']],posts:[['date','Ngày'],['title','Tiêu đề'],['type','Loại: journey / blog / learning'],['excerpt','Tóm tắt'],['content','Nội dung'],['image','Ảnh cover'],['images','Ảnh trong bài']],achievements:[['date','Ngày'],['title','Tên thành tích'],['text','Mô tả'],['image','Ảnh chứng nhận'],['featured','Nổi bật: true / false']],library:[['title','Tên ảnh / tư liệu'],['category','Nhóm'],['image','Ảnh đại diện'],['images','Nhiều ảnh (tuỳ chọn)']],learning:[['name','Tên nội dung đang học'],['status','Trạng thái'],['note','Ghi chú']],goals:[['text','Mục tiêu'],['status','Trạng thái']]};return configs[key].map(([f,l])=>{const val=esc(x[f]??'');const isArea=['text','content','excerpt','note'].includes(f);if(f==='images')return '<div class="field"><label>'+l+' (có thể chọn nhiều ảnh)</label><textarea id="f_images" placeholder="Mỗi dòng là một URL ảnh">'+esc((x.images||[]).join('\n'))+'</textarea><input type="file" accept="image/*" multiple onchange="uploadMultipleImages(this,\'f_images\')"><small class="muted">Chọn nhiều ảnh cùng lúc. Ảnh sẽ được tải lên Supabase Storage. Website sẽ tự hạn chế hiển thị một ảnh lặp lại ở nhiều mục chính.</small></div>';if(f==='image')return '<div class="field"><label>'+l+'</label><input id="f_image" value="'+val+'" placeholder="URL hoặc đường dẫn"><input type="file" accept="image/*" onchange="uploadImageFile(this,\'f_image\')"><small class="muted">Ảnh cover/ảnh đại diện. Với bài viết, bạn có thể thêm nhiều ảnh ở mục bên dưới.</small></div>';return '<div class="field"><label>'+l+'</label>'+(isArea?'<textarea id="f_'+f+'">'+val+'</textarea>':'<input id="f_'+f+'" value="'+val+'">')+'</div>'}).join('')}
+function showTab(tab,btn){document.querySelectorAll('.side button[data-tab]').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');document.getElementById('dashTitle').textContent={overview:'Tổng quan',timeline:'Hành trình',work:'Work & Research',posts:'Blog / Ghi chép',achievements:'Thành tích',learning:'Trọng tâm',goals:'Mục tiêu',settings:'Cấu hình Tiêu đề',profile:'Hồ sơ & Nút liên kết'}[tab];renderDash(tab)}
+
+function renderDash(tab){const c=document.getElementById('dashContent');if(tab==='overview'){c.innerHTML=`<div class="dash-grid"><div class="dash-stat"><b>${data.timeline.length}</b><div class="muted">Mốc hành trình</div></div><div class="dash-stat"><b>${data.posts.length}</b><div class="muted">Bài viết</div></div><div class="dash-stat"><b>${data.achievements.length}</b><div class="muted">Thành tích</div></div><div class="dash-stat"><b>Tự động</b><div class="muted">Thư viện ảnh</div></div></div><div class="dash-panel"><h3>Không gian của bạn</h3><p class="muted" style="font-size:15px">Hệ thống xử lý văn bản sẽ tự động cắt gọn chữ thành 3 dòng ở giao diện thẻ trên trang chủ. Khi khách truy cập bấm vào, một Khung Đọc (Reader) cỡ lớn sẽ mở ra để hiển thị toàn văn.<br><br><b>Mẹo:</b> Bạn có thể viết nội dung dài bao nhiêu tùy ý mà không sợ vỡ bố cục web.</p><div class="actions"><button class="primary" onclick="showTab('timeline',document.querySelector('[data-tab=timeline]'))">+ Thêm Hành trình</button><button class="primary" onclick="showTab('work',document.querySelector('[data-tab=work]'))">+ Work & Research</button><button class="ghost" onclick="showTab('posts',document.querySelector('[data-tab=posts]'))">+ Viết Bài (Blog)</button><button class="ghost" onclick="showTab('achievements',document.querySelector('[data-tab=achievements]'))">+ Thành tích</button></div></div>`}else if(tab==='timeline')renderListEditor(c,'timeline','Hành trình','date,title,type,text,image');else if(tab==='work')renderListEditor(c,'work','Work & Research','title,meta,text,image,link');else if(tab==='posts')renderListEditor(c,'posts','Blog / Ghi chép','date,title,type,excerpt,content,image,images,link');else if(tab==='achievements')renderListEditor(c,'achievements','Thành tích','date,title,text,image,featured,link');else if(tab==='learning')renderListEditor(c,'learning','Trọng tâm phát triển (Đang học)','name,status,note,image');else if(tab==='goals')renderListEditor(c,'goals','Mục tiêu','text,status');else if(tab==='profile')renderProfile(c);else if(tab==='settings')renderSettings(c)}
+
+window.moveItem = async function(key, index, direction) {
+    if (direction === -1 && index > 0) {
+        const temp = data[key][index];
+        data[key][index] = data[key][index - 1];
+        data[key][index - 1] = temp;
+    } else if (direction === 1 && index < data[key].length - 1) {
+        const temp = data[key][index];
+        data[key][index] = data[key][index + 1];
+        data[key][index + 1] = temp;
+    }
+    await save();
+    renderDash(key);
+}
+
+function renderListEditor(c,key,label,fields){
+  const arr=data[key].map((x,index)=>({x,index}));
+  c.innerHTML=`<div class="dash-panel" style="margin-top:0"><div style="display:flex;justify-content:space-between;gap:15px;align-items:center"><div><h2 style="margin:0">${label}</h2><p class="muted">Sử dụng nút ▲ ▼ để thay đổi thứ tự hiển thị trên web.</p></div><button class="primary" onclick="newItem('${key}')">＋ Thêm mới</button></div><div style="margin-top:16px">${arr.length?arr.map(({x,index})=>`<div class="list-row">${x.image?`<img class="thumb" src="${esc(x.image)}" onclick="openImage('${esc(x.image)}')">`:`<div class="thumb"></div>`}<div><strong style="font-size:16px">${esc(x.title||x.name||x.text||'Không có tiêu đề')}</strong><div class="muted" style="font-size:13px;margin-top:4px">${esc(x.date||x.status||x.type||'')}</div></div><div class="row-actions">
+    <button type="button" class="smallbtn" style="${index===0?'opacity:0.3;cursor:not-allowed':''}" onclick="${index>0?`moveItem('${key}',${index},-1)`:''}">▲</button>
+    <button type="button" class="smallbtn" style="${index===arr.length-1?'opacity:0.3;cursor:not-allowed':''}" onclick="${index<arr.length-1?`moveItem('${key}',${index},1)`:''}">▼</button>
+    <button type="button" class="smallbtn" style="margin-left:8px" onclick="editItem('${key}',${index})">✎ Sửa</button>
+    <button type="button" class="smallbtn danger" onclick="deleteItem('${key}',${index})">Xóa</button>
+  </div></div>`).join(''):'<div class="empty">Chưa có nội dung.</div>'}</div></div>`
+}
+
+function formFor(key,x={}){const configs={timeline:[['date','Ngày / Năm'],['title','Tiêu đề'],['type','Loại (Công việc/Học tập)'],['text','Nội dung chi tiết (Sẽ tự động cắt chữ thành 3 dòng khi xem thẻ)'],['image','Ảnh (Tùy chọn)']],work:[['title','Tiêu đề'],['meta','Thông tin / Loại công việc'],['text','Nội dung chi tiết'],['image','Ảnh'],['link','Link minh chứng gốc (Google Drive / Báo...)']],posts:[['date','Ngày'],['title','Tiêu đề'],['type','Phân loại'],['excerpt','Tóm tắt (3-4 dòng)'],['content','Nội dung chi tiết toàn bài'],['image','Ảnh bìa'],['images','Ảnh đính kèm trong bài'],['link','Link nguồn / Tệp đính kèm']],achievements:[['date','Ngày'],['title','Tên thành tích'],['text','Mô tả chi tiết'],['image','Ảnh chứng nhận'],['featured','Đánh dấu nổi bật (true / false)'],['link','Link minh chứng (URL)']],learning:[['name','Tên kỹ năng / Trọng tâm'],['status','Trạng thái'],['note','Ghi chú chi tiết'],['image','Ảnh minh họa (Icon/Thumb)']],goals:[['text','Mục tiêu'],['status','Trạng thái']]};return configs[key].map(([f,l])=>{const val=esc(x[f]??'');const isArea=['text','content','excerpt','note'].includes(f);if(f==='images')return '<div class="field"><label>'+l+'</label><textarea id="f_images" placeholder="Mỗi dòng là một URL ảnh">'+esc((x.images||[]).join('\n'))+'</textarea><input type="file" accept="image/*" multiple onchange="uploadMultipleImages(this,\'f_images\')"><small class="muted">Chọn nhiều ảnh cùng lúc.</small></div>';if(f==='image')return '<div class="field"><label>'+l+'</label><input id="f_image" value="'+val+'" placeholder="URL hoặc đường dẫn"><input type="file" accept="image/*" onchange="uploadImageFile(this,\'f_image\')"><small class="muted">Tải ảnh từ máy lên hệ thống.</small></div>';return '<div class="field"><label>'+l+'</label>'+(isArea?'<textarea id="f_'+f+'">'+val+'</textarea>':'<input id="f_'+f+'" value="'+val+'">')+'</div>'}).join('')}
 function newItem(key){editForm(key,-1,{})}function editItem(key,i){if(!Array.isArray(data[key])||!data[key][i]){toast('Không tìm thấy mục cần chỉnh sửa');return}editForm(key,i,data[key][i])}
-function editForm(key,i,x){const c=document.getElementById('dashContent');c.innerHTML=`<div class="dash-panel" style="margin-top:0"><div class="section-head" style="margin-bottom:20px"><div><div class="kicker">EDITOR</div><h2>${i<0?'Thêm mới':'Chỉnh sửa'}</h2></div></div><div class="editor"><div>${formFor(key,x)}</div><div class="panel"><h3>Gợi ý</h3><p class="muted" style="font-size:12px">Bạn có thể ghi ngắn hoặc dài. Ảnh sẽ được click để xem bản đầy đủ trên website.</p><p class="muted" style="font-size:12px">Bạn có thể chọn ảnh trực tiếp từ máy. Ảnh trên website luôn có thể bấm để xem bản đầy đủ.</p></div></div><div class="editor-actions"><button class="ghost" onclick="renderDash('${key}')">Hủy</button><button class="primary" onclick="saveItem('${key}',${i})">Lưu thay đổi</button></div></div>`}
+function editForm(key,i,x){const c=document.getElementById('dashContent');c.innerHTML=`<div class="dash-panel" style="margin-top:0"><div class="section-head" style="margin-bottom:24px;border-bottom:1px solid var(--line);padding-bottom:16px"><div><div class="kicker">EDITOR</div><h2 style="margin-top:6px">${i<0?'Thêm mới':'Chỉnh sửa nội dung'}</h2></div></div><div class="editor"><div>${formFor(key,x)}</div><div class="panel" style="box-shadow:none;border:1px solid #ced6d4"><h3>Gợi ý thông minh</h3><p class="muted" style="font-size:14px;line-height:1.7">Bạn có thể viết dài bao nhiêu tùy thích ở phần Nội dung.<br><br>Trang web sẽ tự động giới hạn 3 dòng cực kỳ mượt mà khi hiển thị trên thẻ ngoài màn hình chủ, và chỉ mở rộng toàn văn khi nhà tuyển dụng bấm vào.</p></div></div><div class="editor-actions"><button class="ghost" onclick="renderDash('${key}')">Hủy</button><button class="primary" onclick="saveItem('${key}',${i})">Lưu thay đổi</button></div></div>`}
 async function uploadMultipleImages(input,targetId){const files=[...(input.files||[])];if(!files.length)return;const target=document.getElementById(targetId);if(!target)return;try{const urls=sb?await Promise.all(files.map(file=>{const safe=file.name.toLowerCase().replace(/[^a-z0-9._-]+/g,'-');const path='portfolio/'+Date.now()+'-'+Math.random().toString(36).slice(2)+'-'+safe;return sb.storage.from('portfolio-images').upload(path,file,{upsert:false,contentType:file.type}).then(({error})=>{if(error)throw error;const {data:pub}=sb.storage.from('portfolio-images').getPublicUrl(path);return pub.publicUrl})})):await Promise.all(files.map(file=>new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(file)})));const current=target.value.split(/\n|,/).map(x=>x.trim()).filter(Boolean);target.value=[...current,...urls].join('\n');toast(`Đã thêm ${urls.length} ảnh`)}catch(e){alert('Không tải được ảnh: '+e.message)}input.value=''}
 async function uploadImageFile(input,targetId){const file=input.files&&input.files[0];if(!file)return;const target=document.getElementById(targetId);try{if(sb){const safe=file.name.toLowerCase().replace(/[^a-z0-9._-]+/g,'-');const path='portfolio/'+Date.now()+'-'+safe;const {error}=await sb.storage.from('portfolio-images').upload(path,file,{upsert:false,contentType:file.type});if(error)throw error;const {data:pub}=sb.storage.from('portfolio-images').getPublicUrl(path);target.value=pub.publicUrl;toast('Đã tải ảnh lên Storage');return}const reader=new FileReader();reader.onload=()=>{target.value=reader.result;toast('Đã nạp ảnh cục bộ — hãy bấm Lưu')};reader.readAsDataURL(file)}catch(e){alert('Không tải được ảnh: '+e.message)}}
-async function saveItem(key,i){const cfg={timeline:['date','title','type','text','image'],work:['title','meta','text','image','proof'],posts:['date','title','type','excerpt','content','image','images'],achievements:['date','title','text','image','featured'],library:['title','category','image','images'],learning:['name','status','note'],goals:['text','status']}[key];if(!cfg){toast('Không xác định được loại nội dung');return}let o={};cfg.forEach(f=>{const el=document.getElementById('f_'+f);if(el)o[f]=el.value});if(key==='posts'||key==='library'){o.images=String(o.images||'').split(/\n|,/).map(x=>x.trim()).filter(Boolean);if(!o.image&&o.images.length)o.image=o.images[0]}if(key==='achievements')o.featured=o.featured==='true';if(i<0){o.id=key==='work'?('work-'+Date.now()+'-'+Math.random().toString(36).slice(2,8)):Date.now();data[key].push(o)}else{const old=data[key][i];data[key][i]={...old,...o,id:old?.id??(key==='work'?('work-'+Date.now()):Date.now())}}const ok=await save();if(ok!==false)toast('Đã lưu');renderDash(key)}
+async function saveItem(key,i){const cfg={timeline:['date','title','type','text','image'],work:['title','meta','text','image','link'],posts:['date','title','type','excerpt','content','image','images','link'],achievements:['date','title','text','image','featured','link'],learning:['name','status','note','image'],goals:['text','status']}[key];if(!cfg){toast('Không xác định được loại nội dung');return}let o={};cfg.forEach(f=>{const el=document.getElementById('f_'+f);if(el)o[f]=el.value});if(key==='posts'){o.images=String(o.images||'').split(/\n|,/).map(x=>x.trim()).filter(Boolean);if(!o.image&&o.images.length)o.image=o.images[0]}if(key==='achievements')o.featured=o.featured==='true';if(i<0){o.id=key+'-'+Date.now().toString(36)+Math.random().toString(36).substr(2,4);
+  data[key].unshift(o);
+}else{const old=data[key][i];data[key][i]={...old,...o,id:old?.id??(key+'-'+Date.now())}}const ok=await save();if(ok!==false)toast('Đã lưu');renderDash(key)}
 async function deleteItem(key,i){if(!Array.isArray(data[key])||!data[key][i]){toast('Không tìm thấy mục cần xóa');return}if(confirm('Xóa nội dung này?')){data[key].splice(i,1);await save();renderDash(key);toast('Đã xóa')}}
-function renderProfile(c){const p=data.profile||{};const proofs=Array.isArray(p.proofs)?p.proofs:[];c.innerHTML=`<div class="dash-panel" style="margin-top:0"><h2>Hồ sơ cá nhân</h2><p class="muted">Mọi thông tin dưới đây có thể chỉnh sửa mà không cần sửa HTML.</p>${[['avatar','Ảnh đại diện'],['name','Họ tên'],['title','Chức danh'],['bio','Giới thiệu'],['now','Hiện tại'],['email','Email'],['phone','Số điện thoại'],['facebook','Facebook'],['cv','CV chính'],['heroCta1Label','Nút chính — chữ'],['heroCta1Link','Nút chính — link'],['heroCta2Label','Nút phụ — chữ'],['heroCta2Link','Nút phụ — link']].map(([f,l])=>`<div class="field"><label>${l}</label>${f==='bio'||f==='now'?`<textarea id="p_${f}">${esc(p[f]||'')}</textarea>`:f==='avatar'?`<input id="p_avatar" value="${esc(p.avatar||'assets/Anh_the.png')}"><input type="file" accept="image/*" onchange="uploadImageFile(this,'p_avatar')">`:f==='cv'||f==='facebook'||f.endsWith('Link')?`<input id="p_${f}" value="${esc(p[f]||'')}" placeholder="URL">`: `<input id="p_${f}" value="${esc(p[f]||'')}">`}</div>`).join('')}<div class="field"><label>Kỹ năng chuyên môn (mỗi dòng một chip)</label><textarea id="p_skills">${esc((p.skills||[]).join('\n'))}</textarea></div><div class="field"><label>Minh chứng phụ — tối đa 5 URL</label>${[0,1,2,3,4].map(i=>`<input id="p_proof_${i}" value="${esc(proofs[i]||'')}" placeholder="Minh chứng ${i+1} — bỏ trống để tự ẩn" style="margin-bottom:8px">`).join('')}</div><button class="primary" onclick="saveProfile()">Lưu hồ sơ</button></div>`}
-async function saveProfile(){['avatar','name','title','bio','now','email','phone','facebook','cv','heroCta1Label','heroCta1Link','heroCta2Label','heroCta2Link'].forEach(f=>{const e=document.getElementById('p_'+f);if(e)data.profile[f]=e.value});data.profile.skills=String(document.getElementById('p_skills')?.value||'').split(/\n|,/).map(x=>x.trim()).filter(Boolean);data.profile.proofs=[0,1,2,3,4].map(i=>document.getElementById('p_proof_'+i)?.value.trim()||'');await save();toast('Đã cập nhật hồ sơ');renderProfile(document.getElementById('dashContent'))}
-function renderSectionSettings(c){const keys=[['journey','Hành trình'],['work','Nghiên cứu & công việc'],['achievements','Thành tích'],['library','Thư viện'],['blog','Blog'],['goals','Trọng tâm']];c.innerHTML=`<div class="dash-panel" style="margin-top:0"><h2>Cấu hình tiêu đề</h2><p class="muted">Thay đổi Kicker, H2 và mô tả của từng mục. Không cần sửa mã nguồn.</p>${keys.map(([k,l])=>{const s=data.sectionSettings?.[k]||{};return `<div class="panel" style="margin:16px 0"><h3>${l}</h3><div class="field"><label>Kicker</label><input id="s_${k}_kicker" value="${esc(s.kicker||'')}"></div><div class="field"><label>Tiêu đề H2</label><input id="s_${k}_title" value="${esc(s.title||'')}"></div><div class="field"><label>Description</label><textarea id="s_${k}_description">${esc(s.description||'')}</textarea></div></div>`}).join('')}<button class="primary" onclick="saveSectionSettings()">Lưu cấu hình</button></div>`}
-async function saveSectionSettings(){const keys=['journey','work','achievements','library','blog','goals'];data.sectionSettings=data.sectionSettings||{};keys.forEach(k=>data.sectionSettings[k]={kicker:document.getElementById(`s_${k}_kicker`).value,title:document.getElementById(`s_${k}_title`).value,description:document.getElementById(`s_${k}_description`).value});await save();toast('Đã cập nhật cấu hình tiêu đề');applySectionSettings()}
+
+function renderSettings(c){
+  const fields = [
+     {i:'2', label:'Mục 2 (Hành trình)'},
+     {i:'3', label:'Mục 3 (Nghiên cứu & Công việc)'},
+     {i:'4', label:'Mục 4 (Thành tích)'},
+     {i:'5', label:'Mục 5 (Thư viện ảnh tự động)'},
+     {i:'6', label:'Mục 6 (Blog)'},
+     {i:'7', label:'Mục 7 (Trọng tâm)'}
+  ];
+  let html = `<div class="dash-panel" style="margin-top:0"><h2>Cấu hình Tiêu đề (Bỏ chữ Tự Động)</h2><p class="muted">Tùy biến toàn bộ nhãn, tiêu đề chính và đoạn văn mô tả của các khu vực.</p>`;
+  fields.forEach(f => {
+     html += `<div style="border-top:1px solid var(--line); margin-top:24px; padding-top:24px">
+        <h3 style="margin-top:0; font-size:16px; color:var(--teal)">${f.label}</h3>
+        <div style="display:grid;grid-template-columns:1fr 2fr;gap:16px;margin-bottom:16px">
+          <div class="field"><label>Thẻ nhỏ (Kicker)</label><input id="p_s${f.i}_k" value="${esc(data.profile['s'+f.i+'_k'])}"></div>
+          <div class="field"><label>Tiêu đề chính (H2)</label><input id="p_s${f.i}_t" value="${esc(data.profile['s'+f.i+'_t'])}"></div>
+        </div>
+        <div class="field"><label>Đoạn mô tả</label><textarea style="min-height:80px" id="p_s${f.i}_d">${esc(data.profile['s'+f.i+'_d'])}</textarea></div>
+     </div>`;
+  });
+  html += `<button class="primary" style="margin-top:24px;width:100%" onclick="saveSettings()">Lưu cấu hình tiêu đề</button></div>`;
+  c.innerHTML = html;
+}
+async function saveSettings(){
+   ['2','3','4','5','6','7'].forEach(i => {
+      data.profile['s'+i+'_k'] = document.getElementById('p_s'+i+'_k').value;
+      data.profile['s'+i+'_t'] = document.getElementById('p_s'+i+'_t').value;
+      data.profile['s'+i+'_d'] = document.getElementById('p_s'+i+'_d').value;
+   });
+   await save();
+   toast('Đã cập nhật tiêu đề');
+   renderSettings(document.getElementById('dashContent'));
+}
+
+function renderProfile(c){
+  let extraProofHtml = '';
+  for(let i=1; i<=5; i++) {
+    extraProofHtml += `
+      <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:16px;margin-bottom:16px">
+        <div class="field"><label>Tên Nút Phụ ${i}</label><input id="p_proof${i}_name" value="${esc(data.profile['proof'+i+'_name'])}" placeholder="VD: Bằng Cử nhân"></div>
+        <div class="field"><label>Link (URL) Nút ${i}</label><input id="p_proof${i}_link" value="${esc(data.profile['proof'+i+'_link'])}" placeholder="Link Drive..."></div>
+      </div>
+    `;
+  }
+
+  c.innerHTML=`<div class="dash-panel" style="margin-top:0"><h2>Quản lý Hồ sơ & Các nút liên kết</h2><p class="muted">Tùy chỉnh thông tin cá nhân trên màn hình chính.</p>
+  ${[
+    ['cv_link','Link xem/tải CV (Dán link PDF / Google Drive vào đây)'],
+    ['avatar','Ảnh đại diện'],
+    ['name','Họ tên'],
+    ['title','Chức danh'],
+    ['about_title','Tiêu đề mục 1 (Vd: Tổng quan Hồ sơ)'],
+    ['about_desc','Mô tả dưới tiêu đề mục 1'],
+    ['about_h1','Tiêu đề cột trái (Vd: Kỹ năng chuyên môn)'],
+    ['bio','Nội dung giới thiệu chung (cột trái)'],
+    ['skills','Từ khóa kỹ năng (Ngăn cách bằng dấu phẩy)'],
+    ['about_h2','Tiêu đề cột phải (Vd: Giá trị cốt lõi)'],
+    ['about_text2','Nội dung cột phải'],
+    ['now','Mô tả phần "Đang ở đâu" (Cuối trang)'],
+    ['email','Email liên hệ'],
+    ['phone','Số điện thoại'],
+    ['facebook','Link Facebook']
+  ].map(([f,l])=>{
+    let inputHtml = '';
+    if(['bio','now','about_desc','about_text2', 'skills'].includes(f)){
+      inputHtml = `<textarea id="p_${f}">${esc(data.profile[f])}</textarea>`;
+      if(f === 'skills') inputHtml += `<small class="muted" style="display:block;margin-top:4px;">Ví dụ: Pháp lý doanh nghiệp, Soạn thảo hợp đồng...</small>`;
+    } else if (f === 'avatar') {
+      inputHtml = `<input id="p_avatar" value="${esc(data.profile[f]||'assets/Anh_the.png')}"><input type="file" accept="image/*" onchange="uploadImageFile(this,'p_avatar')">`;
+    } else if (f === 'cv_link') {
+      inputHtml = `<input id="p_${f}" value="${esc(data.profile[f])}" placeholder="VD: https://drive.google.com/..."><small class="muted" style="display:block;margin-top:4px;">Nếu để trống ô này, nút Tải CV trên web sẽ tự động ẩn đi.</small>`;
+    } else {
+      inputHtml = `<input id="p_${f}" value="${esc(data.profile[f])}">`;
+    }
+    return `<div class="field"><label>${l}</label>${inputHtml}</div>`;
+  }).join('')}
+  
+  <div style="border-top:1px solid var(--line); margin: 40px 0 24px; padding-top:30px">
+    <h3 style="margin-top:0; color:var(--ink)">5 Nút Minh Chứng Tùy Chọn</h3>
+    <p class="muted" style="font-size:14px; margin-bottom: 24px">Cứ điền là có nút, bỏ trống là nút tự ẩn.</p>
+    ${extraProofHtml}
+  </div>
+
+  <button class="primary" style="margin-top:10px;width:100%" onclick="saveProfile()">Lưu toàn bộ hồ sơ</button></div>`;
+}
+async function saveProfile(){
+  const fields = ['avatar','name','title','about_title','about_desc','about_h1','bio','skills','about_h2','about_text2','now','email','phone','facebook', 'cv_link'];
+  for(let i=1; i<=5; i++) { fields.push('proof'+i+'_name'); fields.push('proof'+i+'_link'); }
+  fields.forEach(f=>{
+    const e=document.getElementById('p_'+f);
+    if(e) data.profile[f]=e.value;
+  });
+  await save();
+  toast('Đã cập nhật hồ sơ');
+  renderProfile(document.getElementById('dashContent'));
+}
 function toast(t){const e=document.getElementById('toast');e.textContent=t;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),1800)}
-curateContent();renderAll();
-if(sb){loadRemoteState().then(async()=>{const changed=curateContent();if(changed)await save();renderAll();const e=document.getElementById('syncStatus');if(e)e.textContent=remoteLoaded?'● Supabase đã kết nối':'Không đồng bộ được';});}else{const e=document.getElementById('syncStatus');if(e)e.textContent='Chưa cấu hình Supabase';}
+renderAll();
+if(sb){loadRemoteState().then(()=>{const e=document.getElementById('syncStatus');if(e)e.textContent=remoteLoaded?'● Supabase đã kết nối':'Không đồng bộ được';});}else{const e=document.getElementById('syncStatus');if(e)e.textContent='Chưa cấu hình Supabase';}
 </script></body></html>
