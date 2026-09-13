@@ -52,7 +52,6 @@ img{max-width:100%;height:auto;display:block}
 .alt-bg{background:linear-gradient(180deg,var(--bg-2) 0%,var(--bg-1) 100%);border-top:1px solid var(--line-1);border-bottom:1px solid var(--line-1);position:relative}
 .alt-bg::before,.alt-bg::after{content:'';position:absolute;left:15%;right:15%;height:1px;background:linear-gradient(90deg,transparent,var(--line-gold),transparent)}
 .alt-bg::before{top:-1px}.alt-bg::after{bottom:-1px}
-/* HEADER */
 .top{position:sticky;top:0;z-index:30;background:rgba(15,33,55,.75);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border-bottom:1px solid var(--line-1);transition:background .3s,border-color .3s}
 .top.scrolled{background:rgba(15,33,55,.94);border-color:var(--line-2)}
 .nav{height:80px;display:flex;align-items:center;justify-content:space-between;gap:24px}
@@ -63,7 +62,6 @@ img{max-width:100%;height:auto;display:block}
 .links a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--jade-400);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
 .links a:hover{color:var(--tx-1)}
 .links a:hover::after{transform:scaleX(1)}
-/* BUTTONS */
 .primary,.ghost,.admin-btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:var(--r-sm);font-weight:600;font-size:14px;transition:all .35s var(--ease);white-space:nowrap;cursor:pointer}
 .primary{background:linear-gradient(135deg,var(--jade-600),var(--jade-700));color:#fff;box-shadow:0 4px 14px rgba(46,139,114,.25),inset 0 1px 0 rgba(255,255,255,.08);position:relative;overflow:hidden}
 .primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--jade-500),var(--jade-600));opacity:0;transition:opacity .3s}
@@ -74,7 +72,6 @@ img{max-width:100%;height:auto;display:block}
 .ghost:hover{border-color:var(--jade-500);color:var(--jade-300);background:rgba(46,139,114,.1);transform:translateY(-2px)}
 .admin-btn{background:transparent;color:var(--tx-3);border:1px solid var(--line-2);padding:9px 16px;font-size:12.5px}
 .admin-btn:hover{border-color:var(--jade-500);color:var(--jade-300)}
-/* HERO */
 .hero{padding:110px 0 100px;min-height:90vh;display:grid;grid-template-columns:1.15fr .85fr;gap:80px;align-items:center;position:relative}
 .hero::before{content:'';position:absolute;top:5%;left:-15%;width:600px;height:600px;background:radial-gradient(circle,rgba(46,139,114,.14),transparent 60%);border-radius:50%;pointer-events:none;animation:float 20s ease-in-out infinite}
 .hero::after{content:'';position:absolute;bottom:-10%;right:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(74,144,226,.1),transparent 60%);border-radius:50%;pointer-events:none;animation:float 25s ease-in-out infinite reverse}
@@ -83,7 +80,6 @@ img{max-width:100%;height:auto;display:block}
 .eyebrow{display:inline-flex;gap:10px;align-items:center;padding:9px 18px;border-radius:999px;background:rgba(46,139,114,.12);color:var(--jade-300);font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;border:1px solid rgba(46,139,114,.3)}
 .eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--jade-400);box-shadow:0 0 12px var(--jade-400);animation:pulse 2.4s infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
-/* FIX #3: chữ Dể không bị cắt dấu */
 .hero h1{font-family:var(--serif);font-size:clamp(48px,7vw,92px);font-weight:700;line-height:1.08;letter-spacing:-.03em;margin:28px 0 34px;color:var(--tx-1);overflow:visible;padding-bottom:8px}
 .hero h1 span{display:inline-block;padding:.15em .15em .2em .08em;margin-bottom:-.15em;background:linear-gradient(135deg,var(--jade-400) 0%,var(--jade-300) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-style:italic;font-weight:400;line-height:1.15;overflow:visible}
 @supports not ((-webkit-background-clip:text) or (background-clip:text)){.hero h1 span{color:var(--jade-400);-webkit-text-fill-color:var(--jade-400)}}
@@ -98,15 +94,12 @@ img{max-width:100%;height:auto;display:block}
 .portrait:hover::before{transform:rotate(0deg) scale(1.02)}
 .portrait::after{content:'LEGAL · RESEARCH';position:absolute;right:-22px;bottom:38px;background:linear-gradient(135deg,var(--jade-600),var(--jade-700));color:#fff;padding:13px 24px;border-radius:6px;font-size:9.5px;letter-spacing:.24em;font-weight:700;z-index:2;box-shadow:0 16px 40px rgba(46,139,114,.4)}
 .portrait img{position:relative;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:var(--r);display:block;box-shadow:var(--sh-xl);z-index:1;border:1px solid var(--line-3)}
-/* SECTION */
 section{padding:110px 0;position:relative}
 .section-head{display:flex;justify-content:space-between;gap:48px;align-items:end;margin-bottom:60px}
 .kicker{color:var(--jade-400);font-size:11px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;display:inline-flex;align-items:center;gap:12px}
 .kicker::before{content:'';width:24px;height:1px;background:linear-gradient(90deg,var(--gold-500),transparent)}
-/* FIX #4: tiêu đề section không cắt dấu */
 .section-head h2{font-family:var(--serif);font-size:clamp(36px,4.8vw,56px);font-weight:700;line-height:1.15;letter-spacing:-.025em;margin:16px 0 0;color:var(--tx-1);padding-bottom:10px;overflow:visible}
 .section-head > p{max-width:500px;color:var(--tx-2);margin:0;line-height:1.8;font-size:14.5px;font-weight:300}
-/* ABOUT */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
 .panel{background:linear-gradient(160deg,var(--bg-3),var(--bg-2));border:1px solid var(--line-2);border-radius:var(--r);padding:44px;box-shadow:var(--sh-md);transition:transform .55s var(--ease),box-shadow .55s var(--ease),border-color .35s;position:relative;overflow:hidden}
 .panel::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--line-gold),transparent);opacity:0;transition:opacity .4s}
@@ -117,7 +110,6 @@ section{padding:110px 0;position:relative}
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
 .chip{padding:8px 16px;background:rgba(46,139,114,.1);border:1px solid rgba(46,139,114,.25);color:var(--jade-300);border-radius:999px;font-size:12px;font-weight:600;transition:all .35s var(--ease)}
 .chip:hover{background:var(--jade-600);color:#fff;transform:translateY(-2px);border-color:transparent}
-/* TIMELINE */
 .timeline{position:relative;padding-left:56px;max-width:920px}
 .timeline::before{content:'';position:absolute;left:15px;top:12px;bottom:12px;width:1px;background:linear-gradient(to bottom,var(--jade-500) 0%,var(--jade-400) 40%,rgba(46,139,114,.15) 100%)}
 .event{position:relative;margin:0 0 54px;transition:transform .5s var(--ease)}
@@ -133,7 +125,6 @@ section{padding:110px 0;position:relative}
 .event-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-top:18px;max-width:640px}
 .event-gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--r-sm);cursor:zoom-in;transition:transform .4s var(--ease),filter .3s;border:1px solid var(--line-2);filter:brightness(.94)}
 .event-gallery img:hover{transform:scale(1.04);filter:brightness(1.05);border-color:var(--jade-500)}
-/* CARDS */
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
 .card{background:linear-gradient(160deg,var(--bg-3),var(--bg-2));border:1px solid var(--line-2);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-sm);transition:transform .55s var(--ease),box-shadow .55s var(--ease),border-color .35s;display:flex;flex-direction:column;cursor:pointer;position:relative}
 .card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--line-gold),transparent);opacity:0;transition:opacity .4s;z-index:2}
@@ -158,7 +149,6 @@ section{padding:110px 0;position:relative}
 .filter{background:transparent;border:1px solid var(--line-2);padding:10px 22px;border-radius:999px;font-weight:600;color:var(--tx-3);font-size:13px;transition:all .35s var(--ease);cursor:pointer}
 .filter.active{background:var(--jade-600);color:#fff;border-color:var(--jade-500);box-shadow:0 8px 20px rgba(46,139,114,.35)}
 .filter:hover:not(.active){border-color:var(--jade-500);color:var(--jade-300);background:rgba(46,139,114,.08)}
-/* LEARNING */
 .learning{display:grid;grid-template-columns:1fr 1fr;gap:26px}
 .learn-item{display:flex;flex-direction:column;gap:18px;padding:36px;background:linear-gradient(160deg,var(--bg-3),var(--bg-2));border-radius:var(--r);border:1px solid var(--line-2);box-shadow:var(--sh-sm);transition:transform .55s var(--ease),box-shadow .55s var(--ease),border-color .35s;cursor:pointer;position:relative;overflow:hidden}
 .learn-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--jade-500),var(--jade-600));transition:width .4s var(--ease)}
@@ -173,7 +163,6 @@ section{padding:110px 0;position:relative}
 .learn-read-more{font-size:11.5px;font-weight:700;color:var(--jade-400);margin-top:auto;display:inline-flex;align-items:center;gap:6px;transition:gap .35s var(--ease),color .3s;letter-spacing:.06em;text-transform:uppercase}
 .learn-item:hover .learn-read-more{gap:12px;color:var(--jade-300)}
 .pill{padding:6px 13px;border-radius:999px;background:rgba(212,175,55,.1);color:var(--gold-400);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;border:1px solid rgba(212,175,55,.25);white-space:nowrap}
-/* NOW */
 .now{background:linear-gradient(135deg,var(--bg-3) 0%,var(--jade-900) 70%,var(--bg-1) 100%);border:1px solid var(--line-gold);color:#fff;border-radius:var(--r-lg);padding:88px;display:grid;grid-template-columns:1.05fr .95fr;gap:72px;position:relative;overflow:hidden;box-shadow:var(--sh-xl)}
 .now::before{content:'';position:absolute;width:600px;height:600px;border:1px solid rgba(212,175,55,.12);border-radius:50%;right:-180px;top:-180px;pointer-events:none}
 .now > *{position:relative;z-index:1}
@@ -188,7 +177,6 @@ section{padding:110px 0;position:relative}
 .now-list > div:hover{padding-left:20px;border-color:var(--gold-500)}
 .now-list strong{color:var(--jade-200);font-size:16px;font-weight:600;display:block;margin-bottom:6px;font-family:var(--serif)}
 .now-list span{font-size:11px;color:rgba(245,241,232,.5);letter-spacing:.16em;text-transform:uppercase;font-weight:700}
-/* MODALS */
 .modal{position:fixed;inset:0;background:rgba(10,23,40,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);z-index:100;display:none;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity .4s var(--ease)}
 .modal.open{display:flex;opacity:1}
 .close{position:absolute;top:26px;right:26px;background:rgba(255,255,255,.08);color:var(--tx-1);border:1px solid var(--line-2);border-radius:50%;width:46px;height:46px;font-size:22px;display:grid;place-items:center;transition:all .4s var(--ease);backdrop-filter:blur(10px);z-index:3;cursor:pointer}
@@ -204,7 +192,6 @@ section{padding:110px 0;position:relative}
 .reader-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin:32px 0}
 .reader-gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-sm);cursor:zoom-in;transition:transform .4s var(--ease),filter .3s,border-color .3s;border:1px solid var(--line-2);filter:brightness(.94)}
 .reader-gallery img:hover{transform:scale(1.03);filter:brightness(1.05);border-color:var(--jade-500)}
-/* FIX #1: gallery nằm trên tất cả modal khác */
 .gallery-modal{background:rgba(6,15,28,.98);padding:0;flex-direction:column;z-index:110}
 .gallery-stage{flex:1;display:flex;align-items:center;justify-content:center;width:100%;padding:60px 80px 20px;position:relative}
 .gallery-stage img{max-width:100%;max-height:calc(100vh - 220px);object-fit:contain;border-radius:var(--r-sm);box-shadow:0 30px 80px rgba(0,0,0,.6);transition:opacity .3s var(--ease)}
@@ -222,7 +209,6 @@ section{padding:110px 0;position:relative}
 .gal-thumb.active{border-color:var(--jade-500);opacity:1;transform:scale(1.08)}
 .gal-thumb:hover{opacity:1}
 .gal-thumb img{width:100%;height:100%;object-fit:cover}
-/* DASHBOARD */
 .dash{position:fixed;inset:0;background:var(--bg-1);z-index:80;display:none}
 .dash.open{display:grid;grid-template-columns:270px 1fr}
 .side{background:linear-gradient(180deg,var(--bg-0),var(--bg-1));color:var(--tx-2);padding:30px 22px;display:flex;flex-direction:column;overflow-y:auto;border-right:1px solid var(--line-1)}
@@ -244,7 +230,6 @@ section{padding:110px 0;position:relative}
 .dash-stat div{color:var(--tx-3);font-size:13px;margin-top:12px;font-weight:500}
 .dash-panel{background:var(--bg-3);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:40px;margin-top:24px;box-shadow:var(--sh-sm)}
 .dash-panel h2,.dash-panel h3{font-family:var(--serif);color:var(--tx-1);font-weight:600}
-/* LIST */
 .list-row{display:grid;grid-template-columns:28px 80px 1fr auto;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line-1);transition:background .3s,opacity .2s,transform .2s,border-color .2s;background:var(--bg-3)}
 .list-row:last-child{border-bottom:0}
 .list-row.dragging{opacity:.35;transform:scale(.98);background:rgba(46,139,114,.08)}
@@ -261,7 +246,6 @@ section{padding:110px 0;position:relative}
 .smallbtn[disabled]{opacity:.35;cursor:not-allowed}
 .danger{background:rgba(220,53,53,.12);color:#F5A3A3;border-color:rgba(220,53,53,.3)}
 .danger:hover:not([disabled]){background:rgba(220,53,53,.22);color:#FBC5C5;border-color:rgba(220,53,53,.45)}
-/* EDITOR */
 .editor{display:grid;grid-template-columns:1fr 340px;gap:32px}
 .field{display:grid;gap:8px;margin-bottom:22px}
 .field label{font-size:11px;font-weight:700;color:var(--tx-2);text-transform:uppercase;letter-spacing:.12em}
@@ -270,7 +254,6 @@ section{padding:110px 0;position:relative}
 .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--jade-500);background:var(--bg-0);box-shadow:0 0 0 3px rgba(46,139,114,.2)}
 .field textarea{min-height:180px;resize:vertical;line-height:1.7}
 .editor-actions{display:flex;gap:12px;justify-content:flex-end;margin-top:28px;border-top:1px solid var(--line-1);padding-top:26px}
-/* UPLOADER */
 .img-uploader{border:1px dashed var(--line-3);border-radius:var(--r-sm);padding:16px;background:var(--bg-2);transition:border-color .3s,background .3s;position:relative}
 .img-uploader.dragover{border-color:var(--jade-500);background:rgba(46,139,114,.08)}
 .img-uploader-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px;margin-bottom:12px}
@@ -294,26 +277,41 @@ section{padding:110px 0;position:relative}
 .toast{position:fixed;right:26px;bottom:26px;background:var(--bg-3);color:var(--tx-1);padding:16px 26px;border-radius:var(--r-sm);z-index:200;display:none;box-shadow:var(--sh-lg);font-size:14px;font-weight:500;border-left:3px solid var(--jade-500);backdrop-filter:blur(10px)}
 .toast.show{display:block;animation:popIn .5s var(--ease)}
 @keyframes popIn{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
-/* FOOTER */
+/* FOOTER MỚI — 3 cột + Social list */
 .footer-redesign{background:linear-gradient(180deg,var(--bg-0),#060F1E);color:var(--tx-1);padding:100px 0 44px;margin-top:90px;position:relative;overflow:hidden;border-top:1px solid var(--line-1)}
 .footer-redesign::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-500),transparent)}
 .footer-redesign::after{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(46,139,114,.1),transparent 65%);border-radius:50%;right:-200px;bottom:-250px;pointer-events:none}
 .footer-redesign > *{position:relative;z-index:1}
-.footer-container{display:grid;grid-template-columns:2fr 1fr 1fr;gap:70px;margin-bottom:70px}
+.footer-container{display:grid;grid-template-columns:1.2fr .8fr 1.4fr;gap:60px;margin-bottom:70px;align-items:start}
 .footer-redesign .brand{color:var(--tx-1);font-size:23px;margin-bottom:22px;font-family:var(--serif);font-weight:600}
 .footer-redesign .brand small{color:var(--jade-400);font-family:var(--sans);letter-spacing:.24em;font-size:9.5px;font-weight:600}
-.footer-desc{color:var(--tx-3);font-size:14.5px;max-width:440px;line-height:1.85;margin:0;font-weight:300}
+.footer-desc{color:var(--tx-3);font-size:14.5px;max-width:380px;line-height:1.85;margin:0 0 24px;font-weight:300}
+.footer-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(46,139,114,.1);border:1px solid rgba(46,139,114,.25);color:var(--jade-300);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.footer-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--jade-400);box-shadow:0 0 8px var(--jade-400);animation:pulse 2.4s infinite}
 .footer-col h4{font-family:var(--serif);font-size:17px;margin:0 0 26px;color:var(--tx-1);font-weight:600;border-bottom:1px solid var(--line-gold);padding-bottom:14px;display:inline-block}
 .footer-links{display:flex;flex-direction:column;gap:16px}
 .footer-links a,.footer-links span{color:var(--tx-3);font-size:14px;transition:color .35s var(--ease),transform .35s var(--ease);display:inline-block;cursor:pointer;font-weight:300}
 .footer-links a:hover{color:var(--jade-300);transform:translateX(6px)}
+/* Social list */
+.social-list{display:flex;flex-direction:column;gap:10px}
+.social-item{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid var(--line-2);transition:all .3s var(--ease);position:relative;text-decoration:none;color:inherit}
+.social-item:hover{background:rgba(46,139,114,.1);border-color:var(--jade-500);transform:translateX(6px)}
+.social-icon{width:36px;height:36px;border-radius:9px;display:grid;place-items:center;background:rgba(46,139,114,.15);color:var(--jade-300);font-size:16px;font-weight:800;flex-shrink:0;font-family:var(--sans);line-height:1;letter-spacing:-.02em}
+.social-item:hover .social-icon{background:var(--jade-600);color:#fff}
+.social-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.social-label{font-size:10px;color:var(--tx-4);text-transform:uppercase;letter-spacing:.14em;font-weight:700}
+.social-value{font-size:13.5px;color:var(--tx-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:400;transition:color .3s}
+.social-item:hover .social-value{color:var(--tx-1)}
+.social-copy{padding:6px;border-radius:6px;color:var(--tx-3);opacity:0;transition:opacity .25s,background .25s,color .25s;font-size:13px;line-height:1;cursor:pointer;flex-shrink:0}
+.social-item:hover .social-copy{opacity:1}
+.social-copy:hover{background:rgba(46,139,114,.2);color:var(--jade-300)}
+.social-empty{padding:20px;text-align:center;color:var(--tx-4);font-size:13px;border:1px dashed var(--line-2);border-radius:10px}
 .footer-bottom{border-top:1px solid var(--line-1);padding-top:38px;display:flex;justify-content:space-between;align-items:center;color:var(--tx-4);font-size:12.5px;flex-wrap:wrap;gap:16px}
 .footer-bottom-links{display:flex;gap:24px}
 .footer-bottom-links a{color:var(--tx-4);transition:color .35s ease;text-transform:uppercase;font-weight:700;letter-spacing:.12em;font-size:10.5px;cursor:pointer}
 .footer-bottom-links a:hover{color:var(--jade-400)}
 .placeholder-media{display:grid;place-items:center;align-content:center;gap:8px;background:var(--bg-2);color:var(--tx-4);text-align:center;border-bottom:1px solid var(--line-1)}
 .placeholder-media span{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--tx-3)}
-/* RESPONSIVE */
 @media(max-width:980px){
   .links{display:none}
   .hero{grid-template-columns:1fr;padding-top:70px;gap:60px;min-height:auto}
@@ -331,7 +329,7 @@ section{padding:110px 0;position:relative}
   .side-bottom{display:flex;flex-direction:row;gap:8px;margin-left:14px;padding-top:0;border-top:0}
   .editor{grid-template-columns:1fr}
   .dash-grid{grid-template-columns:1fr 1fr}
-  .footer-container{grid-template-columns:1fr 1fr;gap:50px}
+  .footer-container{grid-template-columns:1fr 1fr;gap:44px}
 }
 @media(max-width:640px){
   .wrap{width:min(100% - 32px,1180px)}
@@ -383,6 +381,7 @@ section{padding:110px 0;position:relative}
       <a href="#achievements">Thành tích</a>
       <a href="#library">Thư viện</a>
       <a href="#blog">Ghi chép</a>
+      <button class="admin-btn" data-action="open-login">Quản trị</button>
     </nav>
   </div>
 </header>
@@ -471,17 +470,19 @@ section{padding:110px 0;position:relative}
       <div>
         <div class="brand">BÙI HOÀNG DỂ<small>PERSONAL PROFILE</small></div>
         <p class="footer-desc">Theo đuổi sự chính xác, bảo mật và tư duy hệ thống. Xây dựng nền tảng chuyên môn vững chắc để giải quyết các vấn đề pháp lý thực tiễn.</p>
+        <span class="footer-badge">Sẵn sàng kết nối</span>
       </div>
       <div class="footer-col"><h4>Khám phá</h4>
         <div class="footer-links">
           <a href="#about">Về tôi</a>
           <a href="#journey">Hành trình</a>
           <a href="#work">Nghiên cứu & Công việc</a>
+          <a href="#achievements">Thành tích</a>
           <a href="#blog">Blog & Ghi chép</a>
         </div>
       </div>
       <div class="footer-col"><h4>Kết nối</h4>
-        <div class="footer-links" id="footerContact"></div>
+        <div class="social-list" id="footerContact"></div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -498,7 +499,6 @@ section{padding:110px 0;position:relative}
   <button class="close" data-action="close-modal" aria-label="Đóng">×</button>
   <img id="modalImg" alt="">
 </div>
-
 <div class="modal gallery-modal" id="galleryModal" data-action="close-gallery-bg">
   <button class="close" data-action="close-gallery" aria-label="Đóng">×</button>
   <div class="gal-counter" id="galCounter">1 / 1</div>
@@ -510,12 +510,10 @@ section{padding:110px 0;position:relative}
   <div class="gal-caption" id="galCaption"></div>
   <div class="gal-thumbs" id="galThumbs"></div>
 </div>
-
 <div class="modal" id="readerModal" data-action="close-reader-bg">
   <button class="close" data-action="close-reader" aria-label="Đóng">×</button>
   <article class="reader" id="reader"></article>
 </div>
-
 <div class="modal" id="loginModal" data-action="close-login-bg">
   <button class="close" data-action="close-login" aria-label="Đóng">×</button>
   <div class="reader" style="max-width:460px;padding:54px">
@@ -533,7 +531,7 @@ section{padding:110px 0;position:relative}
   <aside class="side">
     <div class="brand">BÙI HOÀNG DỂ<small>ADMIN</small></div>
     <button class="active" data-tab="overview">Tổng quan</button>
-    <button data-tab="profile">Hồ sơ & Nút liên kết</button>
+    <button data-tab="profile">Hồ sơ & Liên kết</button>
     <button data-tab="settings">Cấu hình Tiêu đề</button>
     <button data-tab="timeline">Hành trình</button>
     <button data-tab="work">Work & Research</button>
@@ -556,18 +554,31 @@ section{padding:110px 0;position:relative}
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
-/* ═══════════════════════════════════════════════════════════
-   BÙI HOÀNG DỂ — PORTFOLIO v18 FINAL
-   Đã fix 7 lỗi: gallery z-index, Esc order, dấu chữ,
-   tiêu đề cắt, ảnh lỗi, sessionStorage, aria-label
+  /* ═══════════════════════════════════════════════════════════
+   BÙI HOÀNG DỂ — PORTFOLIO v19
+   Mới: Contact click được + Copy button · Zalo · 10 kênh social
    ═══════════════════════════════════════════════════════════ */
 var STORAGE_KEY = 'bhd_profile_v12';
-var OLD_KEYS = ['bhd_profile_v12','bhd_profile_v13','bhd_profile_v14','bhd_profile_v15','bhd_profile_v16','bhd_profile_v17'];
+var OLD_KEYS = ['bhd_profile_v12','bhd_profile_v13','bhd_profile_v14','bhd_profile_v15','bhd_profile_v16','bhd_profile_v17','bhd_profile_v18'];
 var MAX_UPLOAD_BYTES = 5 * 1024 * 1024;
 var ALLOWED_IMAGE_TYPES = ['image/jpeg','image/png','image/webp','image/gif'];
 var SECTIONS = ['timeline','work','achievements','posts','learning','goals'];
 var SECTION_TITLES = ['2','3','4','5','6','7'];
 var ADMIN_EMAIL = 'hoangdeb751@gmail.com';
+
+/* Danh sách 10 kênh social có thể bật/tắt */
+var SOCIAL_CHANNELS = [
+  { key:'facebook',  label:'Facebook',  icon:'f',  color:'#1877F2', placeholder:'https://facebook.com/username hoặc username' },
+  { key:'zalo',      label:'Zalo',      icon:'Z',  color:'#0068FF', placeholder:'Số điện thoại (VD: 0358297366)' },
+  { key:'linkedin',  label:'LinkedIn',  icon:'in', color:'#0A66C2', placeholder:'https://linkedin.com/in/username' },
+  { key:'github',    label:'GitHub',    icon:'gh', color:'#181717', placeholder:'https://github.com/username' },
+  { key:'twitter',   label:'X / Twitter', icon:'X', color:'#000000', placeholder:'https://x.com/username hoặc @username' },
+  { key:'instagram', label:'Instagram', icon:'ig', color:'#E4405F', placeholder:'https://instagram.com/username hoặc @username' },
+  { key:'tiktok',    label:'TikTok',    icon:'tt', color:'#000000', placeholder:'https://tiktok.com/@username hoặc @username' },
+  { key:'youtube',   label:'YouTube',   icon:'▶',  color:'#FF0000', placeholder:'https://youtube.com/@channel' },
+  { key:'threads',   label:'Threads',   icon:'@',  color:'#000000', placeholder:'https://threads.net/@username hoặc @username' },
+  { key:'website',   label:'Website',   icon:'⌘',  color:'#2E8B72', placeholder:'https://your-site.com' }
+];
 
 function clone(o){
   if(typeof structuredClone === 'function'){
@@ -613,11 +624,104 @@ function getImages(item){
   return out;
 }
 function getPrimaryImage(item){ return getImages(item)[0] || ''; }
-function getImageCount(item){ return getImages(item).length; }
 function readingTime(text){
   var words = String(text || '').trim().split(/\s+/).filter(Boolean).length;
   var mins = Math.max(1, Math.round(words / 220));
   return mins + ' phút đọc';
+}
+function normalizePhone(p){
+  return String(p || '').replace(/[^\d+]/g, '').replace(/^\+84/, '0');
+}
+
+/* ═══════════════════════════════════════════════════════════
+   NORMALIZE SOCIAL URL
+   - facebook: nhận "username", "@username", "fb.com/username", URL đầy đủ
+   - zalo: nhận số điện thoại hoặc URL
+   - twitter/x, instagram, tiktok, threads: nhận @username
+   - linkedin, github, youtube, website: nhận URL đầy đủ
+   ═══════════════════════════════════════════════════════════ */
+function normalizeSocialUrl(channelKey, raw){
+  if(!raw) return '';
+  var s = String(raw).trim();
+  if(!s) return '';
+
+  /* Nếu đã là URL http(s) đầy đủ → dùng luôn (đã validate) */
+  if(/^https?:\/\//i.test(s)){
+    try{
+      var u = new URL(s);
+      if(u.protocol === 'http:' || u.protocol === 'https:') return u.href;
+    }catch(e){}
+    return '';
+  }
+
+  /* Xử lý theo từng kênh */
+  var clean = s.replace(/^@+/, '').replace(/^\/+/, '');
+
+  switch(channelKey){
+    case 'facebook':
+      if(/^fb\.com\//i.test(s)) return 'https://' + s;
+      if(/^facebook\.com\//i.test(s)) return 'https://' + s;
+      return 'https://facebook.com/' + clean;
+
+    case 'zalo': {
+      var phone = normalizePhone(s);
+      if(/^(0|\+84)\d{9}$/.test(phone) || /^0\d{9}$/.test(phone)){
+        return 'https://zalo.me/' + phone.replace(/^0/, '0');
+      }
+      if(/^zalo\.me\//i.test(s)) return 'https://' + s;
+      return 'https://zalo.me/' + phone;
+    }
+
+    case 'linkedin':
+      if(/linkedin\.com/i.test(s)) return 'https://' + s.replace(/^https?:\/\//i,'');
+      return 'https://linkedin.com/in/' + clean;
+
+    case 'github':
+      if(/github\.com/i.test(s)) return 'https://' + s.replace(/^https?:\/\//i,'');
+      return 'https://github.com/' + clean;
+
+    case 'twitter':
+      if(/twitter\.com|x\.com/i.test(s)) return 'https://' + s.replace(/^https?:\/\//i,'');
+      return 'https://x.com/' + clean;
+
+    case 'instagram':
+      if(/instagram\.com/i.test(s)) return 'https://' + s.replace(/^https?:\/\//i,'');
+      return 'https://instagram.com/' + clean;
+
+    case 'tiktok':
+      if(/tiktok\.com/i.test(s)) return 'https://' + s.replace(/^https?:\/\//i,'');
+      return 'https://tiktok.com/@' + clean;
+
+    case 'youtube':
+      if(/youtube\.com|youtu\.be/i.test(s)) return 'https://' + s.replace(/^https?:\/\//i,'');
+      return 'https://youtube.com/@' + clean;
+
+    case 'threads':
+      if(/threads\.net|threads\.com/i.test(s)) return 'https://' + s.replace(/^https?:\/\//i,'');
+      return 'https://threads.net/@' + clean;
+
+    case 'website':
+      return 'https://' + clean;
+  }
+  return '';
+}
+
+/* Format display cho social value */
+function formatSocialDisplay(channelKey, url){
+  if(!url) return '';
+  try{
+    var u = new URL(url);
+    var path = u.pathname.replace(/^\/+|\/+$/g, '');
+    var host = u.hostname.replace(/^www\./, '');
+    switch(channelKey){
+      case 'zalo': return 'Zalo · ' + path.replace(/^zalo\.me\//, '');
+      case 'facebook':
+        if(host === 'facebook.com') return path ? 'fb.com/' + path : host;
+        return host + (path ? '/' + path : '');
+      default:
+        return host + (path ? '/' + path : '');
+    }
+  }catch(e){ return url; }
 }
 
 var initial = {
@@ -631,8 +735,20 @@ var initial = {
     about_h2:'Giá trị cốt lõi',
     about_text2:'Cẩn thận, trách nhiệm, chính xác và bảo mật. Tôi thích tư duy có hệ thống, chủ động học hỏi, tiếp nhận nhiệm vụ mới và cải thiện từ phản hồi.',
     now:'Tôi đang xây dựng nền tảng chuyên môn pháp lý và tiếp tục tích lũy kinh nghiệm thực tiễn.',
-    email:'hoangdeb751@gmail.com', phone:'0358297366',
-    facebook:'https://www.facebook.com/hoangde.bui.03/',
+    /* Contact cá nhân */
+    email:'hoangdeb751@gmail.com',
+    phone:'0358297366',
+    /* Social links (để trống = ẩn) */
+    facebook:'https://facebook.com/hoangde.bui.03',
+    zalo:'0358297366',
+    linkedin:'',
+    github:'',
+    twitter:'',
+    instagram:'',
+    tiktok:'',
+    youtube:'',
+    threads:'',
+    website:'',
     cv_link:'',
     proof1_name:'',proof1_link:'',proof2_name:'',proof2_link:'',proof3_name:'',proof3_link:'',proof4_name:'',proof4_link:'',proof5_name:'',proof5_link:'',
     s2_k:'02 / Timeline', s2_t:'Hành trình', s2_d:'Quá khứ được ghi nhận. Hiện tại được cập nhật. Tương lai tiếp tục được viết.',
@@ -665,7 +781,7 @@ var initial = {
     {id:'a2',date:'05/08/2026',title:'Sinh viên có đóng góp tích cực',text:'Ghi nhận quá trình tham gia hoạt động Nhà trường.',images:[],featured:false,link:''},
     {id:'a3',date:'06/11/2025',title:'Sinh viên giỏi năm học 2024–2025',text:'Danh hiệu sinh viên giỏi năm học 2024–2025.',images:['assets/Sinhviengioinamhoc_2024-2025.jpg'],featured:false,link:''},
     {id:'a4',date:'28/05/2025',title:'Thanh niên tiên tiến làm theo lời Bác tiêu biểu',text:'Trường Đại học Luật TP.HCM, năm học 2024–2025.',images:[],featured:false,link:''},
-    {id:'a5',date:'18/03/2025',title:'Đoàn viên tiêu biểu',text:'Trường Đại học Luật TP.HCM, năm học 2024.',images:[],featured:false,link:''},
+    {id:'a5',date:'18/03/2025',title:'Đoàn viên tiêu biểu',text:'Trường Đại học Luật HCM, năm học 2024.',images:[],featured:false,link:''},
     {id:'a6',date:'22/05/2024',title:'Thanh niên tiên tiến làm theo lời Bác',text:'Trường Đại học Luật TP.HCM, năm học 2023–2024.',images:[],featured:false,link:''},
     {id:'a7',date:'03/08/2023',title:'Thành tích xuất sắc Chiến dịch TNTN Hè 2023',text:'Ghi nhận thành tích trong hoạt động tình nguyện.',images:[],featured:false,link:''}
   ],
@@ -703,8 +819,7 @@ function normalizeItem(item){
     item.images = item.image ? [item.image] : [];
   }
   var seen = {};
-  item.images = item.images
-    .map(function(u){ return String(u || '').trim(); })
+  item.images = item.images.map(function(u){ return String(u || '').trim(); })
     .filter(function(u){
       if(!u || seen[u]) return false;
       seen[u] = 1;
@@ -734,10 +849,7 @@ function loadLocal(){
     try{ raw = localStorage.getItem(STORAGE_KEY); }catch(e){}
     if(!raw){
       for(var i = 0; i < OLD_KEYS.length; i++){
-        try{
-          raw = localStorage.getItem(OLD_KEYS[i]);
-          if(raw) break;
-        }catch(e){}
+        try{ raw = localStorage.getItem(OLD_KEYS[i]); if(raw) break; }catch(e){}
       }
     }
     var saved = raw ? JSON.parse(raw) : null;
@@ -750,16 +862,12 @@ function loadLocal(){
     return normalizeData(clone(initial));
   }
 }
-
 function mergeRemote(remote){
   if(!remote || typeof remote !== 'object') return;
   data = Object.assign(clone(initial), remote, {profile: Object.assign({}, initial.profile, remote.profile || {})});
-  SECTIONS.forEach(function(k){
-    if(!Array.isArray(remote[k])) data[k] = clone(initial[k]);
-  });
+  SECTIONS.forEach(function(k){ if(!Array.isArray(remote[k])) data[k] = clone(initial[k]); });
   normalizeData(data);
 }
-
 function hasContent(state){
   if(!state || typeof state !== 'object') return false;
   return Object.keys(state).some(function(k){
@@ -790,10 +898,8 @@ function loadRemote(){
       if(hasContent(remote)){
         mergeRemote(remote);
         try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }catch(e){}
-        remoteLoaded = true;
-      } else {
-        remoteLoaded = true;
       }
+      remoteLoaded = true;
       renderAll();
       return true;
     })
@@ -833,6 +939,76 @@ function save(){
 function $(id){ return document.getElementById(id); }
 function setText(id, v){ var el = $(id); if(el) el.textContent = v; }
 
+/* ═══════════════════════════════════════════════════════════
+   RENDER FOOTER CONTACT — Email, Phone, Social
+   ═══════════════════════════════════════════════════════════ */
+function renderFooterContact(){
+  var fc = $('footerContact');
+  if(!fc) return;
+  var items = [];
+
+  /* Email — click mở mail client, có nút copy */
+  var email = String(data.profile.email || '').trim();
+  if(email){
+    items.push(
+      '<a class="social-item" href="mailto:' + esc(email) + '" data-action="contact-link" data-contact-type="email">'
+      + '<span class="social-icon" style="background:rgba(46,139,114,.15);color:var(--jade-300)">@</span>'
+      + '<span class="social-body">'
+      + '<span class="social-label">Email</span>'
+      + '<span class="social-value">' + esc(email) + '</span>'
+      + '</span>'
+      + '<button type="button" class="social-copy" data-action="copy-contact" data-copy-text="' + esc(email) + '" title="Sao chép email" aria-label="Sao chép email">📋</button>'
+      + '</a>'
+    );
+  }
+
+  /* Phone — click gọi, có nút copy */
+  var phone = String(data.profile.phone || '').trim();
+  if(phone){
+    var phoneClean = normalizePhone(phone);
+    items.push(
+      '<a class="social-item" href="tel:' + esc(phoneClean) + '" data-action="contact-link" data-contact-type="phone">'
+      + '<span class="social-icon" style="background:rgba(212,175,55,.15);color:var(--gold-400)">☎</span>'
+      + '<span class="social-body">'
+      + '<span class="social-label">Điện thoại</span>'
+      + '<span class="social-value">' + esc(phone) + '</span>'
+      + '</span>'
+      + '<button type="button" class="social-copy" data-action="copy-contact" data-copy-text="' + esc(phoneClean) + '" title="Sao chép số" aria-label="Sao chép số điện thoại">📋</button>'
+      + '</a>'
+    );
+  }
+
+  /* 10 kênh social — cái nào có URL thì hiện */
+  SOCIAL_CHANNELS.forEach(function(ch){
+    var raw = data.profile[ch.key];
+    if(!raw) return;
+    var url = normalizeSocialUrl(ch.key, raw);
+    if(!url) return;
+    var display = formatSocialDisplay(ch.key, url);
+    /* Không hiện email/phone trùng social */
+    if(ch.key === 'facebook' && !raw) return;
+    items.push(
+      '<a class="social-item" href="' + esc(url) + '" target="_blank" rel="noopener noreferrer" data-action="contact-link" data-contact-type="' + ch.key + '">'
+      + '<span class="social-icon" style="background:' + ch.color + '22;color:' + ch.color + '">' + esc(ch.icon) + '</span>'
+      + '<span class="social-body">'
+      + '<span class="social-label">' + esc(ch.label) + '</span>'
+      + '<span class="social-value">' + esc(display) + '</span>'
+      + '</span>'
+      + '<button type="button" class="social-copy" data-action="copy-contact" data-copy-text="' + esc(url) + '" title="Sao chép link" aria-label="Sao chép link">📋</button>'
+      + '</a>'
+    );
+  });
+
+  if(!items.length){
+    fc.innerHTML = '<div class="social-empty">Chưa có thông tin liên hệ. Vào Quản trị → Hồ sơ để thêm.</div>';
+    return;
+  }
+  fc.innerHTML = items.join('');
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RENDER HELPERS
+   ═══════════════════════════════════════════════════════════ */
 function cardMediaHtml(item, alt, ratio){
   var imgs = getImages(item);
   var count = imgs.length;
@@ -846,7 +1022,6 @@ function cardMediaHtml(item, alt, ratio){
   var onerror = ' onerror="this.style.display=\'none\';this.parentElement.classList.add(\'placeholder-media\');if(!this.parentElement.querySelector(\'.img-fallback\')){var s=document.createElement(\'span\');s.className=\'img-fallback\';s.textContent=\'Ảnh không tải được\';this.parentElement.appendChild(s);}"';
   return '<div class="card-media" style="aspect-ratio:' + ratio + '"><img src="' + esc(first) + '" loading="lazy" alt="' + esc(alt) + '"' + onerror + '>' + badge + '</div>';
 }
-
 function timelineGalleryHtml(item, title){
   var imgs = getImages(item);
   if(!imgs.length) return '';
@@ -901,16 +1076,7 @@ function renderAll(){
     setText('out_s' + i + '_d', data.profile['s' + i + '_d'] || '');
   });
 
-  var fc = $('footerContact');
-  if(fc){
-    var fhtml = '';
-    if(data.profile.email) fhtml += '<a href="mailto:' + esc(data.profile.email) + '">Email liên hệ</a>';
-    if(data.profile.phone) fhtml += '<a href="tel:' + esc(String(data.profile.phone).replace(/\s/g, '')) + '">Điện thoại</a>';
-    var fb = safeUrl(data.profile.facebook);
-    if(fb) fhtml += '<a href="' + esc(fb) + '" target="_blank" rel="noopener noreferrer">Facebook ↗</a>';
-    fc.innerHTML = fhtml || '<span>Liên hệ qua email</span>';
-  }
-
+  renderFooterContact();
   renderTimeline();
   renderWork();
   renderAchievements();
@@ -921,8 +1087,7 @@ function renderAll(){
 }
 
 function renderTimeline(){
-  var el = $('timeline');
-  if(!el) return;
+  var el = $('timeline'); if(!el) return;
   el.innerHTML = data.timeline.map(function(x){
     return '<div class="event">'
       + '<div class="year">' + esc(x.date) + ' · ' + esc(x.type) + '</div>'
@@ -932,10 +1097,8 @@ function renderTimeline(){
       + '</div>';
   }).join('');
 }
-
 function renderWork(){
-  var el = $('workGrid');
-  if(!el) return;
+  var el = $('workGrid'); if(!el) return;
   el.innerHTML = data.work.map(function(x){
     return '<article class="card" data-action="open-reader" data-collection="work" data-id="' + esc(x.id) + '">'
       + cardMediaHtml(x, x.title, '16/10')
@@ -945,10 +1108,8 @@ function renderWork(){
       + '<div class="read-more">Đọc toàn văn →</div></div></article>';
   }).join('');
 }
-
 function renderAchievements(){
-  var el = $('achievementGrid');
-  if(!el) return;
+  var el = $('achievementGrid'); if(!el) return;
   el.innerHTML = data.achievements.map(function(x){
     return '<article class="card achievement ' + (x.featured ? 'featured' : '') + '" data-action="open-reader" data-collection="achievements" data-id="' + esc(x.id) + '">'
       + cardMediaHtml(x, x.title, x.featured ? '16/7' : '4/3')
@@ -958,10 +1119,8 @@ function renderAchievements(){
       + '<div class="read-more">Đọc toàn văn →</div></div></article>';
   }).join('');
 }
-
 function renderPosts(){
-  var el = $('blogGrid');
-  if(!el) return;
+  var el = $('blogGrid'); if(!el) return;
   var arr = data.posts.filter(function(x){ return currentFilter === 'all' || x.type === currentFilter; });
   if(!arr.length){ el.innerHTML = '<div class="empty">Chưa có nội dung ở mục này.</div>'; return; }
   el.innerHTML = arr.map(function(x){
@@ -973,10 +1132,8 @@ function renderPosts(){
       + '<div class="read-more">Đọc toàn văn →</div></div></article>';
   }).join('');
 }
-
 function renderLearning(){
-  var el = $('learningList');
-  if(!el) return;
+  var el = $('learningList'); if(!el) return;
   el.innerHTML = data.learning.map(function(x){
     var primary = getPrimaryImage(x);
     var thumb = primary
@@ -989,28 +1146,21 @@ function renderLearning(){
       + '<div class="learn-read-more">Đọc toàn văn →</div></div>';
   }).join('');
 }
-
 function renderGoals(){
-  var el = $('goalsList');
-  if(!el) return;
+  var el = $('goalsList'); if(!el) return;
   el.innerHTML = data.goals.map(function(x){
     return '<div><strong>' + esc(x.text) + '</strong><span>' + esc(x.status) + '</span></div>';
   }).join('');
 }
-
 function renderLibrary(){
-  var section = $('library');
-  var el = $('libraryGrid');
+  var section = $('library'); var el = $('libraryGrid');
   if(!el || !section) return;
   var seen = {}, items = [];
   ['achievements','work','timeline','posts','learning'].forEach(function(k){
     if(!Array.isArray(data[k])) return;
     data[k].forEach(function(it){
       getImages(it).forEach(function(u){
-        if(!seen[u]){
-          seen[u] = 1;
-          items.push({ src: u, title: it.title || it.name || 'Tư liệu hình ảnh', category: k });
-        }
+        if(!seen[u]){ seen[u] = 1; items.push({ src: u, title: it.title || it.name || 'Tư liệu hình ảnh', category: k }); }
       });
     });
   });
@@ -1056,8 +1206,7 @@ function openReader(collection, id){
 function closeReader(){ $('readerModal').classList.remove('open'); }
 
 function openImage(src){
-  var safe = safeUrl(src);
-  if(!safe) return;
+  var safe = safeUrl(src); if(!safe) return;
   $('modalImg').src = safe;
   $('imageModal').classList.add('open');
 }
@@ -1076,28 +1225,22 @@ function openGallery(collection, id, startIndex){
 }
 function closeGallery(){
   $('galleryModal').classList.remove('open');
-  galleryImages = [];
-  galleryIndex = 0;
+  galleryImages = []; galleryIndex = 0;
 }
 function renderGallery(){
   if(!galleryImages.length) return;
-  var img = $('galImg');
-  var counter = $('galCounter');
-  var thumbs = $('galThumbs');
-  var caption = $('galCaption');
+  var img = $('galImg'); var counter = $('galCounter');
+  var thumbs = $('galThumbs'); var caption = $('galCaption');
   var prev = document.querySelector('[data-action="gal-prev"]');
   var next = document.querySelector('[data-action="gal-next"]');
-
   img.src = galleryImages[galleryIndex];
   counter.textContent = (galleryIndex + 1) + ' / ' + galleryImages.length;
   caption.textContent = galleryTitle;
   prev.disabled = galleryIndex === 0;
   next.disabled = galleryIndex === galleryImages.length - 1;
-
   thumbs.innerHTML = galleryImages.map(function(u, i){
     return '<div class="gal-thumb ' + (i === galleryIndex ? 'active' : '') + '" data-action="gal-jump" data-idx="' + i + '"><img src="' + esc(u) + '" alt="" loading="lazy" onerror="this.style.opacity=.3"></div>';
   }).join('');
-
   var active = thumbs.querySelector('.gal-thumb.active');
   if(active && active.scrollIntoView) active.scrollIntoView({ behavior:'smooth', block:'nearest', inline:'center' });
 }
@@ -1111,8 +1254,7 @@ function closeLogin(){
   var e = $('loginError'); if(e) e.textContent = '';
 }
 function login(){
-  var errEl = $('loginError');
-  errEl.textContent = '';
+  var errEl = $('loginError'); errEl.textContent = '';
   var email = $('loginEmail').value.trim();
   var pass = $('loginPassword').value;
   if(!email || !pass){ errEl.textContent = 'Vui lòng nhập email và mật khẩu.'; return Promise.resolve(); }
@@ -1121,17 +1263,12 @@ function login(){
     if(res.error){ errEl.textContent = res.error.message || 'Đăng nhập thất bại.'; return; }
     var u = res.data && res.data.user;
     if(!u || u.email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()){
-      return sb.auth.signOut().then(function(){
-        errEl.textContent = 'Tài khoản này không có quyền quản trị.';
-      });
+      return sb.auth.signOut().then(function(){ errEl.textContent = 'Tài khoản này không có quyền quản trị.'; });
     }
     $('loginPassword').value = '';
     try{ sessionStorage.setItem('bhd_admin','1'); }catch(x){}
     closeLogin();
-    return loadRemote().then(function(){
-      openDashboard();
-      showTab('overview');
-    });
+    return loadRemote().then(function(){ openDashboard(); showTab('overview'); });
   }).catch(function(e){ errEl.textContent = e.message; });
 }
 function logout(){
@@ -1153,17 +1290,13 @@ function closeDashboard(){
   renderAll();
 }
 function setSyncStatus(){
-  var e = $('syncStatus');
-  if(!e) return;
+  var e = $('syncStatus'); if(!e) return;
   if(!sb){ e.textContent = 'Chưa cấu hình Supabase'; return; }
   e.textContent = remoteLoaded ? '● Supabase đã kết nối' : 'Không đồng bộ được';
 }
-
 function showTab(tab){
-  document.querySelectorAll('.side button[data-tab]').forEach(function(b){
-    b.classList.toggle('active', b.dataset.tab === tab);
-  });
-  var titles = { overview:'Tổng quan', timeline:'Hành trình', work:'Work & Research', posts:'Blog / Ghi chép', achievements:'Thành tích', learning:'Trọng tâm', goals:'Mục tiêu', settings:'Cấu hình Tiêu đề', profile:'Hồ sơ & Nút liên kết' };
+  document.querySelectorAll('.side button[data-tab]').forEach(function(b){ b.classList.toggle('active', b.dataset.tab === tab); });
+  var titles = { overview:'Tổng quan', timeline:'Hành trình', work:'Work & Research', posts:'Blog / Ghi chép', achievements:'Thành tích', learning:'Trọng tâm', goals:'Mục tiêu', settings:'Cấu hình Tiêu đề', profile:'Hồ sơ & Liên kết' };
   $('dashTitle').textContent = titles[tab] || 'Quản trị';
   renderDash(tab);
 }
@@ -1175,13 +1308,13 @@ function renderDash(tab){
       + '<div class="dash-stat"><b>' + data.timeline.length + '</b><div>Mốc hành trình</div></div>'
       + '<div class="dash-stat"><b>' + data.posts.length + '</b><div>Bài viết</div></div>'
       + '<div class="dash-stat"><b>' + data.achievements.length + '</b><div>Thành tích</div></div>'
-      + '<div class="dash-stat"><b>Tự động</b><div>Thư viện ảnh</div></div>'
+      + '<div class="dash-stat"><b>' + countActiveSocial() + '</b><div>Kênh liên hệ</div></div>'
       + '</div>'
       + '<div class="dash-panel"><h2>Không gian của bạn</h2>'
       + '<p style="color:var(--tx-3);font-size:14.5px;margin:12px 0 24px;font-weight:300">Nội dung dài tự động rút gọn 3 dòng ở trang chủ. Bấm vào thẻ để mở Khung Đọc toàn văn. <strong style="color:var(--jade-300)">Mẹo:</strong> Kéo hàng bằng biểu tượng ⋮⋮ để sắp xếp.</p>'
       + '<div class="actions">'
+      + '<button class="primary" data-action="goto-tab" data-tab="profile">✎ Sửa Hồ sơ & Liên kết</button>'
       + '<button class="primary" data-action="goto-tab" data-tab="timeline">+ Thêm Hành trình</button>'
-      + '<button class="primary" data-action="goto-tab" data-tab="work">+ Work & Research</button>'
       + '<button class="ghost" data-action="goto-tab" data-tab="posts">+ Viết Bài</button>'
       + '<button class="ghost" data-action="goto-tab" data-tab="achievements">+ Thành tích</button>'
       + '</div></div>';
@@ -1194,6 +1327,14 @@ function renderDash(tab){
   else if(tab === 'goals') renderListEditor(c,'goals','Mục tiêu');
   else if(tab === 'profile') renderProfile(c);
   else if(tab === 'settings') renderSettings(c);
+}
+
+function countActiveSocial(){
+  var n = 0;
+  if(data.profile.email) n++;
+  if(data.profile.phone) n++;
+  SOCIAL_CHANNELS.forEach(function(ch){ if(data.profile[ch.key]) n++; });
+  return n;
 }
 
 function renderListEditor(c, key, label){
@@ -1238,8 +1379,7 @@ function bindRowDrag(){
   var rows = container.querySelectorAll('.list-row[draggable="true"]');
   rows.forEach(function(row){
     row.addEventListener('dragstart', function(e){
-      dragSrcRow = row;
-      row.classList.add('dragging');
+      dragSrcRow = row; row.classList.add('dragging');
       try{ e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', row.dataset.id); }catch(x){}
     });
     row.addEventListener('dragend', function(){
@@ -1252,12 +1392,9 @@ function bindRowDrag(){
       if(!dragSrcRow || dragSrcRow === row) return;
       row.classList.add('drag-over');
     });
-    row.addEventListener('dragleave', function(){
-      row.classList.remove('drag-over');
-    });
+    row.addEventListener('dragleave', function(){ row.classList.remove('drag-over'); });
     row.addEventListener('drop', function(e){
-      e.preventDefault();
-      row.classList.remove('drag-over');
+      e.preventDefault(); row.classList.remove('drag-over');
       if(!dragSrcRow || dragSrcRow === row) return;
       var key = row.dataset.key;
       var fromIdx = Number(dragSrcRow.dataset.index);
@@ -1282,9 +1419,7 @@ var FIELD_CONFIG = {
 };
 
 function renderField(f, l, x){
-  if(f === 'images'){
-    return renderImageUploader(x.images || [], 'images');
-  }
+  if(f === 'images') return renderImageUploader(x.images || [], 'images');
   var val = x[f] == null ? '' : x[f];
   var isArea = ['text','content','excerpt','note'].indexOf(f) !== -1;
   var input = isArea
@@ -1321,9 +1456,7 @@ function editItem(key, i){
 }
 function editForm(key, i, x){
   var c = $('dashContent');
-  var fields = FIELD_CONFIG[key].map(function(pair){
-    return renderField(pair[0], pair[1], x);
-  }).join('');
+  var fields = FIELD_CONFIG[key].map(function(pair){ return renderField(pair[0], pair[1], x); }).join('');
   c.innerHTML = '<div class="dash-panel" style="margin-top:0">'
     + '<div style="margin-bottom:26px;border-bottom:1px solid var(--line-1);padding-bottom:20px">'
     + '<div class="kicker" style="color:var(--jade-400)">EDITOR</div>'
@@ -1347,31 +1480,23 @@ function bindTileDrag(){
     var tiles = grid.querySelectorAll('.img-tile[draggable="true"]');
     tiles.forEach(function(tile){
       tile.addEventListener('dragstart', function(e){
-        dragSrcTile = tile;
-        dragTileField = grid.dataset.grid;
+        dragSrcTile = tile; dragTileField = grid.dataset.grid;
         tile.classList.add('dragging');
         try{ e.dataTransfer.effectAllowed = 'move'; }catch(x){}
         e.stopPropagation();
       });
       tile.addEventListener('dragend', function(){
         tile.classList.remove('dragging');
-        dragSrcTile = null;
-        dragTileField = null;
+        dragSrcTile = null; dragTileField = null;
       });
-      tile.addEventListener('dragover', function(e){
-        e.preventDefault();
-        e.stopPropagation();
-      });
+      tile.addEventListener('dragover', function(e){ e.preventDefault(); e.stopPropagation(); });
       tile.addEventListener('drop', function(e){
-        e.preventDefault();
-        e.stopPropagation();
+        e.preventDefault(); e.stopPropagation();
         if(!dragSrcTile || dragSrcTile === tile || dragTileField !== grid.dataset.grid) return;
         var fromIdx = Number(dragSrcTile.dataset.idx);
         var toIdx = Number(tile.dataset.idx);
         if(isNaN(fromIdx) || isNaN(toIdx) || fromIdx === toIdx) return;
-        var urls = Array.prototype.slice.call(grid.querySelectorAll('.img-tile')).map(function(t){
-          return t.dataset.url;
-        });
+        var urls = Array.prototype.slice.call(grid.querySelectorAll('.img-tile')).map(function(t){ return t.dataset.url; });
         var moved = urls.splice(fromIdx, 1)[0];
         urls.splice(toIdx, 0, moved);
         grid.innerHTML = urls.map(function(u, i){
@@ -1425,13 +1550,8 @@ function handleUploadMulti(input, fieldId){
   toast('Đang tải ' + valid.length + ' ảnh...');
   return valid.reduce(function(chain, file){
     return chain.then(function(urls){
-      return uploadSingleFile(file).then(function(url){
-        urls.push(url);
-        return urls;
-      }).catch(function(e){
-        alert('Không tải được ảnh: ' + e.message);
-        return urls;
-      });
+      return uploadSingleFile(file).then(function(url){ urls.push(url); return urls; })
+        .catch(function(e){ alert('Không tải được ảnh: ' + e.message); return urls; });
     });
   }, Promise.resolve(existing.slice())).then(function(allUrls){
     grid.innerHTML = allUrls.map(function(u, i){
@@ -1463,7 +1583,6 @@ function saveItem(key, i){
     if(el) o[f] = el.value;
   });
   if(key === 'achievements') o.featured = String(o.featured).toLowerCase() === 'true';
-
   if(i < 0){
     o.id = key + '-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
     data[key].unshift(normalizeItem(o));
@@ -1481,20 +1600,61 @@ function deleteItem(key, i){
   if(!Array.isArray(data[key]) || !data[key][i]){ toast('Không tìm thấy mục'); return Promise.resolve(); }
   if(!confirm('Xóa nội dung này?')) return Promise.resolve();
   data[key].splice(i, 1);
-  return save().then(function(){
-    renderDash(key);
-    toast('Đã xóa');
-  });
+  return save().then(function(){ renderDash(key); toast('Đã xóa'); });
 }
 
+/* ═══════════════════════════════════════════════════════════
+   RENDER PROFILE — có Social section mới
+   ═══════════════════════════════════════════════════════════ */
 function renderProfile(c){
-  var fields = [
+  var basicFields = [
     ['cv_link','Link CV'],['avatar','Ảnh đại diện'],['name','Họ tên'],['title','Chức danh'],
     ['about_title','Tiêu đề mục 1'],['about_desc','Mô tả mục 1'],['about_h1','Tiêu đề trái'],
     ['bio','Giới thiệu chung'],['skills','Kỹ năng (cách nhau dấu phẩy)'],
-    ['about_h2','Tiêu đề phải'],['about_text2','Nội dung phải'],
-    ['now','Phần NOW'],['email','Email'],['phone','Điện thoại'],['facebook','Facebook']
+    ['about_h2','Tiêu đề phải'],['about_text2','Nội dung phải'],['now','Phần NOW']
   ];
+  var contactFields = [
+    ['email','Email', 'VD: tenban@gmail.com'],
+    ['phone','Số điện thoại', 'VD: 0358297366']
+  ];
+
+  /* Basic section */
+  var basicHtml = basicFields.map(function(pair){
+    var f = pair[0], l = pair[1];
+    var isArea = ['bio','now','about_desc','about_text2','skills'].indexOf(f) !== -1;
+    var input = isArea
+      ? '<textarea id="p_' + f + '">' + esc(data.profile[f] || '') + '</textarea>'
+      : '<input id="p_' + f + '" value="' + esc(data.profile[f] || '') + '">';
+    return '<div class="field"><label>' + l + '</label>' + input + '</div>';
+  }).join('');
+
+  /* Contact section */
+  var contactHtml = contactFields.map(function(pair){
+    var f = pair[0], l = pair[1], ph = pair[2];
+    return '<div class="field"><label>' + l + '</label><input id="p_' + f + '" value="' + esc(data.profile[f] || '') + '" placeholder="' + esc(ph) + '"></div>';
+  }).join('');
+
+  /* Social section */
+  var socialHtml = SOCIAL_CHANNELS.map(function(ch){
+    var val = data.profile[ch.key] || '';
+    var normalized = val ? normalizeSocialUrl(ch.key, val) : '';
+    var hint = '';
+    if(val && !normalized){
+      hint = '<span style="color:#F5A3A3;font-size:11.5px;margin-top:4px">⚠ Không nhận diện được. Nhập URL đầy đủ (https://...)</span>';
+    } else if(normalized){
+      hint = '<span style="color:var(--jade-300);font-size:11.5px;margin-top:4px">✓ Sẽ hiển thị: ' + esc(formatSocialDisplay(ch.key, normalized)) + '</span>';
+    }
+    return '<div class="field" style="margin-bottom:16px">'
+      + '<label style="display:flex;align-items:center;gap:8px">'
+      + '<span style="display:inline-grid;place-items:center;width:20px;height:20px;border-radius:5px;background:' + ch.color + '22;color:' + ch.color + ';font-size:10px;font-weight:800;font-family:var(--sans)">' + esc(ch.icon) + '</span>'
+      + ch.label
+      + '</label>'
+      + '<input id="p_' + ch.key + '" value="' + esc(val) + '" placeholder="' + esc(ch.placeholder) + '">'
+      + hint
+      + '</div>';
+  }).join('');
+
+  /* Proof buttons */
   var proofs = '';
   for(var i = 1; i <= 5; i++){
     proofs += '<div style="display:grid;grid-template-columns:1fr 1.5fr;gap:16px;margin-bottom:16px">'
@@ -1502,32 +1662,56 @@ function renderProfile(c){
       + '<div class="field"><label>Link Nút ' + i + '</label><input id="p_proof' + i + '_link" value="' + esc(data.profile['proof' + i + '_link'] || '') + '"></div>'
       + '</div>';
   }
-  c.innerHTML = '<div class="dash-panel" style="margin-top:0"><h2>Quản lý Hồ sơ</h2>'
-    + '<p style="color:var(--tx-3);font-size:14px;margin:12px 0 28px;font-weight:300">Email và số điện thoại sẽ hiển thị công khai ở footer.</p>'
-    + fields.map(function(pair){
-      var f = pair[0], l = pair[1];
-      var isArea = ['bio','now','about_desc','about_text2','skills'].indexOf(f) !== -1;
-      var input = isArea
-        ? '<textarea id="p_' + f + '">' + esc(data.profile[f] || '') + '</textarea>'
-        : '<input id="p_' + f + '" value="' + esc(data.profile[f] || '') + '">';
-      return '<div class="field"><label>' + l + '</label>' + input + '</div>';
-    }).join('')
-    + '<div style="border-top:1px solid var(--line-1);margin:44px 0 24px;padding-top:32px">'
-    + '<h3 style="font-family:var(--serif);color:var(--tx-1)">5 Nút Minh Chứng Tùy Chọn</h3>'
-    + '<p style="color:var(--tx-3);font-size:13.5px;margin:8px 0 20px;font-weight:300">Hiển thị cạnh nút "Xem/Tải CV" ở hero.</p>'
-    + proofs + '</div>'
-    + '<button class="primary" style="margin-top:10px;width:100%;justify-content:center" data-action="save-profile">Lưu toàn bộ hồ sơ</button>'
+
+  c.innerHTML = '<div class="dash-panel" style="margin-top:0">'
+    + '<h2>Quản lý Hồ sơ & Liên kết</h2>'
+    + '<p style="color:var(--tx-3);font-size:14px;margin:12px 0 28px;font-weight:300">Thông tin cơ bản · Liên hệ · Mạng xã hội · Nút minh chứng. <strong style="color:var(--jade-300)">Kênh nào để trống sẽ tự động ẩn</strong> ở footer.</p>'
+
+    /* === SECTION: THÔNG TIN CƠ BẢN === */
+    + '<div style="background:var(--bg-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:24px;margin-bottom:24px">'
+    + '<h3 style="margin:0 0 20px;font-size:15px;color:var(--jade-300);text-transform:uppercase;letter-spacing:.1em">1 · Thông tin cơ bản</h3>'
+    + basicHtml
+    + '</div>'
+
+    /* === SECTION: LIÊN HỆ === */
+    + '<div style="background:var(--bg-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:24px;margin-bottom:24px">'
+    + '<h3 style="margin:0 0 8px;font-size:15px;color:var(--gold-400);text-transform:uppercase;letter-spacing:.1em">2 · Liên hệ trực tiếp</h3>'
+    + '<p style="color:var(--tx-4);font-size:12.5px;margin:0 0 20px;font-weight:300">Sẽ hiển thị đầu danh sách kết nối ở footer. Click để mở mail/gọi điện, có nút sao chép.</p>'
+    + contactHtml
+    + '</div>'
+
+    /* === SECTION: SOCIAL === */
+    + '<div style="background:var(--bg-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:24px;margin-bottom:24px">'
+    + '<h3 style="margin:0 0 8px;font-size:15px;color:var(--jade-300);text-transform:uppercase;letter-spacing:.1em">3 · Mạng xã hội & Website</h3>'
+    + '<p style="color:var(--tx-4);font-size:12.5px;margin:0 0 20px;font-weight:300">Nhập username, số Zalo, hoặc URL đầy đủ. Ô nào trống → tự động ẩn khỏi footer.</p>'
+    + '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px 20px">' + socialHtml + '</div>'
+    + '</div>'
+
+    /* === SECTION: PROOF BUTTONS === */
+    + '<div style="background:var(--bg-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:24px;margin-bottom:24px">'
+    + '<h3 style="margin:0 0 8px;font-size:15px;color:var(--jade-300);text-transform:uppercase;letter-spacing:.1em">4 · Nút minh chứng ở Hero</h3>'
+    + '<p style="color:var(--tx-4);font-size:12.5px;margin:0 0 20px;font-weight:300">5 nút tùy chọn hiển thị cạnh nút "Xem/Tải CV".</p>'
+    + proofs
+    + '</div>'
+
+    + '<button class="primary" style="width:100%;justify-content:center" data-action="save-profile">💾 Lưu toàn bộ hồ sơ</button>'
     + '</div>';
 }
 
 function saveProfile(){
-  var fields = ['avatar','name','title','about_title','about_desc','about_h1','bio','skills','about_h2','about_text2','now','email','phone','facebook','cv_link'];
+  var fields = ['avatar','name','title','about_title','about_desc','about_h1','bio','skills','about_h2','about_text2','now','cv_link','email','phone'];
+  /* Thêm các field social */
+  SOCIAL_CHANNELS.forEach(function(ch){ fields.push(ch.key); });
   for(var i = 1; i <= 5; i++){ fields.push('proof' + i + '_name', 'proof' + i + '_link'); }
+
   fields.forEach(function(f){
     var el = $('p_' + f);
     if(el) data.profile[f] = el.value;
   });
-  return save().then(function(){ toast('Đã cập nhật hồ sơ'); });
+  return save().then(function(){
+    toast('Đã cập nhật hồ sơ');
+    renderProfile($('dashContent'));
+  });
 }
 
 function renderSettings(c){
@@ -1565,28 +1749,53 @@ function saveSettings(){
   return save().then(function(){ toast('Đã cập nhật tiêu đề'); });
 }
 
+/* ═══════════════════════════════════════════════════════════
+   COPY CONTACT
+   ═══════════════════════════════════════════════════════════ */
+function copyText(text, label){
+  if(!text) return;
+  var done = function(){
+    toast('Đã sao chép ' + (label || 'nội dung'));
+  };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(function(){ fallbackCopy(text); done(); });
+    return;
+  }
+  fallbackCopy(text);
+  done();
+}
+function fallbackCopy(text){
+  try{
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+  }catch(e){}
+}
+
 var toastTimer;
 function toast(msg){
-  var e = $('toast');
-  if(!e) return;
+  var e = $('toast'); if(!e) return;
   e.textContent = msg;
   e.classList.add('show');
   clearTimeout(toastTimer);
   toastTimer = setTimeout(function(){ e.classList.remove('show'); }, 2400);
 }
 
-/* ═══ FIX #2: Esc đóng theo thứ tự — gallery trước, rồi mới tới modal khác ═══ */
+/* ═══════════════════════════════════════════════════════════
+   EVENT HANDLERS
+   ═══════════════════════════════════════════════════════════ */
 document.addEventListener('keydown', function(e){
   if(e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')){ e.preventDefault(); openLogin(); return; }
   if(e.key === 'Escape'){
-    var galOpen = $('galleryModal').classList.contains('open');
-    if(galOpen){ closeGallery(); return; }
-    var rdOpen = $('readerModal').classList.contains('open');
-    if(rdOpen){ closeReader(); return; }
-    var imgOpen = $('imageModal').classList.contains('open');
-    if(imgOpen){ closeModal(); return; }
-    var loginOpen = $('loginModal').classList.contains('open');
-    if(loginOpen){ closeLogin(); return; }
+    if($('galleryModal').classList.contains('open')){ closeGallery(); return; }
+    if($('readerModal').classList.contains('open')){ closeReader(); return; }
+    if($('imageModal').classList.contains('open')){ closeModal(); return; }
+    if($('loginModal').classList.contains('open')){ closeLogin(); return; }
     return;
   }
   if($('galleryModal').classList.contains('open')){
@@ -1596,8 +1805,7 @@ document.addEventListener('keydown', function(e){
   var t = e.target;
   if(t && t.matches && t.matches('[data-action="url-input"]') && e.key === 'Enter'){
     e.preventDefault();
-    var val = t.value.trim();
-    if(!val) return;
+    var val = t.value.trim(); if(!val) return;
     var safe = safeUrl(val);
     if(!safe){ alert('URL không hợp lệ. Chỉ nhận http:// hoặc https://.'); return; }
     var grid = document.querySelector('.img-uploader-grid[data-grid="' + t.dataset.field + '"]');
@@ -1622,11 +1830,20 @@ document.addEventListener('click', function(e){
   var t = e.target.closest('[data-action]');
   if(!t) return;
   var action = t.dataset.action;
+
+  if(action === 'copy-contact'){
+    e.preventDefault();
+    e.stopPropagation();
+    copyText(t.dataset.copyText, t.getAttribute('title') || 'nội dung');
+    return;
+  }
+
   if(action === 'open-gallery'){
     e.stopPropagation();
     openGallery(t.dataset.coll, t.dataset.id, t.dataset.idx);
     return;
   }
+
   if(action === 'img-del'){
     e.stopPropagation();
     var grid = document.querySelector('.img-uploader-grid[data-grid="' + t.dataset.field + '"]');
@@ -1644,6 +1861,7 @@ document.addEventListener('click', function(e){
     bindTileDrag();
     return;
   }
+
   switch(action){
     case 'open-reader': openReader(t.dataset.collection, t.dataset.id); break;
     case 'open-image': e.stopPropagation(); openImage(t.dataset.src); break;
@@ -1678,8 +1896,7 @@ document.querySelectorAll('.side button[data-tab]').forEach(function(btn){
 
 var pf = $('postFilters');
 if(pf) pf.addEventListener('click', function(e){
-  var b = e.target.closest('.filter');
-  if(!b) return;
+  var b = e.target.closest('.filter'); if(!b) return;
   currentFilter = b.dataset.filter;
   document.querySelectorAll('#postFilters .filter').forEach(function(x){ x.classList.toggle('active', x === b); });
   renderPosts();
@@ -1693,8 +1910,7 @@ document.addEventListener('change', function(e){
 });
 
 window.addEventListener('scroll', function(){
-  var h = $('siteHeader');
-  if(!h) return;
+  var h = $('siteHeader'); if(!h) return;
   h.classList.toggle('scrolled', window.scrollY > 20);
 }, { passive: true });
 
