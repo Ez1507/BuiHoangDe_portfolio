@@ -19,24 +19,10 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="config.js"></script>
 <style>
-:root{
-  --bg-0:#0B1929;--bg-1:#122842;--bg-2:#1A3450;--bg-3:#223D5C;--bg-4:#2C4A6C;
-  --tx-1:#F5F1E8;--tx-2:#D0DAE5;--tx-3:#9AACC1;--tx-4:#6B7F96;
-  --jade-900:#0D2F26;--jade-700:#1B5A4B;--jade-600:#1E6553;--jade-500:#2E8B72;
-  --jade-400:#4BA88F;--jade-300:#7BC4AE;--jade-200:#B0DDCE;
-  --gold-600:#B89448;--gold-500:#D4AF37;--gold-400:#E0C25E;--gold-300:#EBD88C;
-  --line-1:rgba(208,218,229,.10);--line-2:rgba(208,218,229,.16);--line-3:rgba(208,218,229,.24);--line-gold:rgba(212,175,55,.3);
-  --sh-sm:0 2px 8px rgba(0,0,0,.25);--sh-md:0 8px 24px rgba(0,0,0,.3);
-  --sh-lg:0 20px 50px -12px rgba(0,0,0,.45);--sh-xl:0 32px 80px -20px rgba(0,0,0,.6);
-  --sh-glow:0 0 40px rgba(46,139,114,.18);
-  --r-sm:8px;--r:14px;--r-lg:20px;
-  --ease:cubic-bezier(.22,.9,.28,1);
-  --serif:'Playfair Display',Georgia,'Times New Roman',serif;
-  --sans:'Be Vietnam Pro',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-}
+:root{--bg-0:#0B1929;--bg-1:#122842;--bg-2:#1A3450;--bg-3:#223D5C;--bg-4:#2C4A6C;--tx-1:#F5F1E8;--tx-2:#D0DAE5;--tx-3:#9AACC1;--tx-4:#6B7F96;--jade-900:#0D2F26;--jade-700:#1B5A4B;--jade-600:#1E6553;--jade-500:#2E8B72;--jade-400:#4BA88F;--jade-300:#7BC4AE;--jade-200:#B0DDCE;--gold-600:#B89448;--gold-500:#D4AF37;--gold-400:#E0C25E;--gold-300:#EBD88C;--line-1:rgba(208,218,229,.10);--line-2:rgba(208,218,229,.16);--line-3:rgba(208,218,229,.24);--line-gold:rgba(212,175,55,.3);--sh-sm:0 2px 8px rgba(0,0,0,.25);--sh-md:0 8px 24px rgba(0,0,0,.3);--sh-lg:0 20px 50px -12px rgba(0,0,0,.45);--sh-xl:0 32px 80px -20px rgba(0,0,0,.6);--sh-glow:0 0 40px rgba(46,139,114,.18);--r-sm:8px;--r:14px;--r-lg:20px;--ease:cubic-bezier(.22,.9,.28,1);--serif:'Playfair Display',Georgia,'Times New Roman',serif;--sans:'Be Vietnam Pro',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:#122842;background-image:radial-gradient(ellipse 100% 60% at 50% -10%,rgba(46,139,114,.22) 0%,transparent 60%),radial-gradient(ellipse 80% 50% at 100% 30%,rgba(74,144,226,.14) 0%,transparent 55%),radial-gradient(ellipse 80% 60% at 0% 80%,rgba(212,175,55,.08) 0%,transparent 55%),linear-gradient(180deg,#122842 0%,#0E1F35 100%);background-attachment:fixed;color:var(--tx-1);font:15px/1.75 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;min-height:100vh}
+body{background:#122842;background-image:radial-gradient(ellipse 100% 60% at 50% -10%,rgba(46,139,114,.22) 0%,transparent 60%),radial-gradient(ellipse 80% 50% at 100% 30%,rgba(74,144,226,.14) 0%,transparent 55%),radial-gradient(ellipse 80% 60% at 0% 80%,rgba(212,175,55,.08) 0%,transparent 55%),linear-gradient(180deg,#122842 0%,#0E1F35 100%);background-attachment:fixed;color:var(--tx-1);font:15px/1.75 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh}
 body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(rgba(208,218,229,.04) 1px,transparent 1px);background-size:30px 30px;-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 30%,#000 20%,transparent 85%);mask-image:radial-gradient(ellipse 80% 80% at 50% 30%,#000 20%,transparent 85%)}
 body > *{position:relative;z-index:1}
 a{color:inherit;text-decoration:none;transition:color .25s var(--ease)}
@@ -48,42 +34,39 @@ img{max-width:100%;height:auto;display:block}
 ::-webkit-scrollbar{width:10px;height:10px}
 ::-webkit-scrollbar-track{background:var(--bg-0)}
 ::-webkit-scrollbar-thumb{background:var(--bg-4);border-radius:10px;border:2px solid var(--bg-0)}
-::-webkit-scrollbar-thumb:hover{background:var(--jade-700)}
 .wrap{width:min(1180px,calc(100% - 40px));margin:auto}
 .alt-bg{background:linear-gradient(180deg,var(--bg-2) 0%,var(--bg-1) 100%);border-top:1px solid var(--line-1);border-bottom:1px solid var(--line-1);position:relative}
 .alt-bg::before,.alt-bg::after{content:'';position:absolute;left:15%;right:15%;height:1px;background:linear-gradient(90deg,transparent,var(--line-gold),transparent)}
 .alt-bg::before{top:-1px}.alt-bg::after{bottom:-1px}
-.top{position:sticky;top:0;z-index:30;background:rgba(18,40,66,.78);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border-bottom:1px solid var(--line-1);transition:background .3s,border-color .3s}
+.top{position:sticky;top:0;z-index:30;background:rgba(18,40,66,.78);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border-bottom:1px solid var(--line-1)}
 .top.scrolled{background:rgba(18,40,66,.96);border-color:var(--line-2)}
 .nav{height:80px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{display:flex;flex-direction:column;font-weight:700;letter-spacing:-.01em;font-size:17px;line-height:1.1;color:var(--tx-1)}
+.brand{display:flex;flex-direction:column;font-weight:700;font-size:17px;line-height:1.1;color:var(--tx-1)}
 .brand small{font-size:9.5px;letter-spacing:.28em;color:var(--jade-400);font-weight:600;margin-top:4px}
 .links{display:flex;gap:26px;align-items:center}
-.links a{font-size:13.5px;color:var(--tx-3);font-weight:500;position:relative;padding:6px 0;transition:color .3s var(--ease)}
+.links a{font-size:13.5px;color:var(--tx-3);font-weight:500;position:relative;padding:6px 0}
 .links a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--jade-400);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
 .links a:hover{color:var(--tx-1)}
 .links a:hover::after{transform:scaleX(1)}
+.links a.contact-link{color:var(--jade-300)}
+.links a.contact-link::after{background:var(--gold-500)}
 .primary,.ghost,.admin-btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:var(--r-sm);font-weight:600;font-size:14px;transition:all .35s var(--ease);white-space:nowrap;cursor:pointer}
-.primary{background:linear-gradient(135deg,var(--jade-600),var(--jade-700));color:#fff;box-shadow:0 4px 14px rgba(46,139,114,.25),inset 0 1px 0 rgba(255,255,255,.08);position:relative;overflow:hidden}
+.primary{background:linear-gradient(135deg,var(--jade-600),var(--jade-700));color:#fff;box-shadow:0 4px 14px rgba(46,139,114,.25);position:relative;overflow:hidden}
 .primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--jade-500),var(--jade-600));opacity:0;transition:opacity .3s}
 .primary > *{position:relative;z-index:1}
 .primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(46,139,114,.4)}
 .primary:hover::before{opacity:1}
 .ghost{background:rgba(255,255,255,.04);color:var(--tx-1);border:1px solid var(--line-2)}
-.ghost:hover{border-color:var(--jade-500);color:var(--jade-300);background:rgba(46,139,114,.1);transform:translateY(-2px)}
+.ghost:hover{border-color:var(--jade-500);color:var(--jade-300);transform:translateY(-2px)}
 .admin-btn{background:transparent;color:var(--tx-3);border:1px solid var(--line-2);padding:9px 16px;font-size:12.5px}
-.admin-btn:hover{border-color:var(--jade-500);color:var(--jade-300)}
 .hero{padding:110px 0 100px;min-height:90vh;display:grid;grid-template-columns:1.15fr .85fr;gap:80px;align-items:center;position:relative}
-.hero::before{content:'';position:absolute;top:5%;left:-15%;width:600px;height:600px;background:radial-gradient(circle,rgba(46,139,114,.18),transparent 60%);border-radius:50%;pointer-events:none;animation:float 20s ease-in-out infinite}
-.hero::after{content:'';position:absolute;bottom:-10%;right:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(74,144,226,.14),transparent 60%);border-radius:50%;pointer-events:none;animation:float 25s ease-in-out infinite reverse}
-@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-30px)}}
+.hero::before{content:'';position:absolute;top:5%;left:-15%;width:600px;height:600px;background:radial-gradient(circle,rgba(46,139,114,.18),transparent 60%);border-radius:50%;pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-10%;right:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(74,144,226,.14),transparent 60%);border-radius:50%;pointer-events:none}
 .hero > *{position:relative;z-index:1}
 .eyebrow{display:inline-flex;gap:10px;align-items:center;padding:9px 18px;border-radius:999px;background:rgba(46,139,114,.14);color:var(--jade-300);font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;border:1px solid rgba(46,139,114,.35)}
-.eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--jade-400);box-shadow:0 0 12px var(--jade-400);animation:pulse 2.4s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
-.hero h1{font-family:var(--serif);font-size:clamp(48px,7vw,92px);font-weight:700;line-height:1.08;letter-spacing:-.03em;margin:28px 0 34px;color:var(--tx-1);overflow:visible;padding-bottom:8px}
-.hero h1 span{display:inline-block;padding:.15em .15em .2em .08em;margin-bottom:-.15em;background:linear-gradient(135deg,var(--jade-400) 0%,var(--jade-300) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-style:italic;font-weight:400;line-height:1.15;overflow:visible}
-@supports not ((-webkit-background-clip:text) or (background-clip:text)){.hero h1 span{color:var(--jade-400);-webkit-text-fill-color:var(--jade-400)}}
+.eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--jade-400);box-shadow:0 0 12px var(--jade-400)}
+.hero h1{font-family:var(--serif);font-size:clamp(48px,7vw,92px);font-weight:700;line-height:1.08;margin:28px 0 34px;color:var(--tx-1);padding-bottom:8px}
+.hero h1 span{display:inline-block;padding:.15em .15em .2em .08em;margin-bottom:-.15em;background:linear-gradient(135deg,var(--jade-400),var(--jade-300));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-style:italic;font-weight:400;line-height:1.15}
 .hero-status{font-size:12px;color:var(--tx-3);letter-spacing:.2em;text-transform:uppercase;font-weight:600}
 .lead{font-size:16.5px;color:var(--tx-2);max-width:600px;line-height:1.85;font-weight:300}
 .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:40px}
@@ -92,52 +75,47 @@ img{max-width:100%;height:auto;display:block}
 .stat span{font-size:11px;color:var(--tx-3);text-transform:uppercase;letter-spacing:.12em;font-weight:600;display:block;margin-top:10px}
 .portrait{position:relative;max-width:420px;margin-left:auto}
 .portrait::before{content:'';position:absolute;inset:-24px -24px 24px 24px;border:1px solid var(--line-gold);border-radius:var(--r);transform:rotate(4deg);transition:transform 1.4s var(--ease)}
-.portrait:hover::before{transform:rotate(0deg) scale(1.02)}
-.portrait::after{content:'LEGAL · RESEARCH';position:absolute;right:-22px;bottom:38px;background:linear-gradient(135deg,var(--jade-600),var(--jade-700));color:#fff;padding:13px 24px;border-radius:6px;font-size:9.5px;letter-spacing:.24em;font-weight:700;z-index:2;box-shadow:0 16px 40px rgba(46,139,114,.4)}
-.portrait img{position:relative;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:var(--r);display:block;box-shadow:var(--sh-xl);z-index:1;border:1px solid var(--line-3);transition:transform .8s var(--ease),box-shadow .8s var(--ease)}
-.portrait:hover img{transform:scale(1.015);box-shadow:0 40px 100px -20px rgba(0,0,0,.75),0 0 60px rgba(46,139,114,.25)}
+.portrait::after{content:'LEGAL · RESEARCH';position:absolute;right:-22px;bottom:38px;background:linear-gradient(135deg,var(--jade-600),var(--jade-700));color:#fff;padding:13px 24px;border-radius:6px;font-size:9.5px;letter-spacing:.24em;font-weight:700;z-index:2}
+.portrait img{position:relative;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:var(--r);display:block;box-shadow:var(--sh-xl);z-index:1;border:1px solid var(--line-3)}
 section{padding:110px 0;position:relative}
 .section-head{display:flex;justify-content:space-between;gap:48px;align-items:end;margin-bottom:60px}
 .kicker{color:var(--jade-400);font-size:11px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;display:inline-flex;align-items:center;gap:12px}
 .kicker::before{content:'';width:24px;height:1px;background:linear-gradient(90deg,var(--gold-500),transparent)}
-.section-head h2{font-family:var(--serif);font-size:clamp(36px,4.8vw,56px);font-weight:700;line-height:1.15;letter-spacing:-.025em;margin:16px 0 0;color:var(--tx-1);padding-bottom:10px;overflow:visible}
+.section-head h2{font-family:var(--serif);font-size:clamp(36px,4.8vw,56px);font-weight:700;line-height:1.15;margin:16px 0 0;color:var(--tx-1);padding-bottom:10px}
 .section-head h2::after{content:'';display:block;width:60px;height:2px;margin-top:18px;background:linear-gradient(90deg,var(--jade-500),transparent);border-radius:2px}
 .section-head > p{max-width:500px;color:var(--tx-2);margin:0;line-height:1.8;font-size:14.5px;font-weight:300}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
-.panel{background:linear-gradient(160deg,var(--bg-3),var(--bg-2));border:1px solid var(--line-2);border-radius:var(--r);padding:44px;box-shadow:var(--sh-md);transition:transform .55s var(--ease),box-shadow .55s var(--ease),border-color .35s;position:relative;overflow:hidden}
+.panel{background:linear-gradient(160deg,var(--bg-3),var(--bg-2));border:1px solid var(--line-2);border-radius:var(--r);padding:44px;box-shadow:var(--sh-md);position:relative;overflow:hidden}
 .panel::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--line-gold),transparent);opacity:0;transition:opacity .4s}
 .panel:hover{transform:translateY(-6px);box-shadow:var(--sh-lg),var(--sh-glow);border-color:rgba(46,139,114,.35)}
 .panel:hover::before{opacity:1}
 .panel h3{margin:0 0 20px;font-family:var(--serif);font-size:25px;font-weight:600;color:var(--tx-1)}
 .panel p{color:var(--tx-2);font-size:14.5px;line-height:1.85;font-weight:300}
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-.chip{padding:8px 16px;background:rgba(46,139,114,.12);border:1px solid rgba(46,139,114,.3);color:var(--jade-300);border-radius:999px;font-size:12px;font-weight:600;transition:all .35s var(--ease)}
+.chip{padding:8px 16px;background:rgba(46,139,114,.12);border:1px solid rgba(46,139,114,.3);color:var(--jade-300);border-radius:999px;font-size:12px;font-weight:600}
 .chip:hover{background:var(--jade-600);color:#fff;transform:translateY(-2px);border-color:transparent}
 .timeline{position:relative;padding-left:56px;max-width:920px}
 .timeline::before{content:'';position:absolute;left:15px;top:12px;bottom:12px;width:1px;background:linear-gradient(to bottom,var(--jade-400) 0%,var(--jade-400) 40%,rgba(46,139,114,.2) 100%)}
 .event{position:relative;margin:0 0 54px;transition:transform .5s var(--ease)}
-.event:hover{transform:translateX(8px);box-shadow:0 8px 24px rgba(46,139,114,.12)}
-.event::before{content:'';position:absolute;left:-48px;top:16px;width:12px;height:12px;border-radius:50%;background:var(--bg-1);border:2px solid var(--jade-500);box-shadow:0 0 0 4px var(--bg-1),0 0 20px rgba(46,139,114,.45);transition:all .4s cubic-bezier(.22,.9,.28,1);z-index:2}
-.event:hover::before{background:var(--gold-500);border-color:var(--gold-300);transform:scale(1.45);box-shadow:0 0 0 4px var(--bg-1),0 0 0 8px rgba(212,175,55,.25),0 0 26px rgba(212,175,55,.85),0 0 52px rgba(212,175,55,.45);animation:dotPulse 1.8s ease-in-out infinite}
-@keyframes dotPulse{0%,100%{box-shadow:0 0 0 4px var(--bg-1),0 0 0 8px rgba(212,175,55,.25),0 0 26px rgba(212,175,55,.85),0 0 52px rgba(212,175,55,.45)}50%{box-shadow:0 0 0 4px var(--bg-1),0 0 0 12px rgba(212,175,55,.12),0 0 34px rgba(212,175,55,.95),0 0 68px rgba(212,175,55,.55)}}
+.event:hover{transform:translateX(8px)}
+.event::before{content:'';position:absolute;left:-48px;top:16px;width:12px;height:12px;border-radius:50%;background:var(--bg-1);border:2px solid var(--jade-500);box-shadow:0 0 0 4px var(--bg-1),0 0 20px rgba(46,139,114,.45);transition:all .4s var(--ease);z-index:2}
+.event:hover::before{background:var(--gold-500);border-color:var(--gold-300);transform:scale(1.45);box-shadow:0 0 0 4px var(--bg-1),0 0 0 8px rgba(212,175,55,.25),0 0 26px rgba(212,175,55,.85),0 0 52px rgba(212,175,55,.45)}
 .event .year{font-size:11px;font-weight:700;color:var(--jade-400);letter-spacing:.18em;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px}
 .year-icon{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:6px;background:rgba(46,139,114,.18);border:1px solid rgba(46,139,114,.35);font-size:12px;line-height:1;transition:all .35s var(--ease)}
 .event:hover .year-icon{background:var(--gold-500);border-color:var(--gold-300);color:var(--bg-0);transform:scale(1.15) rotate(-6deg)}
-.event h3{margin:10px 0 14px;font-size:23px;font-family:var(--serif);font-weight:600;color:var(--tx-1);cursor:pointer;transition:color .3s;line-height:1.4}
+.event h3{margin:10px 0 14px;font-size:23px;font-family:var(--serif);font-weight:600;color:var(--tx-1);cursor:pointer;line-height:1.4}
 .event:hover h3{color:var(--gold-300)}
 .event p{color:var(--tx-2);line-height:1.85;font-size:14.5px;cursor:pointer;font-weight:300}
-.event-thumb{width:100%;max-width:320px;aspect-ratio:16/10;object-fit:cover;border-radius:var(--r-sm);margin-top:18px;border:1px solid var(--line-2);cursor:zoom-in;transition:transform .5s var(--ease),box-shadow .4s,border-color .4s;box-shadow:var(--sh-sm);filter:brightness(.94) contrast(1.02)}
-.event-thumb:hover{transform:scale(1.02);box-shadow:var(--sh-lg);border-color:var(--jade-500);filter:brightness(1.02)}
+.event-thumb{width:100%;max-width:320px;aspect-ratio:16/10;object-fit:cover;border-radius:var(--r-sm);margin-top:18px;border:1px solid var(--line-2);cursor:zoom-in;box-shadow:var(--sh-sm);filter:brightness(.94)}
 .event-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-top:18px;max-width:640px}
-.event-gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--r-sm);cursor:zoom-in;transition:transform .4s var(--ease),filter .3s;border:1px solid var(--line-2);filter:brightness(.94)}
-.event-gallery img:hover{transform:scale(1.04);filter:brightness(1.05);border-color:var(--jade-500)}
+.event-gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--r-sm);cursor:zoom-in;border:1px solid var(--line-2);filter:brightness(.94)}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-.card{background:linear-gradient(160deg,var(--bg-3),var(--bg-2));border:1px solid var(--line-2);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-sm);transition:transform .55s var(--ease),box-shadow .55s var(--ease),border-color .35s;display:flex;flex-direction:column;cursor:pointer;position:relative}
+.card{background:linear-gradient(160deg,var(--bg-3),var(--bg-2));border:1px solid var(--line-2);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-sm);transition:transform .55s var(--ease),box-shadow .55s var(--ease);display:flex;flex-direction:column;cursor:pointer;position:relative}
 .card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--line-gold),transparent);opacity:0;transition:opacity .4s;z-index:2}
 .card:hover{transform:translateY(-8px);box-shadow:var(--sh-lg),0 0 0 1px rgba(46,139,114,.4),var(--sh-glow);border-color:rgba(46,139,114,.4)}
 .card:hover::before{opacity:1}
 .card-media{aspect-ratio:16/10;background:var(--bg-2);overflow:hidden;border-bottom:1px solid var(--line-1);position:relative}
-.card-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.1s var(--ease),filter .4s;filter:brightness(.94)}
+.card-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.1s var(--ease);filter:brightness(.94)}
 .card:hover .card-media img{transform:scale(1.06);filter:brightness(1.02)}
 .card-badge{position:absolute;top:14px;right:14px;background:rgba(11,25,41,.85);backdrop-filter:blur(10px);color:var(--tx-1);padding:6px 12px;border-radius:999px;font-size:11px;font-weight:700;border:1px solid var(--line-3);display:flex;align-items:center;gap:5px;z-index:3}
 .card-badge svg{width:12px;height:12px}
@@ -146,26 +124,19 @@ section{padding:110px 0;position:relative}
 .meta{font-size:10px;color:var(--jade-400);font-weight:700;letter-spacing:.2em;text-transform:uppercase;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .meta .dot{opacity:.5}
 .desc{color:var(--tx-2);font-size:14px;line-height:1.7;margin-bottom:22px;font-weight:300;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1}
-.read-more{font-size:12px;font-weight:700;color:var(--jade-400);margin-top:auto;display:inline-flex;align-items:center;gap:6px;transition:gap .4s var(--ease),color .3s;letter-spacing:.06em;text-transform:uppercase}
+.read-more{font-size:12px;font-weight:700;color:var(--jade-400);margin-top:auto;display:inline-flex;align-items:center;gap:6px;letter-spacing:.06em;text-transform:uppercase}
 .card:hover .read-more{gap:12px;color:var(--jade-300)}
 .achievement .card-media{aspect-ratio:4/3}
 .featured{grid-column:span 2;position:relative;overflow:hidden}
 .featured .card-media{aspect-ratio:16/7}
-.featured::after{content:'NỔI BẬT';position:absolute;top:20px;right:-36px;transform:rotate(45deg);background:linear-gradient(135deg,var(--gold-500),var(--gold-600));color:var(--bg-0);font-size:10px;font-weight:800;letter-spacing:.16em;padding:6px 44px;z-index:5;box-shadow:0 4px 14px rgba(212,175,55,.4);text-shadow:0 1px 0 rgba(255,255,255,.15)}
+.featured::after{content:'NỔI BẬT';position:absolute;top:20px;right:-36px;transform:rotate(45deg);background:linear-gradient(135deg,var(--gold-500),var(--gold-600));color:var(--bg-0);font-size:10px;font-weight:800;letter-spacing:.16em;padding:6px 44px;z-index:5;box-shadow:0 4px 14px rgba(212,175,55,.4)}
+@media(max-width:640px){.featured::after{top:12px;right:-46px;font-size:9px;padding:5px 54px;letter-spacing:.12em}}
 .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px}
-.filter{background:transparent;border:1px solid var(--line-2);padding:10px 22px;border-radius:999px;font-weight:600;color:var(--tx-3);font-size:13px;transition:all .35s var(--ease);cursor:pointer}
+.filter{background:transparent;border:1px solid var(--line-2);padding:10px 22px;border-radius:999px;font-weight:600;color:var(--tx-3);font-size:13px;cursor:pointer}
 .filter.active{background:var(--jade-600);color:#fff;border-color:var(--jade-500);box-shadow:0 8px 20px rgba(46,139,114,.35)}
-.filter:hover:not(.active){border-color:var(--jade-500);color:var(--jade-300);background:rgba(46,139,114,.08)}
-#blogGrid .meta.tag-journey span:last-child{color:var(--jade-400)}
-#blogGrid .meta.tag-blog span:last-child{color:#74A9EB}
-#blogGrid .meta.tag-learning span:last-child{color:var(--gold-400)}
-#blogGrid .meta.tag-journey,#blogGrid .meta.tag-blog,#blogGrid .meta.tag-learning{position:relative;padding-left:14px}
-#blogGrid .meta.tag-journey::before,#blogGrid .meta.tag-blog::before,#blogGrid .meta.tag-learning::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:6px;height:6px;border-radius:50%;box-shadow:0 0 8px currentColor}
-#blogGrid .meta.tag-journey::before{background:var(--jade-400);color:var(--jade-400)}
-#blogGrid .meta.tag-blog::before{background:#74A9EB;color:#74A9EB}
-#blogGrid .meta.tag-learning::before{background:var(--gold-400);color:var(--gold-400)}
+.filter:hover:not(.active){border-color:var(--jade-500);color:var(--jade-300)}
 .learning{display:grid;grid-template-columns:1fr 1fr;gap:26px}
-.learn-item{display:flex;flex-direction:column;gap:18px;padding:36px;background:linear-gradient(160deg,var(--bg-3),var(--bg-2));border-radius:var(--r);border:1px solid var(--line-2);box-shadow:var(--sh-sm);transition:transform .55s var(--ease),box-shadow .55s var(--ease),border-color .35s;cursor:pointer;position:relative;overflow:hidden}
+.learn-item{display:flex;flex-direction:column;gap:18px;padding:36px;background:linear-gradient(160deg,var(--bg-3),var(--bg-2));border-radius:var(--r);border:1px solid var(--line-2);box-shadow:var(--sh-sm);cursor:pointer;position:relative;overflow:hidden}
 .learn-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--jade-500),var(--jade-600));transition:width .4s var(--ease)}
 .learn-item:hover{transform:translateY(-6px);box-shadow:var(--sh-lg),var(--sh-glow);border-color:rgba(46,139,114,.4)}
 .learn-item:hover::before{width:4px}
@@ -175,7 +146,7 @@ section{padding:110px 0;position:relative}
 .learn-title-group strong{font-family:var(--serif);font-size:19px;font-weight:600;color:var(--tx-1)}
 .learn-content{width:100%;flex:1}
 .learn-content span{font-size:14px;color:var(--tx-2);line-height:1.75;font-weight:300;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.learn-read-more{font-size:11.5px;font-weight:700;color:var(--jade-400);margin-top:auto;display:inline-flex;align-items:center;gap:6px;transition:gap .35s var(--ease),color .3s;letter-spacing:.06em;text-transform:uppercase}
+.learn-read-more{font-size:11.5px;font-weight:700;color:var(--jade-400);margin-top:auto;display:inline-flex;align-items:center;gap:6px;letter-spacing:.06em;text-transform:uppercase}
 .learn-item:hover .learn-read-more{gap:12px;color:var(--jade-300)}
 .pill{padding:6px 13px;border-radius:999px;background:rgba(212,175,55,.12);color:var(--gold-400);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;border:1px solid rgba(212,175,55,.3);white-space:nowrap}
 .now{background:linear-gradient(135deg,var(--bg-3) 0%,var(--jade-900) 70%,var(--bg-1) 100%);border:1px solid var(--line-gold);color:#fff;border-radius:var(--r-lg);padding:88px;display:grid;grid-template-columns:1.05fr .95fr;gap:72px;position:relative;overflow:hidden;box-shadow:var(--sh-xl)}
@@ -184,64 +155,56 @@ section{padding:110px 0;position:relative}
 .now .kicker{color:var(--gold-400)}
 .now .kicker::before{background:linear-gradient(90deg,var(--gold-500),transparent)}
 .now p{color:var(--tx-2);line-height:1.85;font-size:15.5px;font-weight:300}
-.now h2{font-family:var(--serif);font-weight:700;font-size:52px;line-height:1.15;margin:20px 0 32px;color:var(--tx-1);letter-spacing:-.025em;padding-bottom:10px;overflow:visible}
+.now h2{font-family:var(--serif);font-weight:700;font-size:52px;line-height:1.15;margin:20px 0 32px;color:var(--tx-1);padding-bottom:10px}
 .now h2 em{font-style:italic;font-weight:400;background:linear-gradient(135deg,var(--jade-300),var(--jade-400));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;padding-bottom:.1em}
 .now-list{display:grid;gap:0;position:relative}
-.now-list > div{padding:22px 0;border-bottom:1px solid rgba(208,218,229,.1);transition:padding-left .5s var(--ease),border-color .4s}
+.now-list > div{padding:22px 0;border-bottom:1px solid rgba(208,218,229,.1);transition:padding-left .5s var(--ease)}
 .now-list > div:last-child{border-bottom:0}
 .now-list > div:hover{padding-left:20px;border-color:var(--gold-500)}
 .now-list strong{color:var(--jade-200);font-size:16px;font-weight:600;display:block;margin-bottom:6px;font-family:var(--serif)}
 .now-list span{font-size:11px;color:rgba(245,241,232,.55);letter-spacing:.16em;text-transform:uppercase;font-weight:700}
 .library-compact{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:8px;max-width:920px}
 .library-compact .lib-thumb{aspect-ratio:1/1;border-radius:8px;overflow:hidden;cursor:zoom-in;position:relative;border:1px solid var(--line-2);transition:all .35s var(--ease);background:var(--bg-2)}
-.library-compact .lib-thumb:hover{transform:translateY(-3px) scale(1.03);border-color:var(--jade-500);box-shadow:0 12px 28px rgba(0,0,0,.35),0 0 0 1px rgba(46,139,114,.3);z-index:2}
-.library-compact .lib-thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.92);transition:filter .3s}
-.library-compact .lib-thumb:hover img{filter:brightness(1.02)}
-.library-compact .lib-thumb::after{content:'⤢';position:absolute;top:6px;right:6px;width:22px;height:22px;border-radius:50%;background:rgba(11,25,41,.85);color:var(--tx-1);font-size:11px;display:grid;place-items:center;opacity:0;transition:opacity .25s;backdrop-filter:blur(6px);border:1px solid var(--line-2);font-weight:700}
+.library-compact .lib-thumb:hover{transform:translateY(-3px) scale(1.03);border-color:var(--jade-500);box-shadow:0 12px 28px rgba(0,0,0,.35);z-index:2}
+.library-compact .lib-thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.92)}
+.library-compact .lib-thumb::after{content:'⤢';position:absolute;top:6px;right:6px;width:22px;height:22px;border-radius:50%;background:rgba(11,25,41,.85);color:var(--tx-1);font-size:11px;display:grid;place-items:center;opacity:0;transition:opacity .25s;border:1px solid var(--line-2);font-weight:700}
 .library-compact .lib-thumb:hover::after{opacity:1}
-.library-more{display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:12px 26px;border-radius:999px;background:rgba(46,139,114,.12);border:1px solid rgba(46,139,114,.35);color:var(--jade-300);font-weight:600;font-size:13.5px;cursor:pointer;transition:all .3s var(--ease);letter-spacing:.01em;font-family:inherit}
+.library-more{display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:12px 26px;border-radius:999px;background:rgba(46,139,114,.12);border:1px solid rgba(46,139,114,.35);color:var(--jade-300);font-weight:600;font-size:13.5px;cursor:pointer;font-family:inherit}
 .library-more::before{content:'🖼';font-size:14px}
-.library-more:hover{background:var(--jade-600);color:#fff;border-color:transparent;transform:translateY(-2px);box-shadow:0 10px 24px rgba(46,139,114,.35)}
+.library-more:hover{background:var(--jade-600);color:#fff;border-color:transparent;transform:translateY(-2px)}
 .modal{position:fixed;inset:0;background:rgba(11,25,41,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);z-index:100;display:none;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity .4s var(--ease)}
 .modal.open{display:flex;opacity:1}
-.close{position:absolute;top:26px;right:26px;background:rgba(255,255,255,.08);color:var(--tx-1);border:1px solid var(--line-2);border-radius:50%;width:46px;height:46px;font-size:22px;display:grid;place-items:center;transition:all .4s var(--ease);backdrop-filter:blur(10px);z-index:3;cursor:pointer}
+.close{position:absolute;top:26px;right:26px;background:rgba(255,255,255,.08);color:var(--tx-1);border:1px solid var(--line-2);border-radius:50%;width:46px;height:46px;font-size:22px;display:grid;place-items:center;z-index:3;cursor:pointer}
 .close:hover{transform:rotate(90deg) scale(1.05);background:var(--jade-600);border-color:var(--jade-500);color:#fff}
 .reader{background:linear-gradient(160deg,var(--bg-3),var(--bg-2));color:var(--tx-1);width:100%;max-width:820px;max-height:90vh;overflow-y:auto;border-radius:var(--r);padding:76px;transform:translateY(40px);transition:transform .5s var(--ease);box-shadow:var(--sh-xl);position:relative;border:1px solid var(--line-2)}
 .reader::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold-500),transparent)}
 .modal.open .reader{transform:translateY(0)}
-.reader h1{font-family:var(--serif);font-weight:700;font-size:44px;line-height:1.2;margin:22px 0;color:var(--tx-1);letter-spacing:-.02em;padding-bottom:10px;overflow:visible}
+.reader h1{font-family:var(--serif);font-weight:700;font-size:44px;line-height:1.2;margin:22px 0;color:var(--tx-1);padding-bottom:10px}
 .reader-kicker{font-size:11px;color:var(--jade-400);font-weight:700;letter-spacing:.22em;text-transform:uppercase;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .reader-kicker .rtime{color:var(--tx-3);font-weight:600;letter-spacing:.1em}
 .reader-excerpt{font-size:17px;line-height:1.8;color:var(--tx-2);font-style:italic;margin-bottom:38px;border-left:2px solid var(--jade-500);padding:24px 30px;background:rgba(46,139,114,.1);border-radius:0 var(--r-sm) var(--r-sm) 0;font-weight:300}
 .reader-content{white-space:pre-wrap;line-height:1.95;font-size:15.5px;color:var(--tx-2);font-weight:300}
 .reader-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin:32px 0}
-.reader-gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-sm);cursor:zoom-in;transition:transform .4s var(--ease),filter .3s,border-color .3s;border:1px solid var(--line-2);filter:brightness(.94)}
-.reader-gallery img:hover{transform:scale(1.03);filter:brightness(1.05);border-color:var(--jade-500)}
+.reader-gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-sm);cursor:zoom-in;border:1px solid var(--line-2);filter:brightness(.94)}
 .gallery-modal{background:rgba(6,15,28,.98);padding:0;flex-direction:column;z-index:110}
 .gallery-stage{flex:1;display:flex;align-items:center;justify-content:center;width:100%;padding:60px 80px 20px;position:relative}
-.gallery-stage img{max-width:100%;max-height:calc(100vh - 220px);object-fit:contain;border-radius:var(--r-sm);box-shadow:0 30px 80px rgba(0,0,0,.6);transition:opacity .3s var(--ease);animation:galleryIn .4s var(--ease)}
-@keyframes galleryIn{0%{opacity:0;transform:scale(.94)}100%{opacity:1;transform:scale(1)}}
-.gal-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.08);color:var(--tx-1);border:1px solid var(--line-2);width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-size:24px;line-height:1;transition:all .3s var(--ease);backdrop-filter:blur(10px);cursor:pointer}
+.gallery-stage img{max-width:100%;max-height:calc(100vh - 220px);object-fit:contain;border-radius:var(--r-sm);box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.gal-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.08);color:var(--tx-1);border:1px solid var(--line-2);width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-size:24px;line-height:1;cursor:pointer}
 .gal-nav:hover{background:var(--jade-600);border-color:var(--jade-500);transform:translateY(-50%) scale(1.08)}
 .gal-prev{left:20px}.gal-next{right:20px}
 .gal-nav[disabled]{opacity:.3;cursor:not-allowed}
-.gal-nav[disabled]:hover{background:rgba(255,255,255,.08);transform:translateY(-50%)}
-.gal-counter{position:absolute;top:24px;left:50%;transform:translateX(-50%);color:var(--tx-2);font-size:13px;font-weight:600;letter-spacing:.15em;font-variant-numeric:tabular-nums;padding:8px 18px;background:rgba(18,40,66,.75);border:1px solid var(--line-2);border-radius:999px;backdrop-filter:blur(10px);z-index:2}
+.gal-counter{position:absolute;top:24px;left:50%;transform:translateX(-50%);color:var(--tx-2);font-size:13px;font-weight:600;letter-spacing:.15em;padding:8px 18px;background:rgba(18,40,66,.75);border:1px solid var(--line-2);border-radius:999px;backdrop-filter:blur(10px);z-index:2}
 .gal-caption{color:var(--tx-3);font-size:13.5px;text-align:center;padding:0 40px 8px;max-width:800px;margin:0 auto;font-weight:300}
-.gal-thumbs{display:flex;gap:8px;padding:14px 20px 24px;overflow-x:auto;justify-content:center;scrollbar-width:thin}
-.gal-thumbs::-webkit-scrollbar{height:6px}
-.gal-thumbs::-webkit-scrollbar-thumb{background:var(--bg-4);border-radius:6px}
-.gal-thumb{flex-shrink:0;width:64px;height:64px;border-radius:6px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all .3s var(--ease),border-color .3s,transform .3s;opacity:.55}
-.gal-thumb.active{border-color:var(--jade-500);opacity:1;transform:scale(1.08);animation:thumbPop .4s var(--ease)}
-@keyframes thumbPop{0%{transform:scale(1)}50%{transform:scale(1.14)}100%{transform:scale(1.08)}}
-.gal-thumb:hover{opacity:1}
+.gal-thumbs{display:flex;gap:8px;padding:14px 20px 24px;overflow-x:auto;justify-content:center}
+.gal-thumb{flex-shrink:0;width:64px;height:64px;border-radius:6px;overflow:hidden;cursor:pointer;border:2px solid transparent;opacity:.55}
+.gal-thumb.active{border-color:var(--jade-500);opacity:1;transform:scale(1.08)}
 .gal-thumb img{width:100%;height:100%;object-fit:cover}
 .dash{position:fixed;inset:0;background:var(--bg-1);z-index:80;display:none}
 .dash.open{display:grid;grid-template-columns:270px 1fr}
 .side{background:linear-gradient(180deg,var(--bg-0),var(--bg-1));color:var(--tx-2);padding:30px 22px;display:flex;flex-direction:column;overflow-y:auto;border-right:1px solid var(--line-1)}
 .side .brand{color:var(--tx-1);margin-bottom:40px;font-size:15px}
 .side .brand small{color:var(--jade-400)}
-.side button{background:transparent;color:var(--tx-3);text-align:left;padding:13px 16px;border-radius:8px;margin:3px 0;transition:all .3s var(--ease);font-weight:500;font-size:14px;border-left:3px solid transparent;cursor:pointer}
+.side button{background:transparent;color:var(--tx-3);text-align:left;padding:13px 16px;border-radius:8px;margin:3px 0;font-weight:500;font-size:14px;border-left:3px solid transparent;cursor:pointer}
 .side button.active,.side button:hover{background:rgba(46,139,114,.18);color:var(--tx-1);border-left-color:var(--jade-500);transform:translateX(3px)}
 .side-bottom{margin-top:auto;display:flex;flex-direction:column;gap:6px;padding-top:24px;border-top:1px solid var(--line-1)}
 .dash-main{overflow:auto;background:var(--bg-2)}
@@ -249,61 +212,50 @@ section{padding:110px 0;position:relative}
 .dash-top strong{font-family:var(--serif);font-size:20px;color:var(--tx-1);font-weight:600}
 .dash-content{padding:40px;max-width:1280px}
 .dash-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.dash-stat{background:var(--bg-3);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:28px;transition:transform .4s var(--ease),box-shadow .3s,border-color .3s;position:relative;overflow:hidden}
-.dash-stat::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--line-gold),transparent);opacity:0;transition:opacity .3s}
+.dash-stat{background:var(--bg-3);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:28px;position:relative;overflow:hidden}
 .dash-stat:hover{transform:translateY(-3px);box-shadow:var(--sh-md);border-color:rgba(46,139,114,.35)}
-.dash-stat:hover::before{opacity:1}
 .dash-stat b{font-size:34px;background:linear-gradient(135deg,var(--jade-300),var(--jade-400));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-family:var(--serif);font-weight:600;display:block;line-height:1.15;padding-bottom:4px}
 .dash-stat div{color:var(--tx-3);font-size:13px;margin-top:12px;font-weight:500}
-.dash-panel{background:var(--bg-3);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:40px;margin-top:24px;box-shadow:var(--sh-sm)}
+.dash-panel{background:var(--bg-3);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:40px;margin-top:24px}
 .dash-panel h2,.dash-panel h3{font-family:var(--serif);color:var(--tx-1);font-weight:600}
-.list-row{display:grid;grid-template-columns:28px 80px 1fr auto;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line-1);transition:background .3s,opacity .2s,transform .2s,border-color .2s;background:var(--bg-3)}
-.list-row:last-child{border-bottom:0}
-.list-row.dragging{opacity:.35;transform:scale(.98);background:rgba(46,139,114,.1)}
+.list-row{display:grid;grid-template-columns:28px 80px 1fr auto;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line-1);background:var(--bg-3)}
+.list-row.dragging{opacity:.35;background:rgba(46,139,114,.1)}
 .list-row.drag-over{border-top:2px solid var(--jade-500);padding-top:12px}
-.drag-handle{width:28px;height:36px;display:grid;place-items:center;cursor:grab;color:var(--tx-4);border-radius:6px;transition:all .2s;font-size:16px;letter-spacing:-3px;line-height:1;user-select:none}
+.drag-handle{width:28px;height:36px;display:grid;place-items:center;cursor:grab;color:var(--tx-4);border-radius:6px;font-size:16px;letter-spacing:-3px;line-height:1;user-select:none}
 .drag-handle:hover{background:rgba(46,139,114,.18);color:var(--jade-300)}
-.drag-handle:active{cursor:grabbing}
 .thumb-wrap{position:relative;width:80px;height:60px}
 .thumb{width:80px;height:60px;border-radius:var(--r-sm);object-fit:cover;background:var(--bg-2);border:1px solid var(--line-2);cursor:zoom-in}
 .thumb-count{position:absolute;bottom:4px;right:4px;background:rgba(11,25,41,.9);color:#fff;font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;border:1px solid rgba(255,255,255,.15)}
 .row-actions{display:flex;gap:6px;flex-wrap:wrap}
-.smallbtn{padding:9px 12px;border-radius:6px;background:var(--bg-4);display:inline-flex;align-items:center;gap:5px;transition:all .3s var(--ease);font-weight:600;color:var(--tx-2);font-size:12.5px;border:1px solid var(--line-2);cursor:pointer}
+.smallbtn{padding:9px 12px;border-radius:6px;background:var(--bg-4);display:inline-flex;align-items:center;gap:5px;font-weight:600;color:var(--tx-2);font-size:12.5px;border:1px solid var(--line-2);cursor:pointer}
 .smallbtn:hover:not([disabled]){background:rgba(46,139,114,.22);color:var(--jade-300);border-color:var(--jade-500)}
 .smallbtn[disabled]{opacity:.35;cursor:not-allowed}
 .danger{background:rgba(220,53,53,.14);color:#F5A3A3;border-color:rgba(220,53,53,.35)}
-.danger:hover:not([disabled]){background:rgba(220,53,53,.24);color:#FBC5C5;border-color:rgba(220,53,53,.5)}
 .editor{display:grid;grid-template-columns:1fr 340px;gap:32px}
 .field{display:grid;gap:8px;margin-bottom:22px}
 .field label{font-size:11px;font-weight:700;color:var(--tx-2);text-transform:uppercase;letter-spacing:.12em}
-.field input,.field textarea,.field select{width:100%;border:1px solid var(--line-2);background:var(--bg-1);border-radius:var(--r-sm);padding:14px 16px;outline:none;transition:border-color .3s var(--ease),box-shadow .3s;font-family:inherit;font-size:14.5px;color:var(--tx-1)}
-.field input::placeholder,.field textarea::placeholder{color:var(--tx-4)}
-.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--jade-500);background:var(--bg-0);box-shadow:0 0 0 3px rgba(46,139,114,.2)}
+.field input,.field textarea,.field select{width:100%;border:1px solid var(--line-2);background:var(--bg-1);border-radius:var(--r-sm);padding:14px 16px;outline:none;font-family:inherit;font-size:14.5px;color:var(--tx-1)}
+.field input:focus,.field textarea:focus{border-color:var(--jade-500);background:var(--bg-0);box-shadow:0 0 0 3px rgba(46,139,114,.2)}
 .field textarea{min-height:180px;resize:vertical;line-height:1.7}
 .editor-actions{display:flex;gap:12px;justify-content:flex-end;margin-top:28px;border-top:1px solid var(--line-1);padding-top:26px}
-.img-uploader{border:1px dashed var(--line-3);border-radius:var(--r-sm);padding:16px;background:var(--bg-2);transition:border-color .3s,background .3s;position:relative}
-.img-uploader.dragover{border-color:var(--jade-500);background:rgba(46,139,114,.1)}
+.img-uploader{border:1px dashed var(--line-3);border-radius:var(--r-sm);padding:16px;background:var(--bg-2)}
 .img-uploader-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px;margin-bottom:12px}
-.img-uploader-grid:empty{display:none;margin:0}
-.img-tile{position:relative;aspect-ratio:1/1;border-radius:6px;overflow:hidden;border:1px solid var(--line-2);cursor:grab;transition:transform .3s var(--ease),border-color .3s;background:var(--bg-0)}
-.img-tile:hover{border-color:var(--jade-500);transform:translateY(-2px)}
-.img-tile.dragging{opacity:.4}
+.img-tile{position:relative;aspect-ratio:1/1;border-radius:6px;overflow:hidden;border:1px solid var(--line-2);cursor:grab;background:var(--bg-0)}
 .img-tile img{width:100%;height:100%;object-fit:cover;pointer-events:none}
-.img-tile-del{position:absolute;top:4px;right:4px;width:22px;height:22px;border-radius:50%;background:rgba(11,25,41,.9);color:#fff;font-size:14px;line-height:1;display:grid;place-items:center;border:1px solid rgba(255,255,255,.15);opacity:0;transition:opacity .2s;cursor:pointer}
+.img-tile-del{position:absolute;top:4px;right:4px;width:22px;height:22px;border-radius:50%;background:rgba(11,25,41,.9);color:#fff;font-size:14px;line-height:1;display:grid;place-items:center;border:1px solid rgba(255,255,255,.15);opacity:0;cursor:pointer}
 .img-tile:hover .img-tile-del{opacity:1}
 .img-tile-del:hover{background:#c0392b}
 .img-tile-num{position:absolute;bottom:4px;left:4px;width:20px;height:20px;border-radius:4px;background:rgba(11,25,41,.9);color:#fff;font-size:10px;font-weight:700;display:grid;place-items:center;border:1px solid rgba(255,255,255,.15)}
 .img-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.img-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:6px;background:var(--bg-4);color:var(--tx-2);border:1px solid var(--line-2);font-size:12.5px;font-weight:600;transition:all .25s var(--ease);cursor:pointer}
+.img-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:6px;background:var(--bg-4);color:var(--tx-2);border:1px solid var(--line-2);font-size:12.5px;font-weight:600;cursor:pointer}
 .img-btn:hover{background:rgba(46,139,114,.22);color:var(--jade-300);border-color:var(--jade-500)}
 .img-btn input{display:none}
 .img-url-input{flex:1;min-width:180px;padding:8px 12px;border-radius:6px;border:1px solid var(--line-2);background:var(--bg-1);color:var(--tx-1);font-size:13px;outline:none;font-family:inherit}
-.img-url-input:focus{border-color:var(--jade-500)}
-.img-hint{font-size:11.5px;color:var(--tx-4);margin-top:10px;line-height:1.55}
+.img-hint{font-size:11.5px;color:var(--tx-4);margin-top:10px}
 .empty{padding:60px;text-align:center;color:var(--tx-3);background:var(--bg-2);border-radius:var(--r-sm);border:1px dashed var(--line-2);font-size:14px}
-.toast{position:fixed;right:26px;bottom:100px;background:var(--bg-3);color:var(--tx-1);padding:16px 26px;border-radius:var(--r-sm);z-index:200;display:none;box-shadow:var(--sh-lg);font-size:14px;font-weight:500;border:1px solid var(--line-2);border-top:3px solid var(--jade-500);backdrop-filter:blur(10px)}
+.toast{position:fixed;right:26px;bottom:100px;background:var(--bg-3);color:var(--tx-1);padding:16px 26px;border-radius:var(--r-sm);z-index:200;display:none;box-shadow:var(--sh-lg);font-size:14px;font-weight:500;border:1px solid var(--line-2);border-top:3px solid var(--jade-500)}
 .toast.show{display:block;animation:toastIn .5s var(--ease)}
-@keyframes toastIn{0%{opacity:0;transform:translateY(30px) scale(.9)}60%{transform:translateY(-4px) scale(1.02)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes toastIn{0%{opacity:0;transform:translateY(30px) scale(.9)}100%{opacity:1;transform:translateY(0) scale(1)}}
 .footer-redesign{background:linear-gradient(180deg,var(--bg-0),#060F1E);color:var(--tx-1);padding:100px 0 44px;margin-top:90px;position:relative;overflow:hidden;border-top:1px solid var(--line-1)}
 .footer-redesign::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-500),transparent)}
 .footer-redesign::after{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(46,139,114,.12),transparent 65%);border-radius:50%;right:-200px;bottom:-250px;pointer-events:none}
@@ -313,27 +265,26 @@ section{padding:110px 0;position:relative}
 .footer-redesign .brand small{color:var(--jade-400);font-family:var(--sans);letter-spacing:.24em;font-size:9.5px;font-weight:600}
 .footer-desc{color:var(--tx-3);font-size:14.5px;max-width:380px;line-height:1.85;margin:0 0 24px;font-weight:300}
 .footer-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(46,139,114,.12);border:1px solid rgba(46,139,114,.3);color:var(--jade-300);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
-.footer-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--jade-400);box-shadow:0 0 8px var(--jade-400);animation:pulse 2.4s infinite}
+.footer-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--jade-400);box-shadow:0 0 8px var(--jade-400)}
 .footer-col h4{font-family:var(--serif);font-size:17px;margin:0 0 26px;color:var(--tx-1);font-weight:600;border-bottom:1px solid var(--line-gold);padding-bottom:14px;display:inline-block}
 .footer-links{display:flex;flex-direction:column;gap:16px}
-.footer-links a,.footer-links span{color:var(--tx-3);font-size:14px;transition:color .35s var(--ease),transform .35s var(--ease);display:inline-block;cursor:pointer;font-weight:300}
+.footer-links a,.footer-links span{color:var(--tx-3);font-size:14px;display:inline-block;cursor:pointer;font-weight:300}
 .footer-links a:hover{color:var(--jade-300);transform:translateX(6px)}
 .social-list{display:flex;flex-direction:column;gap:10px}
-.social-item{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid var(--line-2);transition:all .3s var(--ease);position:relative;text-decoration:none;color:inherit}
+.social-item{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid var(--line-2);position:relative;text-decoration:none;color:inherit}
 .social-item:hover{background:rgba(46,139,114,.12);border-color:var(--jade-500);transform:translateX(6px)}
-.social-icon{width:36px;height:36px;border-radius:9px;display:grid;place-items:center;background:rgba(46,139,114,.15);color:var(--jade-300);font-size:16px;font-weight:800;flex-shrink:0;font-family:var(--sans);line-height:1;letter-spacing:-.02em}
+.social-icon{width:36px;height:36px;border-radius:9px;display:grid;place-items:center;background:rgba(46,139,114,.15);color:var(--jade-300);font-size:16px;font-weight:800;flex-shrink:0;font-family:var(--sans);line-height:1}
 .social-item:hover .social-icon{background:var(--jade-600);color:#fff}
 .social-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
 .social-label{font-size:10px;color:var(--tx-4);text-transform:uppercase;letter-spacing:.14em;font-weight:700}
-.social-value{font-size:13.5px;color:var(--tx-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:400;transition:color .3s}
-.social-item:hover .social-value{color:var(--tx-1)}
-.social-copy{padding:6px;border-radius:6px;color:var(--tx-3);opacity:0;transition:opacity .25s,background .25s,color .25s;font-size:13px;line-height:1;cursor:pointer;flex-shrink:0}
+.social-value{font-size:13.5px;color:var(--tx-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.social-copy{padding:6px;border-radius:6px;color:var(--tx-3);opacity:0;font-size:13px;line-height:1;cursor:pointer;flex-shrink:0}
 .social-item:hover .social-copy{opacity:1}
 .social-copy:hover{background:rgba(46,139,114,.22);color:var(--jade-300)}
 .social-empty{padding:20px;text-align:center;color:var(--tx-4);font-size:13px;border:1px dashed var(--line-2);border-radius:10px}
 .footer-bottom{border-top:1px solid var(--line-1);padding-top:38px;display:flex;justify-content:space-between;align-items:center;color:var(--tx-4);font-size:12.5px;flex-wrap:wrap;gap:16px}
 .footer-bottom-links{display:flex;gap:24px}
-.footer-bottom-links a{color:var(--tx-4);transition:color .35s ease;text-transform:uppercase;font-weight:700;letter-spacing:.12em;font-size:10.5px;cursor:pointer}
+.footer-bottom-links a{color:var(--tx-4);text-transform:uppercase;font-weight:700;letter-spacing:.12em;font-size:10.5px;cursor:pointer}
 .footer-bottom-links a:hover{color:var(--jade-400)}
 .placeholder-media{display:grid;place-items:center;align-content:center;gap:8px;background:var(--bg-2);color:var(--tx-4);text-align:center;border-bottom:1px solid var(--line-1)}
 .placeholder-media span{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--tx-3)}
@@ -342,7 +293,6 @@ section{padding:110px 0;position:relative}
 .reveal-el.in-view{opacity:1;transform:none}
 .reveal-el.delay-1{transition-delay:.08s}
 .reveal-el.delay-2{transition-delay:.16s}
-.reveal-el.delay-3{transition-delay:.24s}
 .stat.animated b{animation:countPop .5s var(--ease)}
 @keyframes countPop{0%{transform:scale(1)}50%{transform:scale(1.12);color:var(--jade-300)}100%{transform:scale(1)}}
 .hero h1,.hero .eyebrow,.hero-status,.lead,.actions,.mini-stats{animation:heroIn 1s var(--ease) both}
@@ -362,88 +312,27 @@ section{padding:110px 0;position:relative}
 .primary:active,.ghost:active,.admin-btn:active,.filter:active,.smallbtn:active,.img-btn:active{transform:scale(.96)!important;transition:transform .08s}
 .primary{position:relative;overflow:hidden}
 .primary::after{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.3),transparent 40%);opacity:0;transition:opacity .4s;pointer-events:none}
-.primary:active::after{opacity:1;transition:opacity 0s}
-.contact-fab{position:fixed;bottom:28px;right:28px;z-index:95;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--jade-500),var(--jade-700));color:#fff;border:0;cursor:pointer;display:grid;place-items:center;box-shadow:0 10px 28px rgba(46,139,114,.5);transition:all .35s cubic-bezier(.22,.9,.28,1);animation:fabPulse 2.8s ease-in-out infinite}
+.primary:active::after{opacity:1}
+.contact-fab{position:fixed;bottom:28px;right:28px;z-index:95;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--jade-500),var(--jade-700));color:#fff;border:0;cursor:pointer;display:grid;place-items:center;box-shadow:0 10px 28px rgba(46,139,114,.5);transition:all .35s var(--ease);animation:fabPulse 2.8s ease-in-out infinite}
 .contact-fab:hover{transform:translateY(-4px) scale(1.08);box-shadow:0 18px 40px rgba(46,139,114,.65);animation:none}
 .contact-fab svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.contact-fab.active{background:linear-gradient(135deg,var(--gold-500),var(--gold-600));transform:rotate(135deg) scale(1.05);box-shadow:0 10px 28px rgba(212,175,55,.55);animation:none}
+.contact-fab.active{background:linear-gradient(135deg,var(--gold-500),var(--gold-600));transform:rotate(135deg) scale(1.05);animation:none}
 @keyframes fabPulse{0%,100%{box-shadow:0 10px 28px rgba(46,139,114,.5),0 0 0 0 rgba(46,139,114,.55)}50%{box-shadow:0 10px 28px rgba(46,139,114,.5),0 0 0 18px rgba(46,139,114,0)}}
-.contact-panel{position:fixed;bottom:100px;right:28px;z-index:96;width:340px;max-width:calc(100vw - 36px);max-height:72vh;overflow-y:auto;background:linear-gradient(160deg,rgba(34,61,92,.98),rgba(26,52,80,.98));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--line-2);border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.55),0 0 0 1px rgba(212,175,55,.15);transform:translateY(20px) scale(.94);opacity:0;pointer-events:none;transition:all .35s cubic-bezier(.22,.9,.28,1);overflow-x:hidden}
+.contact-panel{position:fixed;bottom:100px;right:28px;z-index:96;width:340px;max-width:calc(100vw - 36px);max-height:72vh;overflow-y:auto;background:linear-gradient(160deg,rgba(34,61,92,.98),rgba(26,52,80,.98));backdrop-filter:blur(20px);border:1px solid var(--line-2);border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.55);transform:translateY(20px) scale(.94);opacity:0;pointer-events:none;transition:all .35s var(--ease);overflow-x:hidden}
 .contact-panel::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold-500),transparent)}
 .contact-panel.open{transform:translateY(0) scale(1);opacity:1;pointer-events:auto}
 .contact-panel-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px 14px;border-bottom:1px solid var(--line-1);position:sticky;top:0;background:rgba(34,61,92,.98);z-index:2;border-radius:16px 16px 0 0}
 .contact-panel-head strong{font-family:var(--serif);font-size:17px;color:var(--tx-1);font-weight:600;display:flex;align-items:center;gap:8px}
-.contact-panel-head strong::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--jade-400);box-shadow:0 0 10px var(--jade-400);animation:pulse 2.4s infinite}
-.contact-panel-close{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.06);color:var(--tx-2);display:grid;place-items:center;font-size:16px;line-height:1;cursor:pointer;border:1px solid var(--line-2);transition:all .25s var(--ease)}
-.contact-panel-close:hover{background:rgba(220,53,53,.2);color:#FBC5C5;border-color:rgba(220,53,53,.35);transform:rotate(90deg)}
+.contact-panel-head strong::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--jade-400);box-shadow:0 0 10px var(--jade-400)}
+.contact-panel-close{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.06);color:var(--tx-2);display:grid;place-items:center;font-size:16px;line-height:1;cursor:pointer;border:1px solid var(--line-2)}
+.contact-panel-close:hover{background:rgba(220,53,53,.2);color:#FBC5C5;transform:rotate(90deg)}
 .contact-panel-body{padding:14px 16px 18px;display:flex;flex-direction:column;gap:8px}
 .contact-panel-body .social-item{padding:11px 12px;font-size:13px}
 .contact-panel-body .social-copy{opacity:1}
-.contact-panel-foot{padding:12px 18px 16px;border-top:1px solid var(--line-1);font-size:11.5px;color:var(--tx-4);text-align:center;letter-spacing:.04em}
-@media(max-width:980px){
-  .links{display:none}
-  .hero{grid-template-columns:1fr;padding-top:70px;gap:60px;min-height:auto}
-  .hero::before,.hero::after{display:none}
-  .portrait{margin:0 auto;width:min(440px,90%)}
-  .grid{grid-template-columns:1fr 1fr}
-  .featured{grid-column:span 2}
-  .now,.learning,.about-grid{grid-template-columns:1fr}
-  .dash.open{grid-template-columns:1fr;grid-template-rows:auto 1fr}
-  .side{flex-direction:row;padding:14px 20px;overflow-x:auto;gap:8px;border-bottom:1px solid var(--line-1);border-right:0;align-items:center}
-  .side::-webkit-scrollbar{display:none}
-  .side .brand{display:none}
-  .side button{margin:0;padding:10px 16px;font-size:13px;white-space:nowrap;flex-shrink:0;border-left:0;border-bottom:2px solid transparent}
-  .side button.active{border-left:0;border-bottom-color:var(--jade-500);background:transparent}
-  .side-bottom{display:flex;flex-direction:row;gap:8px;margin-left:14px;padding-top:0;border-top:0}
-  .editor{grid-template-columns:1fr}
-  .dash-grid{grid-template-columns:1fr 1fr}
-  .footer-container{grid-template-columns:1fr 1fr;gap:44px}
-}
-@media(max-width:640px){
-  .wrap{width:min(100% - 32px,1180px)}
-  section{padding:88px 0}
-  .hero{padding:60px 0 80px}
-  .hero h1{font-size:clamp(42px,11vw,54px);line-height:1.12}
-  .mini-stats{grid-template-columns:1fr 1fr}
-  .mini-stats .stat:last-child{grid-column:span 2}
-  .grid{grid-template-columns:1fr}
-  .featured{grid-column:auto}
-  .section-head{display:block;padding-bottom:0;margin-bottom:40px}
-  .section-head > p{margin-top:16px}
-  .now{padding:48px 30px;border-radius:var(--r);grid-template-columns:1fr;gap:40px}
-  .now h2{font-size:38px}
-  .dash-content{padding:22px}
-  .dash-top{padding:0 22px;height:64px}
-  .list-row{grid-template-columns:24px 60px 1fr;gap:10px}
-  .list-row .row-actions{grid-column:2/4;margin-top:8px;justify-content:flex-start}
-  .thumb,.thumb-wrap{width:60px;height:48px}
-  .reader{padding:48px 26px;width:calc(100% - 20px)}
-  .reader h1{font-size:32px;line-height:1.25}
-  .reader-excerpt{font-size:15.5px;padding:18px 22px}
-  .card-media{aspect-ratio:16/9}
-  .learn-item{padding:28px}
-  .panel{padding:32px}
-  .footer-container{grid-template-columns:1fr;gap:44px;margin-bottom:44px}
-  .footer-bottom{flex-direction:column;gap:18px;align-items:flex-start}
-  .footer-bottom-links{flex-direction:column;gap:12px}
-  .close{top:14px;right:14px;width:40px;height:40px}
-  .gallery-stage{padding:60px 16px 16px}
-  .gal-nav{width:42px;height:42px;font-size:20px}
-  .gal-prev{left:8px}.gal-next{right:8px}
-  .gal-thumb{width:52px;height:52px}
-  .event-gallery{grid-template-columns:repeat(auto-fill,minmax(100px,1fr))}
-  .library-compact{grid-template-columns:repeat(auto-fill,minmax(76px,1fr));gap:6px}
-  .contact-fab{bottom:18px;right:18px;width:52px;height:52px}
-  .contact-fab svg{width:22px;height:22px}
-  .contact-panel{bottom:82px;right:16px;left:16px;width:auto;max-height:60vh}
-}
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
-  .reveal-el{opacity:1!important;transform:none!important}
-  .hero h1,.hero .eyebrow,.hero-status,.lead,.actions,.mini-stats,.portrait{animation:none!important;opacity:1!important;transform:none!important}
-  .gallery-stage img,.gal-thumb.active,.toast.show{animation:none!important}
-  .section-head h2::after{animation:none!important;width:60px!important}
-}
+.contact-panel-foot{padding:12px 18px 16px;border-top:1px solid var(--line-1);font-size:11.5px;color:var(--tx-4);text-align:center}
+@media(max-width:980px){.links{display:none}.hero{grid-template-columns:1fr;padding-top:70px;gap:60px;min-height:auto}.portrait{margin:0 auto;width:min(440px,90%)}.grid{grid-template-columns:1fr 1fr}.featured{grid-column:span 2}.now,.learning,.about-grid{grid-template-columns:1fr}.dash.open{grid-template-columns:1fr;grid-template-rows:auto 1fr}.side{flex-direction:row;padding:14px 20px;overflow-x:auto;gap:8px;border-bottom:1px solid var(--line-1);border-right:0;align-items:center}.side .brand{display:none}.side button{margin:0;padding:10px 16px;font-size:13px;white-space:nowrap;flex-shrink:0;border-left:0;border-bottom:2px solid transparent}.side button.active{border-left:0;border-bottom-color:var(--jade-500);background:transparent}.side-bottom{display:flex;flex-direction:row;gap:8px;margin-left:14px;padding-top:0;border-top:0}.editor{grid-template-columns:1fr}.dash-grid{grid-template-columns:1fr 1fr}.footer-container{grid-template-columns:1fr 1fr;gap:44px}}
+@media(max-width:640px){.wrap{width:min(100% - 32px,1180px)}section{padding:88px 0}.hero{padding:60px 0 80px}.hero h1{font-size:clamp(42px,11vw,54px)}.mini-stats{grid-template-columns:1fr 1fr}.mini-stats .stat:last-child{grid-column:span 2}.grid{grid-template-columns:1fr}.featured{grid-column:auto}.section-head{display:block;padding-bottom:0;margin-bottom:40px}.section-head > p{margin-top:16px}.now{padding:48px 30px;border-radius:var(--r);grid-template-columns:1fr;gap:40px}.now h2{font-size:38px}.dash-content{padding:22px}.dash-top{padding:0 22px;height:64px}.list-row{grid-template-columns:24px 60px 1fr;gap:10px}.list-row .row-actions{grid-column:2/4;margin-top:8px;justify-content:flex-start}.thumb,.thumb-wrap{width:60px;height:48px}.reader{padding:48px 26px;width:calc(100% - 20px)}.reader h1{font-size:32px}.card-media{aspect-ratio:16/9}.learn-item{padding:28px}.panel{padding:32px}.footer-container{grid-template-columns:1fr;gap:44px;margin-bottom:44px}.footer-bottom{flex-direction:column;gap:18px;align-items:flex-start}.footer-bottom-links{flex-direction:column;gap:12px}.close{top:14px;right:14px;width:40px;height:40px}.gallery-stage{padding:60px 16px 16px}.gal-nav{width:42px;height:42px;font-size:20px}.gal-prev{left:8px}.gal-next{right:8px}.gal-thumb{width:52px;height:52px}.event-gallery{grid-template-columns:repeat(auto-fill,minmax(100px,1fr))}.library-compact{grid-template-columns:repeat(auto-fill,minmax(76px,1fr));gap:6px}.contact-fab{bottom:18px;right:18px;width:52px;height:52px}.contact-fab svg{width:22px;height:22px}.contact-panel{bottom:82px;right:16px;left:16px;width:auto;max-height:60vh}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.reveal-el{opacity:1!important;transform:none!important}.hero h1,.hero .eyebrow,.hero-status,.lead,.actions,.mini-stats,.portrait{animation:none!important;opacity:1!important;transform:none!important}}
 </style>
 </head>
 <body>
@@ -460,6 +349,7 @@ section{padding:110px 0;position:relative}
       <a href="#achievements">Thành tích</a>
       <a href="#blog">Ghi chép</a>
       <a href="#library">Thư viện</a>
+      <a href="#contact" class="contact-link" data-action="toggle-contact">Liên hệ ✦</a>
     </nav>
   </div>
 </header>
@@ -510,7 +400,7 @@ section{padding:110px 0;position:relative}
   </div></section>
 
   <section id="blog" class="alt-bg"><div class="wrap">
-    <div class="section-head"><div><div class="kicker" id="out_s6_k"></div><h2 id="out_s6_t"></h2></div><p id="out_s6_d"></p></div>
+    <div class="section-head"><div><div class="kicker" id="out_s5_k"></div><h2 id="out_s5_t"></h2></div><p id="out_s5_d"></p></div>
     <div class="filters" id="postFilters">
       <button class="filter active" data-filter="all">Tất cả</button>
       <button class="filter" data-filter="journey">Hành trình</button>
@@ -521,7 +411,7 @@ section{padding:110px 0;position:relative}
   </div></section>
 
   <section id="learning"><div class="wrap">
-    <div class="section-head"><div><div class="kicker" id="out_s7_k"></div><h2 id="out_s7_t"></h2></div><p id="out_s7_d"></p></div>
+    <div class="section-head"><div><div class="kicker" id="out_s6_k"></div><h2 id="out_s6_t"></h2></div><p id="out_s6_d"></p></div>
     <div class="learning" id="learningList"></div>
   </div></section>
 
@@ -537,7 +427,7 @@ section{padding:110px 0;position:relative}
   </div></section>
 
   <section id="library" class="alt-bg"><div class="wrap">
-    <div class="section-head"><div><div class="kicker" id="out_s5_k"></div><h2 id="out_s5_t"></h2></div><p id="out_s5_d"></p></div>
+    <div class="section-head"><div><div class="kicker" id="out_gallery_k">Album ảnh</div><h2 id="out_gallery_t"></h2></div><p id="out_gallery_d"></p></div>
     <div id="libraryGrid"></div>
   </div></section>
 </main>
@@ -574,10 +464,7 @@ section{padding:110px 0;position:relative}
   </div>
 </footer>
 
-<div class="modal" id="imageModal" data-action="close-modal-bg">
-  <button class="close" data-action="close-modal" aria-label="Đóng">×</button>
-  <img id="modalImg" alt="">
-</div>
+<div class="modal" id="imageModal" data-action="close-modal-bg"><button class="close" data-action="close-modal" aria-label="Đóng">×</button><img id="modalImg" alt=""></div>
 <div class="modal gallery-modal" id="galleryModal" data-action="close-gallery-bg">
   <button class="close" data-action="close-gallery" aria-label="Đóng">×</button>
   <div class="gal-counter" id="galCounter">1 / 1</div>
@@ -589,10 +476,7 @@ section{padding:110px 0;position:relative}
   <div class="gal-caption" id="galCaption"></div>
   <div class="gal-thumbs" id="galThumbs"></div>
 </div>
-<div class="modal" id="readerModal" data-action="close-reader-bg">
-  <button class="close" data-action="close-reader" aria-label="Đóng">×</button>
-  <article class="reader" id="reader"></article>
-</div>
+<div class="modal" id="readerModal" data-action="close-reader-bg"><button class="close" data-action="close-reader" aria-label="Đóng">×</button><article class="reader" id="reader"></article></div>
 <div class="modal" id="loginModal" data-action="close-login-bg">
   <button class="close" data-action="close-login" aria-label="Đóng">×</button>
   <div class="reader" style="max-width:460px;padding:54px">
@@ -624,40 +508,31 @@ section{padding:110px 0;position:relative}
     </div>
   </aside>
   <div class="dash-main">
-    <div class="dash-top">
-      <strong id="dashTitle">Tổng quan</strong>
-      <span id="syncStatus" style="color:var(--tx-3);font-size:13px">Đang kết nối…</span>
-    </div>
+    <div class="dash-top"><strong id="dashTitle">Tổng quan</strong><span id="syncStatus" style="color:var(--tx-3);font-size:13px">Đang kết nối…</span></div>
     <div class="dash-content" id="dashContent"></div>
   </div>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<button class="contact-fab" id="contactFab" data-action="toggle-contact" aria-label="Liên hệ nhanh" title="Liên hệ nhanh">
-  <svg viewBox="0 0 24 24">
-    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-  </svg>
+<button class="contact-fab" id="contactFab" data-action="toggle-contact" aria-label="Liên hệ nhanh">
+  <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
 </button>
 <div class="contact-panel" id="contactPanel" role="dialog" aria-label="Kết nối với tôi">
-  <div class="contact-panel-head">
-    <strong>Kết nối với tôi</strong>
-    <button type="button" class="contact-panel-close" data-action="close-contact" aria-label="Đóng">×</button>
-  </div>
+  <div class="contact-panel-head"><strong>Kết nối với tôi</strong><button type="button" class="contact-panel-close" data-action="close-contact" aria-label="Đóng">×</button></div>
   <div class="contact-panel-body" id="contactPanelBody"></div>
   <div class="contact-panel-foot">Bấm để mở · Sao chép · Gọi điện</div>
 </div>
 
 <script>
-  /* ═══════════════════════════════════════════════════════════
-   BÙI HOÀNG DỂ — PORTFOLIO v23 · PART 2/3
-   Khai báo · Utilities · Data · Render functions
+/* ═══════════════════════════════════════════════════════════
+   BÙI HOÀNG DỂ — PORTFOLIO v24 (6 mục + Gallery không số)
    ═══════════════════════════════════════════════════════════ */
 var STORAGE_KEY = 'bhd_profile_v12';
-var OLD_KEYS = ['bhd_profile_v12','bhd_profile_v13','bhd_profile_v14','bhd_profile_v15','bhd_profile_v16','bhd_profile_v17','bhd_profile_v18','bhd_profile_v19','bhd_profile_v20','bhd_profile_v21','bhd_profile_v22'];
+var OLD_KEYS = ['bhd_profile_v12','bhd_profile_v13','bhd_profile_v14','bhd_profile_v15','bhd_profile_v16','bhd_profile_v17','bhd_profile_v18','bhd_profile_v19','bhd_profile_v20','bhd_profile_v21','bhd_profile_v22','bhd_profile_v23'];
 var MAX_UPLOAD_BYTES = 5 * 1024 * 1024;
 var ALLOWED_IMAGE_TYPES = ['image/jpeg','image/png','image/webp','image/gif'];
 var SECTIONS = ['timeline','work','achievements','posts','learning','goals'];
-var SECTION_TITLES = ['2','3','4','5','6','7'];
+var SECTION_TITLES = ['2','3','4','5','6'];
 var ADMIN_EMAIL = 'hoangdeb751@gmail.com';
 var LIBRARY_PREVIEW_COUNT = 12;
 
@@ -674,130 +549,52 @@ var SOCIAL_CHANNELS = [
   { key:'website',   label:'Website',   icon:'⌘',  color:'#2E8B72', placeholder:'https://your-site.com' }
 ];
 
-function clone(o){
-  if(typeof structuredClone === 'function'){
-    try{ return structuredClone(o); }catch(e){}
-  }
-  return JSON.parse(JSON.stringify(o));
-}
-function esc(s){
-  return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
-    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
-  });
-}
+function clone(o){ if(typeof structuredClone==='function'){try{return structuredClone(o)}catch(e){}} return JSON.parse(JSON.stringify(o)); }
+function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]}); }
 function safeUrl(url){
-  if(!url) return '';
-  var s = String(url).trim();
-  if(!s) return '';
-  if(s.indexOf('data:image/') === 0) return s;
-  if(s.indexOf('blob:') === 0) return s;
-  try{
-    var u = new URL(s, location.origin);
-    if(u.protocol === 'http:' || u.protocol === 'https:') return u.href;
-  }catch(e){}
+  if(!url) return ''; var s=String(url).trim(); if(!s) return '';
+  if(s.indexOf('data:image/')===0) return s; if(s.indexOf('blob:')===0) return s;
+  try{ var u=new URL(s,location.origin); if(u.protocol==='http:'||u.protocol==='https:') return u.href; }catch(e){}
   return '';
 }
-function getYearFromDate(d){
-  if(!d) return null;
-  var m = String(d).match(/\d{4}/);
-  return m ? m[0] : null;
-}
+function getYearFromDate(d){ if(!d) return null; var m=String(d).match(/\d{4}/); return m?m[0]:null; }
 function getImages(item){
-  if(!item) return [];
-  var out = [], seen = {};
-  if(Array.isArray(item.images)){
-    item.images.forEach(function(u){
-      var s = safeUrl(u);
-      if(s && !seen[s]){ seen[s] = 1; out.push(s); }
-    });
-  }
-  if(out.length === 0 && item.image){
-    var s2 = safeUrl(item.image);
-    if(s2) out.push(s2);
-  }
+  if(!item) return []; var out=[],seen={};
+  if(Array.isArray(item.images)){ item.images.forEach(function(u){ var s=safeUrl(u); if(s&&!seen[s]){seen[s]=1;out.push(s);} }); }
+  if(out.length===0 && item.image){ var s2=safeUrl(item.image); if(s2) out.push(s2); }
   return out;
 }
-function getPrimaryImage(item){ return getImages(item)[0] || ''; }
-function readingTime(text){
-  var words = String(text || '').trim().split(/\s+/).filter(Boolean).length;
-  var mins = Math.max(1, Math.round(words / 220));
-  return mins + ' phút đọc';
-}
-function normalizePhone(p){
-  return String(p || '').replace(/[^\d+]/g, '').replace(/^\+84/, '0');
-}
+function getPrimaryImage(item){ return getImages(item)[0]||''; }
+function readingTime(text){ var w=String(text||'').trim().split(/\s+/).filter(Boolean).length; return Math.max(1,Math.round(w/220))+' phút đọc'; }
+function normalizePhone(p){ return String(p||'').replace(/[^\d+]/g,'').replace(/^\+84/,'0'); }
 function $(id){ return document.getElementById(id); }
-function setText(id, v){ var el = $(id); if(el) el.textContent = v; }
+function setText(id,v){ var el=$(id); if(el) el.textContent=v; }
 
-function normalizeSocialUrl(channelKey, raw){
-  if(!raw) return '';
-  var s = String(raw).trim();
-  if(!s) return '';
-  if(/^https?:\/\//i.test(s)){
-    try{
-      var u = new URL(s);
-      if(u.protocol === 'http:' || u.protocol === 'https:') return u.href;
-    }catch(e){}
-    return '';
-  }
-  var clean = s.replace(/^@+/, '').replace(/^\/+/, '');
+function normalizeSocialUrl(channelKey,raw){
+  if(!raw) return ''; var s=String(raw).trim(); if(!s) return '';
+  if(/^https?:\/\//i.test(s)){ try{var u=new URL(s); if(u.protocol==='http:'||u.protocol==='https:') return u.href;}catch(e){} return ''; }
+  var clean=s.replace(/^@+/,'').replace(/^\/+/,'');
   switch(channelKey){
-    case 'facebook':
-      if(/^fb\.com\//i.test(s)) return 'https://' + s;
-      if(/^facebook\.com\//i.test(s)) return 'https://' + s;
-      return 'https://facebook.com/' + clean;
-    case 'zalo': {
-      var phone = normalizePhone(s);
-      if(/^(0|\+84)\d{9}$/.test(phone) || /^0\d{9}$/.test(phone)){
-        return 'https://zalo.me/' + phone.replace(/^0/, '0');
-      }
-      if(/^zalo\.me\//i.test(s)) return 'https://' + s;
-      return 'https://zalo.me/' + phone;
-    }
-    case 'linkedin':
-      if(/linkedin\.com/i.test(s)) return 'https://' + s.replace(/^https?:\/\//i,'');
-      return 'https://linkedin.com/in/' + clean;
-    case 'github':
-      if(/github\.com/i.test(s)) return 'https://' + s.replace(/^https?:\/\//i,'');
-      return 'https://github.com/' + clean;
-    case 'twitter':
-      if(/twitter\.com|x\.com/i.test(s)) return 'https://' + s.replace(/^https?:\/\//i,'');
-      return 'https://x.com/' + clean;
-    case 'instagram':
-      if(/instagram\.com/i.test(s)) return 'https://' + s.replace(/^https?:\/\//i,'');
-      return 'https://instagram.com/' + clean;
-    case 'tiktok':
-      if(/tiktok\.com/i.test(s)) return 'https://' + s.replace(/^https?:\/\//i,'');
-      return 'https://tiktok.com/@' + clean;
-    case 'youtube':
-      if(/youtube\.com|youtu\.be/i.test(s)) return 'https://' + s.replace(/^https?:\/\//i,'');
-      return 'https://youtube.com/@' + clean;
-    case 'threads':
-      if(/threads\.net|threads\.com/i.test(s)) return 'https://' + s.replace(/^https?:\/\//i,'');
-      return 'https://threads.net/@' + clean;
-    case 'website':
-      return 'https://' + clean;
+    case 'facebook': if(/^fb\.com\//i.test(s)) return 'https://'+s; if(/^facebook\.com\//i.test(s)) return 'https://'+s; return 'https://facebook.com/'+clean;
+    case 'zalo': { var phone=normalizePhone(s); if(/^(0|\+84)\d{9}$/.test(phone)||/^0\d{9}$/.test(phone)) return 'https://zalo.me/'+phone; if(/^zalo\.me\//i.test(s)) return 'https://'+s; return 'https://zalo.me/'+phone; }
+    case 'linkedin': if(/linkedin\.com/i.test(s)) return 'https://'+s.replace(/^https?:\/\//i,''); return 'https://linkedin.com/in/'+clean;
+    case 'github': if(/github\.com/i.test(s)) return 'https://'+s.replace(/^https?:\/\//i,''); return 'https://github.com/'+clean;
+    case 'twitter': if(/twitter\.com|x\.com/i.test(s)) return 'https://'+s.replace(/^https?:\/\//i,''); return 'https://x.com/'+clean;
+    case 'instagram': if(/instagram\.com/i.test(s)) return 'https://'+s.replace(/^https?:\/\//i,''); return 'https://instagram.com/'+clean;
+    case 'tiktok': if(/tiktok\.com/i.test(s)) return 'https://'+s.replace(/^https?:\/\//i,''); return 'https://tiktok.com/@'+clean;
+    case 'youtube': if(/youtube\.com|youtu\.be/i.test(s)) return 'https://'+s.replace(/^https?:\/\//i,''); return 'https://youtube.com/@'+clean;
+    case 'threads': if(/threads\.net|threads\.com/i.test(s)) return 'https://'+s.replace(/^https?:\/\//i,''); return 'https://threads.net/@'+clean;
+    case 'website': return 'https://'+clean;
   }
   return '';
 }
-function formatSocialDisplay(channelKey, url){
+function formatSocialDisplay(channelKey,url){
   if(!url) return '';
-  try{
-    var u = new URL(url);
-    var path = u.pathname.replace(/^\/+|\/+$/g, '');
-    var host = u.hostname.replace(/^www\./, '');
-    switch(channelKey){
-      case 'zalo': return 'Zalo · ' + path.replace(/^zalo\.me\//, '');
-      case 'facebook':
-        if(host === 'facebook.com') return path ? 'fb.com/' + path : host;
-        return host + (path ? '/' + path : '');
-      default:
-        return host + (path ? '/' + path : '');
-    }
+  try{ var u=new URL(url); var path=u.pathname.replace(/^\/+|\/+$/g,''); var host=u.hostname.replace(/^www\./,'');
+    switch(channelKey){ case 'zalo': return 'Zalo · '+path.replace(/^zalo\.me\//,''); case 'facebook': if(host==='facebook.com') return path?'fb.com/'+path:host; return host+(path?'/'+path:''); default: return host+(path?'/'+path:''); }
   }catch(e){ return url; }
 }
 
-/* ─── Dữ liệu mặc định ───────────────────────────────────── */
 var initial = {
   profile: {
     avatar:'assets/Anh_the.png', name:'Bùi Hoàng Dể', title:'Nhân viên pháp lý',
@@ -809,19 +606,17 @@ var initial = {
     about_h2:'Giá trị cốt lõi',
     about_text2:'Cẩn thận, trách nhiệm, chính xác và bảo mật. Tôi thích tư duy có hệ thống, chủ động học hỏi, tiếp nhận nhiệm vụ mới và cải thiện từ phản hồi.',
     now:'Tôi đang xây dựng nền tảng chuyên môn pháp lý và tiếp tục tích lũy kinh nghiệm thực tiễn.',
-    email:'hoangdeb751@gmail.com',
-    phone:'0358297366',
-    facebook:'https://facebook.com/hoangde.bui.03',
-    zalo:'0358297366',
+    email:'hoangdeb751@gmail.com', phone:'0358297366',
+    facebook:'https://facebook.com/hoangde.bui.03', zalo:'0358297366',
     linkedin:'', github:'', twitter:'', instagram:'', tiktok:'', youtube:'', threads:'', website:'',
     cv_link:'',
     proof1_name:'',proof1_link:'',proof2_name:'',proof2_link:'',proof3_name:'',proof3_link:'',proof4_name:'',proof4_link:'',proof5_name:'',proof5_link:'',
     s2_k:'02 / Timeline', s2_t:'Hành trình', s2_d:'Quá khứ được ghi nhận. Hiện tại được cập nhật. Tương lai tiếp tục được viết.',
     s3_k:'03 / Work & Research', s3_t:'Nghiên cứu & công việc', s3_d:'Những trải nghiệm tạo nên cách tôi nhìn và xử lý vấn đề pháp lý.',
     s4_k:'04 / Milestones', s4_t:'Thành tích & dấu mốc', s4_d:'Các cột mốc học tập và chứng nhận. Bấm vào từng thẻ để đọc toàn văn.',
-    s5_k:'05 / Gallery', s5_t:'Thư viện ảnh', s5_d:'Tuyển tập ảnh minh chứng và hoạt động. Bấm vào ảnh để xem toàn bộ thư viện.',
-    s6_k:'06 / Journal', s6_t:'Blog & ghi chép', s6_d:'Những suy nghĩ, bài học, ghi chú và câu chuyện có thể được cập nhật bất cứ lúc nào.',
-    s7_k:'07 / Focus', s7_t:'Trọng tâm phát triển', s7_d:'Không chỉ lưu những gì đã đạt được, mà còn cho thấy tôi đang tập trung phát triển chuyên môn theo hướng nào.'
+    s5_k:'05 / Journal', s5_t:'Blog & ghi chép', s5_d:'Những suy nghĩ, bài học, ghi chú và câu chuyện có thể được cập nhật bất cứ lúc nào.',
+    s6_k:'06 / Focus', s6_t:'Trọng tâm phát triển', s6_d:'Không chỉ lưu những gì đã đạt được, mà còn cho thấy tôi đang tập trung phát triển chuyên môn theo hướng nào.',
+    gallery_k:'Album ảnh', gallery_t:'Thư viện ảnh', gallery_d:'Tuyển tập ảnh minh chứng và hoạt động. Bấm vào ảnh để xem toàn bộ.'
   },
   timeline: [
     {id:'tl1',date:'08/2022',title:'Bắt đầu hành trình tại Trường Đại học Luật TP.HCM',type:'Học tập',text:'Học ngành Luật – Luật Dân sự, đồng thời tham gia hoạt động lớp, học thuật và phong trào sinh viên.',images:[]},
@@ -867,71 +662,39 @@ var initial = {
   ]
 };
 
-/* ─── State ───────────────────────────────────────────────── */
-var data = null;
-var currentFilter = 'all';
-var sb = null;
-var remoteLoaded = false;
-var galleryImages = [];
-var galleryIndex = 0;
-var galleryTitle = '';
-var dragSrcRow = null;
-var dragSrcTile = null;
-var dragTileField = null;
-var libraryItemsCache = [];
+var data = null, currentFilter = 'all', sb = null, remoteLoaded = false;
+var galleryImages = [], galleryIndex = 0, galleryTitle = '';
+var dragSrcRow = null, dragSrcTile = null, dragTileField = null, libraryItemsCache = [];
 
 function normalizeItem(item){
   if(!item) return item;
-  if(!Array.isArray(item.images)){
-    item.images = item.image ? [item.image] : [];
-  }
+  if(!Array.isArray(item.images)) item.images = item.image ? [item.image] : [];
   var seen = {};
-  item.images = item.images.map(function(u){ return String(u || '').trim(); })
-    .filter(function(u){
-      if(!u || seen[u]) return false;
-      seen[u] = 1;
-      return true;
-    });
-  if(item.images[0]) item.image = item.images[0];
-  else delete item.image;
+  item.images = item.images.map(function(u){return String(u||'').trim();})
+    .filter(function(u){ if(!u||seen[u]) return false; seen[u]=1; return true; });
+  if(item.images[0]) item.image = item.images[0]; else delete item.image;
   return item;
 }
 function normalizeData(d){
   SECTIONS.forEach(function(k){
-    if(Array.isArray(d[k])){
-      d[k] = d[k].map(function(x, i){
-        if(!x.id) x.id = k + '-' + Date.now() + '-' + i;
-        return normalizeItem(x);
-      });
-    } else {
-      d[k] = clone(initial[k]);
-    }
+    if(Array.isArray(d[k])){ d[k]=d[k].map(function(x,i){ if(!x.id) x.id=k+'-'+Date.now()+'-'+i; return normalizeItem(x); }); }
+    else { d[k] = clone(initial[k]); }
   });
   return d;
 }
-
 function loadLocal(){
   try{
     var raw = null;
     try{ raw = localStorage.getItem(STORAGE_KEY); }catch(e){}
-    if(!raw){
-      for(var i = 0; i < OLD_KEYS.length; i++){
-        try{ raw = localStorage.getItem(OLD_KEYS[i]); if(raw) break; }catch(e){}
-      }
-    }
+    if(!raw){ for(var i=0;i<OLD_KEYS.length;i++){ try{ raw=localStorage.getItem(OLD_KEYS[i]); if(raw) break; }catch(e){} } }
     var saved = raw ? JSON.parse(raw) : null;
-    var merged = saved
-      ? Object.assign(clone(initial), saved, {profile: Object.assign({}, initial.profile, saved.profile || {})})
-      : clone(initial);
+    var merged = saved ? Object.assign(clone(initial), saved, {profile: Object.assign({}, initial.profile, saved.profile||{})}) : clone(initial);
     return normalizeData(merged);
-  } catch(e){
-    console.warn('loadLocal error', e);
-    return normalizeData(clone(initial));
-  }
+  } catch(e){ console.warn('loadLocal error', e); return normalizeData(clone(initial)); }
 }
 function mergeRemote(remote){
   if(!remote || typeof remote !== 'object') return;
-  data = Object.assign(clone(initial), remote, {profile: Object.assign({}, initial.profile, remote.profile || {})});
+  data = Object.assign(clone(initial), remote, {profile: Object.assign({}, initial.profile, remote.profile||{})});
   SECTIONS.forEach(function(k){ if(!Array.isArray(remote[k])) data[k] = clone(initial[k]); });
   normalizeData(data);
 }
@@ -943,203 +706,94 @@ function hasContent(state){
     return false;
   });
 }
-
-/* ─── Supabase init ───────────────────────────────────────── */
 try{
   var SB_URL = window.PORTFOLIO_SUPABASE_URL || '';
   var SB_KEY = window.PORTFOLIO_SUPABASE_ANON_KEY || '';
-  if(SB_KEY.indexOf('service_role') !== -1){
-    console.error('🚨 service_role key bị lộ. Đổi key ngay!');
-  } else if(SB_URL && SB_KEY && window.supabase){
-    sb = window.supabase.createClient(SB_URL, SB_KEY, {
-      auth: { persistSession: true, autoRefreshToken: true, storage: window.localStorage }
-    });
-  }
+  if(SB_KEY.indexOf('service_role') !== -1) console.error('🚨 service_role key bị lộ!');
+  else if(SB_URL && SB_KEY && window.supabase) sb = window.supabase.createClient(SB_URL, SB_KEY, {auth:{persistSession:true, autoRefreshToken:true, storage:window.localStorage}});
 } catch(e){ console.warn('Supabase init:', e.message); }
 
 function loadRemote(){
   if(!sb) return Promise.resolve(false);
-  return sb.from('portfolio_state').select('state,updated_at').eq('id', 1).maybeSingle()
+  return sb.from('portfolio_state').select('state,updated_at').eq('id',1).maybeSingle()
     .then(function(res){
       if(res.error) throw res.error;
       var remote = res.data && res.data.state;
-      if(hasContent(remote)){
-        mergeRemote(remote);
-        try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }catch(e){}
-      }
-      remoteLoaded = true;
-      renderAll();
-      return true;
+      if(hasContent(remote)){ mergeRemote(remote); try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }catch(e){} }
+      remoteLoaded = true; renderAll(); return true;
     })
-    .catch(function(e){
-      remoteLoaded = false;
-      console.warn('Supabase load:', e.message);
-      toast('Không đọc được dữ liệu online — dùng bản lưu trên máy');
-      return false;
-    });
+    .catch(function(e){ remoteLoaded=false; console.warn('Supabase load:', e.message); toast('Không đọc được dữ liệu online — dùng bản lưu trên máy'); return false; });
 }
-
 function save(){
-  normalizeData(data);
-  renderAll();
+  normalizeData(data); renderAll();
   try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }catch(e){}
   if(!sb){ toast('Đã lưu trên trình duyệt'); return Promise.resolve(true); }
   return sb.auth.getSession().then(function(res){
     var user = res.data && res.data.session && res.data.session.user;
-    if(!user || user.email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()){
-      toast('Chưa đăng nhập quản trị — đã lưu tạm trên máy');
-      return false;
-    }
-    return sb.from('portfolio_state').upsert(
-      { id: 1, state: data, updated_at: new Date().toISOString() },
-      { onConflict: 'id' }
-    ).then(function(r){
-      if(r.error) throw r.error;
-      remoteLoaded = true;
-      return true;
-    });
-  }).catch(function(e){
-    toast('Lỗi lưu online: ' + e.message);
-    return false;
-  });
+    if(!user || user.email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()){ toast('Chưa đăng nhập quản trị — đã lưu tạm trên máy'); return false; }
+    return sb.from('portfolio_state').upsert({id:1, state:data, updated_at:new Date().toISOString()}, {onConflict:'id'})
+      .then(function(r){ if(r.error) throw r.error; remoteLoaded=true; return true; });
+  }).catch(function(e){ toast('Lỗi lưu online: '+e.message); return false; });
 }
 
-/* ─── Render: Footer Contact ──────────────────────────────── */
 function renderFooterContact(){
-  var fc = $('footerContact');
-  if(!fc) return;
+  var fc = $('footerContact'); if(!fc) return;
   var items = [];
   var email = String(data.profile.email || '').trim();
-  if(email){
-    items.push(
-      '<a class="social-item" href="mailto:' + esc(email) + '">'
-      + '<span class="social-icon" style="background:rgba(46,139,114,.15);color:var(--jade-300)">@</span>'
-      + '<span class="social-body"><span class="social-label">Email</span><span class="social-value">' + esc(email) + '</span></span>'
-      + '<button type="button" class="social-copy" data-action="copy-contact" data-copy-text="' + esc(email) + '" title="Sao chép email">📋</button>'
-      + '</a>'
-    );
-  }
+  if(email) items.push('<a class="social-item" href="mailto:'+esc(email)+'"><span class="social-icon" style="background:rgba(46,139,114,.15);color:var(--jade-300)">@</span><span class="social-body"><span class="social-label">Email</span><span class="social-value">'+esc(email)+'</span></span><button type="button" class="social-copy" data-action="copy-contact" data-copy-text="'+esc(email)+'" title="Sao chép email">📋</button></a>');
   var phone = String(data.profile.phone || '').trim();
-  if(phone){
-    var phoneClean = normalizePhone(phone);
-    items.push(
-      '<a class="social-item" href="tel:' + esc(phoneClean) + '">'
-      + '<span class="social-icon" style="background:rgba(212,175,55,.15);color:var(--gold-400)">☎</span>'
-      + '<span class="social-body"><span class="social-label">Điện thoại</span><span class="social-value">' + esc(phone) + '</span></span>'
-      + '<button type="button" class="social-copy" data-action="copy-contact" data-copy-text="' + esc(phoneClean) + '" title="Sao chép số">📋</button>'
-      + '</a>'
-    );
+  if(phone){ var pc = normalizePhone(phone);
+    items.push('<a class="social-item" href="tel:'+esc(pc)+'"><span class="social-icon" style="background:rgba(212,175,55,.15);color:var(--gold-400)">☎</span><span class="social-body"><span class="social-label">Điện thoại</span><span class="social-value">'+esc(phone)+'</span></span><button type="button" class="social-copy" data-action="copy-contact" data-copy-text="'+esc(pc)+'" title="Sao chép số">📋</button></a>');
   }
   SOCIAL_CHANNELS.forEach(function(ch){
-    var raw = data.profile[ch.key];
-    if(!raw) return;
-    var url = normalizeSocialUrl(ch.key, raw);
-    if(!url) return;
+    var raw = data.profile[ch.key]; if(!raw) return;
+    var url = normalizeSocialUrl(ch.key, raw); if(!url) return;
     var display = formatSocialDisplay(ch.key, url);
-    items.push(
-      '<a class="social-item" href="' + esc(url) + '" target="_blank" rel="noopener noreferrer">'
-      + '<span class="social-icon" style="background:' + ch.color + '22;color:' + ch.color + '">' + esc(ch.icon) + '</span>'
-      + '<span class="social-body"><span class="social-label">' + esc(ch.label) + '</span><span class="social-value">' + esc(display) + '</span></span>'
-      + '<button type="button" class="social-copy" data-action="copy-contact" data-copy-text="' + esc(url) + '" title="Sao chép link">📋</button>'
-      + '</a>'
-    );
+    items.push('<a class="social-item" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer"><span class="social-icon" style="background:'+ch.color+'22;color:'+ch.color+'">'+esc(ch.icon)+'</span><span class="social-body"><span class="social-label">'+esc(ch.label)+'</span><span class="social-value">'+esc(display)+'</span></span><button type="button" class="social-copy" data-action="copy-contact" data-copy-text="'+esc(url)+'" title="Sao chép link">📋</button></a>');
   });
-  if(!items.length){
-    fc.innerHTML = '<div class="social-empty">Chưa có thông tin liên hệ. Vào Quản trị → Hồ sơ để thêm.</div>';
-    return;
-  }
-  fc.innerHTML = items.join('');
+  fc.innerHTML = items.length ? items.join('') : '<div class="social-empty">Chưa có thông tin liên hệ. Vào Quản trị → Hồ sơ để thêm.</div>';
 }
 
-/* ─── Render: Contact Panel (FAB) ─────────────────────────── */
 function renderContactPanel(){
-  var body = document.getElementById('contactPanelBody');
-  if(!body) return;
+  var body = document.getElementById('contactPanelBody'); if(!body) return;
   var items = [];
   var email = String(data.profile.email || '').trim();
-  if(email){
-    items.push(
-      '<a class="social-item" href="mailto:' + esc(email) + '">'
-      + '<span class="social-icon" style="background:rgba(46,139,114,.15);color:var(--jade-300)">@</span>'
-      + '<span class="social-body"><span class="social-label">Email</span><span class="social-value">' + esc(email) + '</span></span>'
-      + '<button type="button" class="social-copy" data-action="copy-contact" data-copy-text="' + esc(email) + '" title="Sao chép email">📋</button>'
-      + '</a>'
-    );
-  }
+  if(email) items.push('<a class="social-item" href="mailto:'+esc(email)+'"><span class="social-icon" style="background:rgba(46,139,114,.15);color:var(--jade-300)">@</span><span class="social-body"><span class="social-label">Email</span><span class="social-value">'+esc(email)+'</span></span><button type="button" class="social-copy" data-action="copy-contact" data-copy-text="'+esc(email)+'">📋</button></a>');
   var phone = String(data.profile.phone || '').trim();
-  if(phone){
-    var phoneClean = normalizePhone(phone);
-    items.push(
-      '<a class="social-item" href="tel:' + esc(phoneClean) + '">'
-      + '<span class="social-icon" style="background:rgba(212,175,55,.15);color:var(--gold-400)">☎</span>'
-      + '<span class="social-body"><span class="social-label">Điện thoại</span><span class="social-value">' + esc(phone) + '</span></span>'
-      + '<button type="button" class="social-copy" data-action="copy-contact" data-copy-text="' + esc(phoneClean) + '" title="Sao chép số">📋</button>'
-      + '</a>'
-    );
+  if(phone){ var pc = normalizePhone(phone);
+    items.push('<a class="social-item" href="tel:'+esc(pc)+'"><span class="social-icon" style="background:rgba(212,175,55,.15);color:var(--gold-400)">☎</span><span class="social-body"><span class="social-label">Điện thoại</span><span class="social-value">'+esc(phone)+'</span></span><button type="button" class="social-copy" data-action="copy-contact" data-copy-text="'+esc(pc)+'">📋</button></a>');
   }
   SOCIAL_CHANNELS.forEach(function(ch){
-    var raw = data.profile[ch.key];
-    if(!raw) return;
-    var url = normalizeSocialUrl(ch.key, raw);
-    if(!url) return;
+    var raw = data.profile[ch.key]; if(!raw) return;
+    var url = normalizeSocialUrl(ch.key, raw); if(!url) return;
     var display = formatSocialDisplay(ch.key, url);
-    items.push(
-      '<a class="social-item" href="' + esc(url) + '" target="_blank" rel="noopener noreferrer">'
-      + '<span class="social-icon" style="background:' + ch.color + '22;color:' + ch.color + '">' + esc(ch.icon) + '</span>'
-      + '<span class="social-body"><span class="social-label">' + esc(ch.label) + '</span><span class="social-value">' + esc(display) + '</span></span>'
-      + '<button type="button" class="social-copy" data-action="copy-contact" data-copy-text="' + esc(url) + '" title="Sao chép link">📋</button>'
-      + '</a>'
-    );
+    items.push('<a class="social-item" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer"><span class="social-icon" style="background:'+ch.color+'22;color:'+ch.color+'">'+esc(ch.icon)+'</span><span class="social-body"><span class="social-label">'+esc(ch.label)+'</span><span class="social-value">'+esc(display)+'</span></span><button type="button" class="social-copy" data-action="copy-contact" data-copy-text="'+esc(url)+'">📋</button></a>');
   });
-  if(!items.length){
-    body.innerHTML = '<div class="social-empty">Chưa có thông tin liên hệ. Vào Quản trị → Hồ sơ để thêm.</div>';
-    return;
-  }
-  body.innerHTML = items.join('');
+  body.innerHTML = items.length ? items.join('') : '<div class="social-empty">Chưa có thông tin liên hệ.</div>';
 }
-
 function toggleContactPanel(force){
-  var fab = document.getElementById('contactFab');
-  var panel = document.getElementById('contactPanel');
+  var fab = document.getElementById('contactFab'), panel = document.getElementById('contactPanel');
   if(!fab || !panel) return;
   var isOpen = panel.classList.contains('open');
   var shouldOpen = (typeof force === 'boolean') ? force : !isOpen;
-  if(shouldOpen){
-    renderContactPanel();
-    panel.classList.add('open');
-    fab.classList.add('active');
-  } else {
-    panel.classList.remove('open');
-    fab.classList.remove('active');
-  }
+  if(shouldOpen){ renderContactPanel(); panel.classList.add('open'); fab.classList.add('active'); }
+  else { panel.classList.remove('open'); fab.classList.remove('active'); }
 }
 
-/* ─── Render helpers ──────────────────────────────────────── */
 function cardMediaHtml(item, alt, ratio){
-  var imgs = getImages(item);
-  var count = imgs.length;
-  if(count === 0){
-    return '<div class="card-media placeholder-media" style="aspect-ratio:' + ratio + '"><span>Hồ sơ / Minh chứng</span></div>';
-  }
+  var imgs = getImages(item); var count = imgs.length;
+  if(count === 0) return '<div class="card-media placeholder-media" style="aspect-ratio:'+ratio+'"><span>Hồ sơ / Minh chứng</span></div>';
   var first = imgs[0];
-  var badge = count > 1
-    ? '<div class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>' + count + '</div>'
-    : '';
+  var badge = count > 1 ? '<div class="card-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>'+count+'</div>' : '';
   var onerror = ' onerror="this.style.display=\'none\';this.parentElement.classList.add(\'placeholder-media\');if(!this.parentElement.querySelector(\'.img-fallback\')){var s=document.createElement(\'span\');s.className=\'img-fallback\';s.textContent=\'Ảnh không tải được\';this.parentElement.appendChild(s);}"';
-  return '<div class="card-media" style="aspect-ratio:' + ratio + '"><img src="' + esc(first) + '" loading="lazy" alt="' + esc(alt) + '"' + onerror + '>' + badge + '</div>';
+  return '<div class="card-media" style="aspect-ratio:'+ratio+'"><img src="'+esc(first)+'" loading="lazy" alt="'+esc(alt)+'"'+onerror+'>'+badge+'</div>';
 }
 function timelineGalleryHtml(item, title){
-  var imgs = getImages(item);
-  if(!imgs.length) return '';
-  if(imgs.length === 1){
-    return '<img class="event-thumb" src="' + esc(imgs[0]) + '" loading="lazy" alt="' + esc(title) + '" data-action="open-gallery" data-coll="timeline" data-id="' + esc(item.id) + '" data-idx="0" onerror="this.style.display=\'none\'">';
-  }
-  return '<div class="event-gallery">' + imgs.map(function(u, i){
-    return '<img src="' + esc(u) + '" loading="lazy" alt="' + esc(title + ' ' + (i+1)) + '" data-action="open-gallery" data-coll="timeline" data-id="' + esc(item.id) + '" data-idx="' + i + '" onerror="this.style.display=\'none\'">';
-  }).join('') + '</div>';
+  var imgs = getImages(item); if(!imgs.length) return '';
+  if(imgs.length === 1) return '<img class="event-thumb" src="'+esc(imgs[0])+'" loading="lazy" alt="'+esc(title)+'" data-action="open-gallery" data-coll="timeline" data-id="'+esc(item.id)+'" data-idx="0" onerror="this.style.display=\'none\'">';
+  return '<div class="event-gallery">'+imgs.map(function(u,i){ return '<img src="'+esc(u)+'" loading="lazy" alt="'+esc(title+' '+(i+1))+'" data-action="open-gallery" data-coll="timeline" data-id="'+esc(item.id)+'" data-idx="'+i+'" onerror="this.style.display=\'none\'">'; }).join('')+'</div>';
 }
 
-/* ─── Render: main ────────────────────────────────────────── */
 function renderAll(){
   setText('out_about_title', data.profile.about_title || 'Tổng quan Hồ sơ');
   setText('out_about_desc', data.profile.about_desc || '');
@@ -1148,41 +802,31 @@ function renderAll(){
   setText('aboutText', data.profile.bio || '');
   setText('out_about_text2', data.profile.about_text2 || '');
   setText('nowText', data.profile.now || '');
-
   var avatar = safeUrl(data.profile.avatar) || 'assets/Anh_the.png';
-  var heroImg = $('heroAvatar');
-  if(heroImg) heroImg.src = avatar;
-
-  var years = {};
-  data.timeline.forEach(function(x){ var y = getYearFromDate(x.date); if(y) years[y] = 1; });
+  var heroImg = $('heroAvatar'); if(heroImg) heroImg.src = avatar;
+  var years = {}; data.timeline.forEach(function(x){ var y=getYearFromDate(x.date); if(y) years[y]=1; });
   setText('statYears', String(Math.max(1, Object.keys(years).length)));
-
   var chipsEl = $('aboutChips');
-  if(chipsEl){
-    chipsEl.innerHTML = (data.profile.skills || '').split(',').map(function(s){ return s.trim(); }).filter(Boolean)
-      .map(function(s){ return '<span class="chip">' + esc(s) + '</span>'; }).join('');
-  }
-
+  if(chipsEl) chipsEl.innerHTML = (data.profile.skills || '').split(',').map(function(s){return s.trim();}).filter(Boolean).map(function(s){return '<span class="chip">'+esc(s)+'</span>';}).join('');
   var actionsEl = $('heroActions');
   if(actionsEl){
     var html = '';
     var cv = safeUrl(data.profile.cv_link);
-    if(cv) html += '<a class="primary" href="' + esc(cv) + '" target="_blank" rel="noopener noreferrer">📄 Xem / Tải CV</a>';
-    for(var i = 1; i <= 5; i++){
-      var name = data.profile['proof' + i + '_name'];
-      var link = safeUrl(data.profile['proof' + i + '_link']);
-      if(name && link) html += '<a class="ghost" href="' + esc(link) + '" target="_blank" rel="noopener noreferrer">🔗 ' + esc(name) + '</a>';
-    }
+    if(cv) html += '<a class="primary" href="'+esc(cv)+'" target="_blank" rel="noopener noreferrer">📄 Xem / Tải CV</a>';
+    for(var i=1;i<=5;i++){ var name=data.profile['proof'+i+'_name']; var link=safeUrl(data.profile['proof'+i+'_link']); if(name && link) html += '<a class="ghost" href="'+esc(link)+'" target="_blank" rel="noopener noreferrer">🔗 '+esc(name)+'</a>'; }
     html += '<a class="ghost" href="#journey" style="background:transparent;border-color:transparent;color:var(--tx-3)">Hành trình ↓</a>';
     actionsEl.innerHTML = html;
   }
-
+  /* Section 2-6 */
   SECTION_TITLES.forEach(function(i){
-    setText('out_s' + i + '_k', data.profile['s' + i + '_k'] || '');
-    setText('out_s' + i + '_t', data.profile['s' + i + '_t'] || '');
-    setText('out_s' + i + '_d', data.profile['s' + i + '_d'] || '');
+    setText('out_s'+i+'_k', data.profile['s'+i+'_k'] || '');
+    setText('out_s'+i+'_t', data.profile['s'+i+'_t'] || '');
+    setText('out_s'+i+'_d', data.profile['s'+i+'_d'] || '');
   });
-
+  /* Gallery — không số */
+  setText('out_gallery_k', data.profile.gallery_k || 'Album ảnh');
+  setText('out_gallery_t', data.profile.gallery_t || 'Thư viện ảnh');
+  setText('out_gallery_d', data.profile.gallery_d || '');
   renderFooterContact();
   renderContactPanel();
   renderTimeline();
@@ -1197,34 +841,19 @@ function renderAll(){
 function renderTimeline(){
   var el = $('timeline'); if(!el) return;
   el.innerHTML = data.timeline.map(function(x){
-    return '<div class="event">'
-      + '<div class="year">' + esc(x.date) + ' · ' + esc(x.type) + '</div>'
-      + '<h3 data-action="open-reader" data-collection="timeline" data-id="' + esc(x.id) + '">' + esc(x.title) + '</h3>'
-      + '<p data-action="open-reader" data-collection="timeline" data-id="' + esc(x.id) + '">' + esc(x.text) + '</p>'
-      + timelineGalleryHtml(x, x.title)
-      + '</div>';
+    return '<div class="event"><div class="year">'+esc(x.date)+' · '+esc(x.type)+'</div><h3 data-action="open-reader" data-collection="timeline" data-id="'+esc(x.id)+'">'+esc(x.title)+'</h3><p data-action="open-reader" data-collection="timeline" data-id="'+esc(x.id)+'">'+esc(x.text)+'</p>'+timelineGalleryHtml(x, x.title)+'</div>';
   }).join('');
 }
 function renderWork(){
   var el = $('workGrid'); if(!el) return;
   el.innerHTML = data.work.map(function(x){
-    return '<article class="card" data-action="open-reader" data-collection="work" data-id="' + esc(x.id) + '">'
-      + cardMediaHtml(x, x.title, '16/10')
-      + '<div class="card-body"><div class="meta"><span>' + esc(x.meta) + '</span></div>'
-      + '<h3>' + esc(x.title) + '</h3>'
-      + '<div class="desc">' + esc(x.text) + '</div>'
-      + '<div class="read-more">Đọc toàn văn →</div></div></article>';
+    return '<article class="card" data-action="open-reader" data-collection="work" data-id="'+esc(x.id)+'">'+cardMediaHtml(x, x.title, '16/10')+'<div class="card-body"><div class="meta"><span>'+esc(x.meta)+'</span></div><h3>'+esc(x.title)+'</h3><div class="desc">'+esc(x.text)+'</div><div class="read-more">Đọc toàn văn →</div></div></article>';
   }).join('');
 }
 function renderAchievements(){
   var el = $('achievementGrid'); if(!el) return;
   el.innerHTML = data.achievements.map(function(x){
-    return '<article class="card achievement ' + (x.featured ? 'featured' : '') + '" data-action="open-reader" data-collection="achievements" data-id="' + esc(x.id) + '">'
-      + cardMediaHtml(x, x.title, x.featured ? '16/7' : '4/3')
-      + '<div class="card-body"><div class="meta"><span>' + esc(x.date) + '</span></div>'
-      + '<h3>' + esc(x.title) + '</h3>'
-      + '<div class="desc">' + esc(x.text) + '</div>'
-      + '<div class="read-more">Đọc toàn văn →</div></div></article>';
+    return '<article class="card achievement '+(x.featured?'featured':'')+'" data-action="open-reader" data-collection="achievements" data-id="'+esc(x.id)+'">'+cardMediaHtml(x, x.title, x.featured?'16/7':'4/3')+'<div class="card-body"><div class="meta"><span>'+esc(x.date)+'</span></div><h3>'+esc(x.title)+'</h3><div class="desc">'+esc(x.text)+'</div><div class="read-more">Đọc toàn văn →</div></div></article>';
   }).join('');
 }
 function renderPosts(){
@@ -1232,89 +861,77 @@ function renderPosts(){
   var arr = data.posts.filter(function(x){ return currentFilter === 'all' || x.type === currentFilter; });
   if(!arr.length){ el.innerHTML = '<div class="empty">Chưa có nội dung ở mục này.</div>'; return; }
   el.innerHTML = arr.map(function(x){
-    return '<article class="card" data-action="open-reader" data-collection="posts" data-id="' + esc(x.id) + '">'
-      + cardMediaHtml(x, x.title, '16/10')
-      + '<div class="card-body"><div class="meta"><span>' + esc(x.date) + '</span><span class="dot">·</span><span>' + esc(x.type) + '</span><span class="dot">·</span><span style="color:var(--tx-3)">' + readingTime(x.content) + '</span></div>'
-      + '<h3>' + esc(x.title) + '</h3>'
-      + '<div class="desc">' + esc(x.excerpt || x.content) + '</div>'
-      + '<div class="read-more">Đọc toàn văn →</div></div></article>';
+    return '<article class="card" data-action="open-reader" data-collection="posts" data-id="'+esc(x.id)+'">'+cardMediaHtml(x, x.title, '16/10')+'<div class="card-body"><div class="meta"><span>'+esc(x.date)+'</span><span class="dot">·</span><span>'+esc(x.type)+'</span><span class="dot">·</span><span style="color:var(--tx-3)">'+readingTime(x.content)+'</span></div><h3>'+esc(x.title)+'</h3><div class="desc">'+esc(x.excerpt||x.content)+'</div><div class="read-more">Đọc toàn văn →</div></div></article>';
   }).join('');
 }
 function renderLearning(){
   var el = $('learningList'); if(!el) return;
   el.innerHTML = data.learning.map(function(x){
     var primary = getPrimaryImage(x);
-    var thumb = primary
-      ? '<img class="learn-thumb" src="' + esc(primary) + '" loading="lazy" alt="" onerror="this.style.display=\'none\'">'
-      : '<div class="learn-thumb" aria-hidden="true">✦</div>';
-    return '<div class="learn-item" data-action="open-reader" data-collection="learning" data-id="' + esc(x.id) + '">'
-      + '<div class="learn-header"><div class="learn-title-group">' + thumb + '<strong>' + esc(x.name) + '</strong></div>'
-      + '<span class="pill">' + esc(x.status) + '</span></div>'
-      + '<div class="learn-content"><span>' + esc(x.note) + '</span></div>'
-      + '<div class="learn-read-more">Đọc toàn văn →</div></div>';
+    var thumb = primary ? '<img class="learn-thumb" src="'+esc(primary)+'" loading="lazy" alt="" onerror="this.style.display=\'none\'">' : '<div class="learn-thumb" aria-hidden="true">✦</div>';
+    return '<div class="learn-item" data-action="open-reader" data-collection="learning" data-id="'+esc(x.id)+'"><div class="learn-header"><div class="learn-title-group">'+thumb+'<strong>'+esc(x.name)+'</strong></div><span class="pill">'+esc(x.status)+'</span></div><div class="learn-content"><span>'+esc(x.note)+'</span></div><div class="learn-read-more">Đọc toàn văn →</div></div>';
   }).join('');
 }
 function renderGoals(){
   var el = $('goalsList'); if(!el) return;
-  el.innerHTML = data.goals.map(function(x){
-    return '<div><strong>' + esc(x.text) + '</strong><span>' + esc(x.status) + '</span></div>';
-  }).join('');
+  el.innerHTML = data.goals.map(function(x){ return '<div><strong>'+esc(x.text)+'</strong><span>'+esc(x.status)+'</span></div>'; }).join('');
 }
-
-/* ═══ THƯ VIỆN — chỉ 12 thumbnail, click mở toàn bộ ═══ */
 function renderLibrary(){
-  var section = $('library');
-  var el = $('libraryGrid');
+  var section = $('library'); var el = $('libraryGrid');
   if(!el || !section) return;
   var seen = {}, items = [];
   ['achievements','work','timeline','posts','learning'].forEach(function(k){
     if(!Array.isArray(data[k])) return;
     data[k].forEach(function(it){
-      getImages(it).forEach(function(u){
-        if(!seen[u]){
-          seen[u] = 1;
-          items.push({ src: u, title: it.title || it.name || 'Tư liệu hình ảnh', category: k, itemId: it.id });
-        }
-      });
+      getImages(it).forEach(function(u){ if(!seen[u]){ seen[u]=1; items.push({src:u, title:it.title||it.name||'Tư liệu hình ảnh', category:k, itemId:it.id}); } });
     });
   });
   libraryItemsCache = items;
   if(!items.length){ section.style.display = 'none'; return; }
   section.style.display = 'block';
-
   var preview = items.slice(0, LIBRARY_PREVIEW_COUNT);
   var total = items.length;
-
   var html = '<div class="library-compact">';
-  preview.forEach(function(it, i){
-    html += '<div class="lib-thumb" data-action="open-library" data-idx="' + i + '" title="' + esc(it.title) + '">'
-      + '<img src="' + esc(it.src) + '" loading="lazy" alt="' + esc(it.title) + '" onerror="this.style.opacity=.3">'
-      + '</div>';
-  });
+  preview.forEach(function(it, i){ html += '<div class="lib-thumb" data-action="open-library" data-idx="'+i+'" title="'+esc(it.title)+'"><img src="'+esc(it.src)+'" loading="lazy" alt="'+esc(it.title)+'" onerror="this.style.opacity=.3"></div>'; });
   html += '</div>';
-
-  html += '<button type="button" class="library-more" data-action="open-library" data-idx="0">'
-    + 'Xem toàn bộ ' + total + ' ảnh'
-    + '</button>';
-
+  html += '<button type="button" class="library-more" data-action="open-library" data-idx="0">Xem toàn bộ '+total+' ảnh</button>';
   el.innerHTML = html;
 }
-
 function openLibraryGallery(startIndex){
   if(!libraryItemsCache.length) return;
   galleryImages = libraryItemsCache.map(function(x){ return x.src; });
-  galleryIndex = Math.max(0, Math.min(Number(startIndex) || 0, galleryImages.length - 1));
-  galleryTitle = 'Thư viện — ' + galleryImages.length + ' ảnh';
-  renderGallery();
-  $('galleryModal').classList.add('open');
+  galleryIndex = Math.max(0, Math.min(Number(startIndex)||0, galleryImages.length-1));
+  galleryTitle = 'Thư viện — '+galleryImages.length+' ảnh';
+  renderGallery(); $('galleryModal').classList.add('open');
 }
 
-/* ─── Reader ──────────────────────────────────────────────── */
+function injectBlogSchema(item){
+  try{
+    var old = document.getElementById('blog-schema'); if(old) old.remove();
+    if(!item || !item.title) return;
+    var baseUrl = 'https://buihoangde-portfolio.hoangdeb751.workers.dev/';
+    var imgs = getImages(item);
+    var schema = {
+      "@context": "https://schema.org", "@type": "BlogPosting",
+      "headline": item.title, "description": item.excerpt || (item.content || '').slice(0, 160),
+      "datePublished": item.date || new Date().toISOString().slice(0, 10),
+      "author": {"@type": "Person", "name": "Bùi Hoàng Dể", "url": baseUrl},
+      "publisher": {"@type": "Person", "name": "Bùi Hoàng Dể", "url": baseUrl},
+      "mainEntityOfPage": {"@type": "WebPage", "@id": baseUrl + '#' + (item.id || '')},
+      "inLanguage": "vi-VN"
+    };
+    if(imgs[0]) schema.image = imgs[0];
+    var script = document.createElement('script');
+    script.type = 'application/ld+json'; script.id = 'blog-schema'; script.textContent = JSON.stringify(schema);
+    document.head.appendChild(script);
+  }catch(e){ console.warn('Schema error:', e); }
+}
+
 function openReader(collection, id){
   if(!data[collection]) return;
-  var x = data[collection].filter(function(p){ return String(p.id) === String(id); })[0]
-       || data[collection].filter(function(p){ return String(p.name) === String(id) || String(p.title) === String(id); })[0];
+  var x = data[collection].filter(function(p){ return String(p.id)===String(id); })[0] || data[collection].filter(function(p){ return String(p.name)===String(id) || String(p.title)===String(id); })[0];
   if(!x) return;
+  if(collection === 'posts') injectBlogSchema(x);
   var imgs = getImages(x);
   var meta = x.date || x.meta || x.type || x.status || collection;
   var title = x.title || x.name || '';
@@ -1322,584 +939,288 @@ function openReader(collection, id){
   var excerpt = x.excerpt || '';
   var link = safeUrl(x.link);
   var rt = content ? readingTime(content) : '';
-
   var galleryHtml = '';
-  if(imgs.length){
-    galleryHtml = '<div class="reader-gallery">' + imgs.map(function(u, i){
-      return '<img src="' + esc(u) + '" loading="lazy" alt="' + esc(title + ' ' + (i+1)) + '" data-action="open-gallery" data-coll="' + esc(collection) + '" data-id="' + esc(x.id) + '" data-idx="' + i + '" onerror="this.style.display=\'none\'">';
-    }).join('') + '</div>';
-  }
-
-  $('reader').innerHTML = '<div class="reader-kicker"><span>' + esc(meta) + '</span>'
-    + (rt ? '<span class="dot" style="opacity:.5">·</span><span class="rtime">' + esc(rt) + '</span>' : '')
-    + '</div><h1>' + esc(title) + '</h1>'
-    + galleryHtml
-    + (excerpt ? '<div class="reader-excerpt">' + esc(excerpt) + '</div>' : '')
-    + '<div class="reader-content">' + esc(content) + '</div>'
-    + (link ? '<div style="margin-top:48px;padding-top:28px;border-top:1px solid var(--line-1);text-align:center"><a href="' + esc(link) + '" target="_blank" rel="noopener noreferrer" class="primary" style="display:inline-flex;border-radius:8px;font-size:14.5px;padding:14px 30px">📄 Đọc / Xem hồ sơ minh chứng gốc ↗</a></div>' : '');
+  if(imgs.length) galleryHtml = '<div class="reader-gallery">'+imgs.map(function(u,i){ return '<img src="'+esc(u)+'" loading="lazy" alt="'+esc(title+' '+(i+1))+'" data-action="open-gallery" data-coll="'+esc(collection)+'" data-id="'+esc(x.id)+'" data-idx="'+i+'" onerror="this.style.display=\'none\'">'; }).join('')+'</div>';
+  $('reader').innerHTML = '<div class="reader-kicker"><span>'+esc(meta)+'</span>'+(rt?'<span class="dot" style="opacity:.5">·</span><span class="rtime">'+esc(rt)+'</span>':'')+'</div><h1>'+esc(title)+'</h1>'+galleryHtml+(excerpt?'<div class="reader-excerpt">'+esc(excerpt)+'</div>':'')+'<div class="reader-content">'+esc(content)+'</div>'+(link?'<div style="margin-top:48px;padding-top:28px;border-top:1px solid var(--line-1);text-align:center"><a href="'+esc(link)+'" target="_blank" rel="noopener noreferrer" class="primary" style="display:inline-flex;border-radius:8px;font-size:14.5px;padding:14px 30px">📄 Đọc / Xem hồ sơ minh chứng gốc ↗</a></div>':'');
   $('readerModal').classList.add('open');
 }
-function closeReader(){ $('readerModal').classList.remove('open'); }
-
-function openImage(src){
-  var safe = safeUrl(src); if(!safe) return;
-  $('modalImg').src = safe;
-  $('imageModal').classList.add('open');
+function closeReader(){
+  $('readerModal').classList.remove('open');
+  var s = document.getElementById('blog-schema'); if(s) s.remove();
 }
+function openImage(src){ var safe=safeUrl(src); if(!safe) return; $('modalImg').src=safe; $('imageModal').classList.add('open'); }
 function closeModal(){ $('imageModal').classList.remove('open'); }
 
-/* ─── Gallery ─────────────────────────────────────────────── */
 function openGallery(collection, id, startIndex){
-  var item = (data[collection] || []).filter(function(p){ return String(p.id) === String(id); })[0];
+  var item = (data[collection]||[]).filter(function(p){ return String(p.id)===String(id); })[0];
   if(!item) return;
-  var imgs = getImages(item);
-  if(!imgs.length) return;
+  var imgs = getImages(item); if(!imgs.length) return;
   galleryImages = imgs;
-  galleryIndex = Math.max(0, Math.min(Number(startIndex) || 0, imgs.length - 1));
+  galleryIndex = Math.max(0, Math.min(Number(startIndex)||0, imgs.length-1));
   galleryTitle = item.title || item.name || '';
-  renderGallery();
-  $('galleryModal').classList.add('open');
+  renderGallery(); $('galleryModal').classList.add('open');
 }
-function closeGallery(){
-  $('galleryModal').classList.remove('open');
-  galleryImages = []; galleryIndex = 0;
-}
+function closeGallery(){ $('galleryModal').classList.remove('open'); galleryImages=[]; galleryIndex=0; }
 function renderGallery(){
   if(!galleryImages.length) return;
-  var img = $('galImg'); var counter = $('galCounter');
-  var thumbs = $('galThumbs'); var caption = $('galCaption');
-  var prev = document.querySelector('[data-action="gal-prev"]');
-  var next = document.querySelector('[data-action="gal-next"]');
+  var img=$('galImg'), counter=$('galCounter'), thumbs=$('galThumbs'), caption=$('galCaption');
+  var prev=document.querySelector('[data-action="gal-prev"]'), next=document.querySelector('[data-action="gal-next"]');
   img.src = galleryImages[galleryIndex];
-  counter.textContent = (galleryIndex + 1) + ' / ' + galleryImages.length;
+  counter.textContent = (galleryIndex+1)+' / '+galleryImages.length;
   caption.textContent = galleryTitle;
-  prev.disabled = galleryIndex === 0;
-  next.disabled = galleryIndex === galleryImages.length - 1;
-  thumbs.innerHTML = galleryImages.map(function(u, i){
-    return '<div class="gal-thumb ' + (i === galleryIndex ? 'active' : '') + '" data-action="gal-jump" data-idx="' + i + '"><img src="' + esc(u) + '" alt="" loading="lazy" onerror="this.style.opacity=.3"></div>';
-  }).join('');
+  prev.disabled = galleryIndex===0;
+  next.disabled = galleryIndex===galleryImages.length-1;
+  thumbs.innerHTML = galleryImages.map(function(u,i){ return '<div class="gal-thumb '+(i===galleryIndex?'active':'')+'" data-action="gal-jump" data-idx="'+i+'"><img src="'+esc(u)+'" alt="" loading="lazy" onerror="this.style.opacity=.3"></div>'; }).join('');
   var active = thumbs.querySelector('.gal-thumb.active');
-  if(active && active.scrollIntoView) active.scrollIntoView({ behavior:'smooth', block:'nearest', inline:'center' });
+  if(active && active.scrollIntoView) active.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
 }
-function galleryPrev(){ if(galleryIndex > 0){ galleryIndex--; renderGallery(); } }
-function galleryNext(){ if(galleryIndex < galleryImages.length - 1){ galleryIndex++; renderGallery(); } }
-function galleryJump(i){ galleryIndex = i; renderGallery(); }
+function galleryPrev(){ if(galleryIndex>0){ galleryIndex--; renderGallery(); } }
+function galleryNext(){ if(galleryIndex<galleryImages.length-1){ galleryIndex++; renderGallery(); } }
+function galleryJump(i){ galleryIndex=i; renderGallery(); }
 
-/* ═══════════════════════════════════════════════════════════
-   ADMIN — Login, Dashboard, Editor, Upload
-   ═══════════════════════════════════════════════════════════ */
 function openLogin(){ $('loginModal').classList.add('open'); }
-function closeLogin(){
-  $('loginModal').classList.remove('open');
-  var e = $('loginError'); if(e) e.textContent = '';
-}
+function closeLogin(){ $('loginModal').classList.remove('open'); var e=$('loginError'); if(e) e.textContent=''; }
 function login(){
-  var errEl = $('loginError'); errEl.textContent = '';
-  var email = $('loginEmail').value.trim();
-  var pass = $('loginPassword').value;
-  if(!email || !pass){ errEl.textContent = 'Vui lòng nhập email và mật khẩu.'; return Promise.resolve(); }
-  if(!sb){ errEl.textContent = 'Chưa cấu hình Supabase.'; return Promise.resolve(); }
-  return sb.auth.signInWithPassword({ email: email, password: pass }).then(function(res){
+  var errEl=$('loginError'); errEl.textContent='';
+  var email=$('loginEmail').value.trim(), pass=$('loginPassword').value;
+  if(!email||!pass){ errEl.textContent='Vui lòng nhập email và mật khẩu.'; return Promise.resolve(); }
+  if(!sb){ errEl.textContent='Chưa cấu hình Supabase.'; return Promise.resolve(); }
+  return sb.auth.signInWithPassword({email:email, password:pass}).then(function(res){
     if(res.error){ errEl.textContent = res.error.message || 'Đăng nhập thất bại.'; return; }
     var u = res.data && res.data.user;
-    if(!u || u.email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()){
-      return sb.auth.signOut().then(function(){ errEl.textContent = 'Tài khoản này không có quyền quản trị.'; });
-    }
-    $('loginPassword').value = '';
-    try{ sessionStorage.setItem('bhd_admin','1'); }catch(x){}
+    if(!u || u.email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) return sb.auth.signOut().then(function(){ errEl.textContent='Tài khoản này không có quyền quản trị.'; });
+    $('loginPassword').value=''; try{ sessionStorage.setItem('bhd_admin','1'); }catch(x){}
     closeLogin();
     return loadRemote().then(function(){ openDashboard(); showTab('overview'); });
   }).catch(function(e){ errEl.textContent = e.message; });
 }
 function logout(){
   var p = sb ? sb.auth.signOut().catch(function(){}) : Promise.resolve();
-  return p.then(function(){
-    try{ sessionStorage.removeItem('bhd_admin'); }catch(x){}
-    closeDashboard();
-  });
+  return p.then(function(){ try{ sessionStorage.removeItem('bhd_admin'); }catch(x){} closeDashboard(); });
 }
-function openDashboard(){
-  $('dashboard').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  renderDash('overview');
-  setSyncStatus();
-}
-function closeDashboard(){
-  $('dashboard').classList.remove('open');
-  document.body.style.overflow = '';
-  renderAll();
-}
-function setSyncStatus(){
-  var e = $('syncStatus'); if(!e) return;
-  if(!sb){ e.textContent = 'Chưa cấu hình Supabase'; return; }
-  e.textContent = remoteLoaded ? '● Supabase đã kết nối' : 'Không đồng bộ được';
-}
+function openDashboard(){ $('dashboard').classList.add('open'); document.body.style.overflow='hidden'; renderDash('overview'); setSyncStatus(); }
+function closeDashboard(){ $('dashboard').classList.remove('open'); document.body.style.overflow=''; renderAll(); }
+function setSyncStatus(){ var e=$('syncStatus'); if(!e) return; if(!sb){ e.textContent='Chưa cấu hình Supabase'; return; } e.textContent = remoteLoaded ? '● Supabase đã kết nối' : 'Không đồng bộ được'; }
 function showTab(tab){
   document.querySelectorAll('.side button[data-tab]').forEach(function(b){ b.classList.toggle('active', b.dataset.tab === tab); });
-  var titles = { overview:'Tổng quan', timeline:'Hành trình', work:'Work & Research', posts:'Blog / Ghi chép', achievements:'Thành tích', learning:'Trọng tâm', goals:'Mục tiêu', settings:'Cấu hình Tiêu đề', profile:'Hồ sơ & Liên kết' };
+  var titles = {overview:'Tổng quan',timeline:'Hành trình',work:'Work & Research',posts:'Blog / Ghi chép',achievements:'Thành tích',learning:'Trọng tâm',goals:'Mục tiêu',settings:'Cấu hình Tiêu đề',profile:'Hồ sơ & Liên kết'};
   $('dashTitle').textContent = titles[tab] || 'Quản trị';
   renderDash(tab);
 }
-
 function renderDash(tab){
   var c = $('dashContent');
   if(tab === 'overview'){
-    c.innerHTML = '<div class="dash-grid">'
-      + '<div class="dash-stat"><b>' + data.timeline.length + '</b><div>Mốc hành trình</div></div>'
-      + '<div class="dash-stat"><b>' + data.posts.length + '</b><div>Bài viết</div></div>'
-      + '<div class="dash-stat"><b>' + data.achievements.length + '</b><div>Thành tích</div></div>'
-      + '<div class="dash-stat"><b>' + countActiveSocial() + '</b><div>Kênh liên hệ</div></div>'
-      + '</div>'
-      + '<div class="dash-panel"><h2>Không gian của bạn</h2>'
-      + '<p style="color:var(--tx-3);font-size:14.5px;margin:12px 0 24px;font-weight:300">Nội dung dài tự động rút gọn 3 dòng ở trang chủ. Bấm vào thẻ để mở Khung Đọc toàn văn. <strong style="color:var(--jade-300)">Mẹo:</strong> Kéo hàng bằng biểu tượng ⋮⋮ để sắp xếp.</p>'
-      + '<div class="actions">'
-      + '<button class="primary" data-action="goto-tab" data-tab="profile">✎ Sửa Hồ sơ & Liên kết</button>'
-      + '<button class="primary" data-action="goto-tab" data-tab="timeline">+ Thêm Hành trình</button>'
-      + '<button class="ghost" data-action="goto-tab" data-tab="posts">+ Viết Bài</button>'
-      + '<button class="ghost" data-action="goto-tab" data-tab="achievements">+ Thành tích</button>'
-      + '</div></div>';
-  }
-  else if(tab === 'timeline') renderListEditor(c,'timeline','Hành trình');
-  else if(tab === 'work') renderListEditor(c,'work','Work & Research');
-  else if(tab === 'posts') renderListEditor(c,'posts','Blog / Ghi chép');
-  else if(tab === 'achievements') renderListEditor(c,'achievements','Thành tích');
-  else if(tab === 'learning') renderListEditor(c,'learning','Trọng tâm phát triển');
-  else if(tab === 'goals') renderListEditor(c,'goals','Mục tiêu');
-  else if(tab === 'profile') renderProfile(c);
-  else if(tab === 'settings') renderSettings(c);
+    c.innerHTML = '<div class="dash-grid"><div class="dash-stat"><b>'+data.timeline.length+'</b><div>Mốc hành trình</div></div><div class="dash-stat"><b>'+data.posts.length+'</b><div>Bài viết</div></div><div class="dash-stat"><b>'+data.achievements.length+'</b><div>Thành tích</div></div><div class="dash-stat"><b>'+countActiveSocial()+'</b><div>Kênh liên hệ</div></div></div><div class="dash-panel"><h2>Không gian của bạn</h2><p style="color:var(--tx-3);font-size:14.5px;margin:12px 0 24px;font-weight:300">Nội dung dài tự động rút gọn 3 dòng ở trang chủ. <strong style="color:var(--jade-300)">Mẹo:</strong> Kéo hàng bằng ⋮⋮ để sắp xếp.</p><div class="actions"><button class="primary" data-action="goto-tab" data-tab="profile">✎ Sửa Hồ sơ & Liên kết</button><button class="primary" data-action="goto-tab" data-tab="timeline">+ Thêm Hành trình</button><button class="ghost" data-action="goto-tab" data-tab="posts">+ Viết Bài</button><button class="ghost" data-action="goto-tab" data-tab="achievements">+ Thành tích</button></div></div>';
+  } else if(tab==='timeline') renderListEditor(c,'timeline','Hành trình');
+  else if(tab==='work') renderListEditor(c,'work','Work & Research');
+  else if(tab==='posts') renderListEditor(c,'posts','Blog / Ghi chép');
+  else if(tab==='achievements') renderListEditor(c,'achievements','Thành tích');
+  else if(tab==='learning') renderListEditor(c,'learning','Trọng tâm phát triển');
+  else if(tab==='goals') renderListEditor(c,'goals','Mục tiêu');
+  else if(tab==='profile') renderProfile(c);
+  else if(tab==='settings') renderSettings(c);
 }
-
-function countActiveSocial(){
-  var n = 0;
-  if(data.profile.email) n++;
-  if(data.profile.phone) n++;
-  SOCIAL_CHANNELS.forEach(function(ch){ if(data.profile[ch.key]) n++; });
-  return n;
-}
+function countActiveSocial(){ var n=0; if(data.profile.email) n++; if(data.profile.phone) n++; SOCIAL_CHANNELS.forEach(function(ch){ if(data.profile[ch.key]) n++; }); return n; }
 
 function renderListEditor(c, key, label){
   var arr = data[key] || [];
   var draggable = key !== 'goals';
-  c.innerHTML = '<div class="dash-panel" style="margin-top:0">'
-    + '<div style="display:flex;justify-content:space-between;gap:15px;align-items:center;flex-wrap:wrap">'
-    + '<div><h2 style="margin:0">' + esc(label) + '</h2>'
-    + '<p style="color:var(--tx-3);font-size:14px;margin-top:6px;font-weight:300">' + (draggable ? 'Kéo hàng bằng ⋮⋮ để đổi thứ tự. ' : '') + 'Bấm ✎ Sửa để chỉnh.</p></div>'
-    + '<button class="primary" data-action="new-item" data-key="' + key + '">＋ Thêm mới</button>'
-    + '</div>'
-    + '<div style="margin-top:20px" data-sortable="' + key + '">'
-    + (arr.length ? arr.map(function(x, i){ return renderListRow(x, i, key, draggable); }).join('') : '<div class="empty">Chưa có nội dung.</div>')
-    + '</div></div>';
+  c.innerHTML = '<div class="dash-panel" style="margin-top:0"><div style="display:flex;justify-content:space-between;gap:15px;align-items:center;flex-wrap:wrap"><div><h2 style="margin:0">'+esc(label)+'</h2><p style="color:var(--tx-3);font-size:14px;margin-top:6px;font-weight:300">'+(draggable?'Kéo hàng bằng ⋮⋮ để đổi thứ tự. ':'')+'Bấm ✎ Sửa để chỉnh.</p></div><button class="primary" data-action="new-item" data-key="'+key+'">＋ Thêm mới</button></div><div style="margin-top:20px" data-sortable="'+key+'">'+(arr.length?arr.map(function(x,i){return renderListRow(x,i,key,draggable);}).join(''):'<div class="empty">Chưa có nội dung.</div>')+'</div></div>';
   if(draggable) bindRowDrag();
 }
-
 function renderListRow(x, i, key, draggable){
-  var imgs = getImages(x);
-  var count = imgs.length;
-  var thumb;
-  if(count){
-    thumb = '<div class="thumb-wrap"><img class="thumb" src="' + esc(imgs[0]) + '" alt="" data-action="open-gallery" data-coll="' + esc(key) + '" data-id="' + esc(x.id) + '" data-idx="0" onerror="this.style.opacity=.3">'
-      + (count > 1 ? '<div class="thumb-count">+' + (count - 1) + '</div>' : '') + '</div>';
-  } else {
-    thumb = '<div class="thumb"></div>';
-  }
+  var imgs = getImages(x); var count = imgs.length;
+  var thumb = count ? '<div class="thumb-wrap"><img class="thumb" src="'+esc(imgs[0])+'" alt="" data-action="open-gallery" data-coll="'+esc(key)+'" data-id="'+esc(x.id)+'" data-idx="0" onerror="this.style.opacity=.3">'+(count>1?'<div class="thumb-count">+'+(count-1)+'</div>':'')+'</div>' : '<div class="thumb"></div>';
   var handle = draggable ? '<div class="drag-handle" title="Kéo để sắp xếp">⋮⋮</div>' : '<div></div>';
-  return '<div class="list-row" ' + (draggable ? 'draggable="true"' : '') + ' data-key="' + esc(key) + '" data-index="' + i + '" data-id="' + esc(x.id) + '">'
-    + handle + thumb
-    + '<div><strong style="font-size:15px;color:var(--tx-1)">' + esc(x.title || x.name || x.text || 'Không có tiêu đề') + '</strong>'
-    + '<div style="color:var(--tx-3);font-size:12.5px;margin-top:4px">' + esc(x.date || x.status || x.type || '') + (count > 1 ? ' · ' + count + ' ảnh' : '') + '</div></div>'
-    + '<div class="row-actions">'
-    + '<button class="smallbtn" data-action="edit-item" data-key="' + key + '" data-index="' + i + '">✎ Sửa</button>'
-    + '<button class="smallbtn danger" data-action="delete-item" data-key="' + key + '" data-index="' + i + '">Xóa</button>'
-    + '</div></div>';
+  return '<div class="list-row" '+(draggable?'draggable="true"':'')+' data-key="'+esc(key)+'" data-index="'+i+'" data-id="'+esc(x.id)+'">'+handle+thumb+'<div><strong style="font-size:15px;color:var(--tx-1)">'+esc(x.title||x.name||x.text||'Không có tiêu đề')+'</strong><div style="color:var(--tx-3);font-size:12.5px;margin-top:4px">'+esc(x.date||x.status||x.type||'')+(count>1?' · '+count+' ảnh':'')+'</div></div><div class="row-actions"><button class="smallbtn" data-action="edit-item" data-key="'+key+'" data-index="'+i+'">✎ Sửa</button><button class="smallbtn danger" data-action="delete-item" data-key="'+key+'" data-index="'+i+'">Xóa</button></div></div>';
 }
-
 function bindRowDrag(){
-  var container = document.querySelector('[data-sortable]');
-  if(!container) return;
+  var container = document.querySelector('[data-sortable]'); if(!container) return;
   var rows = container.querySelectorAll('.list-row[draggable="true"]');
   rows.forEach(function(row){
-    row.addEventListener('dragstart', function(e){
-      dragSrcRow = row; row.classList.add('dragging');
-      try{ e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', row.dataset.id); }catch(x){}
-    });
-    row.addEventListener('dragend', function(){
-      row.classList.remove('dragging');
-      rows.forEach(function(r){ r.classList.remove('drag-over'); });
-      dragSrcRow = null;
-    });
-    row.addEventListener('dragover', function(e){
-      e.preventDefault();
-      if(!dragSrcRow || dragSrcRow === row) return;
-      row.classList.add('drag-over');
-    });
+    row.addEventListener('dragstart', function(e){ dragSrcRow=row; row.classList.add('dragging'); try{ e.dataTransfer.effectAllowed='move'; e.dataTransfer.setData('text/plain', row.dataset.id); }catch(x){} });
+    row.addEventListener('dragend', function(){ row.classList.remove('dragging'); rows.forEach(function(r){ r.classList.remove('drag-over'); }); dragSrcRow=null; });
+    row.addEventListener('dragover', function(e){ e.preventDefault(); if(!dragSrcRow || dragSrcRow===row) return; row.classList.add('drag-over'); });
     row.addEventListener('dragleave', function(){ row.classList.remove('drag-over'); });
     row.addEventListener('drop', function(e){
       e.preventDefault(); row.classList.remove('drag-over');
-      if(!dragSrcRow || dragSrcRow === row) return;
+      if(!dragSrcRow || dragSrcRow===row) return;
       var key = row.dataset.key;
-      var fromIdx = Number(dragSrcRow.dataset.index);
-      var toIdx = Number(row.dataset.index);
-      if(isNaN(fromIdx) || isNaN(toIdx) || fromIdx === toIdx) return;
-      var arr = data[key].slice();
-      var moved = arr.splice(fromIdx, 1)[0];
-      arr.splice(toIdx, 0, moved);
-      data[key] = arr;
+      var fromIdx = Number(dragSrcRow.dataset.index), toIdx = Number(row.dataset.index);
+      if(isNaN(fromIdx) || isNaN(toIdx) || fromIdx===toIdx) return;
+      var arr = data[key].slice(); var moved = arr.splice(fromIdx,1)[0]; arr.splice(toIdx,0,moved); data[key] = arr;
       save().then(function(){ renderDash(key); });
     });
   });
 }
 
 var FIELD_CONFIG = {
-  timeline: [['date','Ngày / Năm'],['title','Tiêu đề'],['type','Loại (Công việc/Học tập)'],['text','Nội dung chi tiết'],['images','Hình ảnh']],
-  work: [['date','Thời gian'],['title','Tiêu đề'],['meta','Thông tin / Loại công việc'],['text','Nội dung chi tiết'],['images','Hình ảnh'],['link','Link minh chứng gốc']],
-  posts: [['date','Ngày'],['title','Tiêu đề'],['type','Phân loại'],['excerpt','Tóm tắt'],['content','Nội dung chi tiết'],['images','Hình ảnh'],['link','Link nguồn']],
-  achievements: [['date','Ngày'],['title','Tên thành tích'],['text','Mô tả chi tiết'],['images','Hình ảnh chứng nhận'],['featured','Nổi bật (true / false)'],['link','Link minh chứng (URL)']],
-  learning: [['name','Tên kỹ năng / Trọng tâm'],['status','Trạng thái'],['note','Ghi chú chi tiết'],['images','Ảnh minh họa']],
+  timeline: [['date','Ngày / Năm'],['title','Tiêu đề'],['type','Loại'],['text','Nội dung chi tiết'],['images','Hình ảnh']],
+  work: [['date','Thời gian'],['title','Tiêu đề'],['meta','Thông tin'],['text','Nội dung chi tiết'],['images','Hình ảnh'],['link','Link minh chứng']],
+  posts: [['date','Ngày'],['title','Tiêu đề'],['type','Phân loại'],['excerpt','Tóm tắt'],['content','Nội dung'],['images','Hình ảnh'],['link','Link nguồn']],
+  achievements: [['date','Ngày'],['title','Tên thành tích'],['text','Mô tả'],['images','Hình ảnh'],['featured','Nổi bật (true/false)'],['link','Link minh chứng']],
+  learning: [['name','Tên kỹ năng'],['status','Trạng thái'],['note','Ghi chú'],['images','Ảnh minh họa']],
   goals: [['text','Mục tiêu'],['status','Trạng thái']]
 };
-
 function renderField(f, l, x){
-  if(f === 'images') return renderImageUploader(x.images || [], 'images');
+  if(f === 'images') return renderImageUploader(x.images||[], 'images');
   var val = x[f] == null ? '' : x[f];
   var isArea = ['text','content','excerpt','note'].indexOf(f) !== -1;
-  var input = isArea
-    ? '<textarea id="f_' + f + '">' + esc(val) + '</textarea>'
-    : '<input id="f_' + f + '" value="' + esc(val) + '">';
-  return '<div class="field"><label>' + esc(l) + '</label>' + input + '</div>';
+  var input = isArea ? '<textarea id="f_'+f+'">'+esc(val)+'</textarea>' : '<input id="f_'+f+'" value="'+esc(val)+'">';
+  return '<div class="field"><label>'+esc(l)+'</label>'+input+'</div>';
 }
-
 function renderImageUploader(images, fieldId){
   var arr = Array.isArray(images) ? images : [];
-  var tiles = arr.map(function(u, i){
-    return '<div class="img-tile" draggable="true" data-idx="' + i + '" data-url="' + esc(u) + '">'
-      + '<img src="' + esc(u) + '" alt="" loading="lazy" onerror="this.style.opacity=.3">'
-      + '<div class="img-tile-num">' + (i + 1) + '</div>'
-      + '<button type="button" class="img-tile-del" data-action="img-del" data-field="' + fieldId + '" data-idx="' + i + '" title="Xóa ảnh">×</button>'
-      + '</div>';
-  }).join('');
-  return '<div class="field">'
-    + '<label>Hình ảnh <span style="color:var(--tx-4);font-weight:500;text-transform:none;letter-spacing:0">(chọn file, kéo thả file, hoặc dán URL)</span></label>'
-    + '<div class="img-uploader" data-uploader="' + fieldId + '">'
-    + '<div class="img-uploader-grid" data-grid="' + fieldId + '">' + tiles + '</div>'
-    + '<div class="img-actions">'
-    + '<label class="img-btn">📁 Chọn ảnh từ máy<input type="file" accept="image/*" multiple data-action="upload-multi" data-field="' + fieldId + '"></label>'
-    + '<input type="text" class="img-url-input" placeholder="Dán URL ảnh rồi Enter" data-action="url-input" data-field="' + fieldId + '">'
-    + '</div>'
-    + '<div class="img-hint">💡 Kéo thả các ô ảnh để đổi thứ tự. Ảnh đầu tiên là ảnh đại diện trên thẻ.</div>'
-    + '</div></div>';
+  var tiles = arr.map(function(u,i){ return '<div class="img-tile" draggable="true" data-idx="'+i+'" data-url="'+esc(u)+'"><img src="'+esc(u)+'" alt="" loading="lazy" onerror="this.style.opacity=.3"><div class="img-tile-num">'+(i+1)+'</div><button type="button" class="img-tile-del" data-action="img-del" data-field="'+fieldId+'" data-idx="'+i+'" title="Xóa ảnh">×</button></div>'; }).join('');
+  return '<div class="field"><label>Hình ảnh</label><div class="img-uploader" data-uploader="'+fieldId+'"><div class="img-uploader-grid" data-grid="'+fieldId+'">'+tiles+'</div><div class="img-actions"><label class="img-btn">📁 Chọn ảnh từ máy<input type="file" accept="image/*" multiple data-action="upload-multi" data-field="'+fieldId+'"></label><input type="text" class="img-url-input" placeholder="Dán URL ảnh rồi Enter" data-action="url-input" data-field="'+fieldId+'"></div><div class="img-hint">💡 Kéo thả các ô ảnh để đổi thứ tự. Ảnh đầu tiên là ảnh đại diện.</div></div></div>';
 }
-
 function newItem(key){ editForm(key, -1, {}); }
-function editItem(key, i){
-  if(!Array.isArray(data[key]) || !data[key][i]){ toast('Không tìm thấy mục cần sửa'); return; }
-  editForm(key, i, data[key][i]);
-}
+function editItem(key, i){ if(!Array.isArray(data[key]) || !data[key][i]){ toast('Không tìm thấy mục'); return; } editForm(key, i, data[key][i]); }
 function editForm(key, i, x){
   var c = $('dashContent');
   var fields = FIELD_CONFIG[key].map(function(pair){ return renderField(pair[0], pair[1], x); }).join('');
-  c.innerHTML = '<div class="dash-panel" style="margin-top:0">'
-    + '<div style="margin-bottom:26px;border-bottom:1px solid var(--line-1);padding-bottom:20px">'
-    + '<div class="kicker" style="color:var(--jade-400)">EDITOR</div>'
-    + '<h2 style="margin-top:10px">' + (i < 0 ? 'Thêm mới' : 'Chỉnh sửa nội dung') + '</h2>'
-    + '</div>'
-    + '<div class="editor"><div>' + fields + '</div>'
-    + '<div style="background:var(--bg-2);border:1px solid var(--line-2);padding:26px;border-radius:var(--r-sm)">'
-    + '<h3 style="font-size:17px">Gợi ý</h3>'
-    + '<p style="color:var(--tx-3);font-size:13.5px;line-height:1.7;margin-top:10px;font-weight:300">Nội dung dài sẽ rút gọn 3 dòng ở trang chủ, hiển thị đầy đủ khi bấm Đọc toàn văn. Ảnh tải lên Supabase Storage — tối đa 5MB, chỉ nhận JPG/PNG/WebP/GIF.</p>'
-    + '</div></div>'
-    + '<div class="editor-actions">'
-    + '<button class="ghost" data-action="goto-tab" data-tab="' + key + '">Hủy</button>'
-    + '<button class="primary" data-action="save-item" data-key="' + key + '" data-index="' + i + '">Lưu thay đổi</button>'
-    + '</div></div>';
+  c.innerHTML = '<div class="dash-panel" style="margin-top:0"><div style="margin-bottom:26px;border-bottom:1px solid var(--line-1);padding-bottom:20px"><div class="kicker" style="color:var(--jade-400)">EDITOR</div><h2 style="margin-top:10px">'+(i<0?'Thêm mới':'Chỉnh sửa nội dung')+'</h2></div><div class="editor"><div>'+fields+'</div><div style="background:var(--bg-2);border:1px solid var(--line-2);padding:26px;border-radius:var(--r-sm)"><h3 style="font-size:17px">Gợi ý</h3><p style="color:var(--tx-3);font-size:13.5px;line-height:1.7;margin-top:10px;font-weight:300">Nội dung dài sẽ rút gọn 3 dòng ở trang chủ. Ảnh tải lên Supabase Storage — tối đa 5MB.</p></div></div><div class="editor-actions"><button class="ghost" data-action="goto-tab" data-tab="'+key+'">Hủy</button><button class="primary" data-action="save-item" data-key="'+key+'" data-index="'+i+'">Lưu thay đổi</button></div></div>';
   bindTileDrag();
 }
-
 function bindTileDrag(){
   var grids = document.querySelectorAll('.img-uploader-grid');
   grids.forEach(function(grid){
     var tiles = grid.querySelectorAll('.img-tile[draggable="true"]');
     tiles.forEach(function(tile){
-      tile.addEventListener('dragstart', function(e){
-        dragSrcTile = tile; dragTileField = grid.dataset.grid;
-        tile.classList.add('dragging');
-        try{ e.dataTransfer.effectAllowed = 'move'; }catch(x){}
-        e.stopPropagation();
-      });
-      tile.addEventListener('dragend', function(){
-        tile.classList.remove('dragging');
-        dragSrcTile = null; dragTileField = null;
-      });
+      tile.addEventListener('dragstart', function(e){ dragSrcTile=tile; dragTileField=grid.dataset.grid; tile.classList.add('dragging'); try{ e.dataTransfer.effectAllowed='move'; }catch(x){} e.stopPropagation(); });
+      tile.addEventListener('dragend', function(){ tile.classList.remove('dragging'); dragSrcTile=null; dragTileField=null; });
       tile.addEventListener('dragover', function(e){ e.preventDefault(); e.stopPropagation(); });
       tile.addEventListener('drop', function(e){
         e.preventDefault(); e.stopPropagation();
-        if(!dragSrcTile || dragSrcTile === tile || dragTileField !== grid.dataset.grid) return;
-        var fromIdx = Number(dragSrcTile.dataset.idx);
-        var toIdx = Number(tile.dataset.idx);
-        if(isNaN(fromIdx) || isNaN(toIdx) || fromIdx === toIdx) return;
+        if(!dragSrcTile || dragSrcTile===tile || dragTileField!==grid.dataset.grid) return;
+        var fromIdx = Number(dragSrcTile.dataset.idx), toIdx = Number(tile.dataset.idx);
+        if(isNaN(fromIdx) || isNaN(toIdx) || fromIdx===toIdx) return;
         var urls = Array.prototype.slice.call(grid.querySelectorAll('.img-tile')).map(function(t){ return t.dataset.url; });
-        var moved = urls.splice(fromIdx, 1)[0];
-        urls.splice(toIdx, 0, moved);
-        grid.innerHTML = urls.map(function(u, i){
-          return '<div class="img-tile" draggable="true" data-idx="' + i + '" data-url="' + esc(u) + '">'
-            + '<img src="' + esc(u) + '" alt="" loading="lazy" onerror="this.style.opacity=.3">'
-            + '<div class="img-tile-num">' + (i + 1) + '</div>'
-            + '<button type="button" class="img-tile-del" data-action="img-del" data-field="' + grid.dataset.grid + '" data-idx="' + i + '" title="Xóa ảnh">×</button>'
-            + '</div>';
-        }).join('');
+        var moved = urls.splice(fromIdx,1)[0]; urls.splice(toIdx,0,moved);
+        grid.innerHTML = urls.map(function(u,i){ return '<div class="img-tile" draggable="true" data-idx="'+i+'" data-url="'+esc(u)+'"><img src="'+esc(u)+'" alt="" loading="lazy" onerror="this.style.opacity=.3"><div class="img-tile-num">'+(i+1)+'</div><button type="button" class="img-tile-del" data-action="img-del" data-field="'+grid.dataset.grid+'" data-idx="'+i+'" title="Xóa ảnh">×</button></div>'; }).join('');
         bindTileDrag();
       });
     });
   });
 }
-
 function validateImage(file){
-  if(ALLOWED_IMAGE_TYPES.indexOf(file.type) === -1){ alert('Chỉ nhận ảnh JPG, PNG, WebP, GIF.'); return false; }
-  if(file.size > MAX_UPLOAD_BYTES){ alert('Ảnh vượt quá 5MB. Vui lòng nén lại.'); return false; }
+  if(ALLOWED_IMAGE_TYPES.indexOf(file.type)===-1){ alert('Chỉ nhận ảnh JPG, PNG, WebP, GIF.'); return false; }
+  if(file.size > MAX_UPLOAD_BYTES){ alert('Ảnh vượt quá 5MB.'); return false; }
   return true;
 }
 function uploadToSupabase(file){
   var safeName = file.name.toLowerCase().replace(/[^a-z0-9._-]+/g,'-').slice(-80);
-  var path = 'portfolio/' + Date.now() + '-' + Math.random().toString(36).slice(2, 10) + '-' + safeName;
-  return sb.storage.from('portfolio-images').upload(path, file, { upsert: false, contentType: file.type })
-    .then(function(res){
-      if(res.error) throw res.error;
-      var pub = sb.storage.from('portfolio-images').getPublicUrl(path);
-      return pub.data.publicUrl;
-    });
-}
-function fileToDataUrl(file){
-  return new Promise(function(res, rej){
-    var r = new FileReader();
-    r.onload = function(){ res(r.result); };
-    r.onerror = rej;
-    r.readAsDataURL(file);
+  var path = 'portfolio/'+Date.now()+'-'+Math.random().toString(36).slice(2,10)+'-'+safeName;
+  return sb.storage.from('portfolio-images').upload(path, file, {upsert:false, contentType:file.type}).then(function(res){
+    if(res.error) throw res.error;
+    return sb.storage.from('portfolio-images').getPublicUrl(path).data.publicUrl;
   });
 }
-function uploadSingleFile(file){
-  if(sb) return uploadToSupabase(file);
-  return fileToDataUrl(file);
-}
+function fileToDataUrl(file){ return new Promise(function(res, rej){ var r=new FileReader(); r.onload=function(){res(r.result);}; r.onerror=rej; r.readAsDataURL(file); }); }
+function uploadSingleFile(file){ if(sb) return uploadToSupabase(file); return fileToDataUrl(file); }
 function handleUploadMulti(input, fieldId){
-  var files = Array.prototype.slice.call(input.files || []);
-  if(!files.length) return Promise.resolve();
-  var valid = files.filter(validateImage);
-  if(!valid.length){ input.value = ''; return Promise.resolve(); }
-  var grid = document.querySelector('.img-uploader-grid[data-grid="' + fieldId + '"]');
-  if(!grid) return Promise.resolve();
+  var files = Array.prototype.slice.call(input.files || []); if(!files.length) return Promise.resolve();
+  var valid = files.filter(validateImage); if(!valid.length){ input.value=''; return Promise.resolve(); }
+  var grid = document.querySelector('.img-uploader-grid[data-grid="'+fieldId+'"]'); if(!grid) return Promise.resolve();
   var existing = Array.prototype.slice.call(grid.querySelectorAll('.img-tile')).map(function(t){ return t.dataset.url; });
-  toast('Đang tải ' + valid.length + ' ảnh...');
+  toast('Đang tải '+valid.length+' ảnh...');
   return valid.reduce(function(chain, file){
-    return chain.then(function(urls){
-      return uploadSingleFile(file).then(function(url){ urls.push(url); return urls; })
-        .catch(function(e){ alert('Không tải được ảnh: ' + e.message); return urls; });
-    });
+    return chain.then(function(urls){ return uploadSingleFile(file).then(function(url){ urls.push(url); return urls; }).catch(function(e){ alert('Không tải được ảnh: '+e.message); return urls; }); });
   }, Promise.resolve(existing.slice())).then(function(allUrls){
-    grid.innerHTML = allUrls.map(function(u, i){
-      return '<div class="img-tile" draggable="true" data-idx="' + i + '" data-url="' + esc(u) + '">'
-        + '<img src="' + esc(u) + '" alt="" loading="lazy" onerror="this.style.opacity=.3">'
-        + '<div class="img-tile-num">' + (i + 1) + '</div>'
-        + '<button type="button" class="img-tile-del" data-action="img-del" data-field="' + fieldId + '" data-idx="' + i + '" title="Xóa ảnh">×</button>'
-        + '</div>';
-    }).join('');
-    bindTileDrag();
-    toast('Đã thêm ' + valid.length + ' ảnh');
-  }).then(function(){ input.value = ''; }, function(){ input.value = ''; });
+    grid.innerHTML = allUrls.map(function(u,i){ return '<div class="img-tile" draggable="true" data-idx="'+i+'" data-url="'+esc(u)+'"><img src="'+esc(u)+'" alt="" loading="lazy" onerror="this.style.opacity=.3"><div class="img-tile-num">'+(i+1)+'</div><button type="button" class="img-tile-del" data-action="img-del" data-field="'+fieldId+'" data-idx="'+i+'" title="Xóa ảnh">×</button></div>'; }).join('');
+    bindTileDrag(); toast('Đã thêm '+valid.length+' ảnh');
+  }).then(function(){ input.value=''; }, function(){ input.value=''; });
 }
-
 function saveItem(key, i){
-  var cfg = FIELD_CONFIG[key];
-  if(!cfg){ toast('Loại nội dung không hợp lệ'); return Promise.resolve(); }
+  var cfg = FIELD_CONFIG[key]; if(!cfg){ toast('Loại nội dung không hợp lệ'); return Promise.resolve(); }
   var o = {};
   cfg.forEach(function(pair){
     var f = pair[0];
     if(f === 'images'){
       var grid = document.querySelector('.img-uploader-grid[data-grid="images"]');
-      o.images = grid
-        ? Array.prototype.slice.call(grid.querySelectorAll('.img-tile')).map(function(t){ return t.dataset.url; }).filter(Boolean)
-        : [];
+      o.images = grid ? Array.prototype.slice.call(grid.querySelectorAll('.img-tile')).map(function(t){ return t.dataset.url; }).filter(Boolean) : [];
       return;
     }
-    var el = $('f_' + f);
-    if(el) o[f] = el.value;
+    var el = $('f_'+f); if(el) o[f] = el.value;
   });
   if(key === 'achievements') o.featured = String(o.featured).toLowerCase() === 'true';
-  if(i < 0){
-    o.id = key + '-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
-    data[key].unshift(normalizeItem(o));
-  } else {
-    var old = data[key][i];
-    data[key][i] = normalizeItem(Object.assign({}, old, o, { id: old && old.id ? old.id : (key + '-' + Date.now()) }));
-  }
-  return save().then(function(ok){
-    if(ok !== false) toast('Đã lưu');
-    renderDash(key);
-  });
+  if(i < 0){ o.id = key+'-'+Date.now().toString(36)+Math.random().toString(36).slice(2,6); data[key].unshift(normalizeItem(o)); }
+  else { var old = data[key][i]; data[key][i] = normalizeItem(Object.assign({}, old, o, {id: old && old.id ? old.id : (key+'-'+Date.now())})); }
+  return save().then(function(ok){ if(ok !== false) toast('Đã lưu'); renderDash(key); });
 }
-
 function deleteItem(key, i){
   if(!Array.isArray(data[key]) || !data[key][i]){ toast('Không tìm thấy mục'); return Promise.resolve(); }
   if(!confirm('Xóa nội dung này?')) return Promise.resolve();
-  data[key].splice(i, 1);
+  data[key].splice(i,1);
   return save().then(function(){ renderDash(key); toast('Đã xóa'); });
 }
 
-/* ─── Profile & Settings ──────────────────────────────────── */
 function renderProfile(c){
-  var basicFields = [
-    ['cv_link','Link CV'],['avatar','Ảnh đại diện'],['name','Họ tên'],['title','Chức danh'],
-    ['about_title','Tiêu đề mục 1'],['about_desc','Mô tả mục 1'],['about_h1','Tiêu đề trái'],
-    ['bio','Giới thiệu chung'],['skills','Kỹ năng (cách nhau dấu phẩy)'],
-    ['about_h2','Tiêu đề phải'],['about_text2','Nội dung phải'],['now','Phần NOW']
-  ];
-  var contactFields = [
-    ['email','Email', 'VD: tenban@gmail.com'],
-    ['phone','Số điện thoại', 'VD: 0358297366']
-  ];
+  var basicFields = [['cv_link','Link CV'],['avatar','Ảnh đại diện'],['name','Họ tên'],['title','Chức danh'],['about_title','Tiêu đề mục 1'],['about_desc','Mô tả mục 1'],['about_h1','Tiêu đề trái'],['bio','Giới thiệu chung'],['skills','Kỹ năng (cách nhau dấu phẩy)'],['about_h2','Tiêu đề phải'],['about_text2','Nội dung phải'],['now','Phần NOW']];
+  var contactFields = [['email','Email','VD: tenban@gmail.com'],['phone','Số điện thoại','VD: 0358297366']];
   var basicHtml = basicFields.map(function(pair){
     var f = pair[0], l = pair[1];
     var isArea = ['bio','now','about_desc','about_text2','skills'].indexOf(f) !== -1;
-    var input = isArea
-      ? '<textarea id="p_' + f + '">' + esc(data.profile[f] || '') + '</textarea>'
-      : '<input id="p_' + f + '" value="' + esc(data.profile[f] || '') + '">';
-    return '<div class="field"><label>' + l + '</label>' + input + '</div>';
+    var input = isArea ? '<textarea id="p_'+f+'">'+esc(data.profile[f]||'')+'</textarea>' : '<input id="p_'+f+'" value="'+esc(data.profile[f]||'')+'">';
+    return '<div class="field"><label>'+l+'</label>'+input+'</div>';
   }).join('');
-  var contactHtml = contactFields.map(function(pair){
-    var f = pair[0], l = pair[1], ph = pair[2];
-    return '<div class="field"><label>' + l + '</label><input id="p_' + f + '" value="' + esc(data.profile[f] || '') + '" placeholder="' + esc(ph) + '"></div>';
-  }).join('');
+  var contactHtml = contactFields.map(function(pair){ return '<div class="field"><label>'+pair[1]+'</label><input id="p_'+pair[0]+'" value="'+esc(data.profile[pair[0]]||'')+'" placeholder="'+esc(pair[2])+'"></div>'; }).join('');
   var socialHtml = SOCIAL_CHANNELS.map(function(ch){
     var val = data.profile[ch.key] || '';
     var normalized = val ? normalizeSocialUrl(ch.key, val) : '';
     var hint = '';
-    if(val && !normalized){
-      hint = '<span style="color:#F5A3A3;font-size:11.5px;margin-top:4px">⚠ Không nhận diện được. Nhập URL đầy đủ (https://...)</span>';
-    } else if(normalized){
-      hint = '<span style="color:var(--jade-300);font-size:11.5px;margin-top:4px">✓ Sẽ hiển thị: ' + esc(formatSocialDisplay(ch.key, normalized)) + '</span>';
-    }
-    return '<div class="field" style="margin-bottom:16px">'
-      + '<label style="display:flex;align-items:center;gap:8px">'
-      + '<span style="display:inline-grid;place-items:center;width:20px;height:20px;border-radius:5px;background:' + ch.color + '22;color:' + ch.color + ';font-size:10px;font-weight:800;font-family:var(--sans)">' + esc(ch.icon) + '</span>'
-      + ch.label + '</label>'
-      + '<input id="p_' + ch.key + '" value="' + esc(val) + '" placeholder="' + esc(ch.placeholder) + '">'
-      + hint + '</div>';
+    if(val && !normalized) hint = '<span style="color:#F5A3A3;font-size:11.5px;margin-top:4px">⚠ Không nhận diện được</span>';
+    else if(normalized) hint = '<span style="color:var(--jade-300);font-size:11.5px;margin-top:4px">✓ '+esc(formatSocialDisplay(ch.key, normalized))+'</span>';
+    return '<div class="field" style="margin-bottom:16px"><label style="display:flex;align-items:center;gap:8px"><span style="display:inline-grid;place-items:center;width:20px;height:20px;border-radius:5px;background:'+ch.color+'22;color:'+ch.color+';font-size:10px;font-weight:800">'+esc(ch.icon)+'</span>'+ch.label+'</label><input id="p_'+ch.key+'" value="'+esc(val)+'" placeholder="'+esc(ch.placeholder)+'">'+hint+'</div>';
   }).join('');
   var proofs = '';
-  for(var i = 1; i <= 5; i++){
-    proofs += '<div style="display:grid;grid-template-columns:1fr 1.5fr;gap:16px;margin-bottom:16px">'
-      + '<div class="field"><label>Tên Nút Phụ ' + i + '</label><input id="p_proof' + i + '_name" value="' + esc(data.profile['proof' + i + '_name'] || '') + '"></div>'
-      + '<div class="field"><label>Link Nút ' + i + '</label><input id="p_proof' + i + '_link" value="' + esc(data.profile['proof' + i + '_link'] || '') + '"></div>'
-      + '</div>';
-  }
-  c.innerHTML = '<div class="dash-panel" style="margin-top:0">'
-    + '<h2>Quản lý Hồ sơ & Liên kết</h2>'
-    + '<p style="color:var(--tx-3);font-size:14px;margin:12px 0 28px;font-weight:300">Thông tin cơ bản · Liên hệ · Mạng xã hội · Nút minh chứng. <strong style="color:var(--jade-300)">Kênh nào để trống sẽ tự động ẩn</strong> ở footer.</p>'
-    + '<div style="background:var(--bg-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:24px;margin-bottom:24px">'
-    + '<h3 style="margin:0 0 20px;font-size:15px;color:var(--jade-300);text-transform:uppercase;letter-spacing:.1em">1 · Thông tin cơ bản</h3>'
-    + basicHtml + '</div>'
-    + '<div style="background:var(--bg-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:24px;margin-bottom:24px">'
-    + '<h3 style="margin:0 0 8px;font-size:15px;color:var(--gold-400);text-transform:uppercase;letter-spacing:.1em">2 · Liên hệ trực tiếp</h3>'
-    + '<p style="color:var(--tx-4);font-size:12.5px;margin:0 0 20px;font-weight:300">Sẽ hiển thị đầu danh sách kết nối ở footer. Click để mở mail/gọi điện, có nút sao chép.</p>'
-    + contactHtml + '</div>'
-    + '<div style="background:var(--bg-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:24px;margin-bottom:24px">'
-    + '<h3 style="margin:0 0 8px;font-size:15px;color:var(--jade-300);text-transform:uppercase;letter-spacing:.1em">3 · Mạng xã hội & Website</h3>'
-    + '<p style="color:var(--tx-4);font-size:12.5px;margin:0 0 20px;font-weight:300">Nhập username, số Zalo, hoặc URL đầy đủ. Ô nào trống → tự động ẩn khỏi footer.</p>'
-    + '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px 20px">' + socialHtml + '</div>'
-    + '</div>'
-    + '<div style="background:var(--bg-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:24px;margin-bottom:24px">'
-    + '<h3 style="margin:0 0 8px;font-size:15px;color:var(--jade-300);text-transform:uppercase;letter-spacing:.1em">4 · Nút minh chứng ở Hero</h3>'
-    + '<p style="color:var(--tx-4);font-size:12.5px;margin:0 0 20px;font-weight:300">5 nút tùy chọn hiển thị cạnh nút "Xem/Tải CV".</p>'
-    + proofs + '</div>'
-    + '<button class="primary" style="width:100%;justify-content:center" data-action="save-profile">💾 Lưu toàn bộ hồ sơ</button>'
-    + '</div>';
+  for(var i=1;i<=5;i++){ proofs += '<div style="display:grid;grid-template-columns:1fr 1.5fr;gap:16px;margin-bottom:16px"><div class="field"><label>Tên Nút Phụ '+i+'</label><input id="p_proof'+i+'_name" value="'+esc(data.profile['proof'+i+'_name']||'')+'"></div><div class="field"><label>Link Nút '+i+'</label><input id="p_proof'+i+'_link" value="'+esc(data.profile['proof'+i+'_link']||'')+'"></div></div>'; }
+  c.innerHTML = '<div class="dash-panel" style="margin-top:0"><h2>Quản lý Hồ sơ & Liên kết</h2><p style="color:var(--tx-3);font-size:14px;margin:12px 0 28px;font-weight:300">Kênh nào để trống sẽ tự động ẩn khỏi footer.</p><div style="background:var(--bg-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:24px;margin-bottom:24px"><h3 style="margin:0 0 20px;font-size:15px;color:var(--jade-300);text-transform:uppercase;letter-spacing:.1em">1 · Thông tin cơ bản</h3>'+basicHtml+'</div><div style="background:var(--bg-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:24px;margin-bottom:24px"><h3 style="margin:0 0 8px;font-size:15px;color:var(--gold-400);text-transform:uppercase;letter-spacing:.1em">2 · Liên hệ trực tiếp</h3>'+contactHtml+'</div><div style="background:var(--bg-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:24px;margin-bottom:24px"><h3 style="margin:0 0 8px;font-size:15px;color:var(--jade-300);text-transform:uppercase;letter-spacing:.1em">3 · Mạng xã hội & Website</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:16px 20px">'+socialHtml+'</div></div><div style="background:var(--bg-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:24px;margin-bottom:24px"><h3 style="margin:0 0 8px;font-size:15px;color:var(--jade-300);text-transform:uppercase;letter-spacing:.1em">4 · Nút minh chứng ở Hero</h3>'+proofs+'</div><button class="primary" style="width:100%;justify-content:center" data-action="save-profile">💾 Lưu toàn bộ hồ sơ</button></div>';
 }
-
 function saveProfile(){
   var fields = ['avatar','name','title','about_title','about_desc','about_h1','bio','skills','about_h2','about_text2','now','cv_link','email','phone'];
   SOCIAL_CHANNELS.forEach(function(ch){ fields.push(ch.key); });
-  for(var i = 1; i <= 5; i++){ fields.push('proof' + i + '_name', 'proof' + i + '_link'); }
-  fields.forEach(function(f){
-    var el = $('p_' + f);
-    if(el) data.profile[f] = el.value;
-  });
-  return save().then(function(){
-    toast('Đã cập nhật hồ sơ');
-    renderProfile($('dashContent'));
-  });
+  for(var i=1;i<=5;i++){ fields.push('proof'+i+'_name', 'proof'+i+'_link'); }
+  fields.forEach(function(f){ var el = $('p_'+f); if(el) data.profile[f] = el.value; });
+  return save().then(function(){ toast('Đã cập nhật hồ sơ'); renderProfile($('dashContent')); });
 }
 
 function renderSettings(c){
-  var fields = [
-    {i:'2', label:'Mục 2 (Hành trình)'},
-    {i:'3', label:'Mục 3 (Nghiên cứu & Công việc)'},
-    {i:'4', label:'Mục 4 (Thành tích)'},
-    {i:'5', label:'Mục 5 (Thư viện ảnh)'},
-    {i:'6', label:'Mục 6 (Blog)'},
-    {i:'7', label:'Mục 7 (Trọng tâm)'}
-  ];
-  var html = '<div class="dash-panel" style="margin-top:0"><h2>Cấu hình Tiêu đề</h2>'
-    + '<p style="color:var(--tx-3);font-size:14px;margin:12px 0 24px;font-weight:300">Tùy biến nhãn và tiêu đề chính.</p>';
+  var fields = [{i:'2',label:'Mục 2 (Hành trình)'},{i:'3',label:'Mục 3 (Nghiên cứu & Công việc)'},{i:'4',label:'Mục 4 (Thành tích)'},{i:'5',label:'Mục 5 (Blog)'},{i:'6',label:'Mục 6 (Trọng tâm)'}];
+  var html = '<div class="dash-panel" style="margin-top:0"><h2>Cấu hình Tiêu đề</h2><p style="color:var(--tx-3);font-size:14px;margin:12px 0 24px;font-weight:300">Tùy biến nhãn và tiêu đề.</p>';
   fields.forEach(function(f){
-    html += '<div style="border-top:1px solid var(--line-1);margin-top:24px;padding-top:24px">'
-      + '<h3 style="margin-top:0;font-size:16px;color:var(--jade-300);font-family:var(--serif)">' + f.label + '</h3>'
-      + '<div style="display:grid;grid-template-columns:1fr 2fr;gap:16px;margin-bottom:16px">'
-      + '<div class="field"><label>Thẻ nhỏ</label><input id="p_s' + f.i + '_k" value="' + esc(data.profile['s' + f.i + '_k'] || '') + '"></div>'
-      + '<div class="field"><label>Tiêu đề chính</label><input id="p_s' + f.i + '_t" value="' + esc(data.profile['s' + f.i + '_t'] || '') + '"></div>'
-      + '</div>'
-      + '<div class="field"><label>Mô tả</label><textarea style="min-height:80px" id="p_s' + f.i + '_d">' + esc(data.profile['s' + f.i + '_d'] || '') + '</textarea></div>'
-      + '</div>';
+    html += '<div style="border-top:1px solid var(--line-1);margin-top:24px;padding-top:24px"><h3 style="margin-top:0;font-size:16px;color:var(--jade-300);font-family:var(--serif)">'+f.label+'</h3><div style="display:grid;grid-template-columns:1fr 2fr;gap:16px;margin-bottom:16px"><div class="field"><label>Thẻ nhỏ</label><input id="p_s'+f.i+'_k" value="'+esc(data.profile['s'+f.i+'_k']||'')+'"></div><div class="field"><label>Tiêu đề chính</label><input id="p_s'+f.i+'_t" value="'+esc(data.profile['s'+f.i+'_t']||'')+'"></div></div><div class="field"><label>Mô tả</label><textarea style="min-height:80px" id="p_s'+f.i+'_d">'+esc(data.profile['s'+f.i+'_d']||'')+'</textarea></div></div>';
   });
+  html += '<div style="border-top:1px solid var(--line-1);margin-top:24px;padding-top:24px"><h3 style="margin-top:0;font-size:16px;color:var(--gold-400);font-family:var(--serif)">Album ảnh (không số)</h3><div style="display:grid;grid-template-columns:1fr 2fr;gap:16px;margin-bottom:16px"><div class="field"><label>Thẻ nhỏ</label><input id="p_gallery_k" value="'+esc(data.profile.gallery_k||'Album ảnh')+'"></div><div class="field"><label>Tiêu đề chính</label><input id="p_gallery_t" value="'+esc(data.profile.gallery_t||'Thư viện ảnh')+'"></div></div><div class="field"><label>Mô tả</label><textarea style="min-height:80px" id="p_gallery_d">'+esc(data.profile.gallery_d||'')+'</textarea></div></div>';
   html += '<button class="primary" style="margin-top:24px;width:100%;justify-content:center" data-action="save-settings">Lưu cấu hình</button></div>';
   c.innerHTML = html;
 }
-
 function saveSettings(){
   SECTION_TITLES.forEach(function(i){
-    var k = $('p_s' + i + '_k'), t = $('p_s' + i + '_t'), d = $('p_s' + i + '_d');
-    if(k) data.profile['s' + i + '_k'] = k.value;
-    if(t) data.profile['s' + i + '_t'] = t.value;
-    if(d) data.profile['s' + i + '_d'] = d.value;
+    var k=$('p_s'+i+'_k'), t=$('p_s'+i+'_t'), d=$('p_s'+i+'_d');
+    if(k) data.profile['s'+i+'_k']=k.value;
+    if(t) data.profile['s'+i+'_t']=t.value;
+    if(d) data.profile['s'+i+'_d']=d.value;
   });
+  var gk=$('p_gallery_k'), gt=$('p_gallery_t'), gd=$('p_gallery_d');
+  if(gk) data.profile.gallery_k = gk.value;
+  if(gt) data.profile.gallery_t = gt.value;
+  if(gd) data.profile.gallery_d = gd.value;
   return save().then(function(){ toast('Đã cập nhật tiêu đề'); });
 }
 
-/* ─── Copy & Toast ────────────────────────────────────────── */
 function copyText(text, label){
   if(!text) return;
-  var done = function(){ toast('Đã sao chép ' + (label || 'nội dung')); };
-  if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(text).then(done).catch(function(){ fallbackCopy(text); done(); });
-    return;
-  }
-  fallbackCopy(text);
-  done();
+  var done = function(){ toast('Đã sao chép '+(label||'nội dung')); };
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(done).catch(function(){ fallbackCopy(text); done(); }); return; }
+  fallbackCopy(text); done();
 }
-function fallbackCopy(text){
-  try{
-    var ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-  }catch(e){}
-}
-
+function fallbackCopy(text){ try{ var ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); }catch(e){} }
 var toastTimer;
-function toast(msg){
-  var e = $('toast'); if(!e) return;
-  e.textContent = msg;
-  e.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(function(){ e.classList.remove('show'); }, 2400);
-}
+function toast(msg){ var e=$('toast'); if(!e) return; e.textContent=msg; e.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(function(){ e.classList.remove('show'); }, 2400); }
 
-/* ═══════════════════════════════════════════════════════════
-   EVENT HANDLERS
-   ═══════════════════════════════════════════════════════════ */
 document.addEventListener('keydown', function(e){
-  if(e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')){ e.preventDefault(); openLogin(); return; }
+  if(e.ctrlKey && e.shiftKey && (e.key==='A' || e.key==='a')){ e.preventDefault(); openLogin(); return; }
   if(e.key === 'Escape'){
     var panel = document.getElementById('contactPanel');
     if(panel && panel.classList.contains('open')){ toggleContactPanel(false); return; }
@@ -1917,73 +1238,38 @@ document.addEventListener('keydown', function(e){
   if(t && t.matches && t.matches('[data-action="url-input"]') && e.key === 'Enter'){
     e.preventDefault();
     var val = t.value.trim(); if(!val) return;
-    var safe = safeUrl(val);
-    if(!safe){ alert('URL không hợp lệ. Chỉ nhận http:// hoặc https://.'); return; }
-    var grid = document.querySelector('.img-uploader-grid[data-grid="' + t.dataset.field + '"]');
-    if(!grid) return;
+    var safe = safeUrl(val); if(!safe){ alert('URL không hợp lệ'); return; }
+    var grid = document.querySelector('.img-uploader-grid[data-grid="'+t.dataset.field+'"]'); if(!grid) return;
     var urls = Array.prototype.slice.call(grid.querySelectorAll('.img-tile')).map(function(x){ return x.dataset.url; });
-    if(urls.indexOf(safe) !== -1){ toast('Ảnh này đã có trong danh sách'); t.value = ''; return; }
+    if(urls.indexOf(safe) !== -1){ toast('Ảnh này đã có'); t.value=''; return; }
     urls.push(safe);
-    grid.innerHTML = urls.map(function(u, i){
-      return '<div class="img-tile" draggable="true" data-idx="' + i + '" data-url="' + esc(u) + '">'
-        + '<img src="' + esc(u) + '" alt="" loading="lazy" onerror="this.style.opacity=.3">'
-        + '<div class="img-tile-num">' + (i + 1) + '</div>'
-        + '<button type="button" class="img-tile-del" data-action="img-del" data-field="' + t.dataset.field + '" data-idx="' + i + '" title="Xóa ảnh">×</button>'
-        + '</div>';
-    }).join('');
-    bindTileDrag();
-    t.value = '';
-    toast('Đã thêm ảnh từ URL');
+    grid.innerHTML = urls.map(function(u,i){ return '<div class="img-tile" draggable="true" data-idx="'+i+'" data-url="'+esc(u)+'"><img src="'+esc(u)+'" alt="" loading="lazy" onerror="this.style.opacity=.3"><div class="img-tile-num">'+(i+1)+'</div><button type="button" class="img-tile-del" data-action="img-del" data-field="'+t.dataset.field+'" data-idx="'+i+'">×</button></div>'; }).join('');
+    bindTileDrag(); t.value=''; toast('Đã thêm ảnh từ URL');
   }
 });
 
 document.addEventListener('click', function(e){
   var t = e.target.closest('[data-action]');
   if(!t){
-    var panel2 = document.getElementById('contactPanel');
-    if(panel2 && panel2.classList.contains('open') && !e.target.closest('#contactPanel') && !e.target.closest('#contactFab')){
-      toggleContactPanel(false);
-    }
+    var panel = document.getElementById('contactPanel');
+    if(panel && panel.classList.contains('open') && !e.target.closest('#contactPanel') && !e.target.closest('#contactFab')) toggleContactPanel(false);
     return;
   }
   var action = t.dataset.action;
-
   if(action === 'toggle-contact'){ e.preventDefault(); toggleContactPanel(); return; }
   if(action === 'close-contact'){ e.preventDefault(); toggleContactPanel(false); return; }
-
-  if(action === 'copy-contact'){
-    e.preventDefault(); e.stopPropagation();
-    copyText(t.dataset.copyText, t.getAttribute('title') || 'nội dung');
-    return;
-  }
-  if(action === 'open-gallery'){
-    e.stopPropagation();
-    openGallery(t.dataset.coll, t.dataset.id, t.dataset.idx);
-    return;
-  }
-  if(action === 'open-library'){
-    e.stopPropagation();
-    openLibraryGallery(Number(t.dataset.idx) || 0);
-    return;
-  }
+  if(action === 'copy-contact'){ e.preventDefault(); e.stopPropagation(); copyText(t.dataset.copyText, t.getAttribute('title') || 'nội dung'); return; }
+  if(action === 'open-gallery'){ e.stopPropagation(); openGallery(t.dataset.coll, t.dataset.id, t.dataset.idx); return; }
+  if(action === 'open-library'){ e.stopPropagation(); openLibraryGallery(Number(t.dataset.idx) || 0); return; }
   if(action === 'img-del'){
     e.stopPropagation();
-    var grid = document.querySelector('.img-uploader-grid[data-grid="' + t.dataset.field + '"]');
-    if(!grid) return;
+    var grid = document.querySelector('.img-uploader-grid[data-grid="'+t.dataset.field+'"]'); if(!grid) return;
     var tiles = Array.prototype.slice.call(grid.querySelectorAll('.img-tile'));
     var delIdx = Number(t.dataset.idx);
     var urls = tiles.map(function(x){ return x.dataset.url; }).filter(function(_, i){ return i !== delIdx; });
-    grid.innerHTML = urls.map(function(u, i){
-      return '<div class="img-tile" draggable="true" data-idx="' + i + '" data-url="' + esc(u) + '">'
-        + '<img src="' + esc(u) + '" alt="" loading="lazy" onerror="this.style.opacity=.3">'
-        + '<div class="img-tile-num">' + (i + 1) + '</div>'
-        + '<button type="button" class="img-tile-del" data-action="img-del" data-field="' + t.dataset.field + '" data-idx="' + i + '" title="Xóa ảnh">×</button>'
-        + '</div>';
-    }).join('');
-    bindTileDrag();
-    return;
+    grid.innerHTML = urls.map(function(u,i){ return '<div class="img-tile" draggable="true" data-idx="'+i+'" data-url="'+esc(u)+'"><img src="'+esc(u)+'" alt="" loading="lazy" onerror="this.style.opacity=.3"><div class="img-tile-num">'+(i+1)+'</div><button type="button" class="img-tile-del" data-action="img-del" data-field="'+t.dataset.field+'" data-idx="'+i+'">×</button></div>'; }).join('');
+    bindTileDrag(); return;
   }
-
   switch(action){
     case 'open-reader': openReader(t.dataset.collection, t.dataset.id); break;
     case 'open-image': e.stopPropagation(); openImage(t.dataset.src); break;
@@ -2012,212 +1298,72 @@ document.addEventListener('click', function(e){
   }
 });
 
-document.querySelectorAll('.side button[data-tab]').forEach(function(btn){
-  btn.addEventListener('click', function(){ showTab(btn.dataset.tab); });
-});
-
+document.querySelectorAll('.side button[data-tab]').forEach(function(btn){ btn.addEventListener('click', function(){ showTab(btn.dataset.tab); }); });
 var pf = $('postFilters');
-if(pf) pf.addEventListener('click', function(e){
-  var b = e.target.closest('.filter'); if(!b) return;
-  currentFilter = b.dataset.filter;
-  document.querySelectorAll('#postFilters .filter').forEach(function(x){ x.classList.toggle('active', x === b); });
-  renderPosts();
-});
-
-document.addEventListener('change', function(e){
-  var input = e.target;
-  if(input.matches('input[type=file][data-action="upload-multi"]')){
-    handleUploadMulti(input, input.dataset.field);
-  }
-});
-
-window.addEventListener('scroll', function(){
-  var h = $('siteHeader'); if(!h) return;
-  h.classList.toggle('scrolled', window.scrollY > 20);
-}, { passive: true });
-
+if(pf) pf.addEventListener('click', function(e){ var b = e.target.closest('.filter'); if(!b) return; currentFilter = b.dataset.filter; document.querySelectorAll('#postFilters .filter').forEach(function(x){ x.classList.toggle('active', x === b); }); renderPosts(); });
+document.addEventListener('change', function(e){ var input = e.target; if(input.matches('input[type=file][data-action="upload-multi"]')) handleUploadMulti(input, input.dataset.field); });
+window.addEventListener('scroll', function(){ var h = $('siteHeader'); if(!h) return; h.classList.toggle('scrolled', window.scrollY > 20); }, {passive:true});
 if(location.hash === '#admin') setTimeout(openLogin, 300);
 
-/* ═══════════════════════════════════════════════════════════
-   MOTION ENHANCEMENTS
-   ═══════════════════════════════════════════════════════════ */
-(function initScrollProgress(){
-  var bar = document.getElementById('scrollProgress');
-  if(!bar) return;
-  var ticking = false;
-  function update(){
-    var h = document.documentElement.scrollHeight - window.innerHeight;
-    var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
-    bar.style.width = Math.min(100, Math.max(0, pct)) + '%';
-    ticking = false;
-  }
-  window.addEventListener('scroll', function(){
-    if(!ticking){ requestAnimationFrame(update); ticking = true; }
-  }, { passive: true });
-  window.addEventListener('resize', update, { passive: true });
-  update();
-})();
-
+/* MOTION */
+(function initScrollProgress(){ var bar=document.getElementById('scrollProgress'); if(!bar) return; var ticking=false; function update(){ var h=document.documentElement.scrollHeight-window.innerHeight; var pct=h>0?(window.scrollY/h)*100:0; bar.style.width=Math.min(100,Math.max(0,pct))+'%'; ticking=false; } window.addEventListener('scroll', function(){ if(!ticking){ requestAnimationFrame(update); ticking=true; } }, {passive:true}); window.addEventListener('resize', update, {passive:true}); update(); })();
 var __revealObserver = null;
 function setupReveal(){
-  if(!('IntersectionObserver' in window)){
-    document.querySelectorAll('.event,.card,.panel,.learn-item,.section-head,.now,.mini-stats,.lib-thumb').forEach(function(el){
-      el.classList.add('reveal-el','in-view');
-    });
-    return;
-  }
-  if(!__revealObserver){
-    __revealObserver = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if(en.isIntersecting){
-          en.target.classList.add('in-view');
-          __revealObserver.unobserve(en.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  }
-  var targets = document.querySelectorAll('.event,.card,.panel,.learn-item,.section-head,.now,.mini-stats,.lib-thumb');
-  targets.forEach(function(el, i){
-    if(el.classList.contains('reveal-el')) return;
-    el.classList.add('reveal-el');
-    var mod = i % 3;
-    if(mod === 1) el.classList.add('delay-1');
-    else if(mod === 2) el.classList.add('delay-2');
-    __revealObserver.observe(el);
-  });
+  if(!('IntersectionObserver' in window)){ document.querySelectorAll('.event,.card,.panel,.learn-item,.section-head,.now,.mini-stats,.lib-thumb').forEach(function(el){ el.classList.add('reveal-el','in-view'); }); return; }
+  if(!__revealObserver){ __revealObserver = new IntersectionObserver(function(entries){ entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in-view'); __revealObserver.unobserve(en.target); } }); }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'}); }
+  document.querySelectorAll('.event,.card,.panel,.learn-item,.section-head,.now,.mini-stats,.lib-thumb').forEach(function(el, i){ if(el.classList.contains('reveal-el')) return; el.classList.add('reveal-el'); var mod=i%3; if(mod===1) el.classList.add('delay-1'); else if(mod===2) el.classList.add('delay-2'); __revealObserver.observe(el); });
 }
-
 function countUp(el, target, duration){
-  if(!el) return;
-  var start = 0, t0 = null;
-  var isNum = /^\d+$/.test(String(target));
-  if(!isNum){ el.textContent = target; return; }
+  if(!el) return; var start=0, t0=null;
+  if(!/^\d+$/.test(String(target))){ el.textContent=target; return; }
   target = Number(target);
-  function step(ts){
-    if(!t0) t0 = ts;
-    var p = Math.min(1, (ts - t0) / duration);
-    var eased = 1 - Math.pow(1 - p, 3);
-    el.textContent = String(Math.floor(start + (target - start) * eased));
-    if(p < 1) requestAnimationFrame(step);
-    else el.textContent = String(target);
-  }
+  function step(ts){ if(!t0) t0=ts; var p=Math.min(1,(ts-t0)/duration); var eased=1-Math.pow(1-p,3); el.textContent=String(Math.floor(start+(target-start)*eased)); if(p<1) requestAnimationFrame(step); else el.textContent=String(target); }
   requestAnimationFrame(step);
 }
 function animateStats(){
-  var stats = document.querySelectorAll('.mini-stats .stat');
-  if(!stats.length) return;
-  stats.forEach(function(st, i){
-    if(st.dataset.animated) return;
-    st.dataset.animated = '1';
-    var b = st.querySelector('b');
-    if(!b) return;
-    var txt = b.textContent.trim();
-    if(txt === '—' || !/^\d+$/.test(txt)) return;
-    b.textContent = '0';
-    setTimeout(function(){
-      countUp(b, Number(txt), 1200);
-      st.classList.add('animated');
-      setTimeout(function(){ st.classList.remove('animated'); }, 700);
-    }, 300 + i * 180);
+  document.querySelectorAll('.mini-stats .stat').forEach(function(st, i){
+    if(st.dataset.animated) return; st.dataset.animated='1';
+    var b = st.querySelector('b'); if(!b) return;
+    var txt = b.textContent.trim(); if(txt==='—' || !/^\d+$/.test(txt)) return;
+    b.textContent='0';
+    setTimeout(function(){ countUp(b, Number(txt), 1200); st.classList.add('animated'); setTimeout(function(){ st.classList.remove('animated'); }, 700); }, 300+i*180);
   });
 }
-
 function enhanceTimeline(){
-  var icons = { 'Học tập':'📚', 'Hoạt động':'🎯', 'Nghiên cứu':'🔬', 'Công việc':'💼', 'Cột mốc':'⭐' };
+  var icons = {'Học tập':'📚','Hoạt động':'🎯','Nghiên cứu':'🔬','Công việc':'💼','Cột mốc':'⭐'};
   document.querySelectorAll('.event .year').forEach(function(y){
-    if(y.dataset.enhanced) return;
-    y.dataset.enhanced = '1';
-    var txt = y.textContent;
-    var icon = '';
+    if(y.dataset.enhanced) return; y.dataset.enhanced='1';
+    var txt = y.textContent, icon = '';
     for(var k in icons){ if(txt.indexOf(k) > -1){ icon = icons[k]; break; } }
-    if(icon && !y.querySelector('.year-icon')){
-      y.insertAdjacentHTML('afterbegin', '<span class="year-icon" aria-hidden="true">' + icon + '</span>');
-    }
+    if(icon && !y.querySelector('.year-icon')) y.insertAdjacentHTML('afterbegin', '<span class="year-icon" aria-hidden="true">'+icon+'</span>');
   });
 }
-
 function enhancePostTags(){
   document.querySelectorAll('#blogGrid .meta').forEach(function(m){
-    if(m.dataset.enhanced) return;
-    m.dataset.enhanced = '1';
+    if(m.dataset.enhanced) return; m.dataset.enhanced='1';
     var t = m.textContent;
-    if(t.indexOf('journey') > -1) m.classList.add('tag-journey');
-    else if(t.indexOf('blog') > -1) m.classList.add('tag-blog');
-    else if(t.indexOf('learning') > -1) m.classList.add('tag-learning');
+    if(t.indexOf('journey')>-1) m.classList.add('tag-journey');
+    else if(t.indexOf('blog')>-1) m.classList.add('tag-blog');
+    else if(t.indexOf('learning')>-1) m.classList.add('tag-learning');
   });
 }
-
 function enhanceSyncStatus(){
-  var el = document.getElementById('syncStatus');
-  if(!el) return;
-  if(el.textContent.indexOf('Đang kết nối') > -1 || el.textContent.indexOf('đang') > -1){
-    el.innerHTML = '<span class="sync-loading">Đang kết nối</span>';
-  }
+  var el = document.getElementById('syncStatus'); if(!el) return;
+  if(el.textContent.indexOf('Đang kết nối')>-1 || el.textContent.indexOf('đang')>-1) el.innerHTML = '<span class="sync-loading">Đang kết nối</span>';
 }
-
-document.addEventListener('pointerdown', function(e){
-  var btn = e.target.closest('.primary');
-  if(!btn) return;
-  var r = btn.getBoundingClientRect();
-  btn.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
-  btn.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
-}, { passive: true });
-
-function runEnhancements(){
-  setupReveal();
-  enhanceTimeline();
-  enhancePostTags();
-  animateStats();
-  enhanceSyncStatus();
-}
-
-(function wrapRenderAll(){
-  if(typeof renderAll !== 'function') return;
-  var orig = renderAll;
-  window.renderAll = function(){
-    orig.apply(this, arguments);
-    if(window.requestAnimationFrame){
-      requestAnimationFrame(runEnhancements);
-    } else {
-      setTimeout(runEnhancements, 50);
-    }
-  };
-})();
-
+document.addEventListener('pointerdown', function(e){ var btn = e.target.closest('.primary'); if(!btn) return; var r = btn.getBoundingClientRect(); btn.style.setProperty('--mx', ((e.clientX-r.left)/r.width*100)+'%'); btn.style.setProperty('--my', ((e.clientY-r.top)/r.height*100)+'%'); }, {passive:true});
+function runEnhancements(){ setupReveal(); enhanceTimeline(); enhancePostTags(); animateStats(); enhanceSyncStatus(); }
+(function wrapRenderAll(){ if(typeof renderAll !== 'function') return; var orig = renderAll; window.renderAll = function(){ orig.apply(this, arguments); if(window.requestAnimationFrame) requestAnimationFrame(runEnhancements); else setTimeout(runEnhancements, 50); }; })();
 setTimeout(runEnhancements, 200);
+(function watchMain(){ if(!('MutationObserver' in window)) return; var main = document.getElementById('main'); if(!main) return; var mo = new MutationObserver(function(){ if(mo._t) clearTimeout(mo._t); mo._t = setTimeout(function(){ setupReveal(); enhanceTimeline(); enhancePostTags(); enhanceSyncStatus(); }, 120); }); mo.observe(main, {childList:true, subtree:true}); })();
 
-(function watchMain(){
-  if(!('MutationObserver' in window)) return;
-  var main = document.getElementById('main');
-  if(!main) return;
-  var mo = new MutationObserver(function(){
-    if(mo._t) clearTimeout(mo._t);
-    mo._t = setTimeout(function(){
-      setupReveal();
-      enhanceTimeline();
-      enhancePostTags();
-      enhanceSyncStatus();
-    }, 120);
-  });
-  mo.observe(main, { childList: true, subtree: true });
-})();
-
-/* ═══════════════════════════════════════════════════════════
-   BOOT
-   ═══════════════════════════════════════════════════════════ */
+/* BOOT */
 data = loadLocal();
 renderAll();
 if(sb){
   loadRemote().then(function(){ setSyncStatus(); });
-  sb.auth.getSession().then(function(res){
-    var s = res.data && res.data.session;
-    if(s && s.user && s.user.email && s.user.email.toLowerCase() === ADMIN_EMAIL.toLowerCase()){
-      try{ sessionStorage.setItem('bhd_admin','1'); }catch(x){}
-    }
-  });
-} else {
-  setSyncStatus();
-}
+  sb.auth.getSession().then(function(res){ var s = res.data && res.data.session; if(s && s.user && s.user.email && s.user.email.toLowerCase() === ADMIN_EMAIL.toLowerCase()){ try{ sessionStorage.setItem('bhd_admin','1'); }catch(x){} } });
+} else setSyncStatus();
 </script>
 </body>
 </html>
